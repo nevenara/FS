@@ -1,0 +1,208 @@
+<div class="content">
+  <form action="#"  [formGroup]="form">
+
+  <div class="row">
+   
+    <div class="col-lg-6 w-md-100 mb-3">
+        <div class="form-group  row text-left">
+          <div  class="col-lg-9" >
+            <input type="text"  class="form-control" formControlName="Companyname" placeholder="Enter Company Name" [(ngModel)]="companyName">
+            <errors [control]="f.Companyname" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+      <div class="company-img my-2">
+        <img src='{{profileImageUrl}}' class="" alt="">
+      </div>
+
+      
+        <div class="form-group row text-left align-items-center">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Upload Organizer Logo</label>
+          <div class="col-lg-7">
+            <div class="d-flex justify-content-center align-items-center mt-2">
+              <div>
+                <input type="button" id="loadFileXml" value="Upload Image"
+                onclick="document.getElementById('imagelinked').click()"
+                class='action btn bg-primary rounded' />
+              <input (change)='uploadImage($event)' type="file" id="imagelinked" style="display:none"
+                name="imagelinked">
+              </div>
+              <a (click)="deleteImage()"><i class="fas fa-trash ml-3 text-primary"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group row text-left">
+          <label class="col-lg-5 col-form-label font-weight-semibold">Allows Ticket return</label>
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center">
+              <label class="switch mb-0">
+                <input type="checkbox" [(ngModel)]="allowsReturn"  formControlName="AllowsReturn">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row text-left">
+          <label class="col-lg-5 col-form-label font-weight-semibold">Sells at FanSafe Ticketshop</label>
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center">
+              <label class="switch mb-0">
+                <input type="checkbox" [(ngModel)]="sellsAtFanSafe" formControlName="SellsAtFunsafe">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Link to Lomnido Bridge</label>
+          <div class="col-lg-7">
+            <input type="text" class="form-control"  placeholder="Enter Lomnido URL" [(ngModel)]="linkToLomnidoBridge" formControlName="Bridge">
+           
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Revenue sharing </label>
+         
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center">
+              <div class="mr-2">€</div>
+            <input type="text" class="form-control w-25 mr-2"  [(ngModel)]="revenueSharing" formControlName="Revenue" (keydown)="validatePrice($event)" NumbersOnly (keyup)="roundPrice()" [allowDecimals]="true"
+            [allowSign]="false">
+           
+              <span>per Ticket</span>
+             
+            </div>
+           
+          </div>
+          <div class="col-lg-12">
+            <span class="text-muted">Enter amount in € shared with organizer</span>
+          </div>
+
+        </div>
+    </div>
+    
+  
+    <div class="col-lg-6 w-md-100">
+      
+        <div class="form-group text-left row">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Status</label>
+          <div class="col-lg-8">
+            <div class="form-group mb-3 mb-md-2">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input"  formControlName="Status"  [(ngModel)]="status" 
+                  id="custom_radio_inline_unchecked-9" [value]="'Active'" >
+                 
+                <label class="custom-control-label text-success" for="custom_radio_inline_unchecked-9">Active</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" formControlName="Status"
+                  id="custom_radio_inline_checked-1" [value]="'Inactive'" [(ngModel)]="status" >
+                 
+                <label class="custom-control-label text-danger" for="custom_radio_inline_checked-1">Inactive</label>
+              </div>
+            </div>
+            <errors [control]="f.Status" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Contact Person</label>
+          <div class="col-lg-8">
+            <input type ="text" class="form-control" formControlName="Contact" placeholder="Enter firstname lastname" [(ngModel)]="contactPerson"  > 
+            <errors [control]="f.Contact" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Email</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control"  formControlName="email" placeholder="Enter email" [(ngModel)]="email">
+            <errors [control]="f.email" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Phone</label>
+          <div class="col-lg-8">
+         
+            
+            <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+              [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.Austria" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+              [phoneValidation]="true"  name="phonenumber" [ngModelOptions]="{standalone: true}"
+               [(ngModel)]="selectedPhone" (ngModelChange)=" checkIsEmpty()">
+  
+            </ngx-intl-tel-input>
+            <div *ngIf="isEmpty === true" class="text-danger">Phone Required</div>
+            
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">URL</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" formControlName="URLl" placeholder="Enter website of organizer" [(ngModel)]="organizerUrl">
+            <errors [control]="f.URLl" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Address</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control"   formControlName="Address" placeholder="Enter street and number" [(ngModel)]="address">
+            <errors [control]="f.Address" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Zip Code</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" formControlName="zipecode" placeholder="Enter postal code" [(ngModel)]="postcode">
+            <errors [control]="f.zipecode" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">City</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control"  formControlName="City" placeholder="Enter City" [(ngModel)]="city">
+            <errors [control]="f.City" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Country</label>
+          <div class="col-lg-8">
+            <ng-select class="custom" [items]="countries" formControlName="Country" bindLabel="name" placeholder="Please Choose" [(ngModel)]="selectedCountry">
+            </ng-select>
+            <errors [control]="f.Country" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+     
+    </div>
+    <div class="col-lg-12 text-center">
+      <button type="submit" class="btn btn-dark px-4 mr-3" (click)='emptyForm()'>Cancel</button>
+      <button type="submit" class="btn bg-green-400 px-4"  (click)="addOrganizer()" >Save</button>
+    </div>
+  </div>
+</form>
+</div>
+
+
+
+
+<ng-template #content3 let-modal p>
+  <div class="modal-header bg-danger-800 justify-content-center">
+    <h3 class="modal-title m-0">Delete Organizer</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="icon-cancel-circle2 icon-2x text-danger-800"></i></div>
+    <span class="font-weight-semibold">All data of this organizer will be deleted form the system account and all connected <br>
+      data will be lost! <br>
+      Are you sure you want to delete this organizer?
+
+    </span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" aria-label="Close" class="btn btn-danger bg-danger-800 px-md-4 ml-md-2"
+      (click)="modal.dismiss('Cross click')">Delete</button>
+  </div>
+</ng-template>

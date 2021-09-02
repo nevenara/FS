@@ -1,0 +1,203 @@
+<div class="row">
+    <div class="col-lg-12 text-center my-2">
+        <h3 class="card-title text-blue-400">Dashboard</h3>
+
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body blue has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalUsersRegistered}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Users registered</span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <i class="fas fa-user fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body blue has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalUsersVerified}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Users verified</span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <i class="fas fa-address-card fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body blue has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalUsersVerifiedInclBankAccount}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Users verified </span> <span> incl. </span> <span
+                        class="text-uppercase font-size-xs"> Bank Account</span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <i class="fab fa-cc-stripe fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body green has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalIncomingTickets}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Incoming Tickets</span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <i class="fas fa-ticket-alt fa-rotate-135 fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body turkis has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalMainAccountsWithLinkedAccounts}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Main accounts </span> <span> with </span> <span
+                        class="text-uppercase font-size-xs"> linked accounts</span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <i class="fas fa-user-plus fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body turkis has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalLinkedAccountsUsers}}</h3>
+                    <span class="text-uppercase font-size-xs">Total linked accounts</span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <i class="fas fa-users fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body turkis has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalLinkedAccountsWithPassword}}</h3>
+                    <span class="text-uppercase font-size-xs">Total linked accounts </span> <span> with </span> <span
+                        class="text-uppercase font-size-xs"> password</span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <img src="../../../assets/images/TotalLinkedPW-1.png" style="width: 21px; height: 17px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body green has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalPersonalizedTickets}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Personalized Tickets
+                    </span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <span class="fa-stack fa-2x">
+                        <i class="fas fa-ticket-alt fa-rotate-135 fa-stack-2x"></i>
+                        <i class="fas fa-address-card fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body grey has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">{{totalActiveOrganizers}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Active organizers
+                    </span>
+                </div>
+
+                <div class="ml-3 mt-3 align-self-center">
+                    <i class="fas fa-handshake fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 my-2">
+        <h5 class="card-title text-blue-400">Users registered vs. Users verified</h5>
+    </div>
+    <div class="col-lg-12 text-center my-2">
+        <div class="card">
+            <div class="card-body row">
+                <div class="chart-container col-lg-8">
+                    <canvas baseChart [datasets]="usersChartData" [labels]="usersChartLabels"
+                        [options]="barChartOptions" [legend]="true" chartType="bar" [colors]="colors">
+                    </canvas>
+                </div>
+                <div class='col-lg-4'>
+                    <app-calendar [startDate]='startDate1' [endDate]='endDate1' (dateChangedEmitter)='getUsersRegisteredVsUsersVerified($event)'></app-calendar>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 my-2">
+        <h5 class="card-title text-blue-400">Incoming Tickets vs. Personalized Tickets</h5>
+    </div>
+    <div class="col-lg-12 text-center my-2">
+        <div class="card">
+            <div class="card-body row">
+                <div class="chart-container col-lg-8">
+                    <canvas baseChart [datasets]="ticketsChartData" [labels]="ticketsChartLabels"
+                        [options]="barChartOptions" [legend]="true" chartType="bar" [colors]="colors">
+                    </canvas>
+                </div>
+                <div class='col-lg-4'>
+                    <app-calendar [startDate]= 'startDate2' [endDate] = 'endDate2' (dateChangedEmitter)='getIncomingTicketsVsPersonalizedTickets($event)'></app-calendar>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 my-2">
+        <h5 class="card-title text-blue-400">Incoming Tickets per Organizer</h5>
+    </div>
+    <div class="col-lg-12">
+        <div class="card">
+
+            <div class="card-body row">
+                <div class="chart-container col-lg-8">
+                    <canvas baseChart [datasets]="organizersChartData" [labels]="organizersChartLabels"
+                        [options]="barChartOptions" [legend]="true" chartType="bar">
+                    </canvas>
+                </div>
+                <div class='col-lg-4'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

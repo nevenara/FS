@@ -1,0 +1,170 @@
+<div class="card border-0 shadow-none">
+  <!-- <div class="row justify-content-center">
+    <div class="col-lg-12 text-center">
+      <div class="modal-header border-bottom justify-content-center">
+        <h3 class="modal-title text-blue-400 mb-md-3">User Details</h3>
+      </div>
+    </div>
+  </div> -->
+  <div class="row m-0 justify-content-center mt-4">
+    <div class="col-lg-12 col-lg-offset-3">
+      <form>
+        <div class="row">
+          <div class="col-lg-3 w-md-100 mb-3 text-center">
+            <h2 class="">{{linkedAccount.username}}</h2>
+            <div class="profile-img d-inline-block">
+              <img src="{{linkedAccount.profileImage}}" class="" alt="">
+            </div>
+            <div class="uniform-uploader justify-content-center mt-2">
+              <input (change)="uploadImage($event)"  type="file" class="form-input-styled" data-fouc="">
+              <span class="action btn bg-primary rounded" style="user-select: none;">Choose File</span>
+            </div>
+          </div>
+          <div class="col-lg-9 w-md-100">
+            <form action="#">
+              <div class="form-group text-left row">
+                <label class="col-lg-2 col-form-label">Gender</label>
+                <div class="col-lg-8">
+    
+                  <div *ngIf="linkedAccount.gender == 2">
+                    <div class="form-check form-check-inline disabled">
+                      <label class="form-check-label">
+                        <div class="uniform-choice disabled">
+                         <span class="checked" >
+                            <input type="radio"  class="form-input-styled"  name="gender" checked="true"></span>
+                        </div>
+                        Male
+                      </label>
+                    </div>
+      
+                    <div class="form-check form-check-inline disabled">
+                      <label class="form-check-label">
+                        <div class="uniform-choice disabled">
+                          <span>
+                            <input type="radio"  class="form-input-styled" value="female"></span></div>
+                        Female 
+                      </label>
+                    </div>
+                  </div>
+    
+                  <div *ngIf="linkedAccount.gender == 1">
+                    <div class="form-check form-check-inline disabled">
+                      <label class="form-check-label">
+                        <div class="uniform-choice disabled">
+                         <span  >
+                            <input type="radio" class="form-input-styled"  name="gender" checked="true"></span>
+                        </div>
+                        Male
+                      </label>
+                    </div>
+      
+                    <div class="form-check form-check-inline disabled">
+                      <label class="form-check-label">
+                        <div class="uniform-choice disabled">
+                          <span class="checked">
+                            <input type="radio"  class="form-input-styled" value="female" ></span></div>
+                        Female 
+                      </label>
+                    </div>
+                  </div>
+               
+                  
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label">First Name</label>
+                <div class="col-lg-8">
+                  <input type="text" readonly class="form-control" placeholder = "{{linkedAccount.firstname}}">
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label">Last Name</label>
+                <div class="col-lg-8">
+                  <input type="text" readonly class="form-control" placeholder = "{{linkedAccount.lastname}}">
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label">Day of Birth</label>
+                <div class="col-lg-8">
+                  <input type="text" readonly class="form-control" placeholder="{{linkedAccount.birthDate | date}}">
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label">Address</label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" [(ngModel)] = "linkedAccount.address" name="address">
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label">Zip Code</label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" [(ngModel)] = "linkedAccount.postCode" name="postCode">
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label">City</label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" [(ngModel)] = "linkedAccount.city" name="city">
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label">Country</label>
+                <div class="col-lg-8">
+                  <ng-select class="custom" [(ngModel)] = "linkedAccount.country" name="country" [items]="countries" bindLabel="name" placeholder="Choose country">
+                  </ng-select>
+                </div>
+              </div>
+              <div class="form-group row text-left">
+                <label class="col-lg-2 col-form-label"></label>
+                <div class="col-lg-3 col-lg-3-1">
+                  <button type="submit" (click)="open(content)" class="btn btn-primary">Set Password</button>
+                  <span class="pl-2">
+                    <a href="javascript:void(0)" placement="bottom" triggers="mouseenter:mouseleave" placement="right"
+                      [ngbPopover]="popContent" class="ml-1 text-blue-400"><i class="icon-info22"></i></a>
+                    <ng-template #popContent>
+                      As a Linked account user you can set a password and login to your private account with
+                      your username and password <br>
+                    </ng-template>
+                  </span>
+                </div>
+
+              </div>
+              <div class="text-center">
+                <button type="submit" [routerLink]="['/profile/list']" class="btn btn-dark mr-3 mb-3">Back to
+                  overview</button>
+                <button type="submit" (click) = 'editLinkedAccount()' class="btn btn-primary mb-3">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal p>
+  <div class="modal-header bg-blue justify-content-center">
+    <h1 class="modal-title">Set Password</h1>
+  </div>
+  <div class="modal-body px-md-5">
+    <form>
+      <div class="form-group row">
+        <label class="col-4 col-form-label">Password</label>
+        <div class="col-8">
+          <input [(ngModel)] = "password" name="password" type="password" class="form-control" placeholder="Enter password">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-4 col-form-label">Confirm Password</label>
+        <div class="col-8">
+          <input [(ngModel)] = "confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="Confirm password">
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="resetPasswordFields(); modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" class="btn btn-primary px-md-4" (click)="setPassword(); modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

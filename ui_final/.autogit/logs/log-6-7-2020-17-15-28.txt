@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Thu Aug 06 2020 17:15:28 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/tickets/upcoming/upcoming.component.ts
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

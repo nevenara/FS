@@ -1,0 +1,82 @@
+<div class="">
+  <div class="row">
+    <h5 class="text-blue font-weight-semibold">User Verification</h5>
+  </div>
+  <div class="row pl-0">
+      <div class="col-lg-12 pl-0">
+        <form action="#">
+          <div class="form-group row">
+            <button (click)="openIdVerificationComponent()" type='button' class="btn col-lg-4 d-block mr-3 bg-blue-400" [disabled]='verified'>Perform ID Check</button>
+            <button class="btn col-lg-4 d-block bg-blue-400" type='button' (click)="openUpdateBankAccountSettings()" [disabled]='!verified'>Provide Proof of address & Bank account</button>
+          </div>
+          <div class="row">
+            <div class="col-lg-10 w-md-100 mb-3">
+              <h5 class="text-danger font-weight-semibold">Important information</h5>
+              <ul>
+                <li>Ask user to provide required documents via email to support@fansafe.at</li>
+                <li>If provided data has bad quality or is inconsistent ask user to provide alternative documents or better quality</li>
+                <li>Unlimited attempts
+                </li>
+              </ul>
+              <div class="table-responsive">
+                <table class="table table-bordered border bg-white">
+                  <thead class="bg-blue">
+                    <tr>
+                      <th>Verification type</th>
+                      <th>Possible documents</th>
+                      <th>Notes</th>
+                      <th>Allowed formats</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>proof of identitiy</td>
+                      <td><div>Passport (Photo page)</div>
+                        <div>Driver License (Front & Back)</div>
+                        <div>Personal ID Card (Front & Back)</div>
+                      </td>
+                      <td></td>
+                      <td>
+                        <div>.jpg</div>
+                        <div>.png</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Facematch</td>
+                      <td>Selfie image </td>
+                      <td>
+                        <div>- Actual selfie image</div>
+                        <div>- Frontal view</div>
+                        <div>- No sunglasses</div>
+                        <div>- No headgear</div>
+                        <div>- No mask, ect.</div>
+                      </td>
+                      <td>
+                        <div>.jpg</div>
+                        <div>.png</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>proof of identitiy</td>
+                      <td><div>Passport (Photo page)</div>
+                        <div>Driver License (Front & Back)</div>
+                        <div>Personal ID Card (Front & Back)</div>
+                      </td>
+                      <td></td>
+                      <td>
+                        <div>.jpg</div>
+                        <div>.png</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+
+<app-id-verification [selectedIdParam]="selectedIdParam" [pageType]='3' [urlParams]='userId' [userId]='userId' (onFinishEmitter)='reloadData($event)'></app-id-verification>
+<app-update-bank-account [userId]='userId' (successEmitter)='reloadData($event)'></app-update-bank-account>

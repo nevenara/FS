@@ -1,0 +1,529 @@
+.bg-primary-400 {
+    color: #333 !important;
+  }
+  
+  .bg-return {
+    background-color: #00F2F2 !important;
+    color: #333 !important;
+  }
+  
+  .bg-return:hover {
+    background-color: #1af0f0 !important;
+  }
+  
+  ::ng-deep .custom-pagination ul {
+    justify-content: center !important;
+  }
+  .pl-md-5{
+    padding-left: 65px !important;
+  }
+  .modal-header {
+    justify-content: center !important;
+  }
+  
+  .img-modal {
+    width: 182px;
+    height: 130px;
+  }
+  
+  .text-yellow {
+    color: #FFFF02;
+  }
+  
+  ul li {
+    padding: 0 8px 0 0;
+    list-style: none;
+  }
+  
+  .modal-header {
+    justify-content: center !important;
+  }
+  
+  .border-bottom {
+    border-bottom: 2px solid black !important;
+  }
+  .border-bottom-blue {
+    border-bottom: 2px solid #09a1ce !important;
+  }
+  .card-img-actions img {
+    height: 250px;
+    width: 100%;
+  }
+  .custom-ul li {
+    padding-right: 20px;
+  }
+  .w-mid-85{
+    width: 100% !important;
+  }
+  ::ng-deep .multiselect-dropdown .dropdown-btn .selected-item {
+    background-color: #09a1ce !important;
+    border-radius: .1875rem !important;
+    border: 1px solid #09a1ce !important;
+    box-shadow: none !important;
+    margin-bottom: 3px !important;
+  }
+  
+  ::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down {
+    border-top: 5px solid #adadad !important;
+    border-left: 5px solid transparent !important;
+    border-right: 5px solid transparent !important
+  }
+  ::ng-deep .multiselect-dropdown .dropdown-btn {
+    padding: 6px 6px 3px 6px !important;
+  }
+  ::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-up {
+    border-bottom: 5px solid #adadad !important;
+    border-left: 5px solid transparent !important;
+    border-right: 5px solid transparent !important
+  }
+  ::ng-deep .dateRangePicker-wrapper .dateRangePicker .form-inputs {
+    background-color: #09a1ce !important;
+  }
+  ::ng-deep .dateRangePicker-wrapper .form-group {
+    margin-bottom: 0;
+  }
+  ::ng-deep .dateRangePicker-wrapper .dateRangePicker:after {
+    border-bottom: 10px solid #09a1ce !important;
+  }
+  
+  ::ng-deep .dateRangePicker-wrapper .dateRangePicker:before {
+    border-bottom: 10px solid #09a1ce !important;
+  }
+  
+  ::ng-deep .calendar .table td:not(.disabled):not(.selected):hover {
+    background-color: #09a1ce !important;
+  }
+  
+  ::ng-deep .calendar .table td.selected, .calendar .table td.selected.in-selected-range {
+    background-color: #09a1ce !important;
+  }
+  
+  ::ng-deep .calendar .table td.different-month {
+    color: #273237 !important;
+  }
+  
+  ::ng-deep .btn-outline-secondary {
+    background-color: #273237 !important;
+    border-color: #273237 !important;
+    color: #fff !important;
+  }
+  .custom-size{
+    font-size: 16px;
+  
+  }
+  .filter-show{
+    display: block !important;
+  }
+  .custom-ul-11 {
+    justify-content: flex-end !important;
+  
+  }
+  .d-sm-none{
+    display: inline-block !important;
+  }
+  .f-16{
+    font-size: 16px !important;
+  }
+  .mb-15{
+    margin-bottom: .8rem;
+  }
+  @media only screen and (max-width:1200px) {
+    ul li {
+      padding: 0 4px 0 0;
+      list-style: none;
+    }
+    .justify-mid-start{
+        justify-content: flex-start !important;
+    }
+    .custom-ul-11 {
+      justify-content: flex-start !important;
+  
+    }
+    .text-left{
+      text-align: left !important;
+    }
+    .custom-col{
+      flex: 0 0 40% !important;
+      max-width: 40% !important;
+    }
+    .custom-col-85{
+      flex: 0 0 85% !important;
+      max-width: 85% !important;
+    }
+    .custom-col-3{
+      flex: 0 0 45% !important;
+      max-width: 45% !important;
+    }
+    .justify-content-end{
+      justify-content: flex-end !important;
+    }
+    .ml-md-5{
+      margin-left: 0 !important;
+    }
+  ul li {
+    margin-bottom: 2px !important;
+  }
+  .px-md-4{
+    padding-left: 6px !important;
+      padding-right: 6px !important;
+  }
+  .justify-content-md-end{
+    justify-content: flex-start !important;
+  }
+  
+  .d-md-flex{
+    display: flex !important;
+  }
+  .pr-md-2{
+      padding: 0 !important;
+  }
+  .m-mid-5{
+    margin: 0 15px;
+  }
+  .w-mid-15{
+    width: 15% !important;
+  }
+  .w-mid-85{
+    width: 85% !important;
+  }
+  .pl-md-5{
+    padding: 0 !important;
+  }
+  .pr-mid-3{
+    padding-right: 20px !important;
+  
+  }
+  .custom-ul-11 li {
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+  
+  }
+  .d-sm-none{
+    display: inline-block !important;
+  }
+  .mb-15{
+    margin-bottom: 1rem;
+  }
+    }
+    @media only screen and (max-width: 992px) {
+      .custom-col{
+        flex: 0 0 60% !important;
+        max-width: 60% !important;
+      }
+      .custom-col-3 {
+        flex: 0 0 67% !important;
+        max-width: 67% !important;
+    }
+    }
+  @media only screen and (max-width: 767px) {
+    .custom-ul li {
+      text-align: left;
+      padding-right: 5px !important;
+      padding-left: 0 !important;
+    }
+    .m-mid-5{
+      margin: 15px 0px 0px 0px !important;
+    }
+    .mb-15{
+      margin-bottom: 1rem;
+    }
+    .custom-col-85{
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+    .custom-ul-1 li {
+      text-align: left;
+      padding-right: 5px !important;
+      padding-left: 0 !important;
+  
+    }
+    .custom-col-3{
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+    .custom-ul-11 li {
+      padding-right: 5px !important;
+      padding-left: 0 !important;
+  
+    }
+    .custom-ul li span {
+      text-align: left;
+    }
+    .card-body .text-dark{
+      font-size: 11px;
+    }
+    .text-md-small {
+      font-size: 12px;
+    }
+    .d-md-flex li{
+      margin-bottom: 8px;
+    }
+    .custom-size{
+      font-size: 15px;
+  
+    }
+    .font-sm{
+      font-size: 12px !important;
+    }
+    .font-sm-1{
+      font-size: 11px !important;
+    }
+    .d-flex{
+      display: flex !important;
+    }
+    .p-sm-12{
+      padding: 0 12px;
+    }
+    .pl-md-5{
+      padding-left: 0px !important;
+    }
+    .custom-size{
+      font-size: .82rem !important;
+    }
+    .collapse:not(.show) {
+      display: none !important;
+  }
+  .sell-button:hover{
+    background-color: #3A99B5;
+  }
+  .sell-button{
+    background-color: #09a1ce;
+  }
+  .collapse .show {
+    display: block !important;
+  }
+  .w-mid-15{
+    width: 25% !important;
+  }
+  .w-mid-85{
+    width: 75% !important;
+  }
+  .d-sm-none{
+    display: none !important;
+  }
+  }
+  
+  
+  @media only screen and (max-width:766px) {
+    .w-custom{
+      width: 60%;
+    }
+  }
+  @media only screen and (max-width:600px) {
+    .w-custom{
+      width: 62%;
+    }
+  }
+  @media only screen and (max-width:575px) {
+    .w-custom{
+      width: 72%;
+    }
+  }
+  @media only screen and (max-width:515px) {
+    .w-custom{
+      width: 80%;
+    }
+  }
+  @media only screen and (max-width:460px) {
+    .w-custom{
+      width: 100%;
+    }
+  }
+  
+  .text-muted {
+    color: #6c757d!important;
+  }
+  
+  .img {
+    height: 175px;
+    width: 235px;
+    display: contents;
+  }
+  
+  .img img {
+    height: 100%;
+    width: 100%;
+  }
+  .custom-checkbox .custom-control-label::before {
+    border-color: white;
+  }
+  @media only screen and (max-width: 768px) {
+    .img {
+      height: auto;
+      width: auto;
+    }
+  }
+  
+  .five-img img {
+    height: 100%;
+  }
+  
+  .five-img {
+    height: 265px;
+  }
+  
+  .qr-img {
+    height: 135px;
+    width: auto;
+  }
+  
+  .custom-size{
+    font-size: 16px;
+  
+  }
+  .h-230{
+    height: 230px !important;
+  }
+  @media only screen and (max-width:1200px) {
+    .h-230{
+      height: auto !important;
+    }
+    .five-img,.five-img-1 img {
+      height: 100%;
+    }
+    .five-img {
+      height: auto;
+    }
+  
+    .w-md-500 {
+      flex: 0 0 33% !important;
+      max-width: 33% !important;
+    }
+    .w-md-500 {
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+    .pr-md-0 {
+      padding-right: .625rem !important;
+  }
+  .text-md-center {
+    text-align: left !important;
+  }
+  .pl-mid-0{
+    padding-left: 0 !important;
+  }
+  .col-70{
+    flex: 0 0 70% !important;
+      max-width: 70% !important;
+  }
+  .col-30{
+    flex: 0 0 30% !important;
+      max-width: 30% !important;
+  }
+  
+    }
+  
+  @media only screen and (max-width: 767px) {
+    .h-230{
+      height: auto !important;
+    }
+    .pl-mid-0{
+      padding-left: 10px !important;
+    }
+    .px-3{
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    .c-1{
+      font-size: 11px !important;
+    }
+    .five-img img {
+      height: auto;
+    }
+    .five-img {
+      height: auto;
+    }
+    .w-md-500 {
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+    .w-1010{
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+    .w-1010 .btn{
+      width: 100%;
+    }
+    .w-5050{
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+    .w-5050 .btn{
+      width: 100%;
+    }
+    .col-7 .btn{
+      display: block !important;
+    }
+    .reverse-sm{
+      flex-direction: column-reverse;
+    }
+    .w-md-400 {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+    .w-md-400 img{
+      height: auto;
+    }
+  }
+  
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 22px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 1px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: rgb(100, 189, 99);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px rgb(100, 189, 99);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* / Rounded sliders / */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  

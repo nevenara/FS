@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      // "strict": true,
+      // "noImplicitAny": false,
+      "module": "commonjs",
+      "target": "ES2019",
+      "lib": ["ES2019", "dom"],
+      "sourceMap": true,
+      "outDir": "./out",
+      "inlineSources": true,
+      "inlineSourceMap": false,
+      "removeComments": true,
+      "types": ["node", "mocha"]
+    },
+    "exclude": ["node_modules", "test"],
+    "include": ["src/**/*"]
+  }

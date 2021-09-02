@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Aug 05 2020 15:08:13 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/marketplace/my-tickets/my-tickets.component.css
+* src/app/marketplace/my-tickets/my-tickets.component.html
+
+
+Created files:
+* .autogit/logs/log-5-7-2020-14-24-2.txt
+
+
+Deleted files:
+
+
+Renamed files:

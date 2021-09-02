@@ -1,0 +1,121 @@
+<div class="card border-0 shadow-none">
+
+  <div class="card-body">
+    <form class="wizard" [formGroup]="form">
+      <div class="form-group text-left row justify-content-center">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.gender' | translate }}</label>
+        <div class="col-lg-9">
+          <div class="form-group mb-3 mb-md-2">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input (change)='user.gender = 2' type="radio" class="custom-control-input" name="gender"
+                formControlName="gender" id="male" [value]="'male'">
+              <label class="custom-control-label text-dark" for="male">{{ 'signUp.completeRegistration.male' | translate }}</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+              <input (change)='user.gender = 1' type="radio" class="custom-control-input" name="gender"
+                formControlName="gender" id="female" [value]="'female'">
+              <label class="custom-control-label text-dark" for="female">{{ 'signUp.completeRegistration.female' | translate }}</label>
+            </div>
+            <errors [control]="f.gender" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.firstName' | translate }}</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.firstname" name="firstname" type="text" class="form-control"
+            formControlName="firstName" placeholder="{{ 'signUp.completeRegistration.firstNamePlaceholder' | translate }}">
+          <errors [control]="f.firstName" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.lastName' | translate }}</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.lastname" name="lastname" type="text" class="form-control" formControlName="lastName"
+            placeholder="{{ 'signUp.completeRegistration.lastNamePlaceholder' | translate }}">
+          <errors [control]="f.lastName" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.dayOfBirth' | translate }}</label>
+        <div class="col-lg-9">
+        <form class="form-inline">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                  <i class="icon-calendar22"></i>
+                </button>
+              </div>
+              <input class="form-control" placeholder="{{ 'signUp.completeRegistration.dayOfBirthPlaceholder' | translate }}" formControllName="date" [readonly]="true" (click)="d.toggle()"
+                     name="dp" [(ngModel)]="user.birthDate" [minDate]="minDate" [maxDate]="maxDate" ngbDatepicker #d="ngbDatepicker" (ngModelChange)="setDate();validateDate() ">
+              
+            </div>
+          </div>
+        </form>
+        <span class="" *ngIf="emptyDate"><i class="fa fa-times-circle text-danger d-inline-block mr-1"></i><p class="d-inline-block text-danger mt-1" >{{ 'signUp.completeRegistration.fieldRequired' | translate }}</p></span>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.address' | translate }}</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.address" name="address" type="text" class="form-control" formControlName="address"
+            placeholder="{{ 'signUp.completeRegistration.addressPlaceholder' | translate }}">
+          <errors [control]="f.address" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.zipCode' | translate }}</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.postCode" name="postCode" type="text" class="form-control" formControlName="zipCode"
+            placeholder="{{ 'signUp.completeRegistration.zipCodePlaceholder' | translate }}">
+          <errors [control]="f.zipCode" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.city' | translate }}</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.city" name="city" type="text" class="form-control" formControlName="city"
+            placeholder="{{ 'signUp.completeRegistration.cityPlaceholder' | translate }}">
+          <errors [control]="f.city" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.country' | translate }}</label>
+        <div class="col-lg-9">
+          <ng-select [(ngModel)]="user.country" name="country" class="custom" formControlName="country"
+            bindLabel="name" placeholder="{{ 'signUp.completeRegistration.countryPlaceholder' | translate }}">
+            <ng-option *ngFor="let country of countries" [value]="country">{{country.name}}</ng-option>
+          </ng-select>
+          <errors [control]="f.country" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">{{ 'signUp.completeRegistration.phone' | translate }}</label>
+        <div class="col-lg-9">
+          <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Austria" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+            [phoneValidation]="true"  name="phonenumber" [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="user.phone" (ngModelChange)=" checkIsEmpty()">
+
+          </ngx-intl-tel-input>
+          <div *ngIf="isEmpty === true" class="text-danger">{{ 'signUp.completeRegistration.phoneRequired' | translate }}</div>
+          <!-- <errors [control]="f.phonenumber" [isSubmit]="isSubmit"></errors> -->
+        </div>
+      </div>
+      <div class="actions clearfix">
+        <ul role="menu" aria-label="Pagination">
+          <li aria-disabled="false"><a class="btn btn-dark" (click)="previous()" role="menuitem"><i
+                class="icon-arrow-left13 mr-2"></i> {{ 'signUp.completeRegistration.previous' | translate }}</a></li>
+          <li aria-hidden="true"><a class="btn bg-blue-400" (click)="next()" role="menuitem">{{ 'signUp.completeRegistration.next' | translate }}
+              <i class="icon-arrow-right14 ml-2"></i></a></li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>

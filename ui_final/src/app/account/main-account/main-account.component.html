@@ -1,0 +1,43 @@
+<preloader-app *ngIf='loader'></preloader-app>
+<div *ngIf='!loader' class="card border-0 shadow-none">
+
+  <div class="card-body p-md-5">
+    <div class="row">
+      <div class="col-lg-3 mb-3">
+        <ul ngbNav #nav="ngbNav" class="nav-tabs custom-nav" orientation="vertical">
+          <li ngbNavItem="top" class="d-none d-md-block">
+            <a ngbNavLink class="text-left">
+              <h5 class="d-inline-block text-blue-400 mb-0"><i class="icon-lock2 icon-1x text-blue-400"></i> {{'account.main-account.labels.changePassword' | translate}}</h5>
+            </a>
+            <ng-template ngbNavContent>
+            <form [formGroup]="form">
+              <div class="row justify-content-center">
+                <h3 class="text-center mb-3 d-md-none text-blue-400">{{'account.main-account.labels.changePassword' | translate}}</h3>
+                <div class="col-lg-9 mb-3 form-group">
+                  <input type="password" class="form-control" [(ngModel)]='currentPassword' formControlName = "currentPass" placeholder="{{'account.main-account.placeholders.enterCurrentPassword' | translate}}" required="">
+                  <errors [control]="f.currentPass" [isSubmit]="isSubmit"></errors>
+                </div>
+                <div class="col-lg-9 mb-3 form-group">
+                  <input type="password" class="form-control" [(ngModel)]='newPassword' formControlName = "newPass" placeholder="{{'account.main-account.placeholders.enterNewPassword' | translate}}" required="">
+                  <errors [control]="f.newPass" [isSubmit]="isSubmit"></errors>
+                </div>
+                <div class="col-lg-9 mb-3 form-group">
+                  <input type="password" class="form-control" [(ngModel)]='confirmPassword' formControlName = "confirmNewPass" placeholder="{{'account.main-account.placeholders.confirmNewPassword' | translate}}" required="">
+                  <errors [control]="f.confirmNewPass" [isSubmit]="isSubmit"></errors>
+                </div>
+                <div class="col-lg-9 mb-3 text-center form-group">
+                  <button (click) = 'resetForm()' class="btn btn-dark mr-3 px-3 mb-3">{{'account.main-account.buttons.cancel' | translate}}</button>
+                  <button type="submit" (click) = "updateUserPassword()"  class="btn bg-blue-400 px-4 mb-3">{{'account.main-account.buttons.save' | translate}}</button>
+                </div>
+              </div>
+            </form>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-9">
+        <div [ngbNavOutlet]="nav" class=""></div>
+      </div>
+    </div>
+  </div>
+</div>

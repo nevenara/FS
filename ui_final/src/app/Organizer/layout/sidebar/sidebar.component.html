@@ -1,0 +1,52 @@
+<!-- Main sidebar -->
+<div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+
+  <!-- Sidebar mobile toggler -->
+  <div class="sidebar-mobile-toggler text-center">
+    <a (click)="sidebarSmCollapse()" href="javascript:void(0)" class="sidebar-mobile-main-toggle">
+      <i class="icon-arrow-left8"></i> Navigation
+    </a>
+
+    <!-- <a href="javascript:void(0)" class="sidebar-mobile-expand">
+      <i class="icon-screen-full"></i>
+      <i class="icon-screen-normal"></i>
+    </a> -->
+  </div>
+  <!-- /sidebar mobile toggler -->
+
+
+  <!-- Sidebar content -->
+  <div class="sidebar-content">
+
+    <!-- Main navigation -->
+    <div class="card card-sidebar-mobile">
+
+      <ul  class="nav nav-sidebar" data-nav-type="accordion">
+
+
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [routerLink]="['/organizer/dashboard']" routerLinkActive="active">
+            <i class="icon-stats-bars2"></i>
+            <span>
+              Dashboard
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [routerLink]="['/organizer/ticketlist']" routerLinkActive="active">
+            <i class="icon-ticket"></i>
+            <span>
+              Tickets list
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- /main navigation -->
+
+  </div>
+  <!-- /sidebar content -->
+
+</div>
+<!-- /main sidebar -->

@@ -1,0 +1,53 @@
+<div class="card border-0 shadow-none">
+  <div class="card-header bt-transparent">
+    <div class="row justify-content-center my-3">
+      <div class="col-lg-12 text-center">
+        <a href="javascript:void(0)" routerLink='/profile/list' class="btn btn-primary">Connect new account</a>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="modal-header py-2 rounded-0 bg-blue justify-content-center">
+          <h4 class="modal-title m-0">Create new account</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row m-0 justify-content-center">
+      <div class="col-lg-12 col-lg-offset-3">
+        <div class="card border-0 shadow shadow-sm-none">
+          <form class="wizard">
+            <div class="steps clearfix mb-md-3">
+              <ul role="tablist">
+                <li role="tab" class="done" aria-disabled="false" aria-selected="true"><a id="steps-uid-0-t-0"
+                    href="#steps-uid-0-h-0" aria-controls="steps-uid-0-p-0" class=""><span
+                      class="current-info audible">current
+                      step: </span><span class="number">1</span> Personal data</a></li>
+                <li role="tab" class="first current" aria-disabled="true"><a id="steps-uid-0-t-1"
+                    href="javascript:void(0)" aria-controls="steps-uid-0-p-1" class="disabled"><span
+                      class="number">2</span> ID Verification</a>
+                </li>
+              </ul>
+            </div>
+            <div class="content">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                  <img src="../../../../assets/images/Mati_-_Product_-_SDK.svg" width="300" class="img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="actions clearfix">
+              <ul role="menu" aria-label="Pagination">
+                <li class="disabled" aria-disabled="false"><a href="javascript:void(0)" routerLink='/profile/create'
+                    class="btn btn-dark" role="menuitem"><i class="icon-arrow-left13 mr-2"></i> Previous</a></li>
+                <li aria-hidden="true"><a (click) = 'idCheck()' class="btn btn-primary"
+                    role="menuitem">Submit
+                    <i class="icon-arrow-right14 ml-2"></i></a></li>
+              </ul>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

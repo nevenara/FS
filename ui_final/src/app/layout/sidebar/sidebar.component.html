@@ -1,0 +1,78 @@
+<!-- Main sidebar -->
+<div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+
+  <!-- Sidebar mobile toggler -->
+  <div class="sidebar-mobile-toggler text-center">
+    <a (click)="sidebarSmCollapse()" class="sidebar-mobile-main-toggle">
+      <i class="icon-arrow-left8"></i> {{ 'sidebar.navigation' | translate }}
+    </a>
+
+    <!-- <a href="javascript:void(0)" class="sidebar-mobile-expand">
+      <i class="icon-screen-full"></i>
+      <i class="icon-screen-normal"></i>
+    </a> -->
+  </div>
+  <!-- /sidebar mobile toggler -->
+
+
+  <!-- Sidebar content -->
+  <div class="sidebar-content">
+
+    <!-- Main navigation -->
+    <div class="card card-sidebar-mobile">
+      <ul *ngIf="!isAdmin" class="nav nav-sidebar" data-nav-type="accordion">
+
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"
+            routerLinkActive="active">
+            <i class="icon-home4"></i>
+            <span>
+              {{ 'sidebar.dashboard' | translate }}
+            </span>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a [routerLink]="['/tickets']" routerLinkActive="active" class="nav-link">
+            <i class="icon-ticket"></i>
+            <span>{{ 'sidebar.myTickets' | translate }}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/event']" routerLinkActive="active" class="nav-link">
+            <i class="icon-calendar3"></i> <span>{{ 'sidebar.eventCalendar' | translate }}</span></a>
+        </li>
+        <li class="nav-item" *ngIf='userType == 1'>
+          <a [routerLink]="['/marketplace']" routerLinkActive="active" class="nav-link">
+            <i class="icon-cart5"></i>
+            <span>{{ 'sidebar.ticketMarketplace' | translate }}</span>
+            <!-- <span class="badge bg-blue-400 align-self-center ml-auto">2.3</span> -->
+          </a>
+        </li>
+        <li class="nav-item" *ngIf='userType == 1'>
+          <a [routerLink]="['/personalization']" routerLinkActive="active" class="nav-link">
+            <i class="icon-pencil7"></i> <span>{{ 'sidebar.ticketPersonalization' | translate }}</span></a>
+        </li>
+        <!-- <li class="nav-item">
+          <a [routerLink]="['/gift']" routerLinkActive="active" href="javascript:void(0)" class="nav-link">
+            <i class="icon-gift"></i>
+            <span>Gift Cards</span>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a [routerLink]="['/support']" routerLinkActive="active" class="nav-link">
+            <i class="icon-envelope"></i> <span>{{ 'sidebar.support' | translate }}</span></a>
+        </li>
+        <!-- /main -->
+
+      </ul>
+    </div>
+    <!-- /main navigation -->
+
+  </div>
+  <!-- /sidebar content -->
+
+</div>
+<!-- /main sidebar -->

@@ -1,0 +1,215 @@
+<div class="row mb-3 mt-4">
+  <div class="col-lg-12 text-center my-2">
+    <h2 class="card-title text-blue-400">Gift Cards
+    </h2>
+  </div>
+  <div class="col-md-12 text-right">
+    <div class="d-md-none">
+      <button class="navbar-toggler border-0" (click)="isTreeCollapsed = !isTreeCollapsed"
+        [attr.aria-expanded]="!isTreeCollapsed">
+        <span class="font-weight-semibold"> Filters &nbsp; </span>
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+      <div class="filter-show" [ngbCollapse]="isTreeCollapsed">
+        <div class="row text-left">
+          <div class="col-lg-4 mb-15 w-md-100">
+            <label class="text-blue-4000 font-weight-bold" for="">Filter for Events</label>
+            <ng-select class="custom" [items]="day" bindLabel="name" placeholder=" "></ng-select>
+          </div>
+          <div class="col-lg-4 mb-15 w-md-100">
+            <date-range-picker [instanceId]="'secondDateRange'" [controlName]="'secondDateRange'" #dateRangePicker>
+              <div class="form-group mb-0">
+                <label class="text-blue-4000 font-weight-bold" for="">From - To
+                </label>
+                <div class="input-group mb-0">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="date-range-icon">
+                      <i class="icon-calendar22"></i>
+                    </span>
+                  </div>
+                  <input id="secondDateRange" class="form-control" type="text" name="dateRange"
+                    [value]="dateRangePicker.range" placeholder="From - To" />
+                </div>
+              </div>
+            </date-range-picker>
+          </div>
+          <div class="col-lg-4 w-md-100 mb-2">
+            <label class="text-blue-4000 font-weight-bold" for="">Category
+            </label>
+            <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings"
+              [placeholder]="'Select category'" [data]="dropdownList" [(ngModel)]="selectedItems"
+              (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+            </ng-multiselect-dropdown>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Amount of tickets</th>
+                <th>Recepient</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Helene Fischer - Stadion Tour 2021 </td>
+                <td>09. September 2021</td>
+                <td>2</td>
+                <td>Rudolf Rein </td>
+                <td><a href="javascript:void(0)" class="text-blue-400 mr-2 mr-md-3" placement="top" ngbTooltip="Edit"
+                   (click)="open(content)"><i class="fas fa-pencil-alt"></i></a>
+                <a href="javascript:void(0)" class="text-danger" (click)="open1(content1)" placement="top" ngbTooltip="Delete"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>Helene Fischer - Stadion Tour 2021 </td>
+                <td>09. September 2021</td>
+                <td>2</td>
+                <td>Rudolf Rein </td>
+                <td><a href="javascript:void(0)" class="text-blue-400 mr-2 mr-md-3" placement="top" ngbTooltip="Edit"
+                  (click)="open(content)"><i class="fas fa-pencil-alt"></i></a>
+                <a href="javascript:void(0)" class="text-danger" (click)="open1(content1)" placement="top" ngbTooltip="Delete"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>Helene Fischer - Stadion Tour 2021 </td>
+                <td>09. September 2021</td>
+                <td>2</td>
+                <td>Rudolf Rein </td>
+                <td><a href="javascript:void(0)" class="text-blue-400 mr-2 mr-md-3" placement="top" ngbTooltip="Edit"
+                  (click)="open(content)"><i class="fas fa-pencil-alt"></i></a>
+                <a href="javascript:void(0)" class="text-danger" (click)="open1(content1)" placement="top" ngbTooltip="Delete"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #popContent>
+
+  </ng-template>
+  <ng-template #content let-modal>
+    <div class="modal-header justify-content-center bg-blue-400">
+      <h5 class="card-title mb-0">Gift Card Editor
+      </h5>
+    </div>
+    <div class="modal-body">
+     <div class="card p-2">
+       <div class="row">
+         <div class="col-lg-12">
+             <angular-editor [(ngModel)]="htmlContent" class="d-none d-md-block" [config]="config"></angular-editor>
+             <textarea rows="5" cols="5" class="form-control d-block d-md-none" placeholder="Enter your message here" style="margin-top: 0px; margin-top: 0px; height: 130px;"></textarea>
+         </div>
+         <div class="col-lg-12 mt-3">
+           <p class="font-weight-bold">Tickets</p>
+         </div>
+         <div class="col-lg-12">
+          <div class="card">
+            <div class="">
+              <div class="row">
+               <div class="col-lg-4 w-md-500">
+                 <img src="../../../assets/images/metalic.PNG" width="100%" alt="">
+               </div>
+               <div class="col-lg-8 w-md-100">
+                 <div class="card-body px-2 p-md-0">
+                  <h5 class="text-dark font-weight-bold">Metallica - WorldWired Tour 2020</h5>
+                  <div class="mb-2"><span class="">
+                    <span class="text-dark font-weight-bold">Date:</span>
+                    <span class="text-dark"> DD.MM.YYYY </span>
+                  </span>
+                  <span class="ml-md-2 ml-1 text-dark font-weight-bold">Begin:</span>
+                  <span class="text-dark"> 19:30</span>
+                  <span class="ml-md-2 ml-1 text-dark font-weight-bold">Doors Open :</span>
+                  <span class="text-dark"> 18:00</span>
+                </div>
+                  <div class="mb-2"><span class="text-dark font-weight-bold">Seat:</span> <span
+                      class="text-dark"> Standing Inner Space</span></div>
+                  <div class=""><span class="text-dark font-weight-bold">Location:</span>
+                    <span class="text-dark"> Stadhalle Wien <br> Ronald-Rainer-Platz 1 <br> 1150 Wien Osterreich</span></div>
+               </div>
+               </div>
+              </div>
+            </div>
+          </div>
+         </div>
+         <div class="col-lg-12">
+          <div class="card">
+            <div class="">
+              <div class="row">
+               <div class="col-lg-4 w-md-500">
+                 <img src="../../../assets/images/metalic.PNG" width="100%" alt="">
+               </div>
+               <div class="col-lg-8 w-md-100">
+                 <div class="card-body px-2 p-md-0">
+                <h5 class="text-dark font-weight-bold">Metallica - WorldWired Tour 2020</h5>
+                  <div class="mb-2"><span class="">
+                    <span class="text-dark font-weight-bold">Date:</span>
+                    <span class="text-dark"> DD.MM.YYYY </span>
+                  </span>
+                  <span class="ml-md-2 ml-1 text-dark font-weight-bold">Begin:</span>
+                  <span class="text-dark"> 19:30</span>
+                  <span class="ml-md-2 ml-1 text-dark font-weight-bold">Doors Open :</span>
+                  <span class="text-dark"> 18:00</span>
+                </div>
+                  <div class="mb-2"><span class="text-dark font-weight-bold">Seat:</span> <span
+                      class="text-dark"> Standing Inner Space</span></div>
+                  <div class=""><span class="text-dark font-weight-bold">Location:</span>
+                    <span class="text-dark"> Stadhalle Wien <br> Ronald-Rainer-Platz 1 <br> 1150 Wien Osterreich</span></div>
+               </div>
+               </div>
+              </div>
+            </div>
+          </div>
+         </div>
+         <div class="col-lg-12">
+           <hr>
+         </div>
+         <div class="col-lg-12">
+          <div class="card p-2">
+            <h5 class="text-danger" (click)="open1(content1)">Please note that the tickets shown in the gift card do not entitle you to enter the
+              event.</h5>
+            <h5 class="text-danger" (click)="open1(content1)"> You can fnd the tickets in digital form in your FanSafe account within the
+              "My tickets" menu</h5>
+          </div>
+         </div>
+       </div>
+     </div>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button (click)="modal.close('Close click')" class="btn px-3 bg-dark">Cancel</button>
+      <button (click)="modal.close('Close click')" class="btn px-3 mx-md-3 bg-green">Save</button>
+      <button (click)="modal.close('Close click')" class="btn bg-blue">Download</button>
+    </div>
+  </ng-template>
+  <ng-template #content1 let-modal p>
+    <div class="modal-header bg-danger-800 justify-content-center">
+      <h3 class="modal-title m-0">Delete Gift Card</h3>
+    </div>
+    <div class="modal-body justify-content-center  text-center px-md-4">
+      <div class="mb-3"><i class="icon-cancel-circle2 icon-2x text-danger-800"></i></div>
+      <span class="font-weight-semibold">Your Gift will be deleted from the Marketplace and assigned back to you! <br>
+        Are you sure you want to delete the Ad from the Marketplace?
+      </span>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+        (click)="modal.dismiss('Cross click')">Close</button>
+      <button type="button" aria-label="Close" class="btn btn-danger bg-danger-800 px-md-4 ml-md-2"
+        (click)="modal.dismiss('Cross click')">Delete</button>
+    </div>
+  </ng-template>

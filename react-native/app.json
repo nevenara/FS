@@ -1,0 +1,15 @@
+{
+  "name": "fanSafe",
+  "displayName": "fanSafe",
+  "expo": {
+    "name": "fanSafe",
+    "slug": "fanSafe",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "android": {
+    "package": "com.fansafe"
+  }
+}

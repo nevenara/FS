@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs nav nav-justified" [destroyOnHide]="false">
+
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">Main Data </h3>
+      </a>
+      <ng-template ngbNavContent>
+        <div class="card border-0">
+          <div class="card-body">
+
+         <app-main></app-main>
+
+          </div>
+        </div>
+
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">User Verification</h3>
+      </a>
+      <ng-template ngbNavContent>
+        <div class="card border-0">
+          <div class="card-body ">
+            <app-verification></app-verification>
+
+          </div>
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav"></div>
+  
+</div>

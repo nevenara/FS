@@ -1,0 +1,148 @@
+
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+<div *ngIf='!loader && !loadingError'>
+  <div class="px-md-4 ">
+    <div class="row">
+      <div class="col-lg-12 my-2">
+        <h2 class="card-title text-center text-blue-400">{{'tickets.returnTicket.labels.title' | translate}}
+        </h2>
+        <div class="col-lg-12">
+
+          <div class="container px-md-4 ">
+            <div class="card-header py-2 bg-blue">
+            </div>
+            <div class="row m-0 border bg-white align-items-center">
+              <!-- <div style='height: 10px;' class='bg-blue col-lg-12 p-3'></div> -->
+              <div class="col-lg-3 w-md-100 px-0 mb-2 mb-md-0 align-items-center">
+                <div class="">
+                  <img class="img-fluid" src="{{eventImageUrl}}{{details.eventId}}" alt="">
+                </div>
+              </div>
+              <div class="col-lg-9 w-md-100 px-0 px-md-2">
+                <div class="row m-0 p-md-1">
+                  <div class="col-md-12 text-right d-md-none d-block">
+                    <div class="small"><b>{{'tickets.returnTicket.labels.bookingID' | translate}}:
+                      </b>{{details.bookingId}}</div>
+                    <div class="small"><b>{{'tickets.returnTicket.labels.ticketID' | translate}}:
+                      </b>{{details.ticketId}}</div>
+                  </div>
+                  <div class="col-lg-9 pl-mid-0" style="word-wrap:break-word">
+                    <h2 class="font-weight-bold mb-0 hd2 visible" [line-truncation]="1">{{details.eventName}}</h2>
+                    <div class="">
+                      <span class="custom-size"><b>{{'tickets.returnTicket.labels.date' | translate}}:
+                        </b>{{dateFormatter.getDate(details.date)}}</span>
+                      <span class="custom-size mx-md-3"><b>{{'tickets.returnTicket.labels.begin' | translate}}:
+                        </b>{{dateFormatter.getHours(details.beginTime)}}</span>
+                      <span class="custom-size"><b>{{'tickets.returnTicket.labels.doorsOpen' | translate}}:
+                        </b>{{details.doorsOpen}}</span>
+                    </div>
+                    <div class="custom-size"><b>{{'tickets.returnTicket.labels.seat' | translate}}: </b>{{details.seat}}
+                    </div>
+                    <div class="media mt-1">
+                      <span class="custom-size visible" [line-truncation]="2"><b>{{'tickets.returnTicket.labels.location' | translate}}: &nbsp;</b>
+                      </span>
+                      <div class="media-body">
+                        <span class="custom-size visible" [line-truncation]="2">
+                          {{details.locationName}} <br> {{details.locationAddress}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 d-flex flex-column justify-content-between text-right">
+                    <div class="d-none d-md-block custom-size">
+                      <div class="small"><b>{{'tickets.returnTicket.labels.bookingID' | translate}}: </b>334465</div>
+                      <div class="small"><b>{{'tickets.returnTicket.labels.ticketID' | translate}}: </b>1234567</div>
+                    </div>
+                    
+                  </div>
+                
+              
+        </div>
+        <div class="col-lg-12 d-flex flex-column text-right price align-items-end">
+          <h5 class="mb-0"><b>EUR </b>{{details.originalPrice.toFixed(2)}}</h5>
+          <div class="small">{{'tickets.returnTicket.labels.priceIncl' | translate}}</div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <div class="row mx-0 my-md-3 my-2 bg-white">
+      <div class="col-lg-12 w-md-100 mt-md-2">
+        <h5 class="font-weight-bold text-blue-400 d-block border-bottom-blue mt-2 pb-2 pl-0">
+          {{'tickets.returnTicket.labels.title2' | translate}}</h5>
+        <div class="row border-bottom m-0">
+          <div class="col-lg-12 p-0">
+            <span class="custom-size d-mid-block d-none"><b>{{'tickets.returnTicket.labels.ticketID' | translate}}:</b>
+              {{details.ticketId}}</span>
+            <div class="pl-0 mb-2 mb-md-1 d-flex align-items-center">
+              <div class='col-md-3 pl-0'>
+                <span class="custom-size d-block d-mid-none"><b>{{'tickets.returnTicket.labels.ticketID' |
+                    translate}}:</b> {{details.ticketId}}</span>
+              </div>
+              <div class='col-md-3'>
+                <span class="custom-size mx-md-3 pl-mid-0 ml-mid-0"><b>{{'tickets.returnTicket.labels.seat' |
+                    translate}}</b> {{details.seat}}</span>
+              </div>
+              <div class="ml-xsm-auto col-md-6 text-right float-right justify-content-end">
+                <span class="font-weight-bold custom-size">EUR {{details.originalPrice.toFixed(2)}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-12 pl-7 float-right text-right pr-3">
+                <span class='float-right'>
+                    <h5 class="font-weight-bold mb-0">EUR {{details.originalPrice.toFixed(2)}}</h5>
+                </span>
+                <span class='float-right mr-1'>
+                    <h5 class="font-weight-bold mb-0">{{'tickets.returnTicket.labels.possiblePayout' | translate}}</h5>
+                    <p class="text-muted">{{'tickets.returnTicket.labels.withdrawalFee' | translate}}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-3 align-mid-baseline">
+          <label class="col-lg-2 font-weight-bold col-form-label custom-size">{{'tickets.returnTicket.labels.reasonForReturn' |
+            translate}}:</label>
+          <div class="col-lg-5 col-12 mb-3">
+            <ng-select class="custom" bindLabel="item_text"
+              placeholder="{{'tickets.returnTicket.placeholders.returnReason' | translate}}" [items]='returnReason'
+              [(ngModel)]='selectedReason'>
+            </ng-select>
+          </div>
+          <div class="col-lg-12 mt-md-2 d-none d-md-block">
+            <h5 class="text-danger font-weight-bold">{{'tickets.returnTicket.labels.pleaseNote' | translate}}</h5>
+            <p class="custom-size">
+              {{'tickets.returnTicket.labels.notice' | translate}}
+            </p>
+            <div class="form-group mt-md-3 text-center">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input border-1" id="custom_checkbox_stacked_unchecked04"
+                  [(ngModel)]='isChecked' checked="" />
+                <label class="custom-control-label text-dark" for="custom_checkbox_stacked_unchecked04">
+                  {{'tickets.returnTicket.labels.returnPolicy' | translate}}
+                </label>
+                <div class='text-danger font-weight-bold' *ngIf='isChecked==false'>{{'tickets.returnTicket.labels.terms'
+                  | translate}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center justify-content-center">
+    <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4"
+      routerLink='/tickets'>{{'tickets.returnTicket.buttons.cancel' | translate}}</button>
+    <button type="button" [disabled]='!this.isChecked || !selectedReason' class="btn bg-green-400 px-md-4 mr-md-4"
+      (click)='returnTicket();'>{{'tickets.returnTicket.buttons.returnTicket' | translate}}</button>
+  </div>
+</div>

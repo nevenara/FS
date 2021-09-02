@@ -1,0 +1,107 @@
+.custom-height {
+  height: 327px;
+  border-radius: 0;
+}
+
+.five-img img {
+  height: 100%;
+}
+
+.five-img {
+  height: 326px;
+}
+
+.selfie-img {
+  height: 70px;
+  width: 70px;
+}
+
+.selfie-img img {
+  height: 100%;
+  width: 100%;
+}
+
+.qr-img {
+  height: 130px;
+  width: 130px;
+}
+
+.custom-size{
+  font-size: 16px;
+
+}
+.custom-size-1{
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 767px) {
+  .five-img img {
+    height: auto;
+  }
+  .five-img {
+    height: auto;
+  }
+  .custom-height {
+    height: auto;
+  }
+}
+
+
+label {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: block;
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.player {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+  line-height: 1.6;
+}
+
+.player div {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50%;
+}
+
+.player .back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+input {
+  display: none;
+}
+
+.player.voted {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+@media only screen and (max-width:1200px) {
+.text-md-right {
+  text-align: left !important;
+}
+.qr-img {
+  height: 110px;
+  width: 110px;
+}
+  }

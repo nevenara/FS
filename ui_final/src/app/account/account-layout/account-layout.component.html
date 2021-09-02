@@ -1,0 +1,29 @@
+<app-preloader *ngIf='loader'></app-preloader>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+<div class="container-fluid" *ngIf='!loader && !loadingError && userType == 1'>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs nav nav-justified" [destroyOnHide]="false">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">{{'account.account-layout.labels.accountSettings' | translate}}</h3>
+      </a>
+      <ng-template ngbNavContent>
+        <app-main-account></app-main-account>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">{{'account.account-layout.labels.payoutSettings' | translate}}</h3>
+      </a>
+      <ng-template ngbNavContent>
+        <app-paymentsettings></app-paymentsettings>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav"></div>
+</div>
+
+<div class='container-fluid' *ngIf='!loader && !loadingError && userType == 2'>
+  <h3 class="mb-0 font-weight-normal text-center text-blue pt-3" style='background-color: white;'>{{'account.account-layout.labels.accountSettings' | translate}}</h3>
+  <app-main-account></app-main-account>
+</div>

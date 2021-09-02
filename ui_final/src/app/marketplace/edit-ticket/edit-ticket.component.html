@@ -1,0 +1,137 @@
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+<div *ngIf='!loader && !loadingError'>
+    <div class="px-md-4">
+        <div class="row">
+            <div class="col-lg-12 my-2">
+              <h2 class="card-title text-center text-blue-400">{{ 'marketplace.edit.title' | translate }}
+              </h2>
+              <div class="col-lg-12">
+        
+                <div class="container px-md-4">
+                  <div class="card-header py-2 bg-blue">
+                  </div>
+        <div class="row m-0 border bg-white align-items-center">
+            <div class="col-lg-3 w-md-100 px-0 mb-md-0 align-items-center">
+                <div>
+                    <img class="img-fluid" src="{{eventImageUrl}}{{details.eventId}}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-9 w-md-100 px-0 px-md-2">
+                <div class="row m-0 p-md-1" style="word-wrap:break-word">
+                    <div class="col-md-12 text-right d-md-none d-block">
+                        <div class="small"><b>{{ 'marketplace.edit.bookingId' | translate }}: </b>334465</div>
+                        <div class="small mt-2"><b>{{ 'marketplace.edit.ticketId' | translate }}: </b>12345678</div>
+                    </div>
+                    <div class="col-lg-9 pl-mid-0">
+                        <h2 class="font-weight-bold mb-0 hd2 mt-2 visible" [line-truncation]="1">{{details.eventName}}</h2>
+                        <div class="mt-2" >
+                            <span class="custom-size"><b>{{ 'marketplace.edit.date' | translate }}: </b>{{dateFormatter.getDate(details.date)}} </span>
+                            <span class="custom-size mx-md-3"><b>{{ 'marketplace.edit.begin' | translate }}:
+                                </b>{{dateFormatter.getHours(details.beginTime)}}</span>
+                            <span class="custom-size"><b>{{ 'marketplace.edit.doorsOpen' | translate }}: </b>{{details.doorsOpen}}</span>
+                        </div>
+                        <div class="custom-size mt-2"><b>{{ 'marketplace.edit.seat' | translate }}: </b>{{details.seat}}</div>
+                        <div class=" mt-1">
+                            <span class="custom-size mt-2 visible" [line-truncation]="2"><b>{{ 'marketplace.edit.location' | translate }}: &nbsp;</b> </span>
+                            <div class="mt-2">
+                                <span class="custom-size visible" [line-truncation]="2"> {{details.locationName}} {{details.locationAddress}}</span>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="col-lg-3 d-flex flex-column justify-content-between text-right">
+                        <div class="d-none d-md-block custom-size">
+                            <div class="small"><b>{{ 'marketplace.edit.bookingId' | translate }}: </b>{{details.bookingId}}</div>
+                            <div class="small"><b>{{ 'marketplace.edit.ticketId' | translate }}: </b>{{details.ticketId}}</div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-lg-12 d-flex flex-column text-right price align-items-end">
+                    <h5 class="mb-0"><b>EUR </b>{{details.originalPrice.toFixed(2)}}</h5>
+                    <div class="small">{{ 'marketplace.edit.priceInclVat' | translate }}</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="row m-0 border mt-3">
+            
+            <div class="col-lg-12 w-md-100 bg-white">
+                <h5 class="font-weight-bold text-blue-400 d-block border-bottom-blue mt-2 pb-2 pl-0">{{ 'marketplace.edit.editTicket' | translate }}</h5>
+                <div class="row border-bottom m-0">
+                    <div class="col-lg-12 p-0 px-md-2">
+                        <div class="pl-0 mb-2 mb-md-1 d-md-flex align-items-center row">
+                            <div class='col-md-3 pl-0'>
+                                <span class="custom-size d-block d-mid-none"><b>{{ 'marketplace.edit.ticketId' | translate }}:</b> {{details.ticketId}}</span>
+                            </div>
+                            <div class='col-md-5'>
+                                <span class="d-flex align-items-center ml-md-4">
+                                    <span class="custom-size"><b>{{ 'marketplace.edit.seat' | translate }}:</b> {{details.seat}} </span>
+                                </span>
+                            </div>
+                            <div class="w-20 d-flex align-items-center text-right justify-content-end col-md-4">
+                                <span class="font-weight-bold">EUR </span>
+                                <div class="form-group form-group-feedback form-group-feedback-left ml-1 mb-0">
+                                    <input type="text" class="form-control text-primary border-primary pl-1 border-2 font-weight-semibold font-size-lg line-height-sm" [(ngModel)]="details.priceForSale" (keydown)="validatePrice($event)" (keyup)="roundPrice()" [NumbersOnly] [allowDecimals]="true"
+                                    [allowSign]="false">
+                                </div>
+                                <div class="w-20 d-flex align-items-center ml-2 font-weight-bold" *ngIf='details.originalPrice < details.priceForSale'>
+                                    <span class="text-danger-400">{{ 'marketplace.edit.invalidPrice' | translate }}</span>
+                                </div>
+                                <a triggers="mouseenter:mouseleave" ngbPopover="{{ 'marketplace.edit.invalidPriceMessage' | translate }}" class="ml-2 text-blue-400"><i class="icon-info22 text-blue"></i></a>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="row my-2">
+                    <div class="col-lg-12 text-right">
+                        
+                        <span class='float-right'>
+                            <h5 class="font-weight-bold mb-0">EUR {{(details.priceForSale*1).toFixed(2)}}</h5>
+                        </span>
+                        <span class='float-right mr-1'>
+                            <h5 class="font-weight-bold mb-0">{{ 'marketplace.edit.possiblePayout' | translate }}</h5>
+                            <p class="text-muted">{{ 'marketplace.edit.withdrawalFees' | translate }}</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 mt-md-2 d-none d-md-block mb-2">
+                        <h5 class="text-danger font-weight-bold">{{ 'marketplace.edit.pleaseNote' | translate }}</h5>
+                        <p class="custom-size">{{ 'marketplace.edit.note' | translate }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center justify-content-center mt-3">
+        <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4" [routerLink]="['/marketplace']" [queryParams]="{ type: '2'}">{{ 'marketplace.edit.cancel' | translate }}</button>
+        <button type="button" class="btn bg-danger px-md-4 mr-md-4" (click)="openConfirmDeleteModal(deleteModal)"> {{ 'marketplace.edit.removeAd' | translate }}</button>
+        <button type="button" class="btn bg-blue px-md-4" (click)="editTicket()" [disabled]='details.originalPrice < details.priceForSale'>{{ 'marketplace.edit.save' | translate }}</button>
+    </div>
+
+    <ng-template #deleteModal let-modal p>
+        <div class="modal-header bg-danger text-center">
+          <h6 class="modal-title">{{ 'marketplace.edit.deleteAd' | translate }}</h6>
+        </div>
+        <div class="modal-body px-md-4 row" *ngIf='details'>
+            <i class='col-md-12 icon-cancel-circle2 icon-2x text-danger-800 text-center mb-3'></i>
+            <p class='col-md-12 text-center' [innerHtml]="'marketplace.edit.removeAdInfo' | translate">
+                
+            </p>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4" (click)='modal.dismiss()'>{{ 'marketplace.edit.cancel' | translate }}</button>
+            <button type="button" class="btn bg-danger px-md-4 mr-md-4" (click)='deleteTicket(); modal.dismiss()'>{{ 'marketplace.edit.delete' | translate }}</button>    
+        </div>
+    </ng-template>
+</div>

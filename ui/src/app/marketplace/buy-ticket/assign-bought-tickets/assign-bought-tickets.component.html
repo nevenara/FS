@@ -1,0 +1,37 @@
+<div class="">
+    <div class="row mt-3 m-mid-5 justify-content-center">
+      <div class="col-lg-8 w-md-100">
+        <h5 class="font-weight-bold text-blue-400 d-block">Buy this ticket</h5>
+        <div class="form-group mt-2 row">
+          <label class="col-form-label col-lg-3 w-md-100 custom-size py-0">
+            <span class="d-none d-md-block d-mid-none text-center"><b class="f-16">Assign to</b></span> </label>
+            <div class="col-lg-7 custom-col-85 mb-3">
+              <span class="d-flex align-items-center custom-size"><b class="w-mid-15 d-md-none d-block d-mid-block">Assign to</b> 
+                <ng-select class="custom w-mid-85" (click)="oldSelectValue = reservedTickets.assignee" (change)="onAssigneeSelect($event)" [(ngModel)]="reservedTickets.assignee" placeholder="Select a user ">
+                  <ng-option *ngFor="let user of users" [value]="user">{{user.username}}</ng-option>
+                </ng-select>
+              </span>
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-8 w-md-100">
+        <span *ngFor="let ticket of reservedTickets.tickets">
+          <h5 class="font-weight-bold text-blue-400 d-block">Best tickets close to this</h5>
+          <div class="form-group mt-2 row">
+            <label class="col-form-label col-lg-3 w-md-100 custom-size py-0"><span class="d-block"><b>Ticket ID:</b> {{ticket.ticketId}} </span>
+            <span class="d-none d-md-block d-mid-none text-center"><b class="f-16">Assign to</b></span> </label>
+            <div class="col-lg-7 custom-col-85 mb-3">
+              <span class="custom-size font-sm-1 mb-1"><b>Seat:</b> {{ticket.seat}}</span>
+              <span class="mx-md-3 mx-1 text-blue-400"><i class="icon-info22"></i></span>
+              <span class="custom-size font-sm-1"><b>EUR {{ticket.priceForSale}}</b></span>
+              <span class="d-flex align-items-center custom-size"><b class="w-mid-15 d-md-none d-block d-mid-block">Assign to</b> 
+                <ng-select class="custom w-mid-85" (click)="oldSelectValue = ticket.assignee" (change)="onAssigneeSelect($event)" [(ngModel)]="ticket.assignee" placeholder="Select a user ">
+                  <ng-option *ngFor="let user of users" [value]="user">{{user.username}}</ng-option>
+                </ng-select>
+              </span>
+            </div>
+          </div>
+       </span>
+      </div>
+    </div>
+  </div>

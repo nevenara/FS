@@ -1,0 +1,80 @@
+<div *ngIf="isSubmit && control.errors">
+ <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.selectionRequired">{{'errors.selectionRequired' | translate}}</span>
+  <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.required">{{'errors.fieldRequired' | translate}}</span>
+  <span
+  class="validation-invalid-label"
+  *ngIf="control.errors.minlength">
+  {{'errors.usernameLength' | translate}} {{control.errors.minlength.requiredLength}}
+  </span>
+  <span
+  class="validation-invalid-label"
+  *ngIf="control.errors.maxlength">
+  {{'errors.fieldLength' | translate}} {{control.errors.maxlength.requiredLength}}
+  </span>
+  <span class="validation-invalid-label" *ngIf="control.errors.pattern">
+    {{'errors.badFormat' | translate}}
+  </span>
+
+
+
+<!-- password validation -->
+  <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.confirmPasswordValidator">
+    {{'errors.passwordAndConfirmDidntMatch' | translate}}
+  </span>
+   <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.hasCapitalCase">
+    {{'errors.passwordMustIncludeUpperCaseLetter' | translate}}
+  </span>
+    <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.hasSmallCase">
+    {{'errors.passwordMustIncludeLowerCaseLetter' | translate}}
+  </span>
+   <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.hasNumber">
+    {{'errors.passwordMustIncludeDigit' | translate}}
+  </span>
+    <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.invalidPassword">
+    {{'errors.passwordLength' | translate}}
+  </span>
+<!-- end password validation -->
+
+  <!-- email validations -->
+    <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.email">{{'errors.invalidEmail' | translate}} </span>
+  <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.emailAlreadyRegistered">
+    {{'errors.emailAlreadyRegistered' | translate}}
+  </span>
+  <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.wrongEmailFormat">
+    {{'errors.wrongEmailFormat' | translate}}
+  </span>
+    <span
+    class="validation-invalid-label"
+    *ngIf="control.errors.blacklistTemporaryEmailAddresses">
+    {{'errors.blacklistEmail' | translate}}
+  </span>
+  <!-- end email validations -->
+<!-- //UsrenameValidator -->
+  <span
+  class="validation-invalid-label"
+  *ngIf="control.errors.invalidusername">
+  {{'errors.usernameMustHaveFourChars' | translate}}
+</span>
+
+
+</div>

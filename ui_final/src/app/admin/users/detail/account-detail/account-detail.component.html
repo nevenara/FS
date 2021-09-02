@@ -1,0 +1,120 @@
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadError'></app-load-error-page>
+<div class="content" *ngIf='!loader && !loadError && user && user.isMainAccount'>
+  <div class="row">
+    <div class="col-lg-3 w-md-100 mb-3 text-center">
+      <h2 class="">{{account.username}}</h2>
+      <div class="profile-img d-inline-block">
+        <img src="{{profileImageUrl}}" class="" alt="">
+      </div>
+    </div>
+    <div class="col-lg-9 w-md-100">
+      <form action="#" [formGroup]="form">
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Standard Email</label>
+          <div class="col-lg-6 mb-2">
+            <input type="email" class="form-control" readonly placeholder="{{account.standardEmail}}">
+          </div>
+        </div>
+        <!-- additional emails -->
+        <div *ngFor="let email of account.additionalEmails; let i=index;"  class="form-group">
+
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Email #{{i+2}}</label>
+            <div class="col-lg-6 mb-2">
+              <input *ngIf='selectedIndex != i || !editing' [name]="email" readonly type="email" class="form-control" placeholder="{{email.email}}" />
+            
+              <input [value]="email.email" [(ngModel)]="emailEdit" *ngIf="editing && selectedIndex == i" 
+              type="email" class="form-control" formControlName="emailEdit" placeholder="Enter an additional Email address"/>
+
+              <errors [control]="f.emailEdit" [isSubmit]="isSubmit && selectedIndex == i && editing"></errors>
+            </div>
+            <div class="col-lg-4">
+              <button *ngIf='selectedIndex != i || !editing' [disabled] = 'editing' type="submit" type="submit" class="btn mr-1 bg-green-400" (click)="startEditingEmail(i)"><i class="fas fa-edit"></i></button>
+              <button *ngIf='selectedIndex != i || !editing' [disabled] = 'editing' type="submit" type="submit" class="btn mr-1 bg-red-400" (click)="selectedEmail = email; open1(content2)"><i class="fas fa-trash"></i></button>
+              <button *ngIf='selectedIndex == i && editing' type="submit" class="btn bg-green-400 mr-1" (click)="editEmail(i)"><i class="fas fa-check"></i></button>
+              <button *ngIf='selectedIndex == i && editing' type="submit" class="btn btn-danger" (click)="cancelEditing()"><i class="fas fa-times"></i></button>
+              <button *ngIf='(selectedIndex != i || !editing) && (userType == 3 || userType == 4 || userType == 6 || userType == 7)' [disabled] = 'editing || !email.isVerified' type="submit" class="btn bg-blue-400" (click)="selectedEmail = email; index=i+1; open1(content1)">Set as standard email</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form *ngIf='account.additionalEmails.length < 4 && (userType == 3 || userType == 4 || userType == 6 || userType == 7)' action="#" [formGroup]="addForm">
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">New email</label>
+          <div class="col-lg-6 mb-2">
+            <input formControlName="newEmail" type="email" class="form-control" placeholder="Enter a new email" [(ngModel)]="newEmail"/>
+            <errors [control]="fa.newEmail" [isSubmit]="isAddSubmit"></errors>
+          </div>
+          <div class="col-lg-3">
+            <button [disabled] = '!newEmail' type="submit" class="btn mr-1 bg-green-400" (click)="addNewEmail(i)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </form>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-dark mr-3 mb-3" routerLink='/admin/users'>Cancel</button>
+      </div>
+
+      <div class="row" *ngIf='user.isMainAccount'>
+        <div class="col-lg-12">
+          <div class="border-bottom-400 my-3 text-blue-400">
+              <span class="custom-size font-weight-semibold">Linked Accounts</span>
+          </div>
+        </div>
+        <div class="col-xl-3 col-6" *ngFor='let linkedAccount of linkedAccounts' routerLink='/admin/users/detail/{{linkedAccount.userId}}'>
+          <div class="card">
+            <div class="card-body text-center">
+              <div class="card-img-actions d-inline-block mb-3">
+                <img class="img-fluid rounded-circle" src="{{profileImageBaseUrl}}?userId={{linkedAccount.userId}}" width="170"
+                  height="170" alt="">
+                <div class="card-img-actions-overlay card-img rounded-circle">
+                </div>
+              </div>
+              <h6 class="font-weight-semibold mb-0">{{linkedAccount.firstname}} {{linkedAccount.lastname}}</h6>
+              <span class="d-block text-muted">{{linkedAccount.username}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<ng-template #content1 let-modal p>
+  <div class="modal-header bg-blue justify-content-center">
+    <h3 class="modal-title m-0">Set Standard Email</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="fas fa-exclamation-circle fa-2x text-primary"></i></div>
+    <span class="font-weight-semibold">The standard email will be changed from {{account.standardEmail}} to <br>
+      {{selectedEmail.email}}. <br>
+      The old standard email takes the place of Email #{{index + 1}}</span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" aria-label="Close" class="btn bg-blue-400 ml-md-2"
+     (click)="useAsStandardEmail(); modal.dismiss('Cross click')">Set standard email</button>
+  </div>
+</ng-template>
+
+<ng-template #content2 let-modal p>
+  <div class="modal-header bg-danger justify-content-center">
+    <h3 class="modal-title m-0">Delete Email</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="fas fa-exclamation-circle fa-2x text-danger"></i></div>
+    <span class="font-weight-semibold">Are you sure that you want to delete email {{selectedEmail.email}}?</span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" aria-label="Close" class="btn btn-danger ml-md-2"
+     (click)="deleteEmail(); modal.dismiss('Cross click')">Delete</button>
+  </div>
+</ng-template>

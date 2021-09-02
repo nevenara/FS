@@ -1,0 +1,94 @@
+::ng-deep .custom-pagination ul {
+  justify-content: center !important;
+}
+
+.bg-muted {
+  background-color: #999999 !important;
+  color: #333333 !important;
+}
+
+.card-img-actions img {
+  height: 250px;
+  width: 100%;
+}
+.filter-show{
+  display: block !important;
+}
+::ng-deep .dateRangePicker-wrapper .form-group {
+  margin-bottom: 0;
+}
+::ng-deep .multiselect-dropdown .dropdown-btn .selected-item {
+  background-color: #09a1ce !important;
+  border-radius: .1875rem !important;
+  border: 1px solid #09a1ce !important;
+  box-shadow: none !important;
+  margin-bottom: 3px !important;
+}
+
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down {
+  border-top: 5px solid #adadad !important;
+  border-left: 5px solid transparent !important;
+  border-right: 5px solid transparent !important
+}
+::ng-deep .multiselect-dropdown .dropdown-btn {
+  padding: 6px 6px 3px 6px !important;
+}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-up {
+  border-bottom: 5px solid #adadad !important;
+  border-left: 5px solid transparent !important;
+  border-right: 5px solid transparent !important
+}
+::ng-deep .dateRangePicker-wrapper .dateRangePicker .form-inputs {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker:after {
+  border-bottom: 10px solid #09a1ce !important;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker:before {
+  border-bottom: 10px solid #09a1ce !important;
+}
+
+::ng-deep .calendar .table td:not(.disabled):not(.selected):hover {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .calendar .table td.selected, .calendar .table td.selected.in-selected-range {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .calendar .table td.different-month {
+  color: #273237 !important;
+}
+
+::ng-deep .btn-outline-secondary {
+  background-color: #273237 !important;
+  border-color: #273237 !important;
+  color: #fff !important;
+}
+@media only screen and (max-width:1200px) {
+  .card-body .text-dark{
+    font-size: 11px;
+  }
+  .mb-15{
+    margin-bottom: 1rem;
+  }
+  .filter-show{
+    display: block !important;
+  }
+}
+@media only screen and (max-width:767px) {
+  .card-body .text-dark{
+    font-size: 11px;
+  }
+  .mb-15{
+    margin-bottom: 1rem;
+  }
+  .collapse:not(.show) {
+    display: none !important;
+}
+.collapse .show {
+  display: block !important;
+}
+}

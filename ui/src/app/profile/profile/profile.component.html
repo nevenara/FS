@@ -1,0 +1,180 @@
+<div class="card border-0 pt-3 shadow-none">
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-3 w-md-100 mb-3 text-center">
+        <h2 class="">{{user.username}}</h2>
+        <div class="profile-img d-inline-block">
+            <img src="{{user.profileImage}}" class="" alt="">
+        </div>
+        <div class="uniform-uploader justify-content-center mt-2">
+          <input (change)="uploadImage($event)" type="file" class="form-input-styled" data-fouc="">
+          <span class="action btn bg-primary rounded" style="user-select: none;">Choose File</span>
+        </div>
+      </div>
+      <div class="col-lg-9 w-md-100">
+        <form action="#">
+          <div class="form-group text-left row">
+            <label class="col-lg-2 col-form-label">Gender</label>
+            <div class="col-lg-8">
+
+              <div *ngIf="user.gender === 'male'">
+                <div class="form-check form-check-inline disabled">
+                  <label class="form-check-label">
+                    <div class="uniform-choice disabled">
+                     <span class="checked" >
+                        <input type="radio"  class="form-input-styled"  name="gender" checked="true"></span>
+                    </div>
+                    Male
+                  </label>
+                </div>
+  
+                <div class="form-check form-check-inline disabled">
+                  <label class="form-check-label">
+                    <div class="uniform-choice disabled">
+                      <span>
+                        <input type="radio"  class="form-input-styled" value="female" name="gender" [(ngModel)]="user.gender" ></span></div>
+                    Female 
+                  </label>
+                </div>
+              </div>
+
+              <div *ngIf="user.gender === 'female'">
+                <div class="form-check form-check-inline disabled">
+                  <label class="form-check-label">
+                    <div class="uniform-choice disabled">
+                     <span  >
+                        <input type="radio" class="form-input-styled"  name="gender" checked="true"></span>
+                    </div>
+                    Male
+                  </label>
+                </div>
+  
+                <div class="form-check form-check-inline disabled">
+                  <label class="form-check-label">
+                    <div class="uniform-choice disabled">
+                      <span class="checked">
+                        <input type="radio"  class="form-input-styled" value="female" name="gender" [(ngModel)]="user.gender" ></span></div>
+                    Female 
+                  </label>
+                </div>
+              </div>
+           
+              
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">First Name</label>
+            <div class="col-lg-8">
+              <input placeholder="{{user.firstName}}"  type="text" readonly class="form-control" >
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">Last Name</label>
+            <div class="col-lg-8">
+              <input placeholder="{{user.lastName}}" type="text" readonly class="form-control">
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">Day of Birth</label>
+            <div class="col-lg-8">
+              <input type="text" readonly class="form-control" placeholder="{{user.birthDate | date}}">
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">Address</label>
+            <div class="col-lg-8">
+              <input name="address" [(ngModel)]="user.address" type="text" class="form-control" placeholder="Enter Street + Number">
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">Zip Code</label>
+            <div class="col-lg-8">
+              <input name="postCode" [(ngModel)]="user.postCode" type="text" class="form-control" placeholder="Enter Zip Code">
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">City</label>
+            <div class="col-lg-8">
+              <input name="city" [(ngModel)]="user.city" type="text" class="form-control" placeholder="Enter City">
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">Country</label>
+            <div class="col-lg-8">
+              <!--HARDCODED COUNTRIES-->
+              <ng-select [ngModelOptions]="{standalone: true}" 
+              [(ngModel)]="user.country" class="custom" [items]="countries" bindLabel="name" placeholder="Choose country"></ng-select>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label">Phone #</label>
+            <div class="col-lg-8">
+              <input name="phone" [(ngModel)]="user.phone"  type="number" name="tel" class="form-control" placeholder="+99-99-9999-9999"
+                data-mask="+99-99-9999-9999">
+            </div>
+          </div>
+
+          <div *ngFor="let email of user.additionalEmails; let i=index"  class="form-group row">
+            <label class="col-lg-2 col-form-label text-left">Email #{{i+2}}</label>
+            <div class="col-lg-8 mb-2">
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <input type="email" readonly class="form-control" placeholder="{{email.email}}">
+                </div>
+                <div class="col-lg-4 col-half">
+                  <div class="d-flex align-items-center">
+                    <button type="submit" (click)="open(content); setStandardEmail(email.email)" class="btn btn-primary mr-1">Use as standard</button>
+                    <button (click) = 'deleteAdditionalEmail(email.email)' type="submit" class="btn btn-outline-warning"><span class="icon-trash"></span> </button>
+
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Additional new-->
+          <div class="form-group row">
+            <label class="col-lg-2 col-sm col-form-label text-dark">Email #{{user.additionalEmails.length + 2}}</label>
+            <div class="col-lg-5">
+              <input [(ngModel)] = 'newEmail' name='newEmail' type="text" class="form-control" placeholder="Enter an additional Email address">
+            </div>
+            <div class="d-flex align-items-center">
+              <button [disabled] = "user.additionalEmails.length == 4" (click) = 'addAdditionalEmail()' type="submit" class="btn btn-outline-primary"><span class="icon-plus2"></span> </button>
+              <a href="javascript:void(0)" placement="bottom" triggers="mouseenter:mouseleave" ngbPopover="Add additional emails here, if you are registered on a ticket portal
+              with an email other than your FanSafe standard email" class="ml-1 text-blue-400"><i
+                  class="icon-info22"></i></a>
+            </div>
+          </div>
+
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-dark mr-3 px-3 mb-3">Cancel</button>
+            <button type="submit" (click) = "updateUserProfile()" class="btn btn-primary px-4 mb-3">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #content let-modal p>
+  <div class="modal-header bg-blue justify-content-center">
+    <h3 class="modal-title m-0">Confirm Standard Email Change</h3>
+  </div>
+  <div class="modal-body px-md-4">
+    <form>
+      <div class="form-group row justify-content-center">
+        <label class="col-form-label mb-2">Please enter your acoount password to change your standard email
+          address</label>
+        <input #password type="password" class="form-control mx-md-5 mb-0" placeholder="Enter your password">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" class="btn btn-primary px-md-4" (click)="modal.close('Save click'); useAsStandardEmail(password.value)">Save</button>
+  </div>
+</ng-template>

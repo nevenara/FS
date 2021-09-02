@@ -1,0 +1,45 @@
+<div class="row m-0">
+  <div class="col-lg-12 row w-md-100 pt-3 mr-0 pr-0 m-0 p-0">
+    <div class="form-group row col-lg-10 m-0 p-0">
+      <span class='col-lg-2 d-none d-md-block d-mid-none m-0 p-0 pt-1'>
+        <b class="f-14 pt-3">{{ 'marketplace.buyTicket.assignTickets.newTicketHolder' | translate }}:</b>
+      </span>
+        <div class="col-lg-10 custom-col-85 mb-3 m-0 p-0">
+          <span class="d-flex custom-size">
+            <ng-select class="custom w-mid-85" (click)="oldSelectValue = reservedTickets.assignee" (change)="onAssigneeSelect($event)" [(ngModel)]="reservedTickets.assignee" bindLabel='username' placeholder="{{ 'marketplace.buyTicket.assignTickets.selectUserPlaceholder' | translate }}">
+              <ng-option *ngFor="let user of users" [value]="user">{{user.username}}</ng-option>
+            </ng-select>
+          </span>
+        </div>
+    </div>
+    <div class='col-lg-2 text-right pr-0'>
+      <button type="button" class="btn bg-blue-400 px-md-4" (click)="openBackDropCustomClass(content)"
+      >{{ 'marketplace.buyTicket.seatPlan' | translate }}  </button> 
+    </div>
+  </div>
+  <div class="col-lg-12 w-md-100 bg-white pt-2 pb-2 pl-0 pr-0" *ngIf='reservedTickets.tickets.length'>
+      <h5 class="font-weight-bold text-blue-400 d-block border-bottom-blue pb-2 pl-1">{{ 'marketplace.buyTicket.assignTickets.bestCloseTickets' | translate }}</h5>
+      <div *ngFor="let ticket of reservedTickets.tickets" class="form-group mt-1 mb-1 row pt-2 align-items-center pl-1">
+          <label class="col-form-label col-lg-2 w-md-100 custom-size py-0"><span class="d-block"><b>{{ 'marketplace.buyTicket.details.ticketId' | translate }}:</b> {{ticket.ticketId}} </span></label>
+          <span class="custom-size col-lg-2 font-sm-1"><b>{{ 'marketplace.buyTicket.details.seat' | translate }}:</b> {{ticket.seat}}</span>
+          <span class="custom-size font-sm-1 col-lg-1"><b>EUR {{ticket.priceForSale.toFixed(2)}}</b></span>
+          <span class="row d-flex col-lg-7 custom-size align-items-center">
+            <span class='col-lg-2 d-none d-md-block d-mid-none'><b class="f-16">{{ 'marketplace.buyTicket.assignTickets.assignTo' | translate }}</b></span>
+            <ng-select class="col-lg-10 custom w-mid-85" (click)="oldSelectValue = ticket.assignee" (change)="onAssigneeSelect($event)" [(ngModel)]="ticket.assignee" bindLabel='username' placeholder="{{ 'marketplace.buyTicket.assignTickets.selectUserPlaceholder' | translate }}">
+              <ng-option *ngFor="let user of users" [value]="user">{{user.username}}</ng-option>
+            </ng-select>
+          </span>
+      </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <img src="{{seatImage}}" style="max-width: 100%" alt="">
+  </div>
+</ng-template>

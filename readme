@@ -1,0 +1,20 @@
+0. npm install --global cross-env
+
+1. Redis installation
+https://hub.docker.com/_/redis/
+
+docker pull redis
+docker run --name redis -p 6379:6379 -d redis // this should start on port 6379/tcp
+docker start redis
+In case you experience "Error: Redis connection to localhost:6379 failed - connect ECONNREFUSED 127.0.0.1:6379" please check the following:
+
+
+3. Docker stuff
+
+#docker build -t fansafe-image -f Dockerfile .
+#docker run --name fansafe-container -p 3001:3000 fansafe-image
+#docker exec -it fansafe-container bash
+
+4.
+ Production setup:
+    MONGOURL = set to full your 

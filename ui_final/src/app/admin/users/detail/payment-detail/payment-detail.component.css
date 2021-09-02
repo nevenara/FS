@@ -1,0 +1,28 @@
+.profile-img {
+  height: 160px;
+  width: 160px;
+}
+
+.profile-img img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.payment-img{
+  height: 150px;
+  width: 150px;
+}
+.payment-img img{
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width:1150px){
+  .w-md-100{
+    flex: 0 0 100%;
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+
+  }
+}

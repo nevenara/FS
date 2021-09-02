@@ -1,0 +1,141 @@
+<div class="content">
+  <div class="row">
+    <div class="col-lg-3 w-md-100 mb-3 text-center">
+      <h2 class="">Username</h2>
+      <div class="profile-img d-inline-block">
+        <img src="../../../../assets/images/user.png" class="" alt="">
+      </div>
+      <div class="d-flex justify-content-center align-items-center mt-2">
+        <div class="uniform-uploader justify-content-center align-items-center">
+          <input type="file" class="form-input-styled" data-fouc="">
+          <span class="action btn bg-primary rounded" style="user-select: none;">Choose File</span>
+        </div>
+        <a href="javascript:void:(0)"><i class="fas fa-trash ml-3 text-primary"></i></a>
+      </div>
+    </div>
+    <div class="col-lg-9 w-md-100">
+      <form action="#" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group row text-left">
+          <div class="custom-control pl-1 custom-control-right custom-checkbox custom-control-inline">
+            <input type="checkbox" class="custom-control-input green-input" id="custom_checkbox_inline_right_checked"  name="checkbox" #checkbox (change)="check(checkbox.value)"  checked="Checkbox">
+            <label class="custom-control-label position-static text-blue-4000 font-weight-bold"
+              for="custom_checkbox_inline_right_checked">Is Main Account</label>
+          </div>
+        </div>
+        <div class="form-group text-left row">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Gender</label>
+          <div class="col-lg-8">
+            <div class="form-group mb-3 mb-md-2">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" formControlName="Gender"  checked="" [value]="'male'"
+                  id="custom_radio_inline_unchecked-9">
+                <label class="custom-control-label text-dark" for="custom_radio_inline_unchecked-9">Male</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" formControlName="Gender" [value]="'female'"
+                  id="custom_radio_inline_checked-1">
+                <label class="custom-control-label text-dark" for="custom_radio_inline_checked-1">Female</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Username</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" minlength="4" formControlName="Username"  placeholder="Enter your Username">
+            <errors [control]="f.Username" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">First Name</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control " formControlName="Firstname" placeholder="Enter your First Name">
+            <errors [control]="f.Firstname" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Last Name</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control"  formControlName="Lastname" placeholder="Enter your Last Name">
+            <errors [control]="f.Lastname" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Day of Birth</label>
+          <div class="col-lg-2 mb-2">
+            <ng-select class="custom" [items]="day" bindLabel="name"  formControlName="dobdd" placeholder="DD"></ng-select>
+            <errors [control]="f.dobdd" [isSubmit]="isSubmit"></errors>
+          </div>
+          <div class="col-lg-2 mb-2">
+            <ng-select class="custom" [items]="month" bindLabel="name"  formControlName="dobmm" placeholder="MM"></ng-select>
+            <errors [control]="f.dobmm" [isSubmit]="isSubmit"></errors>
+
+          </div>
+          <div class="col-lg-2 mb-2">
+            <ng-select class="custom" [items]="year" bindLabel="name" formControlName="dobyy" placeholder="YYYY"></ng-select>
+            <errors [control]="f.dobyy" [isSubmit]="isSubmit"></errors>
+
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Address</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" formControlName="Address"  placeholder="Enter Street + Number">
+            <errors [control]="f.Address" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Zip Code</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" formControlName="zipecode" placeholder="Enter Zip Code">
+            <errors [control]="f.zipecode" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">City</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" formControlName="City"  placeholder="Enter City">
+            <errors [control]="f.City" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Country</label>
+          <div class="col-lg-8">
+            <ng-select class="custom" [items]="countries" formControlName="Country" bindLabel="name" placeholder="Please Choose">
+            </ng-select>
+            <errors [control]="f.Country" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Phone #</label>
+          <div class="col-lg-8">
+            <input type="number" name="tel" class="form-control" formControlName="Phone" placeholder="+99-99-9999-9999"
+              data-mask="+99-99-9999-9999">
+              <errors [control]="f.Phone" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left" *ngIf="Emailhide">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Standard Email</label>
+          <div class="col-lg-8">
+            <input type="mail" class="form-control" formControlName="Email"  placeholder="Enter Email address">
+            <errors [control]="f.Email" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left" *ngIf="MainAccount">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Linked to Main Account</label>
+          <div class="col-lg-8">
+            <input type="mail" class="form-control" formControlName="Email"  placeholder="Enter at least two chars of username and email">
+            <errors [control]="f.Email" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12 text-center">
+      <button type="submit" class="btn btn-dark mr-3 mb-3" >Cancel</button>
+      <button type="submit" class="btn bg-green-400 mb-3" (click)="onSubmit()">Save</button>
+    </div>
+  </div>
+</div>
+
+

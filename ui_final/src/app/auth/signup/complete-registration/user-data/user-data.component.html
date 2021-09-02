@@ -1,0 +1,39 @@
+<div class="card border-0 pt-md-5 shadow-none">
+
+  <div class="card-body">
+    <form [formGroup]="form" class="wizard" action="#">
+      <div class="form-group justify-content-center row text-left">
+        <div class="col-lg-2 col-12 text-center">
+          <a>
+            <img src="{{profileImageUrl}}" width="150" class="" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6"></div>
+      </div>
+      <div class="form-group justify-content-center row text-left pb-md-4">
+        <div class="col-lg-4">
+          <label class="col-form-label">{{ 'signUp.completeRegistration.uploadImage' | translate }}</label>
+
+          <div class="uniform-uploader">
+            <input (change)="uploadImage($event)" type="file" class="form-input-styled" data-fouc="" placeholder="{{ 'signUp.completeRegistration.selectProfileImage' | translate }}">
+            <span class="filename" style="user-select: none;">{{ 'signUp.completeRegistration.selectProfileImage' | translate }}</span>
+            <span class="action btn bg-blue-400" style="user-select: none;">{{ 'signUp.completeRegistration.chooseFile' | translate }}</span>
+          </div>
+          <!-- <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span> -->
+        </div>
+        <div class="col-lg-4">
+          <label class="col-form-label">{{ 'signUp.completeRegistration.username' | translate }}</label>
+          <input [(ngModel)]="user.username" name="username" type="text" formControlName="username" class="form-control"  minlength="4" placeholder="{{ 'signUp.completeRegistration.enterUsername' | translate }}">
+          <errors [control]="f.username" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="actions clearfix pt-md-5">
+        <ul role="menu" aria-label="Pagination">
+          <li aria-hidden="false" aria-disabled="false">
+            <a (click) = "next()" class="btn bg-blue-400" role="menuitem">{{ 'signUp.completeRegistration.next' | translate }}
+              <i class="icon-arrow-right14 ml-2"></i></a></li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>

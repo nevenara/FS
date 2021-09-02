@@ -1,0 +1,50 @@
+
+.card-opacity {
+  opacity: .7;
+}
+
+.form-group {
+  margin-bottom: .9rem;
+}
+.dark{
+  background-color: #e6e6e6 !important;
+  color: black !important;
+}
+.bg-img {
+  background-image: url(../../../assets/images/ConcertCrowd_XXL.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: black !important;
+}
+@media only screen and (max-width:1400px){
+  .bg-img {
+    background-image: url(../../../assets/images/ConcertCrowd_L.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: black !important;
+  }
+}
+@media only screen and (max-width:1200px){
+  .bg-img {
+    background-image: url(../../../assets/images/ConcertCrowd_M.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: black !important;
+  }
+}
+@media only screen and (max-width:1080px){
+  .bg-img {
+    background-image: url(../../../assets/images/ConcertCrowd_S.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: black !important;
+  }
+}
+@media only screen and (max-width:767px){
+  .bg-img {
+    background-image: url(../../../assets/images/mobile.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: black !important;
+  }
+}

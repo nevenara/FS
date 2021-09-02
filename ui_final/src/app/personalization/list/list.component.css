@@ -1,0 +1,73 @@
+.card-img-actions img {
+  height: 250px;
+  width: 100%;
+}
+.card-title-h3{
+  font-size: 12px;
+}
+
+.badge{
+  /* border: 1px solid hsl(0, 0%, 0%); */
+  font-size: 13px;
+  border-radius: 5px;
+
+}
+.action-blue {
+  background: #09a1ce;
+  color: white;
+}
+
+.red:hover {
+  background: #cf2a27;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.red {
+  background: #cf2a27;
+  color: white;
+}
+.dropdown-menu {
+  min-width: 6rem !important;
+}
+.modal-header {
+  justify-content: center !important;
+}
+
+.img-modal {
+  width: 265px;
+  height: 250px;
+}
+
+.card-img-actions img {
+  height: 250px;
+  width: 100%;
+}
+
+.btn {
+  padding: .3rem .4rem;
+}
+
+ul li {
+  padding: 0 8px 0 0;
+  list-style: none;
+}
+
+.modal-header {
+  justify-content: center !important;
+}
+::ng-deep .angular-editor .angular-editor-wrapper .angular-editor-textarea {
+  min-height: 5rem !important;
+  height: 5rem !important;
+}
+@media only screen and (max-width: 767px) {
+  .card-body .text-dark{
+    font-size: 11px;
+  }
+}
+
+.card {
+  height: 600px;
+}

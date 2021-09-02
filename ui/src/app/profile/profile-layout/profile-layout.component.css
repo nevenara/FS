@@ -1,0 +1,24 @@
+::ng-deep .nav-tabs .nav-link.active {
+  color: #29b6f6;
+  background-color: #fff;
+  border-color: #ddd #ddd #fff;
+  border-top: 3px solid #09a1ce;
+}
+
+::ng-deep .custom-tabs .nav-tabs .nav-item {
+  width: 50%;
+  text-align: center;
+}
+@media only screen and (max-width: 1200px){
+.f-mid-14,.f-16 {
+    font-size: 18px !important;
+}
+}
+@media only screen and (max-width: 767px){
+  .f-16 {
+      font-size: 16px !important;
+  }
+  .py-md-20 {
+    padding: 14px 5px;
+}
+  }

@@ -1,0 +1,138 @@
+<div class="content">
+    <div class='row mb-1'>
+        <div class="col-lg-4">
+            <label class="text-blue-400 font-weight-bold" for="">Event Name</label>
+            <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select event name'"
+              [data]="dropdownListNames" [(ngModel)]="selectedItemsNames"
+              (onSelect)="searchEventLocations()" (onSelectAll)="onSelectAllNames($event)"
+              (onDeSelect)="searchEventLocations()" (onDeSelectAll)="unselectAllNames()">
+            </ng-multiselect-dropdown>
+          </div>
+          <div class="col-lg-4">
+            <label class="text-blue-400 font-weight-bold" for="">Location</label>
+            <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select location'"
+              [data]="dropdownListLocations" [(ngModel)]="selectedItemsLocations"
+              (onSelect)="searchEventNames()" (onSelectAll)="onSelectAllLocations($event)"
+              (onDeSelect)="searchEventNames()" (onDeSelectAll)="unselectAllLocations()">
+            </ng-multiselect-dropdown>
+          </div>
+          <div class="col-lg-4">
+            <date-range-picker [ngStyle]="{'color':'black'}" [instanceId]="'secondDateRange'" (datepickerReset)="resetDate();" [controlName]="'secondDateRange'" #dateRangePicker [options]="dateOptions" (rangeSelected)="getFromToDate(dateRangePicker.range)">
+              <div class="form-group">
+                <label class="text-blue-400 font-weight-bold" for="">Date From - To
+                </label>
+                <div class="input-group">
+                  <input id="secondDateRange" class="form-control" type="text" name="dateRange" [readonly]="true" 
+                    [value]="dateRangePicker.range" placeholder="From - To"/>
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="date-range-icon">
+                      <i class="icon-calendar22"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </date-range-picker>
+          </div>
+    </div>
+    <div class="row"> 
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-body turkis has-bg-image">
+                <div class="media">
+                    <div class="media-body">
+                        <h3 class="mb-0">{{totalEvents}}</h3>
+                        <span class="text-uppercase font-size-xs">Events</span>
+                    </div>
+
+                    <div class="ml-3 mt-3 align-self-center">
+                        <i class="fas fa-calendar-alt fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-body green has-bg-image">
+                <div class="media">
+                    <div class="media-body">
+                        <h3 class="mb-0">{{totalIncomingTickets}}</h3>
+                        <span class="text-uppercase font-size-xs">Incoming Tickets </span>
+                    </div>
+
+                    <div class="ml-3 mt-3 align-self-center">
+                        <i class="fas fa-ticket-alt fa-rotate-135 fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-4">
+            <div class="card card-body blue has-bg-image">
+                <div class="media">
+                    <div class="media-body">
+                        <h3 class="mb-0">€{{totalIncome}}</h3>
+                        <span class="text-uppercase font-size-xs">Income</span>
+                    </div>
+
+                    <div class="ml-3 mt-3 align-self-center">
+                        <i class="far fa-money-bill-alt fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-5'>
+            <div class='text-center my-2'>
+                <div class="card">
+                  <div class="card-body row">
+                      <div class="chart-container">
+                        <div class="col-lg-12 my-2 text-center">
+                          <h5 class="card-title text-blue-400">Distribution of Ticket prices</h5>
+                        </div>
+                        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" chartType="pie"
+                          [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="true" [colors]='colors'>
+                        </canvas>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class='col-lg-7' *ngIf='ticketListResponse'>
+            <h6 class='text-center my-2' *ngIf='ticketListResponse.eventName'><b>{{ticketListResponse.eventName}}, {{dateFormatter.getDate(ticketListResponse.eventDate)}}</b></h6>
+            <div class="table-responsive">
+                <table class="table table-bordered border table-striped">
+                  <thead class='table-dark'>
+                    <tr>
+                      <th class="p-2">Ticket price</th>
+                      <th class="p-2">Amount of Tickets</th>
+                      <th class="p-2">Fee p. ticket</th>
+                      <th class="p-2">Sub-Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor='let row of ticketListResponse.rows'>
+                      <td>€{{row.ticketPrice.toFixed(2)}}</td>
+                      <td>{{row.amountOfTickets}}</td>
+                      <td>€{{row.fee.toFixed(2)}}</td>
+                      <td>€{{row.subTotal.toFixed(2)}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>TICKETS TOTAL</b></td>
+                        <td><b>{{ticketListResponse.ticketsTotal}}</b></td>
+                        <td><b>TOTAL SUM</b></td>
+                        <td><b style='color: green'>€{{ticketListResponse.totalSum.toFixed(2)}}</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class='row mr-0 ml-0'>
+              <span class='col-lg-6 row mr-3 mt-1 pr-0'>
+                <button class='col-lg-12 btn bg-blue-400' (click)='exportExcel()'>Export Excel</button>
+              </span>
+              <span class='col-lg-6 row mt-1 pr-0'>
+                <button class='col-lg-12 btn bg-blue-400' (click)='exportCsv()'>Export CSV</button>
+              </span>
+            </div>
+        </div>
+    </div>
+</div>

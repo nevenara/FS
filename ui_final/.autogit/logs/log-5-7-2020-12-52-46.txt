@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Wed Aug 05 2020 12:52:46 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* firebase-debug.log
+
+
+Deleted files:
+
+
+Renamed files:

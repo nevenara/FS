@@ -1,0 +1,35 @@
+<preloader-app *ngIf="loaderGeneral"></preloader-app>
+<div [hidden]='loaderGeneral' class="container-fluid">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs nav nav-justified" [destroyOnHide]="false">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">{{ 'marketplace.tabs.ticketMarketplace' | translate }} </h3>
+      </a>
+      <ng-template ngbNavContent>
+        <div class="card border-0">
+          <div class="card-body">
+            <app-market-tickets></app-market-tickets>
+
+          </div>
+        </div>
+
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">{{ 'marketplace.tabs.mySales' | translate }}</h3>
+      </a>
+      <ng-template ngbNavContent>
+        <div class="card border-0">
+          <div class="card-body">
+            <app-my-tickets></app-my-tickets>
+
+          </div>
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav"></div>
+  
+</div>

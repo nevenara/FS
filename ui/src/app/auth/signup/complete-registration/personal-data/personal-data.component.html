@@ -1,0 +1,85 @@
+<div class="card border-0 shadow-none">
+
+  <div class="card-body">
+    <form class="wizard" action="#">
+      <div class="form-group text-left row justify-content-center">
+        <label class="col-lg-2 col-form-label text-dark">Gender</label>
+        <div class="col-lg-9">
+          <div class="form-group mb-3 mb-md-2">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input (change) = 'user.gender = 1' type="radio" class="custom-control-input" name="custom-inline-radio"
+                id="custom_radio_inline_unchecked" checked="">
+              <label class="custom-control-label text-dark" for="custom_radio_inline_unchecked">Male</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+              <input (change) = 'user.gender = 2' type="radio" class="custom-control-input" name="custom-inline-radio"
+                id="custom_radio_inline_checked">
+              <label class="custom-control-label text-dark" for="custom_radio_inline_checked">Female</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">First Name</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.firstname" name="firstname" type="text" class="form-control" placeholder="Enter your First Name">
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">Last Name</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.lastname" name="lastname" type="text" class="form-control" placeholder="Enter your Last Name">
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">Day of Birth</label>
+        <div class="col-lg-3">
+          <ng-select [(ngModel)]="user.day" name="day" class="custom mb-3 mb-md-0" [items]="day" bindLabel="name" placeholder="DD"></ng-select>
+        </div>
+        <div class="col-lg-3">
+          <ng-select [(ngModel)]="user.month" name="month" class="custom mb-3 mb-md-0" [items]="month" bindLabel="name" placeholder="MM"></ng-select>
+
+        </div>
+        <div class="col-lg-3">
+          <ng-select [(ngModel)]="user.year" name="year" class="custom mb-md-0" [items]="year" bindLabel="name" placeholder="YYYY"></ng-select>
+
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">Address</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.address" name="address" type="text" class="form-control" placeholder="Enter Street + Number">
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">Zip Code</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.postCode" name="postCode" type="text" class="form-control" placeholder="Enter Zip Code">
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">City</label>
+        <div class="col-lg-9">
+          <input [(ngModel)]="user.city" name="city" type="text" class="form-control" placeholder="Enter City">
+        </div>
+      </div>
+      <div class="form-group row justify-content-center text-left">
+        <label class="col-lg-2 col-form-label text-dark">Country</label>
+        <div class="col-lg-9">
+          <ng-select [(ngModel)]="user.country" name="country" class="custom" [items]="countries" bindLabel="name" placeholder="Choose country"></ng-select>
+
+        </div>
+      </div>
+      <div class="actions clearfix">
+        <ul role="menu" aria-label="Pagination">
+          <li aria-disabled="false"><a class="btn btn-dark" (click) = "previous()"
+              role="menuitem"><i class="icon-arrow-left13 mr-2"></i> Previous</a></li>
+          <li aria-hidden="true"><a class="btn btn-primary"
+            (click) = "next()" role="menuitem">Next
+              <i class="icon-arrow-right14 ml-2"></i></a></li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>

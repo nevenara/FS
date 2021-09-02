@@ -1,0 +1,29 @@
+<div class="uniform-uploader justify-content-center mt-2">
+  <input (change)="selectedDocument($event)" type="file" class="form-input-styled" data-fouc="">
+  <span class="action btn bg-primary rounded" style="user-select: none;">Choose File</span>
+</div>
+
+<label for="iban-element">
+  IBAN
+</label>
+<input type="text" name="iban"  [(ngModel)]="ibanValue" placeholder="IBAN" >
+
+<!-- Used to display form errors. -->
+<div id="error-message" style="color: red;" role="alert">{{errorMsg}}</div>
+
+<button id="submit-button" type="submit" (click)='save()'>
+  Save <!-- Pay ${{_totalAmount}} -->
+</button>
+
+ <!-- Display mandate acceptance text. -->
+ <div id="mandate-acceptance">
+  By providing your IBAN and confirming this payment, you authorise
+  (A) Fansafe Inc. and Stripe, our payment service
+  provider, to send instructions to your bank to debit your account and
+  (B) your bank to debit your account in accordance with those instructions.
+  You are entitled to a refund from your bank under the terms and
+  conditions of your agreement with your bank. A refund must be claimed
+  within 8 weeks starting from the date on which your account was debited.
+</div>
+
+

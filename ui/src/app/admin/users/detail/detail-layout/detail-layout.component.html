@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <ngb-tabset class="custom-tabs" [destroyOnHide]="false">
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">
+          User Detail
+        </h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <div class="card border-0">
+          <div class="card-body">
+            <app-user-detail></app-user-detail>
+
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+     <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">Account Detail </h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <div class="card border-0">
+          <div class="card-body">
+          <app-account-detail></app-account-detail>
+
+
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">Payments</h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <div class="card border-0">
+          <div class="card-body ">
+            <app-payment-detail></app-payment-detail>
+
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

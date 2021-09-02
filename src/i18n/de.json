@@ -1,0 +1,822 @@
+{
+   
+  "login": {
+    "title": "Melde dich in deinem Konto an",
+    "subtitle": "Bitte Anmeldedaten eintragen",
+    "usernameOrEmail": "Benutzername oder E-Mail",
+    "password": "Passwort",
+    "remember": "Merken",
+    "forgotPassword": "Passwort vergessen?",
+    "login": "Einloggen",
+    "account": "Sie haben noch kein Konto?",
+    "register": "Konto erstellen",
+    "agreement": "Wenn Sie fortfahren, bestätigen Sie, dass Sie unsere",
+    "termsOfServices": "Nutzungsbedingungen",
+    "and": "und",
+    "privacyPolicy": "Datenschutzerklärung",
+    "privacyPolicyTitle": "Datenschutzerklärung",
+    "agreementSuffix": "gelesen und akzeptiert haben",
+    "policy": "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+    "termsTitle": "Nutzungsbedingungen",
+    "terms": "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+    "accept": "Akzeptieren",
+    "somethingWentWrong": "Ups, etwas ist schief gelaufen",
+    "somethingWentWrongMessage1": "Leider können Sie sich gerade nicht anmelden.",
+    "somethingWentWrongMessage2": "Wir haben ein Problem mit Ihrem FanSafe Konto festgestellt!",
+    "somethingWentWrongMessage3": "Bitte kontaktieren Sie unser Support Team!",
+    "email": "E-mail",
+    "close": "Schließen",
+    "passwordRecovery": "Passwort vergessen?",
+    "instructions": "Wir senden Ihnen Anweisungen per E-Mail",
+    "enterEmail":"E-Mail eingeben",
+    "resetPassword": "Passwort zurücksetzen",
+    "step2": "",
+    "enterPassword": "Bitte neues Passwort wählen und bestätigen.",
+    "newPassword": "Neues Passwort",
+    "confirmNewPassword": "Neues Passwort bestätigen",
+    "confirm": "Bestätigen"
+  },
+  "signUp": {
+    "createAccount": "Konto erstellen",
+    "fieldsRequired": "Alle Felder sind Pflichtfelder",
+    "enterEmail": "E-mail eingeben",
+    "password": "Passwort eingeben",
+    "confirmPassword": "Passwort bestätigen",
+    "readTermsAndPolicy": "Ich habe die",
+    "termsOfService": "Nutzungsbedingungen",
+    "and": "und",
+    "privacyPolicy": "Datenschutzerklärung",
+    "privacyPolicySuffix": "gelesen und bin damit einverstanden",
+    "register": "Konto erstellen",
+    "login": "Einloggen",
+    "haveAccount": "Sie haben bereits ein Konto?",
+    "privacyPolicyTitle": "Datenschutzerklärung",
+    "policy": "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+    "termsTitle": "Nutzungsbedingungen",
+    "terms": "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+    "accept": "Akzeptieren",
+    "completeRegistration": {
+      "title": "Registrierung abschließen",
+      "currentStep": "Aktueller Schritt",
+      "userData": "Benutzerdaten",
+      "personalData": "Persönliche Daten",
+      "additionalEmails": "Weitere E-mail Adressen",
+      "uploadImage": "Profilbild hochladen",
+      "selectProfileImage": "Profilbild wählen",
+      "chooseFile": "Datei wählen",
+      "username": "Benutzername",
+      "enterUsername": "Benutzername eingeben",
+      "next": "Weiter",
+      "gender": "Geschlecht",
+      "male": "Männlich",
+      "female": "Weiblich",
+      "firstName": "Vorname",
+      "firstNamePlaceholder": "Vorname eingeben",
+      "lastName": "Nachname",
+      "lastNamePlaceholder": "Nachname eingeben",
+      "dayOfBirth": "Geburtsdatum",
+      "dayOfBirthPlaceholder": "Datum wählen",
+      "fieldRequired": "Feld ist erforderlich",
+      "address": "Adresse",
+      "addressPlaceholder": "Straße + Nummer eingeben",
+      "zipCode": "Postleitzahl",
+      "zipCodePlaceholder": "PLZ eingeben",
+      "city": "Stadt/Ort",
+      "cityPlaceholder": "Stadt/Ort eingeben",
+      "country": "Land",
+      "countryPlaceholder": "Land wählen",
+      "phone": "Telefonnummer",
+      "phoneRequired": "Telefonnummer ist erforderlich!",
+      "previous": "Zurück",
+      "optionalStep": "Optionaler Schritt",
+	    "emailDesc": "Tickets werden auf die beim Kauf verwendete E-Mail Adresse zugewiesen. Wenn Sie beim Ticketkauf andere E-Mail Adressen als für Ihr FanSafe Konto verwenden, bitten wir Sie diese E-Mail Adressen hier anzugeben.",
+      "email": "E-mail",
+      "enterAdditionalEmail": "Weitere E-Mail Adresse eingeben",
+      "submit": "Absenden"
+    }
+  },
+  "home": {
+    "dashboardStatistics": "Dashboard - Statistik",
+    "comingSoon": "Bald verfügbar!"
+  },
+  "header": {
+    "online": "Online",
+    "accountBalance": "Kontostand",
+    "dropdown": {
+      "myProfile": "Mein Profil",
+      "accountSettings": "Kontoeinstellungen",
+      "logout": "Ausloggen"
+    }
+  },
+  "sidebar": {
+    "navigation": "Navigation",
+    "dashboard": "Dashboard",
+    "myTickets": "Meine Tickets",
+    "eventCalendar": "Event Kalender",
+    "ticketMarketplace": "Ticket Marktplatz",
+    "ticketPersonalization": "Ticket Personalisierung",
+    "support": "Support"
+  },
+  "errors": {
+    "selectionRequired": "Auswahl ist erforderlich!",
+    "fieldRequired": "Feld ist erforderlich!",
+    "usernameLength": "Mindestanzahl an Zeichen ist ",
+    "fieldLength": "Mindestanzahl an Zeichen ist ",
+    "badFormat": "Falsches Format!",
+    "passwordAndConfirmDidntMatch": "Passwörter stimmen nicht überein!",
+    "passwordMustIncludeUpperCaseLetter": "Passwort muss mindestens 1 Großbuchstaben enthalten!",
+    "passwordMustIncludeLowerCaseLetter": "Passwort muss mindestens 1 Kleinbuchstaben enthalten!",
+    "passwordMustIncludeDigit": "Passwort muss mindestens eine Ziffer enthalten!",
+    "passwordLength": "Passwort muss aus mindestens 6 Zeichen bestehen!",
+    "invalidEmail": "E-Mail ist ungültig!",
+    "emailAlreadyRegistered": "Diese E-Mail ist bereits registriert! Wenn Sie Ihr Passwort vergessen haben, setzen Sie es bitte mit der Passwort-Wiederherstellung zurück!",
+    "wrongEmailFormat": "E-Mail Format ist ungültig!",
+    "blacklistEmail": "E-mail ist ungültig!",
+    "usernameMustHaveFourChars": "Benutzername muss mindestens 4 Zeichen haben!",
+    "generalError": "Ein Fehler ist aufgetreten! Bitte versuchen Sie es erneut!"
+  },
+  "support": {
+    "needHelp": "Brauchen Sie Hilfe? Bitte kontaktieren Sie unser Support-Team",
+    "faq": "FAQ",
+    "faqDesc": "Mit Hilfe unserer FAQ lassen sich die meisten Fragen beantworten! <br> Ihr Problem konnte nicht gelöst werden? <br> Unser Support-Team hilft Ihnen gerne weiter.",
+    "emailContact": "Kontaktieren Sie uns per E-Mail",
+    "emailContactDesc": "Bitte senden Sie uns eine E-Mail und unser Support-Team wird sich so schnell wie möglich mit Ihnen in Verbindung setzen, um Ihr Problem zu lösen.",
+    "phoneContact": "Support Hotline",
+    "workingHours": "Montag - Freitag 9:00 - 17:00 Außerhalb der Geschäftszeiten und am Wochenende kontaktieren Sie uns bitte per E-Mail.",
+    "sendEmail": "E-Mail senden",
+    "email": "E-mail",
+    "name": "Name",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "messagePlaceholder": "Ihre Nachricht...",
+    "cancel": "Abbrechen",
+    "send": "Senden"
+  },
+  "eventCalendar": {
+    "title": "Event Kalender"
+  },
+  "ticketPersonalization": {
+    "list": {
+      "title": "Ticket Personalisierung",
+      "ticket": {
+        "status": {
+          "waitingForPersonalization": "Personalisierung ausstehend"
+        },
+        "date": "Datum",
+        "begin": "Beginn",
+        "doorsOpen": "Einlass",
+        "location": "Veranstaltungsort",
+        "amountOfTickets": "Anzahl Tickets",
+        "personalize": "Personalisieren",
+        "details": "Details"
+      },
+      "noTickets": "Im Moment sind keine Tickets verfügbar!"
+    },
+    "personalize": {
+      "title": "Ticket Personalisierung",
+      "ticketDetails": {
+        "date": "Datum",
+        "begin": "Beginn",
+        "doorsOpen": "Einlass",
+        "seat": "Platz",
+        "location": "Veranstaltungsort",
+        "organizer": "Veranstalter",
+        "bookingId": "Booking ID",
+        "ticketId": "Ticket ID",
+        "priceInclVat": "Preis inkl. Ust."
+      },
+      "assignTicket": {
+        "prepersonalizedTo": "Vorpersonalisiert auf",
+        "editPrepersonalization": "Name ändern",
+        "firstname": "Vorname",
+        "lastname": "Nachname",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "enterUsernameOrEmail": "Benutzername oder E-mail eingeben",
+        "idCheck": "ID Check",
+        "assignTicket": "Ticket zuweisen",
+        "notes": "Die Begleitperson ist minderjährig oder hat keinen FanSafe Benutzernamen und möchte sein Ticket vom Käufer verwalten lassen. Erstelle einen ",
+        "notesPopUp": "- Ein Haupkontenbesitzer kann bis zu 4 Personen verwalten. <br>- Der Hauptkontenbesitzer muss bereits einen ID Check durchgeführt haben, um einen Linked Account anzulegen. <br>- Linked Account Inhaber müssen ebenfalls einmalig einen ID Check durchführen. <br>- Linked Accounts sind mit Vor- und Nachnamen und Benutzernamen versehen. <br>- Linked Accounts können nur vom FanSafe Support gelöscht werden. <br>",
+        "linkedAccount": "Linked Account"
+      },
+      "backToOverview": "Zurück zur Übersicht",
+      "assignAllTickets": "Alle Tickets zuweisen"
+    }
+  },
+  "profile": {
+    "linked": {
+      "create": {
+        "labels":{
+          "title": "Neues Konto erstellen",
+          "currentStep": "Aktueller Schritt",
+          "personalData": "Persönliche Daten",
+          "idVerification": "ID Verifikation",
+          "username": "Benutzername",
+          "gender": "Geschlecht",
+          "male": "Männlich",
+          "female": "Weiblich",
+          "firstName": "Vorname",
+          "lastName": "Nachname",
+          "dayOfBirth": "Geburtsdatum",
+          "fieldIsRequired": "Feld ist erforderlich",
+          "address": "Adresse",
+          "zipcode": "Postleitzahl",
+          "city": "Stadt/Ort",
+          "country": "Land",
+          "relation": "Beziehung zum Haupkontenbesitzer",
+          "verifyLinkedText": "Bitte verifizieren Sie die Identität des Linked Account Benutzers! <b> Starten Sie die Verifizierung mit dem ID Check </b> Button.",
+          "verifyLinkedId": "ID Check"
+
+        },
+        "placeholders":{
+          "uploadImage": "Bild hochladen",
+          "username": "Benutzername eingeben",
+          "firstName": "Vorname eingeben",
+          "lastName": "Nachname eingeben",
+          "dayOfBirth": "Datumwählen",
+          "address": "Straße + Nummer eigeben",
+          "zipcode": "PLZ eingeben",
+          "city": "Stadt/Ort eingeben",
+          "country": "Bitte wählen",
+          "relation": "Bitte wählen"
+        },
+        "buttons":{
+          "cancel": "Abbrechen",
+          "next": "Weiter",
+          "previous": "Zurück"
+        }
+      },
+      "detail": {
+        "labels":{
+          "gender": "Geschlecht",
+          "male": "Männlich",
+          "female":"Weiblich",
+          "firstName":"Vorname",
+          "lastName":"Nachname",
+          "dayOfBirth": "Geburtsdatum",
+          "address": "Adresse",
+          "zipcode": "Postleitzahl",
+          "city": "Stadt/Ort",
+          "country": "Land",
+          "setPassword": "Passwort vergeben",
+          "linkedNotice": "Als Benutzer eines Linked Accounts können Sie ein Passwort vergeben. Mit Benutzername und Passwort können Sie sich dann in ihrem eigenen Konto anmelden.",
+          "backToOverview": "Zurück zur Übersicht"
+        },
+        "placeholders":{
+          "address": "Straße + Nummer eigeben",
+          "zipcode": "PLZ eingeben",
+          "city": "Stadt/Ort eingeben",
+          "country":"Bitte wählen"
+        },
+        "buttons":{
+          "save": "Speichern"
+        }
+      },
+      "list": {
+        "labels":{
+          "title": "Neues Konto verbinden"
+        }
+      },
+      "linked-empty":{
+        "labels":{
+          "title":"Neues Konto verbinden"
+        },
+        "text":{
+          "notice1": "Sie haben derzeit keine Linked Accounts. Sie können bis zu 4 Konten mit Ihrem Hauptkonto verbinden und die Tickets für diese Personen verwalten. ",
+          "notice2": "Die Verwendung eines Linked Accounts erfordert ebenfalls einen ID-Check dieser Person. Diese Verifizierung muss über das Hauptkonto durchgeführt werden."
+        }
+      }
+    },
+    "profile": {
+      "labels":{
+        "gender": "Geschlecht",
+        "male": "Männlich",
+        "female":"Weiblich",
+        "firstName":"Vorname",
+        "lastName":"Nachname",
+        "dayOfBirth": "Geburtsdatum",
+        "address": "Adresse",
+        "zipcode": "Postleitzahl",
+        "city": "Stadt/Ort",
+        "country": "Land",
+        "phone": "Telefonnummer",
+        "phoneRequired": "Telefonnummer erforderlich",
+        "standardEmail": "Standard E-Mail",
+        "emailCounter": "Email",
+        "useAsStandard": "Als Standard verwenden",
+        "additionalNew": "Email",
+        "confirmStandardEmail": "Standard E-Mail Änderung bestätigen",
+        "changeStandardEmail": "Bitte geben Sie Ihr Passwort ein, um Ihre Standard E-Mail-Adresse zu ändern."
+      },
+      "placeholders":{
+        "uploadImage": "Bild hochladen",
+        "address": "Straße + Nummer eigeben",
+        "zipcode": "PLZ eingeben",
+        "city": "Stadt/Ort eingeben",
+        "country":"Bitte wählen",
+        "additionalEmail": "Geben Sie eine zusätzliche E-Mail-Adresse ein.",
+        "addAditionalEmail": "Fügen Sie zusätzliche E-Mails hinzu, wenn Sie auf einem Ticketportal mit einer anderen E-Mail als Ihrer FanSafe Standard-E-Mail registriert sind."
+      },
+      "buttons":{
+        "cancel":"Abbrechen",
+        "save":"Speichern"
+      }
+    },
+    "profile-layout": {
+      "labels":{
+        "mainAccount":"Hauptkonto - Persönliche Daten",
+        "linkedAccount":"Verknüpfte Konten"
+
+      }
+    }
+  },
+  "account": {
+    "account-layout": {
+      "labels":{
+        "accountSettings":"Kontoeinstellungen",
+        "payoutSettings":"Auszahlungseinstellungen"
+      }
+    },
+    "main-account": {
+      "labels":{
+        "changePassword":"Passwort ändern"
+      },
+      "placeholders":{
+        "enterCurrentPassword": "Aktuelles Passwort",
+        "enterNewPassword": "Neues Passwort",
+        "confirmNewPassword": "Neues Passwort bestätigen"
+      },
+      "buttons":{
+        "cancel":"Abbrechen",
+        "save":"Speichern"
+      }
+    },
+    "payment": {
+      "labels": {
+        "notice": "Um eine schnelle und sichere Zahlungsabwicklung durchführen zu können, nutzt Fansafe Stripe Connect. Sobald Sie eine gültige Identitätsprüfung durchgeführt haben, können Sie den Adressnachweis und Ihren IBAN bekannt geben. Erhaltene Zahlungen werden vorübergehend in Ihrem FanSafe Kontostand angezeigt. Sobald Stripe einen Betrag freigibt, wird dieser automatisch auf Ihr Bankkonto überwiesen.",
+        "status": "Status",
+        "dataProvided": "Daten bereitgestellt - Stripe-Konto aktiviert",
+        "noData": "Keine Daten vorhanden",
+        "dataInChecking":"Ihre Daten werden überprüft",
+        "updateBankAccount":"Bankverbindung aktualisieren",
+        "provideAddressProof":"Adressnachweis und Bankverbindung bereitstellen"
+      },
+      "proofOfAddress": {
+        "cancel": "Abbrechen",
+        "next": "Weiter",
+        "close": "Schließen",
+        "tryAgain": "Erneut versuchen",
+        "termsAndCond": "Mit der Eingabe Ihrer Daten stimmen Sie den AGBs und den Datenschutzbestimmungen von Stripe und Fansafe zu.",
+        "pleaseProvideBankAccountData": "Bitte Bankverbindung angeben",
+        "iban": "IBAN",
+        "ibanPlaceholder": "IBAN eingeben",
+        "pleaseUploadDoc": "Bitte laden Sie ein Dokument zum Addressnachweis hoch.",
+        "uploadDocInfo": "Sie können eine Meldebestätigung oder eine Strom-/Gasrechnung verwenden.",
+        "note": "Hinweis",
+        "noteDesc": "Ihr Name muss auf der Strom-/Gasrechnung stehen.",
+        "uploadDoc": "Adressnachweis hochladen",
+        "allowedFormats": "Erlaubte Formate",
+        "verificationFailed": "Verifikation fehlgeschlagen",
+        "verificationSuccessful": "Wir haben Ihre Daten erhalten! Es kann einige Minuten dauern, bis wir Ihre Daten überprüft haben. Sie können dieses Fenster jetzt schließen!",
+        "thankYou": "Danke!"
+      }
+    }
+  },
+  "marketplace": {
+    "tabs": {
+      "ticketMarketplace": "Ticket Marktplatz",
+      "mySales": "Meine Verkäufe"
+    },
+    "list": {
+      "filter": "Filter",
+      "noTickets": "Im Moment sind keine Tickets verfügbar!",
+      "filters": {
+        "events": "Veranstaltungs Filter",
+        "eventsPlaceholder": "Veranstaltungsname eingeben",
+        "category": "Kategorie",
+        "categoryPlaceholder": "Kategorie wählen",
+        "priceRange": "Preis",
+        "from": "von",
+        "to": "bis",
+        "fromTo": "von - bis",
+        "location": "Veranstaltungsort",
+        "locationPlaceholder": "Ort wählen"
+      },
+      "ticket": {
+        "date": "Datum",
+        "begin": "Beginn",
+        "doorsOpen": "Einlass",
+        "seat": "Platz",
+        "location": "Veranstaltungsort",
+        "buyTicket": "Ticket kaufen",
+        "exclFees": "zzgl. Gebühren",
+        "edit": "Bearbeiten"
+      }
+    },
+    "edit": {
+      "title": "Ticket bearbeiten",
+      "date": "Datum",
+      "begin": "Beginn",
+      "doorsOpen": "Einlass",
+      "seat": "Platz",
+      "location": "Veranstaltungsort",
+      "bookingId": "Booking ID",
+      "ticketId": "Ticket ID",
+      "priceInclVat": "Preis inkl. Ust. ",
+      "editTicket": "Ticket bearbeiten ",
+      "invalidPrice": "Ungültiger Preis ",
+      "invalidPriceMessage": "Der Preis darf den Orginal-Preis nicht überschreiten!",
+      "possiblePayout": "Mögliche Auszahlung",
+      "withdrawalFees": "Es können Auszahlungsgebühren anfallen",
+      "pleaseNote": "Bitte beachten Sie",
+      "note": "Zum Verkauf angebotene Tickets werden entsprechend Ihren Einstellungen am FanSafe MarktPlatz platziert. Die angebotenen Tickets können anschließend im Menü \"Meine Verkäufe\" bearbeitet werden. Käufer und Verkäufer bleiben anonym. Sobald das Ticket verkauft wurde, erhält der Verkäufer eine E-Mail und die Zahlung erfolgt über Stripe. Im Falle eines Nicht-Verkaufs besteht kein Anspruch auf Rückerstattung.",
+      "cancel": "Abbrechen",
+      "removeAd": "Anzeige löschen",
+      "save": "Speichern",
+      "deleteAd": "Anzeige löschen",
+      "removeAdInfo": "Ihre Anzeige wird vom MarktPlatz entfernt und das Ticket zu \"Meine Tickets\" verschoben. Möchten Sie die Anzeige wirklich löschen?",
+      "delete": "Löschen"
+    },
+    "buyTicket": {
+      "title": "Ticket kaufen",
+      "reserved": "Ticket ist reserviert",
+      "cancel": "Abbrechen",
+      "proceedToCheckout": "Zur Kasse gehen",
+      "details": {
+        "date": "Datum",
+        "begin": "Beginn",
+        "doorsOpen": "Einlass",
+        "seat": "Platz",
+        "location": "Veranstaltungsort",
+        "bookingId": "Booking ID",
+        "ticketId": "Ticket ID",
+        "priceInclVat": "Preis inkl. Ust. "
+      },
+      "seatPlan": "Sitzplan",
+      "back": "Zurück",
+      "poweredByStripe": "Powered by <b>Stripe</b> ",
+      "termsPrivacy": "Terms & Privacy",
+      "close": "Schließen",
+      "assignTickets": {
+        "newTicketHolder": "Neuer Ticketinhaber",
+        "bestCloseTickets": "Beste Tickets in der Nähe",
+        "assignTo": "Zuweisen zu",
+        "selectUserPlaceholder": "Benutzer wählen"
+      },
+      "buyTickets": {
+        "checkout": "Kasse",
+        "subTotal": "Zwischensumme",
+        "repersonalizationFee": "Umpersonalisierungsgebühr a",
+        "transactionFee": "Servicegebühren",
+        "total": "Summe",
+        "allPricesInclVat": "Alle Preise inkl. Ust."
+      },
+      "successMessage": "Wir haben Ihre Zahlung erhalten!<br/> Die Tickets sind jetzt in Ihrem Fansafe Konto verfügbar.",
+      "failMessage": "Zahlung fehlgeschlagen!"
+    }
+  },
+  "camera-view": {
+    "backToImage": "Zurück zum Bild-Upload",
+    "takePhoto":"Foto machen",
+    "takeNewPhoto":"Neues Foto machen"
+  },
+  "notifications": {
+    "account": {
+      "passwordUpdated": "Passwort wurde aktualisiert!"
+    },
+    "auth": {
+      "passwordRecovery": "Der Link zur Passwortwiederherstellung wurde erfolgreich gesendet. Bitte überprüfen Sie Ihre E-Mail.",
+      "passwordReset": "Passwort erfolgreich gändert!",
+      "registrationCompleted": "Registrierung erfolgreich abgeschlossen!",
+      "profileImageUploaded": "Profilbild hochgeladen!",
+      "usernameExists": "Benutzername existiert bereits!"
+    },
+    "cardPayment": {
+      "preparingData": "Daten werden vorbereitet...",
+      "unknownPaymentType": "Unbekannte Zahlungsart",
+      "paymentInProgress": "Zahlung wird durchgeführt!",
+      "paymentFailed": "Zahlung fehlgeschlagen!",
+      "submitingCardDetails": "Kreditkarten-Detailswerden übermittelt...",
+      "cardSubmitedSuccessfuly": "Kreditkarten-Detailswurden erfolgreich übermittelt. Bitte warten, bis die Zahlung bestätigt wurde!",
+      "cardSubmitFailed": "Zahlung fehlgeschlagen! Status: "
+    },
+    "idVerification": {
+      "linkedAccountCreated": "Linked Account wurde erfolgreich angelegt!"
+    },
+    "marketplace": {
+      "paymentFailed": "Zahlung fehlgeschlagen!",
+      "ticketRemovedFromSale": "Ticket wurde vom MarktPlatz entfernt!",
+      "changesSaved": "Änderungen erfolgreich gespeichert!"
+    },
+    "personalization": {
+      "usernameNotValid": "Benutzername/E-mail nicht gültig!",
+      "ticketAssigned": "Ticket erfolgreich zugewiesen!",
+      "ticketsAssigned": "Tickets erfolgreich zugewiesen!",
+      "nothingToAssign": "Kein Ticket zuzuweisen!",
+      "ticketHolderChanged": "Ticketinhaber erfolgreich geändert!"
+    },
+    "profile": {
+      "profileUpdated": "Profil erfolgreich aktualisiert!",
+      "emailAdded": "E-mail wurde hinzugefügt!",
+      "additionalEmailAdded": "Zusätzliche E-mail wurde hinzugefügt!",
+      "profileImageUploaded": "Profilbild hochgeladen!",
+      "profileImageDeleted": "Profilbild entfernt!",
+      "standardEmailUpdated": "Standard E-mail aktualisiert!",
+      "additionalEmailDeleted": "Zusätzliche E-mail entfernt!",
+      "linkedAccountUpdated": "Linked Account Profil aktualisiert!",
+      "linkedAccountPasswordSet": "Linked Account Passwort gespeichert!",
+      "linkedAccountCreated": "Linked Account Benutzer wurde erfolgreich angelegt!"
+    },
+    "tickets": {
+      "ticketOfferPlaced": "Ticketangebot erfolgreich platziert!",
+      "ticketReturned": "Ticketrückgabe erfolgreich!",
+      "paymentFailed": "Zahlung fehlgeschlagen!"
+    }
+  },
+  "cardPayment": {
+    "paymentMethod": "Zahlungsmethode",
+    "creditCard": "Kreditkarte",
+    "sofort": "Sofort Banking",
+    "cardInformation": "Kreditkartendaten eingeben",
+    "pay": "Bezahlen"
+  },
+  "idVerification": {
+    "title": "ID Verifikation",
+    "previous": "Zurück",
+    "cancel": "Abbrechen",
+    "start": "Start",
+    "next": "Weiter",
+    "verifyId": "ID überprüfen",
+    "close": "Schließen",
+    "tryAgain": "Erneut versuchen",
+    "idVerifReasons": "Wir müssen Ihre ID überprüfen, um",
+    "reason1": "einen schnellen, problemlosen Zutritt zur Veranstaltung mit dem personalisierten Ticket zu gewährleisten.",
+    "reason2": "sicherzustellen, dass Tickets den richtigen Personen zugewiesen werden.",
+    "reason3": "Auszahlungen von Ihren Marktplatz verkäufen durchzuführen.",
+    "pleasePrepareDocs": "Bevor sie mit dem ID Check beginnen, bereiten Sie bitte folgende Dokumente vor.",
+    "doc1": "Lichtbildausweis (Reisepass, Führerschein oder Personalausweis)",
+    "doc2": "Selfie (Frontansicht, ohne Sonnenbrille, Kopfbedeckung oder Maske)",
+    "chooseIdDoc": "Bitte wählen Sie das Dokument, das Sie für den ID-Check verwenden möchten.",
+    "passport": "Reisepass",
+    "driversLicense": "Führerschein",
+    "personalIdCard": "Personalausweis",
+    "pleaseUploadPassport": "Wenn Sie eine digitale Kopie ihres Reisepasses auf Ihrem PC haben, laden Sie ihn bitte hoch.",
+    "uploadPassport": "Reisepass hochladen",
+    "pleaseUploadDriverLicense": "Wenn Sie eine digitale Kopie ihres Führerscheins auf Ihrem PC haben, laden Sie ihn bitte hoch.",
+    "uploadDriverLicenseFront": "Führerschein Vorderseite hochladen",
+    "uploadDriverLicenseBack": "Führerschein Rückseite hochladen",
+    "pleaseUploadIdCard": "Wenn Sie eine digitale Kopie ihres Personalausweises auf Ihrem PC haben, laden Sie ihn bitte hoch.",
+    "uploadIdCardFront": "Personalausweis Vorderseite hochladen",
+    "uploadIdCardBack": "Personalausweis Rückseite hochladen",
+    "allowedFormats": "Gültige Formate",
+    "or": "oder",
+    "scanQR": "Scannen Sie den QR-Code, um den Prozess auf Ihrem Mobilgerät fortzusetzen",
+    "note": "Hinweis",
+    "noteDesc": "Bei älteren Smartphones, müssen Sie möglicherweise eine QR-Code Scannning App aus dem AppStore oder PlayStore laden.",
+    "pleaseTakeSelfie": "Bitte machen Sie ein Selfie mit der WebCam",
+    "takeSelfie": "Selfie mit WebCam machen",
+    "uploadSelfie": "Selfie vom PC hochladen",
+    "noteSelfie": "Hinweis",
+    "noteSelfieDesc": "Frontansicht empfohlen! Bitte keine Sonnenbrille, Kopfbedeckung oder Maske tragen!",
+    "uploadSelfieButton": "Selfie hochladen",
+    "verificationFailed": "Verifikation fehlgeschlagen!",
+    "verificationSuccessful": "Wir haben Ihre Daten erhalten! Die Überprüfung kann einige Minuten dauern. Sie können dieses Fenster jetzt schließen!",
+    "thankYou": "Danke!",
+    "pleaseTakeAPictureOfPassport": "Bitte machen Sie ein Foto von Ihrem Reisepass (Fotoseite)",
+    "takeAPictureNote": "Hinweis",
+    "takeAPictureNote1": "Alle Daten müssen vollständig sichtbar sein!",
+    "takeAPictureNote2": "Alle Daten müssen gut lesbar sein!",
+    "takeAPictureNote3": "Gute Lichtverhältnisse sicherstellen!",
+    "takeAPictureNote4": "Vermeiden Sie Reflektionen!",
+    "takePicturePassport": "Foto vom Reisepass machen",
+    "pleaseTakeAPictureOfDriversLicense": "Bitte machen sie Fotos von Ihrem Führerschein (Vor- und Rückseite)",
+    "takeAPictureOfDriversLicenseFront": "Schritt 1: Foto der Vorderseite machen",
+    "takeAPictureOfDriversLicenseBack": "Schritt 2: Foto der Rückseite machen",
+    "pleaseTakeAPictureOfIdCard": "Bitte machen sie Fotos von Ihrem Personalausweis (Vor- und Rückseite)",
+    "takeAPictureOfIdCardFront": "Schritt 1: Foto der Vorderseite machen",
+    "takeAPictureOfIdCardBack": "Schritt 2: Foto der Rückseite machen",
+    "takeASelfieMobile": "Bitte machen Sie ein Selfie",
+    "takeASelfiePictureNote1": "Gute Lichtverhältnisse sicherstellen!",
+    "takeASelfiePictureNote2": "Gesicht muss vollständig sichtbar ist!",
+    "takeASelfiePictureNote3": "Bitte keine Sonnenbrille, Kopbedeckung, Maske tragen!",
+    "takeASelfiePictureNote4": "Vermeiden Sie Reflektionen!",
+    "uploadSelfieMobile": "Selfie vom Mobilgerät hochladen",
+    "uploadSelfieMobileNote": "Frontansicht, ohne Sonnenbrille, Kopfbedeckung oder Maske",
+    "uploadSelfieMobileButton": "Selfie hochladen",
+    "takeASelfie": "Selfie machen"
+  },
+  "tickets":{
+    "details":{
+      "labels":{
+        "bookingID":"Booking ID",
+        "ticketID":"Ticket ID",
+        "date":"Datum",
+        "begin":"Beginn",
+        "doorsOpen":"Einlass",
+        "seat":"Platz",
+        "location":"Veranstaltungsort",
+        "ticketHolder": "Ticketinhaber ",
+        "organizer":"Veranstalter",
+        "priceIncl":"Preis inkl. Ust. ",
+        "backSideTitle":"Bitte beachten Sie die folgenden Richtlinien ",
+        "backSideText":"Es gelten die Geschäftsbedingungen des Veranstalters. Alle Tickets sind personalisiert. Nur der Ticketinhaber ist berechtigt, an der Veranstaltung teilzunehmen. Tickets können nur über FanSafe zum Originalpreis oder zu einem niedrigeren Preis weiterverkauft werden. Umpersonalisierungen sind nur über FanSafe möglich. ",
+        "presentedBy":"Präsentiert von ",
+        "backToOverview":"Zurück zur Übersicht",
+        "showTerms": "Rückseite anzeigen",
+        "showFront": "Vorderseite anzeigen"
+      }
+    },
+    "layout":{
+      "labels":{
+        "upcomingEvents": "Bevorstehende Veranstaltungen",
+        "visitedEvents": "Besuchte Veranstaltungen"
+      }
+    },
+    "rePersonalize":{
+      "labels":{
+        "title":"Ticket umpersonalisieren",
+        "bookingID":"Booking ID",
+        "ticketID":"Ticket ID",
+        "date":"Datum",
+        "begin":"Beginn",
+        "doorsOpen":"Einlass",
+        "seat":"Platz",
+        "location":"Veranstaltungsort",
+        "ticketHolder": "Ticketinhaber ",
+        "priceIncl":"Preis inkl. Ust.",
+        "rePersonalize":"Ticket umpersonalisieren",
+        "rePersonalizeNotice": "Der neue Ticketinhaber muss bereits bei FanSafe registriert sein. Bitte geben Sie seinen  Benutzernamen oder E-Mail Adresse ein! ",
+        "rePersonalizeTo":"Umpersonalisieren",
+        "nonExistingUser":"Benutzer existiert nicht! Bitte achten Sie auf Groß- und Kleinschreibung!",
+        "pleaseNote":"Bitte beachten Sie",
+        "notice":"Ein Ticket kann vom Ticketinhaber nur einmal umpersonalisiert werden. <br> Der Verkauf des Tickets zu einem höheren Preis als den Originalpreis ist nicht gestattet und wird strafrechtlich verfolgt. Verstöße können zur Sperrung Ihres Kontos führen. ",
+        "acceptRePersonalization":"Ich akzeptiere die Bedingungen der Umpersonalisierung",
+        "acceptRequired":"Sie müssen die Bedingungen akzeptieren, um fortzufahren",
+        "newTicketOwner":"Neuer Ticketinhaber ",
+        "checkout":"Kasse ",
+        "rePersonalizationFee":"Umpersonalisierungsgebühr",
+        "subtotal":"Zwischensumme ",
+        "serviceFee":"Servicegebühren ",
+        "total":"Summe ",
+        "allPricesInclVat":"Alle Preise inkl. Ust. ",
+        "poweredBy":"Powered by <b>Stripe</b> ",
+        "termsPrivacy":"Terms & Privacy",
+        "seatPlan": "Sitzplan"
+      },
+      "buttons":{
+        "cancel":"Abbrechen",
+        "next":"Weiter",
+        "close":"Schließen"
+      },
+      "placeholders":{
+        "enterUsername":"FanSafe Benutzername oder E-mail eintragen"
+      },
+      "failPage":{
+        "title":"Zahlung fehlgeschlagen!" 
+      },
+      "successPage":{
+        "title":"Zahlung erfolgreich abgeschlossen!"
+      }
+      
+  },
+  "returnTicket": {
+    "labels": {
+      "title": "Ticket stornieren", 
+      "bookingID": "Booking ID", 
+      "ticketID": "Ticket ID", 
+      "date": "Datum", 
+      "begin": "Beginn", 
+      "doorsOpen": "Einlass", 
+      "seat": "Platz", 
+      "location": "Veranstaltungsort", 
+      "priceIncl": "Preis inkl. Ust. ", 
+      "title2":"Ticket stornieren ", 
+      "possiblePayout":"Mögliche Auszahlung", 
+      "withdrawalFee":"Es können Auszahlungsgebühren anfallen", 
+      "reasonForReturn":"Stornogrund", 
+      "pleaseNote":"Bitte beachten Sie", 
+      "notice":"Die Rückerstattung erfolgt durch den Ticketverkäufer. Fansafe hat keinen Einfluss darauf. Stornierte Tickets werden im Buchungssystem des Ticketverkäufers für den Verkauf reaktiviert und Ihre Reservierung wird gelöscht. Durch die Stornierung wird das Ticket aus Ihrem Fansafe Konto entfernt. Sobald das Ticket verkauft wurde, erhalten Sie den ursprünglichen Ticketpreis zurück. Weder Fansafe noch der Ticketverkäufer garantieren, dass das Ticket wieder verkauft wird. Wenn das Ticket nicht verkauft wird, besteht kein Anspruch auf eine Rückerstattung.", 
+      "returnPolicy":"Ich akzeptiere die Rückgabebedingungen", 
+      "terms":"Sie müssen die Bedingungen akzeptieren, um fortzufahren"
+    },
+    "buttons":{
+      "cancel":"Abbrechen", 
+      "returnTicket":"Ticket stornieren"
+    },
+    "placeholders":{
+      "returnReason":"Bitte wählen Sie einen Stornogrund"
+    }
+  },
+  "sellTicket": {
+    "labels": {
+      "title": "Ticket verkaufen", 
+      "bookingID": "Booking ID", 
+      "ticketID": "Ticket ID", 
+      "date": "Datum", 
+      "begin": "Beginn", 
+      "doorsOpen": "Einlass", 
+      "seat": "Platz", 
+      "location": "Veranstaltungsort", 
+      "priceIncl": "Preis inkl. Ust. ", 
+      "title2": "Ticket verkaufen", 
+      "enterPrice": "Bitte Ticketpreis eintragen", 
+      "invalidPrice": "Ungültiger Preis", 
+      "possiblePayout":"Mögliche Auszahlung", 
+      "withdrawalFee":"Es können Auszahlungsgebühren anfallen", 
+      "pleaseNote":"Bitte beachte Sie", 
+      "notice":"Zum Verkauf angebotene Tickets werden entsprechend Ihren Einstellungen am FanSafe MarktPlatz platziert. Die angebotenen Tickets können anschließend im Menü \"Meine Verkäufe\" bearbeitet werden. Käufer und Verkäufer bleiben anonym. Sobald das Ticket verkauft wurde, erhält der Verkäufer eine E-Mail und die Zahlung erfolgt über Stripe. Im Falle eines Nicht-Verkaufs besteht kein Anspruch auf Rückerstattung."
+    },
+    "buttons":{
+      "cancel":"Abbrechen", 
+      "sellTicket":"Ticket verkaufen"
+    }
+  },
+  "upcoming": {
+    "filters": {
+      "title":"Filter", 
+      "fromTo": "von - bis", 
+      "category": "Kategorie", 
+      "additionalFilters":"Weitere Filter"
+    },
+    "labels": {
+      "noTickets":"Im Moment sind keine Tickets verfügbar!", 
+      "details":"Details", 
+      "ticketOnSale":"Ticket im Verkauf", 
+      "rePersonalizationWaiting": "Umpersonalisierung ausstehend", 
+      "paymentWaiting":"Zahlung ausstehend", 
+      "linkedAccTicket":"Linked Account Ticket -  ", 
+      "date": "Datum", 
+      "begin": "Beginn", 
+      "doorsOpen": "Einlass", 
+      "seat": "Platz", 
+      "location": "Veransltatungsort", 
+      "details2":"Details", 
+      "actions":"Verwalten", 
+      "sellTicket": "Ticket verkaufen", 
+      "returnTicket": "Ticket stornieren", 
+      "rePersonalizeTicket": "Ticket umpersonalisieren"
+    },
+    "placeholders":{
+      "fromTo":"von - bis", 
+      "selectCategory":"Kategorie wählen", 
+      "selectFilter":"Filter wählen"
+    }
+  },
+  "visited": {
+    "filters": {
+      "title":"Filter", 
+      "fromTo": "von - bis", 
+      "category": "Kategorie", 
+      "additionalFilters":"Weitere Filter"
+    },
+    "labels": {
+      "noTickets":"Im Moment sind keine Tickets verfügbar!", 
+      "details":"Details", 
+      "date": "Datum", 
+      "begin": "Beginn", 
+      "doorsOpen": "Einlass", 
+      "seat": "Platz", 
+      "location": "Veranstaltungsort"         
+    },
+    "placeholders":{
+      "fromTo":"von - bis", 
+      "selectCategory":"Kategorie wählen", 
+      "selectFilter":"Filter wählen"
+    }
+  }
+  },
+  "ticketFilters": {
+    "selectAll": "Alle wählen",
+    "unselectAll": "Auswahl entfernen",
+    "concerts": "Konzerte",
+    "culture": "Kultur",
+    "sports": "Sport",
+    "musicalAndShow": "Musical & Show",
+    "cabaretAndComedy": "Kabarett & Comedy",
+    "search": "Suche",
+    "linkedAccounts": "Linked Account Tickets",
+    "onSale": "Tickets im Verkauf",
+    "repersonalization": "Tickets mit \"Umpers. austehend\"",
+    "waitingForPayment": "Tickets mit \"Zahlung austehend\""
+  },
+  "relationToMainAccount": {
+    "grandfather": "Großvater",
+    "grandmother": "Großmutter",
+    "father": "Vater",
+    "mother": "Mutter",
+	  "husband": "Ehemann",
+    "wife": "Ehefrau",
+    "partner": "Partner",
+    "child": "Kind",
+    "brother": "Bruder",
+    "sister": "Schwester",
+    "uncle": "Onkel",
+    "aunt": "Tante"
+  },
+  "reasonsForReturn": {
+    "personalizationDeadline": "Personalisierungsfrist abgelaufen",
+    "illness": "Krankheit",
+    "professionalReasons": "Aus beruflichen Gründen",
+    "other": "andere"
+  }
+}

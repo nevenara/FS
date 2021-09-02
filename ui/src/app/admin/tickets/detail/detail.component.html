@@ -1,0 +1,146 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center my-2">
+            <h3 class="card-title text-blue-400">Ticket Details</h3>
+            <hr class="hr-blue">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+          <div class="container">
+            <div class="card border-0">
+                <div class="card-header d-flex">
+
+                        <span class="custom-size font-weight-bold">Status</span>
+                        <span class="badge custom-badge ml-2  badge-success">Personalized</span>
+
+                    <div class="ml-auto">
+                        <button class="btn bg-blue-400">Send Payment Link</button>
+                        <button (click)="toggle()" class="btn ml-3 bg-orange">Re-Personalize Ticket</button>
+                    </div>
+                </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="five-img">
+                    <img src="../../../assets/images/Five death.PNG" class="w-100" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="card custom-height mb-0">
+                    <div class=" p-1 row">
+                        <div class="col-lg-8 pr-md-0">
+                          <h4 class="font-weight-bold mb-0">Five Finger Death Punch</h4>
+                          <h5 class="font-weight-bold">Support by Megadeth & Bad Wolves</h5>
+                          <span class="custom-size"><b>Date: </b>DD.MM.YYYY</span>
+                          <span class="custom-size mx-2"><b>Begin: </b>19:30</span>
+                          <span class="custom-size"><b>Doors open: </b>18:00</span> <br>
+                          <span class="custom-size "><b>Seat: </b>Standing Inner Space</span> <br>
+                          <div class="media">
+                            <span class="custom-size"><b>Location: </b></span>
+                            <div class="media-body">
+                              <span class="custom-size "> Vienna, Stadthalle,  Roland-Rainer-Platz 1, 1150 Wien</span>                      </div>
+                            </div>
+
+                            <span class="custom-size "><b>Ticket Holder: </b>Firstname Lastname/Username</span>  <br> <br>
+                            <span class="pt-5 custom-size d-none d-md-block"><b>Organizer: </b>Livegiest Entertainment Gmbh 37, Germany</span>
+
+                        </div>
+                        <div class="col-lg-4 ml-auto">
+                         <div class="text-right pr-2">
+                          <span class="custom-size "><b>Booking ID: </b>33446677</span> <br>
+                          <span class="custom-size "><b>Ticket ID: </b>238878</span>
+                          <h5 class="mb-0 mt-3 mr-md-4"><b>EUR </b>57.66</h5>
+                          <span>Price incl. all fees and VAT</span>
+                         </div>
+                          <div class="qr-img ml-auto">
+                            <img src="../../../assets/images/websiteQRCode_noFrame.png" class="img-fluid" alt="">
+                          </div>
+                          <span class="small d-block d-md-none"><b>Organizer: </b>Livegiest Entertainment Gmbh 37, Germany</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+                <div *ngIf="show"  class="row mt-3">
+                    <div class="col-lg-4 text-md-center">
+                        <h5><b>Personalized to:</b> &nbsp; Markus Rein</h5>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="text" placeholder="fr4ntic79" readonly class="form-control">
+                    </div>
+                </div>
+                <div *ngIf="hide"  class="row mt-3">
+                    <div class="col-lg-6 pl-3 text-md-center">
+                       <div class="input-group">
+                        <h5><b>New Ticket Holder:</b></h5>
+                        <input type="text" placeholder="Enter Firstname Lastname" class="form-control ml-3">
+                       </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group form-group-feedback form-group-feedback-right">
+                            <input type="text" class="form-control " placeholder="Enter email or username of Markus Rein">
+                            <div class="form-control-feedback form-control-feedback-lg">
+                                <i class="icon-search4 text-muted"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-lg-12 text-center">
+                        <button class="btn px-4 btn-dark">Cancel</button>
+                        <button *ngIf="hide" class="btn btn-success ml-3 px-4">Save</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group  text-blue-400 content-divider">
+                <span class="px-2 custom-size ml-5">Change History</span>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="card">
+
+                <div class="table-responsive ">
+                    <table class="table custom-padding">
+                        <thead>
+                            <tr class="table-border-solid">
+                                <th>#</th>
+                                <th>Editor</th>
+                                <th>Change Date</th>
+                                <th>Change Time</th>
+                                <th>Original Value </th>
+                                <th>New Value</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>SupportAgent XY (supportagent@xy.com) </td>
+                                <td>21.06.2021</td>
+                                <td>13:31:45</td>
+                                <td>Markus Rein</td>
+                                <td>Norbert Schalk</td>
+
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>SupportAgent XY (supportagent@xy.com) </td>
+                                <td>21.06.2021</td>
+                                <td>13:31:45</td>
+                                <td>fr4ntic79 </td>
+                                <td>Norbi123</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>

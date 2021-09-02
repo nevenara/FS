@@ -1,0 +1,11 @@
+<div class="modal-header  bg-dark">
+    <img class="img-fluid" src="../../assets/images/FanSafe-Logo.png" alt="">
+</div>
+<div class="modal-body px-md-4">
+    <div class="text-center m-auto">
+        <h6 class="font-weight-bold mb-0 h3">ID Verification</h6>
+    </div>
+   <app-initial-id-verification *ngIf="show === 1"></app-initial-id-verification>
+   <app-choose-id-document  [selectedId] = "selectedId" *ngIf="show === 2" ></app-choose-id-document>
+   <app-upload-id-document  [selectedId] = "selectedId" *ngIf="show === 3"></app-upload-id-document>
+</div>

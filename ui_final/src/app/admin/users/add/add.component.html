@@ -1,0 +1,170 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center my-2">
+      <h3 class="card-title text-blue-400">Add User</h3>
+      <hr class="hr-blue">
+    </div>
+  </div>
+  <preloader-app *ngIf='loader'></preloader-app>
+  <div class="content" *ngIf='!loader'>
+    <div class="row">
+      <div class="col-lg-3 w-md-100 mb-3 text-center">
+        <div class="profile-img d-inline-block">
+          <img src='{{profileImageUrl}}' class="" alt="">
+        </div>
+        <div class="col-lg-12">
+          <div class="form-group d-inline-block">
+            <label for="passport"></label>
+            <input type="button" id="loadFileXml" value="Upload Image"
+              onclick="document.getElementById('imagelinked').click()"
+              class='action btn bg-primary rounded' />
+            <input (change)='uploadImage($event)' type="file" id="imagelinked" style="display:none"
+              name="imagelinked">
+          </div>
+          <div class="ml-3 d-inline-block mt-3">
+            <a (click)="deleteImage()"><i class="fas fa-trash text-primary"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 w-md-100">
+        <form action="#" [formGroup]="form">
+          <div class="form-group row text-left">
+            <div class="custom-control pl-1 custom-control-right custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input green-input" id="custom_checkbox_inline_right_checked"  #mainCheck (change)="IsMainCheck()"  [checked]="isMainAccount">
+              <label class="custom-control-label position-static text-blue-4000 font-weight-bold"
+                for="custom_checkbox_inline_right_checked">Is Main Account</label>
+            </div>
+          </div>
+          <div class="form-group text-left row">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Gender</label>
+            <div class="col-lg-8">
+              <div class="form-group mb-3 mb-md-2">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input (change)='genderSelected = 2' type="radio" class="custom-control-input"
+                    name="Gender"  id="male" value="Male" [checked]="genderSelected == 2">
+                  <label class="custom-control-label text-dark" for="male">Male</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input (change)='genderSelected = 1' type="radio" class="custom-control-input"
+                    name="Gender"  id="female" value="Female" [checked]="genderSelected == 1">
+                  <label class="custom-control-label text-dark" for="female">Female</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Username</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" minlength="4" formControlName="Username"  placeholder="Enter your Username" [(ngModel)]="username">
+              <errors [control]="f.Username" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">First Name</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control " formControlName="Firstname" placeholder="Enter your First Name" [(ngModel)]="firstName">
+              <errors [control]="f.Firstname" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Last Name</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control"  formControlName="Lastname" placeholder="Enter your Last Name" [(ngModel)]="lastName">
+              <errors [control]="f.Lastname" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Day of Birth</label>
+            <div class="col-lg-4">
+              <form class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                        <i class="icon-calendar22"></i>
+                      </button>
+                    </div>
+                    <input class="form-control" placeholder="Select Date" formControllName="date" [readonly]="true" (click)="d.toggle()"
+                           name="dp" [(ngModel)]="model"  ngbDatepicker #d="ngbDatepicker" (ngModelChange)="setDate();validateDate() " [minDate]="minDate" [maxDate]="maxDate">
+                    
+                  </div>
+                </div>
+              </form>
+              <span class="" *ngIf="emptyDate"><i class="fa fa-times-circle text-danger d-inline-block mr-1"></i><p class="d-inline-block text-danger mt-1" >Field is required</p></span>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Address</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" formControlName="Address"  placeholder="Enter Street + Number" [(ngModel)]="address">
+              <errors [control]="f.Address" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Zip Code</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" formControlName="zipecode" placeholder="Enter Zip Code" [(ngModel)]="postcode">
+              <errors [control]="f.zipecode" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">City</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" formControlName="City"  placeholder="Enter City" [(ngModel)]="city">
+              <errors [control]="f.City" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Country</label>
+            <div class="col-lg-8">
+              <ng-select class="custom" [items]="countries" formControlName="Country" bindLabel="name" placeholder="Please Choose" [(ngModel)]="selectedCountry">
+              </ng-select>
+              <errors [control]="f.Country" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+          <div class="form-group row text-left">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Phone #</label>
+            <div class="col-lg-8">
+             
+            
+             
+              <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+              [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.Austria" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+              [phoneValidation]="true"  name="phonenumber" [ngModelOptions]="{standalone: true}"
+               [(ngModel)]="selectedPhone" (ngModelChange)=" checkIsEmpty()">
+  
+            </ngx-intl-tel-input>
+            <div *ngIf="isEmpty === true" class="text-danger mt-1"><i class="fa fa-times-circle text-danger d-inline-block mr-1"></i> Phone Required</div>
+
+            </div>
+          </div>
+        </form>
+        <form [formGroup]="formLinked">
+          <div class="form-group row text-left" *ngIf="!standerdEmailShow">
+            <label class="col-lg-2 col-form-label font-weight-semibold" >Linked to Main account</label>
+             <div class="col-lg-8">
+              <input type="text" class="form-control" formControlName="LinkedToMain" placeholder="Enter FanSafe Username or Email address" [(ngModel)]="linkedToMain">
+              <errors [control]="fl.LinkedToMain" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+        </form>
+        <form [formGroup]="formEmail">
+          <div class="form-group row text-left" *ngIf="standerdEmailShow">
+            <label class="col-lg-2 col-form-label font-weight-semibold" >Standard Email</label>
+            <div class="col-lg-8">
+              <input type="mail" class="form-control" formControlName="Email"  placeholder="Enter Email address" [(ngModel)]="standardEmail">
+              <errors [control]="fe.Email" [isSubmit]="isSubmit"></errors>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-dark mr-3 mb-3" (click)='emptyData()'>Cancel</button>
+        <button type="submit" class="btn bg-green-400 mb-3" (click)="addUser()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

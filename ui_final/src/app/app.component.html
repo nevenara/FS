@@ -1,0 +1,23 @@
+<app-notifications class='fixed-notification'></app-notifications>
+<router-outlet></router-outlet>
+
+<!-- <span class="form-inline">
+  <select 
+      class="form-control" 
+      #selectedLang 
+      (change)="translate.use(selectedLang.value)">
+    <option *ngFor="let language of translate.getLangs()" 
+      [value]="language"
+      [selected]="language === translate.currentLang">
+      {{ language }}
+    </option>
+  </select>
+</span> -->
+
+<!-- <mat-form-field class="lang">
+  <mat-select (selectionChange)="useLang($event)">
+    <mat-option class="lang__item" *ngFor="let language of translate.getLangs()"  [value]="language">
+      <img class="lang__img" src='../assets/images/lang/{{language}}.png'> <span class="lang__txt"> {{language}} </span>
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->

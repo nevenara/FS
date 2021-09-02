@@ -1,0 +1,123 @@
+<div class="container p-sm-00">
+  <div class="row mb-3 mt-md-4">
+    <div class="col-md-12 text-right">
+      <div class="d-md-none">
+        <button class="navbar-toggler border-0" (click)="isTreeCollapsed = !isTreeCollapsed"
+          [attr.aria-expanded]="!isTreeCollapsed" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+          <span class="font-weight-semibold"> {{ 'marketplace.list.filter' | translate }} &nbsp; </span>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="filter-show" [ngbCollapse]="isTreeCollapsed">
+        <div class="row text-left">
+          <div class="col-lg-4 w-md-100">
+         
+              <div class="col-lg-12 w-md-100 mb-15">
+                <label class="text-blue-4000 font-weight-bold" for="">{{ 'marketplace.list.filters.events' | translate }}</label>
+                <div class="form-group row">
+                  <div class="col-lg-9">
+                    <input [(ngModel)]="eventName" name="firstname" type="text" class="form-control" 
+                    placeholder="{{ 'marketplace.list.filters.eventsPlaceholder' | translate }}" (ngModelChange)="getMySalesTickets()">
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+              <div class="col-lg-4 w-md-100">
+                <div class="form-group">
+                <label class="text-blue-4000 font-weight-bold" for="">{{ 'marketplace.list.filters.category' | translate }}</label>
+                <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings"
+                  [placeholder]="'marketplace.list.filters.categoryPlaceholder' | translate" [data]="categories" [(ngModel)]="selectedCategories"
+                  (onSelect)="page=1;getMySalesTickets()" (onSelectAll)="page=1;selectAllCategories()"
+                  (onDeSelect)="page=1;getMySalesTickets()" (onDeSelectAll)="page=1;unselectAllCategories()">
+                </ng-multiselect-dropdown>
+              </div>
+            </div>
+              <div class="col-lg-4 w-md-100">
+                <date-range-picker [ngStyle]="{'color':'black'}" [instanceId]="'secondDateRange1'" (datepickerReset)="fromDate=null;toDate=null; getMySalesTickets()" [controlName]="'secondDateRange'" #dateRangePicker #dateRangePicker [options]="dateOptions" (rangeSelected)="getFromToDate(dateRangePicker.range);">
+                  <div class="form-group">
+                    <label class="text-blue-4000 font-weight-bold" for="">{{ 'marketplace.list.filters.fromTo' | translate }}
+                    </label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="date-range-icon">
+                          <i class="icon-calendar22"></i>
+                        </span>
+                      </div>
+                      <input id="secondDateRange1" class="form-control" type="text" name="dateRange" [readonly]="true"
+                        [value]="dateRangePicker.range" placeholder="{{ 'marketplace.list.filters.fromTo' | translate }}"/>
+                    </div>
+                  </div>
+                </date-range-picker>
+              </div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+  <div *ngIf='!loader && !tickets.length' class='text-center text-blue-400'><h3>{{ 'marketplace.list.noTickets' | translate }}</h3></div>
+  <div class="row mt-md-4">
+    <div *ngFor="let ticket of tickets" class="col-lg-4">
+      <div class="card" style="height: 550px !important">
+        <div class="card-img-actions">
+          <img class="img-fluid" src="{{eventImageUrl}}{{ticket.eventId}}" alt="">
+        </div>
+        <div class="card-body px-1 py-2">
+          <h5 class="text-dark font-weight-bold mb-0 visible two-lines">{{ticket.eventName}}</h5>
+          <div class=""><span class="">
+              <span class="text-dark font-weight-bold">{{ 'marketplace.list.ticket.date' | translate }}:</span>
+              <span class="text-dark"> {{dateFormatter.getDate(ticket.date)}} </span>
+            </span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{ 'marketplace.list.ticket.begin' | translate }}:</span>
+            <span class="text-dark"> {{dateFormatter.getHours(ticket.beginTime)}}</span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{ 'marketplace.list.ticket.doorsOpen' | translate }}:</span>
+            <span class="text-dark"> {{ticket.doorsOpen}}</span>
+          </div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">{{ 'marketplace.list.ticket.seat' | translate }}:</span> <span class="text-dark"> {{ticket.seat}}</span></div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">{{ 'marketplace.list.ticket.location' | translate }}:</span>
+            <p class="text-dark visible two-lines-location"> {{ticket.locationName}}</p>
+            <p class="text-dark visible two-lines-location">{{ticket.locationAddress}}</p></div>
+        </div>
+        <div class="p-2 d-flex bg-dark">
+          <div>
+            <h3 class="text-blue-400 font-weight-bold m-0 d-inline-block">EUR {{ticket.priceForSale.toFixed(2)}}</h3>
+            <span class="text-blue-400 small font-weight-normal"> {{ 'marketplace.list.ticket.exclFees' | translate }}</span>
+          </div>
+          <a routerLink='/marketplace/editticketonsale/{{ticket.id}}' class="btn bg-blue-400 py-1 px-md-4 ml-auto">{{ 'marketplace.list.ticket.edit' | translate }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf='pages && pages.length > 0' class="row my-4 justify-content-center">
+    <div class="col-lg-12">
+      <div class="">
+          <ngb-pagination class="custom-pagination" (pageChange)='onPageChange($event)' [pageSize]='1' maxSize="3" [rotate]="true" [collectionSize]="pages.length" [(page)]="page" aria-label="Custom pagination">
+          <ng-template ngbPaginationPrevious> ← </ng-template>
+          <ng-template ngbPaginationNext> →</ng-template>
+        </ngb-pagination>
+      </div> 
+    </div>
+  </div>
+</div>
+  
+
+<ng-template #content3 let-modal p>
+  <div class="modal-header bg-danger-800 justify-content-center">
+    <h3 class="modal-title m-0">Delete Ad</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="icon-cancel-circle2 icon-2x text-danger-800"></i></div>
+    <span class="font-weight-semibold">Your Add will be removed from the Marketplace and assigned back to you! <br>
+      Are you sure you want to delete the Ad from the Marketplace?
+    </span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Close</button>
+    <button type="button" aria-label="Close" class="btn btn-danger bg-danger-800 px-md-4 ml-md-2"
+      (click)="modal.dismiss('Cross click')">Delete</button>
+  </div>
+</ng-template>

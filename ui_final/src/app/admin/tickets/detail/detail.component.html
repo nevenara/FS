@@ -1,0 +1,224 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center my-2">
+            <h3 class="card-title text-blue-400">Ticket Details</h3>
+            <hr class="hr-blue">
+        </div>
+    </div>
+    <preloader-app *ngIf='loader'></preloader-app>
+    <app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+    <div class="row" *ngIf='!loader && !loadingError'>
+        <div class="col-lg-12">
+          <div class="container">
+            <div class="card border-0">
+                <div class="container py-2 d-flex align-items-center">
+
+                      <span class="custom-size font-weight-bold mr-3">Status</span>
+                      <span *ngIf='ticket.status == 0' class="badge py-2 badge-primary d-block">Pre-personalized</span>
+                      <span *ngIf='ticket.status == 1' class="badge py-2 badge-success d-block">Personalized</span>
+                      <span *ngIf='ticket.status == 2' class="badge py-2 badge-warning d-block">Personalization pending</span>
+                      <span *ngIf='ticket.status == 3' class="badge py-2 badge-danger d-block">Personalization failed</span>
+                      <span *ngIf='ticket.status == 4' class="badge py-2 badge-primary d-block">Cheked In</span>
+                      <span *ngIf='ticket.status == 5' class="badge py-2 badge-purple d-block">Blocked for Pickup</span>
+                      <!-- <span class="badge p-2 badge-info" [routerLink]="['/admin/users/detail']" ></span> -->
+                      <button *ngIf='userType == 3 || userType == 4 || userType == 7' class="btn bg-blue-400 align" [disabled]='!ticket.ticketHolderId' [routerLink]="['/admin/users/detail', ticket.ticketHolderId]" [queryParams]="{ type: '3'}"> Check user verification status</button>
+                      <!-- <span class="badge p-2 badge-warning bg-orange mx-2">Personalization pending</span> -->
+
+
+                    <div class="ml-auto" *ngIf='userType == 3 || userType == 4 || userType == 7'>
+                        <button  (click)="startEditing()" [disabled]="!ticket.prePersonalizationAllowed"  class="btn bg-blue-400">Edit Personalization</button>
+                    </div>
+                </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="container">
+                      <div class="row m-0 border">
+                        <div class="col-lg-3 w-md-100 px-0 mb-2 mb-md-0">
+                          <div class="">
+                            <img src="{{eventImageUrl}}{{ticket.eventId}}" class="w-100 h-230" alt="">
+                          </div>
+                        </div>
+                        <div class="col-lg-9 w-md-100 px-0 px-md-2">
+                          <div class="row m-0 p-md-1">
+                            <div class="col-md-12 text-right d-md-none d-block">
+                              <div class="small"><b>Booking ID: </b>{{ticket.bookingId}}</div>
+                              <div class="small"><b>Ticket ID: </b>{{ticket.ticketId}}</div>
+                            </div>
+                            <div class="col-lg-9 pl-mid-0">
+                                <h2 class="font-weight-bold mb-0 hd2">{{ticket.eventName}}</h2>
+                              <div class="">
+                                <span class="custom-size"><b>Date: </b>{{dateFormatter.getDate(ticket.date)}}</span>
+                                <span class="custom-size mx-md-3"><b>Begin: </b>{{dateFormatter.getHours(ticket.beginTime)}}</span>
+                                <span class="custom-size"><b>Doors open: </b>{{ticket.doorsOpen}}</span>
+                              </div>
+                              <div class="custom-size"><b>Seat: </b>{{ticket.seat}}</div>
+                              <div class="media my-1">
+                                <span class="custom-size"><b>Location: &nbsp;</b> </span>
+                                <div class="media-body">
+                                  <span class="custom-size"> {{ticket.locationName}}<br> {{ticket.locationAddress}}</span>
+                                </div>
+                              </div>
+                              <div class="custom-size"><b>Ticket Holder: </b>{{ticket.ticketHolder}}</div>
+                                <div class="small d-none d-md-block"><b>Organizer: </b> {{ticket.organizerName}}, {{ticket.organizerAddress}}</div>
+                            </div>
+                            <div class="col-lg-3 d-flex flex-column justify-content-between text-right">
+                              <div class="d-none d-md-block custom-size">
+                                <div class="small"><b>Booking ID: </b>{{ticket.bookingId}}</div>
+                                <div class="small"><b>Ticket ID: </b>{{ticket.ticketId}}</div>
+                              </div>
+                              <div class="">
+                              <h5 class="mb-0"><b>EUR </b>{{ticket.originalPrice.toFixed(2)}}</h5>
+                              <div class="small">Price incl. VAT</div>
+                              <!--<img src="../../../../assets/images/websiteQRCode_noFrame.png" height="100" alt="">-->
+                            </div>
+                            <div class="small d-block d-md-none mt-1 text-left mb-1"><b>Organizer: </b> {{ticket.organizerName}}, {{ticket.organizerAddress}}</div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mx-0 my-md-3 my-2">
+                        <div class="col-lg-3 w-md-100 mt-md-1 mb-1 px-3 d-flex">
+                          <span class="custom-size">
+                            <b *ngIf='ticket.prePersonalizationAllowed == true'>Pre-personalized to: </b>
+                            <b *ngIf='ticket.prePersonalizationAllowed == false'>Personalized to: </b>
+                            <span>{{ticket.firstName}} {{ticket.lastName}}</span>
+                          </span>
+                        </div>
+
+                        <div class="col-lg-9 w-md-100 px-3">
+                          <div class="row">
+                            <div class="col-lg-7 col-70 mb-2">
+                              <!--<input type="text" readonly="" placeholder="{{ticket.firstName}} {{ticket.lastName}}" class="form-control">-->
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-12 my-3 text-center">
+                          <button routerLink="/admin/tickets" class="btn px-4 btn-dark mr-3">Cancel</button>
+                        </div>
+                      </div>
+
+                      <div class="row mx-0 my-md-3 my-2" *ngIf="editing">
+                        <div class="col-lg-2 w-md-100 px-3 d-flex">
+                          <label class="col-form-label font-weight-semibold">New Ticket Holder:</label>
+                        </div>
+                        <div class="col-lg-10 col-70 mb-2 row">  
+                          <input type="text" [(ngModel)] = 'firstname' class="form-control col-lg-3 mr-2" placeholder='Firstname' (ngModelChange)='onNameChange()'>
+                          <input type="text" [(ngModel)] = 'lastname' class="form-control col-lg-3 mr-2" placeholder='Lastname' (ngModelChange)='onNameChange()'>
+                          <input type="text" *ngIf='!searchActive' readonly class="form-control col-lg-5" placeholder='Enter username or email'>
+                          <input 
+                            type="text" 
+                            id="typeahead-prevent-manual-entry" 
+                            autocomplete="****************************************************"
+                            *ngIf='searchActive' 
+                            [(ngModel)] = 'username'  
+                            class="form-control col-lg-5" 
+                            (focus)="focus$.next($any($event).target.value)" 
+                            [ngbTypeahead]="search" 
+                            [editable]='false' 
+                            placeholder='Enter username or email'
+                          >
+                        </div>
+                      <div class="col-lg-12 my-3 text-center">
+                        <button (click)="cancelEditing()" class="btn px-4 btn-dark mr-3">Cancel</button>
+                        <button class="btn px-4 bg-green-400" [disabled]='!firstname || !lastname || !username' (click)="assignTicket()">Save</button>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group  text-blue-400 content-divider">
+                <span class="px-2 custom-size ml-5">Change History</span>
+            </div>
+          </div>
+
+          <div *ngIf='!loaderHistory && !searchTicketChangeHistoryPreview.length' class='col-lg-12 text-center text-blue-400'><h3>There is no change history to display!</h3></div>
+
+          <div class="col-lg-12" *ngIf='searchTicketChangeHistoryPreview.length'>
+            <div class="card">
+              <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <div class="datatable-header">
+                  <div class="dt-buttons" *ngIf='userType == 3 || userType == 4 || userType == 6'>
+                    <button class="btn btn-light buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" (click)="exportExcel()"
+                      type="button"><span>Excel</span></button>
+                    <button class="btn btn-light buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" (click)="exportCsv()"
+                      type="button"><span>CSV</span></button> 
+                    <button class="btn btn-light buttons-print" tabindex="0" aria-controls="DataTables_Table_0" (click)="exportPdf()"
+                      type="button"><span>PDF</span></button>
+                  </div>
+
+                  <div class="dataTables_length d-inline-block justify-content-end" id="DataTables_Table_0_length">
+                    <label class='d-inline-block'>
+                      <span>Show:</span>
+                      <ng-select class="d-inline-block ml-1 mr-0 pl-0 pr-0" [clearable]="false" (change)="onLimitChange()" [(ngModel)]="searchTicketChangeHistoryRequest.limit">
+                        <ng-option *ngFor="let limit of showLimits" [value]="limit">{{limit}}</ng-option>
+                      </ng-select>
+                    </label>
+                  </div>
+                </div>
+                <div class="datatable-scroll-wrap">
+                  <div class="table-responsive ">
+                    <table class="table custom-padding">
+                      <thead>
+                        <tr class="table-border-solid">
+                          <th>#</th>
+                          <th>Editor</th>
+                          <th>Change date</th>
+                          <th>Change time</th>
+                          <th>Original value </th>
+                          <th>New value</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr *ngFor='let changeHistory of searchTicketChangeHistoryPreview; let i=index'>
+                          <td>{{getOrdinalNumber(i)}}</td>
+                          <td>{{changeHistory.editor}}</td>
+                          <td>{{dateFormatter.getDate(changeHistory.date)}}</td>
+                          <td>{{dateFormatter.getHours(changeHistory.date)}}</td>
+                          <td>{{changeHistory.originalValue}}</td>
+                          <td>{{changeHistory.newValue}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="datatable-footer">
+                  <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                    Showing {{getFromPage()}} to {{getToPage()}} of {{totalRecords}} entries</div>
+                    <ngb-pagination *ngIf='pages && pages.length' class="custom-pagination dataTables_paginate paginate_button" (pageChange)='onPageChange($event)' [pageSize]='1' maxSize="3" [rotate]="true" [collectionSize]="pages.length" [(page)]="searchTicketChangeHistoryRequest.page" aria-label="Custom pagination">
+                      <ng-template ngbPaginationPrevious> ← </ng-template>
+                      <ng-template ngbPaginationNext> →</ng-template>
+                      <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+                    </ngb-pagination>
+                  <!--<div *ngIf='pages && pages.length' class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                    <a [disabled] = 'searchTicketChangeHistoryRequest.page == 1' (click)='previous()' class="paginate_button previous" [ngClass]="{ 'disabled' : searchTicketChangeHistoryRequest.page == 1 }"
+                      aria-controls="DataTables_Table_0" data-dt-idx="0"
+                      tabindex="0" id="DataTables_Table_0_previous">←
+                    </a>
+                    <span>
+                      <a class="paginate_button" [ngClass]='{ "current": searchTicketChangeHistoryRequest.page == page }' *ngFor='let page of pages'
+                        aria-controls="DataTables_Table_0" data-dt-idx="page" tabindex="0" (click)='onPageChange(page)'>{{page}}
+                      </a>
+                    </span>
+                    <a [disabled]='searchTicketChangeHistoryRequest.page == pages.length' (click) = 'next()' [ngClass]='{ "disabled": searchTicketChangeHistoryRequest.page == pages.length }'
+                      class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0"
+                      id="DataTables_Table_0_next">→
+                    </a>
+                  </div>-->
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>

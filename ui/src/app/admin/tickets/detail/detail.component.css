@@ -1,0 +1,22 @@
+.qr-img {
+    height: 150px;
+    width: 150px;
+  }
+  
+  .custom-size{
+    font-size: 16px;
+   
+  }
+  .custom-badge{
+      font-size: 13px;
+      border: 1px solid black;
+      border-radius: 5px;
+  }
+  .content-divider {
+    text-align: left !important;
+}
+.content-divider>span:before {
+ 
+    background-color: #29b6f6 !important;
+  
+}

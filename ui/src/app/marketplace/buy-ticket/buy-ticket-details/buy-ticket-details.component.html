@@ -1,0 +1,107 @@
+<div class="p-sm-12">
+    <div class="d-none d-md-block">
+      <div class="row mx-0 mt-2 justify-content-center">
+        <div class="col-lg-1 d-mid-none"></div>
+        <div class="col-lg-6 custom-col mb-2 p-0 pr-mid-3">
+          <h6 class="text-blue pl-md-4 p-mid-00 font-weight-bold">Summary</h6>
+          <div class="d-mid-block d-none">
+            <span class="custom-size "><b>Ticket ID:</b> {{reservedTickets.ticketId}}</span>
+            <div class="d-flex">
+              <div class="custom-size d-none d-md-block"><b>Seat:</b> {{reservedTickets.seat}}</div>
+              <div class="custom-size d-block ml-auto"><b>EUR {{reservedTickets.priceForSale}}</b></div>
+
+            </div>
+          </div>
+          <ul class="pl-0 d-md-flex align-items-center justify-content-end justify-mid-start mb-1 custom-ul-1">
+            <li>
+              <span class="custom-size d-mid-none d-block"><b>Ticket ID:</b> {{reservedTickets.ticketId}}</span>
+            </li>
+            <li>
+              <span class="custom-size d-none d-md-block d-mid-none"><b>Seat:</b> {{reservedTickets.seat}}</span>
+            </li>
+            <li>
+              <span class="custom-size d-block d-mid-none"><b>EUR {{reservedTickets.priceForSale}}</b></span>
+            </li>
+          </ul>
+          <ul class="ml-md-4 m-md-00 d-md-flex align-items-center justify-content-end custom-ul-1 mb-0 border-bottom">
+            <li>
+              <span class="small">zzgl. €5.00 Service & €0.50 Transaktionsgebühren</span>
+            </li>
+          </ul>
+          <ul class="pl-0 d-flex align-items-center justify-content-end custom-ul-1 mb-0">
+            <li>
+              <span class="d-block custom-size font-weight-bold text-blue-400"><b>Total:</b></span>
+            </li>
+            <li>
+              <span class="d-block custom-size font-weight-bold text-blue-400"><b> EUR {{reservedTickets.priceForSale}}</b></span>
+
+            </li>
+
+
+          </ul>
+          <span class="d-block text-muted text-md-right custom-size pr-md-2">All prices incl. VAT</span>
+        </div>
+        <div class="col-lg-1 d-mid-none"></div>
+        <div class="col-lg-3">
+          <h6 class="text-blue font-weight-bold">Payout method</h6>
+          <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label">
+                <div class="uniform-choice"><span class="checked">
+                  <input type="radio" class="form-check-input-styled" name="stacked-radio-left" checked="" data-fouc="">
+                </span></div>
+                <img src="../../../assets/images/paypal.PNG" width="60px" alt="">
+              </label>
+            </div>
+          </div>
+          <span class="d-block custom-size text-muted">Nach *Jetzt kaufen* werden sie zum zahlungsdiensteister
+            Weitergeleitet</span>
+        </div>
+      </div>
+    </div>
+    <div class="d-block d-md-none w-custom">
+      <div class="row mt-2 justify-content-center">
+        <div class="col-lg-5 mb-2">
+          <h6 class="text-blue font-weight-bold mb-0 mb-md-2">Summary</h6>
+            <span class="font-sm mb-0"><b>Ticket ID:</b> 121243234</span>
+          <ul class="pl-0 mb-2 d-flex align-items-center">
+            <li class="px-0">
+              <span class="font-sm"><b>Seat:</b> Kat A, Parterre: Reihe: 9 Sitzplatz Nr.: 23</span>
+            </li>
+            <li class="px-0 ml-xsm-auto">
+              <span class="custom-size"><b>EUR 5.00</b></span>
+            </li>
+          </ul>
+          <ul class="border-bottom d-flex align-items-center justify-content-end mb-1">
+            <li class="px-0">
+              <span class="small text-right">zzgl. €5.00 Service & €0.50 Transaktionsgebühren</span>
+            </li>
+          </ul>
+          <span class="d-md-block d-none pr-md-5 text-md-right custom-size font-weight-bold text-blue-400"><b>Total:
+              EUR
+              5.00</b></span>
+          <span class="d-md-block d-none pr-md-5 custom-size text-muted text-md-right">All prices incl. VAT</span>
+        </div>
+        <div class="col-lg-3 text-md-center">
+          <div class="d-flex justify-content-between d-md-none">
+            <h6 class="text-blue font-weight-bold text-md-center mb-0">Payout method</h6>
+            <div>
+              <div class="custom-size text-blue-400 text-right"><b>Total: EUR 5.00</b></div>
+              <div class="text-muted custom-size">All prices incl. VAT</div>
+            </div>
+          </div>
+          <h6 class="d-none d-md-block text-blue font-weight-bold text-md-center">Payout method</h6>
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="custom-stacked-radio"
+                id="custom_radio_stacked_unchecked" checked>
+              <label class="custom-control-label" for="custom_radio_stacked_unchecked"><img
+                  src="../../../assets/images/paypal.PNG" width="60px" alt=""></label>
+            </div>
+            <span class="d-block text-muted custom-size">After "Buy now" you will be <br> redirected to the payment
+              provider</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

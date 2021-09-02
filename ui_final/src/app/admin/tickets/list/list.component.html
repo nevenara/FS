@@ -1,0 +1,213 @@
+<div class="col-lg-12 text-center my-2">
+  <h3 class="card-title text-blue-400">Ticket List</h3>
+  <hr class="hr-blue">
+
+</div>
+
+<div class="container col-lg-10">
+  <div class="row">
+    
+
+    <!-- <span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-selection__choice" title="Arizona" data-select2-id="30"><span class="select2-selection__choice__remove" role="presentation">×</span>Arizona</li><li class="select2-selection__choice" title="Iowa" data-select2-id="31"><span class="select2-selection__choice__remove" role="presentation">×</span>Iowa</li><li class="select2-selection__choice" title="Kansas" data-select2-id="32"><span class="select2-selection__choice__remove" role="presentation">×</span>Kansas</li><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span> -->
+    <!-- <span class="select2 select2-container select2-container--default select2-container--below select2-container--focus select2-container--open" dir="ltr" data-select2-id="26" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="true" tabindex="-1" aria-disabled="false" aria-owns="select2-somp-results" aria-activedescendant="select2-somp-result-oytl-AZ"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;" aria-controls="select2-somp-results" aria-activedescendant="select2-somp-result-oytl-AZ"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+
+
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Event Name</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input [(ngModel)]='searchTicketsRequest.eventName' type="text" class="form-control " placeholder="Search For" (ngModelChange)='searchTickets()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Event Location</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input [(ngModel)]='searchTicketsRequest.eventLocation' type="text" class="form-control " placeholder="Search For" (ngModelChange)='searchTickets()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <date-range-picker [ngStyle]="{'color':'black'}" [instanceId]="'secondDateRange'" (datepickerReset)="resetDate();searchTickets()" [controlName]="'secondDateRange'" #dateRangePicker [options]="dateOptions" (rangeSelected)="getFromToDate(dateRangePicker.range)">
+        <div class="form-group">
+          <label class="text-blue-400 font-weight-bold" for="">Event Date
+          </label>
+          <div class="input-group">
+            <input id="secondDateRange" class="form-control" type="text" name="dateRange" [readonly]="true" 
+              [value]="dateRangePicker.range" placeholder="From - To"/>
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="date-range-icon">
+                <i class="icon-calendar22"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </date-range-picker>
+    </div>
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Status</label>
+      <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select status'"
+        [data]="dropdownList" [(ngModel)]="selectedItems"
+        (onSelect)="this.searchTicketsRequest.page = 1;searchTickets()" (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="this.searchTicketsRequest.page = 1;searchTickets()" (onDeSelectAll)="unselectAll()">
+      </ng-multiselect-dropdown>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Ticket ID</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input [(ngModel)]='searchTicketsRequest.ticketId' type="text" class="form-control " placeholder="Search For" (ngModelChange)='searchTickets()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Organizer</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input [(ngModel)]='searchTicketsRequest.organizer' type="text" class="form-control " placeholder="Search For" (ngModelChange)='searchTickets()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Ticket Buyer</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input [(ngModel)]='searchTicketsRequest.ticketBuyer' type="text" class="form-control " placeholder="Search For" (ngModelChange)='searchTickets()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Ticket Holder</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input [(ngModel)]='searchTicketsRequest.ticketHolder' type="text" class="form-control " placeholder="Search For" (ngModelChange)='searchTickets()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3 mb-md-4">
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Booking ID</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input type="text" [(ngModel)]='searchTicketsRequest.bookingId' class="form-control " placeholder="Search For" (ngModelChange)='searchTickets()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf='!loader && !tickets.length' class='text-center text-blue-400'><h3>There are no tickets to display!</h3></div>
+
+  <div *ngIf='tickets.length' class="row mt-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+          <div class="datatable-header row justify-content-end ">
+            <div class="dataTables_length d-inline-block justify-content-end" id="DataTables_Table_0_length">
+              <label class='d-inline-block'>
+                <span>Show:</span>
+                <ng-select class="d-inline-block ml-1 mr-0 pl-0 pr-0" [clearable]="false" (change)="onLimitChange()" [(ngModel)]="searchTicketsRequest.limit">
+                  <ng-option *ngFor="let limit of showLimits" [value]="limit">{{limit}}</ng-option>
+                </ng-select>
+              </label>
+            </div>
+            <div class="dt-buttons d-inline-block justify-content-end" *ngIf='userType == 3 || userType == 4 || userType == 6 || userType == 7'>
+              <button class="btn btn-light buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" (click)='exportExcel()'
+                type="button"><span>Excel</span></button>
+              <button class="btn btn-light buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" (click)='exportCsv()'
+                type="button"><span>CSV</span></button>
+              <button class="btn btn-light buttons-print" tabindex="0" aria-controls="DataTables_Table_0" (click)='exportPdf()'
+                type="button"><span>PDF</span></button>
+            </div>
+
+            
+          </div>
+          <div class="datatable-scroll-wrap">
+            <div class="table-responsive ">
+              <table class="table custom-padding">
+                <thead>
+                  <tr class="table-border-solid">
+                    <th>Booking ID</th>
+                    <th>Ticket ID</th>
+                    <th>Organizer</th>
+                    <th>Event Name</th>
+                    <th>Event Date</th>
+                    <th>Event Location</th>
+                    <th>Ticket Buyer</th>
+                    <th>Ticket Holder</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let ticket of tickets'>
+                    <td>{{ticket.bookingId}}</td>
+                    <td>{{ticket.ticketId}}</td>
+                    <td>{{ticket.organizer}}</td>
+                    <td>{{ticket.eventName}}</td>
+                    <td>{{dateFormatter.getDate(ticket.eventDate)}}</td>
+                    <td>{{ticket.eventLocation}}</td>
+                    <td>{{ticket.ticketBuyer}}</td>
+                    <td>{{ticket.ticketHolder}}</td>
+                    <td>
+                      <span *ngIf='ticket.status == 1' class="badge py-1 badge-success d-block">Personalized</span>
+                      <span *ngIf='ticket.status == 2' class="badge py-1 badge-warning d-block">Personalization pending</span>
+                      <span *ngIf='ticket.status == 3' class="badge py-1 badge-danger d-block">Personalization failed</span>
+                      <span *ngIf='ticket.status == 4' class="badge py-1 badge-primary d-block">Cheked In</span>
+                      <span *ngIf='ticket.status == 5' class="badge py-1 badge-purple d-block">Blocked for Pickup</span>
+                    </td>
+                    <td class="p-0">
+                      <button class="btn p-1 bg-blue-400" routerLink='/admin/tickets/detail/{{ticket._id}}'>Show
+                        Details</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="datatable-footer">
+            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+              Showing {{getFromPage()}} to {{getToPage()}} of {{totalRecords}} entries</div>
+              <ngb-pagination *ngIf='pages && pages.length' class="custom-pagination dataTables_paginate paginate_button" (pageChange)='onPageChange($event)' [pageSize]='1' maxSize="3" [rotate]="true" [collectionSize]="pages.length" [(page)]="searchTicketsRequest.page" aria-label="Custom pagination">
+                <ng-template ngbPaginationPrevious> ← </ng-template>
+                <ng-template ngbPaginationNext> →</ng-template>
+                <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+              </ngb-pagination>
+            <!--<div *ngIf='pages && pages.length' class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+              <a [disabled] = 'searchTicketsRequest.page == 1' (click)='previous()' class="paginate_button previous" [ngClass]="{ 'disabled' : searchTicketsRequest.page == 1 }"
+                aria-controls="DataTables_Table_0" data-dt-idx="0"
+                tabindex="0" id="DataTables_Table_0_previous">←
+              </a>
+              <span>
+                <a class="paginate_button" [ngClass]='{ "current": searchTicketsRequest.page == page }' *ngFor='let page of pages'
+                  aria-controls="DataTables_Table_0" data-dt-idx="page" tabindex="0" (click)='onPageChange(page)'>{{page}}
+                </a>
+              </span>
+              <a [disabled]='searchTicketsRequest.page == pages.length' (click) = 'next()' [ngClass]='{ "disabled": searchTicketsRequest.page == pages.length }'
+                class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0"
+                id="DataTables_Table_0_next">→
+              </a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>

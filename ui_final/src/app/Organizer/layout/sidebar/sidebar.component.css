@@ -1,0 +1,25 @@
+.sidebar {
+  height: 100%;
+}
+.sidebar-dark{
+  background: #273237 !important;
+}
+.nav-item-submenu>.nav-link:after {
+  display: none;
+}
+
+/* .collapse:not(.show) {
+  display: none !important;
+}
+.collapse .show  {
+display: block !important;
+}
+.sidebar-xs .sidebar-main .nav-sidebar>.collapse>.nav-item>.nav-link>span {
+  display: none;
+}
+.sidebar-xs .sidebar-main .nav-sidebar>.nav-item>.nav-link {
+justify-content: center;
+padding-left: 0px;
+padding-right: 0px;
+margin-right: 39px;
+} */

@@ -1,0 +1,161 @@
+.company-img {
+  height: 150px;
+  width: 90%;
+}
+
+.company-img img {
+  height: 100%;
+  width: 100%;
+}
+
+.opacity-75 {
+  opacity: 1 !important;
+}
+
+.green{
+  background-color: #00b300;
+}
+
+.blue{
+  background-color: #09a1ce;
+}
+
+.turkis{
+  background-color: #00b386;
+}
+
+.grey{
+  background-color: #a9a9a9;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 1em;
+  line-height: 1em;
+  position: relative;
+  vertical-align: middle;
+  width: 1.5em; 
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+left: 0;
+position: absolute;
+text-align: center;
+width: 100%; }
+
+.fa-stack-1x {
+line-height:inherit; 
+font-size: 0.1em;
+}
+
+.fa-stack-2x {
+font-size: 1em; }
+
+.fa-inverse {
+color: #a9a9a9; }
+
+.fa-2x {
+font-size: 1.25em; }
+
+.fa-3x {
+font-size: 1.5em; }
+
+.fa-rotate-135 {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.fa-stack-bottom {
+  vertical-align: bottom;
+}
+
+.form-group.hidden {
+width: 0;
+margin: 0;
+border: none;
+padding: 0;
+}
+.custom-day {
+text-align: center;
+padding: 0.185rem 0.25rem;
+display: inline-block;
+height: 2rem;
+width: 2rem;
+}
+.custom-day.focused {
+background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+background-color: rgb(2, 117, 216);
+color: white;
+}
+.custom-day.faded {
+background-color: rgba(2, 117, 216, 0.5);
+}
+
+.ranges ul li:active {
+background-color: #26a69a;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker.open-left {
+  left: -335px !important;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker.open-left:before {
+  left: 565px !important;
+}
+::ng-deep .dateRangePicker-wrapper .dateRangePicker .form-inputs {
+    background-color: #09a1ce !important;
+  }
+
+  ::ng-deep .dateRangePicker-wrapper .dateRangePicker:after {
+    border-bottom: 10px solid #09a1ce !important;
+  }
+.text-left {
+    text-align: left!important;
+}
+
+  ::ng-deep .dateRangePicker-wrapper .dateRangePicker:before {
+    border-bottom: 10px solid #09a1ce !important;
+  }
+
+  ::ng-deep .calendar .table td:not(.disabled):not(.selected):hover {
+    background-color: #09a1ce !important;
+  }
+
+  ::ng-deep .calendar .table td.selected, .calendar .table td.selected.in-selected-range {
+    background-color: #09a1ce !important;
+  }
+
+  ::ng-deep .calendar .table td.different-month {
+    color: #273237 !important;
+  }
+
+  ::ng-deep .btn-outline-secondary {
+    background-color: #273237 !important;
+    border-color: #273237 !important;
+    color: #fff !important;
+  }
+
+  .datatable-header > div:first-child{
+    margin-left: 1.25rem;
+  }
+  .custom-padding th{
+      padding: 10px 8px !important;
+  }
+  .table td {
+    padding: .75rem 1.25rem;
+    vertical-align: middle;
+  }
+  .custom-padding td{
+    padding: 10px 8px !important;
+}
+
+.badge-purple{
+  background-color: #9900ff;
+  color: #fff;
+}

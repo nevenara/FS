@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-lg-11">
+      <div class="card ">
+        <form class="wizard-form steps-basic wizard clearfix" action="#" data-fouc="" role="application"
+          id="steps-uid-0">
+          <div class="steps clearfix">
+            <ul role="tablist">
+              <li [ngClass]='{ "done": current > 1, "current": current == 1, "first": current == 1, "disabled": current <= 1 }' role="tab" aria-disabled="true" 
+                aria-selected="true">
+                <a id="steps-uid-0-t-0"
+                  (click)='changeCurrentFromMenu(1)' aria-controls="steps-uid-0-p-0"><span
+                    class="current-info audible">{{ 'signUp.completeRegistration.currentStep' | translate }}: </span><span class="number">1</span><span>{{ 'signUp.completeRegistration.userData' | translate }}</span> </a></li>
+              <li role="tab" aria-disabled="false" [ngClass]='{ "done": current > 2, "current": current == 2, "first": current == 2, "disabled": current <= 2 }' 
+                aria-selected="false">
+                <a id="steps-uid-0-t-1"
+                (click)='changeCurrentFromMenu(2)' aria-controls="steps-uid-0-p-1"><span
+                    class="number">2</span>{{ 'signUp.completeRegistration.personalData' | translate }}</a>
+              </li>
+              <li role="tab"  aria-disabled="false" [ngClass]='{ "done": current > 3, "current": current == 3, "first": current == 3, "disabled": current <= 3 }' 
+                aria-selected="false">
+                <a id="steps-uid-0-t-2"
+                (click)='changeCurrentFromMenu(3)' aria-controls="steps-uid-0-p-2"><span
+                    class="number">3</span> {{ 'signUp.completeRegistration.additionalEmails' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="content">
+            <app-user-data *ngIf = 'current == 1' [user] = 'user' [current] = 'current' (currentEmitter) = 'changeCurrent($event)'></app-user-data>
+            <app-personal-data *ngIf = 'current == 2' [user] = 'user' [current] = 'current' (currentEmitter) = 'changeCurrent($event)'></app-personal-data>
+            <app-additional-emails *ngIf = 'current == 3' [user] = 'user' [current] = 'current' (currentEmitter) = 'changeCurrent($event)'></app-additional-emails>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+

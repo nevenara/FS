@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Tue Aug 11 2020 12:35:30 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-11-7-2020-12-5-24.txt
+
+
+Deleted files:
+
+
+Renamed files:

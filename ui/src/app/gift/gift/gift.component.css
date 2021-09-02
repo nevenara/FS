@@ -1,0 +1,48 @@
+.filter-show{
+  display: block !important;
+}
+::ng-deep .dateRangePicker-wrapper .form-group {
+  margin-bottom: 0;
+}
+@media only screen and (max-width:1200px) {
+  .w-md-500 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  .mb-15{
+    margin-bottom: 1rem;
+  }
+  td .mr-2{
+    margin-right: 8px !important;
+  }
+  .filter-show{
+    display: block !important;
+  }
+  }
+
+@media only screen and (max-width: 767px) {
+  .text-dark{
+    font-size: 11px;
+  }
+  .mb-15{
+    margin-bottom: 1rem;
+  }
+  .w-md-500 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .w-md-500 img{
+    height: auto;
+  }
+  td .mr-2{
+    margin-right: 8px !important;
+  }
+  .collapse:not(.show) {
+    display: none !important;
+}
+.collapse .show {
+  display: block !important;
+}
+}
+
+

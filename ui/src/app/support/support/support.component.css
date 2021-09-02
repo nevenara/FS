@@ -1,0 +1,37 @@
+.custom-height{
+    height: 280px;
+}
+
+.modal-header {
+    display: block !important;
+    text-align: center !important;
+    padding: 1.25rem 1.25rem;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+::ng-deep [data-action=collapse]:after {
+    content: "" !important;
+}
+
+a{
+    cursor: pointer;
+}
+
+@media (min-width: 1700px){
+  .custom-height{
+    height: 325px;
+}
+
+}
+@media (max-width: 1150px){
+  .custom-height {
+    height: 300px;
+  }
+}
+@media (max-width: 768px){
+  .custom-height{
+    height: 350px;
+}
+}

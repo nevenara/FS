@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <ngb-tabset class="custom-tabs" [destroyOnHide]="false">
+
+     <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">Main Data </h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <div class="card border-0">
+          <div class="card-body">
+
+         <app-main></app-main>
+
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">User Verification</h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <div class="card border-0">
+          <div class="card-body ">
+   <app-verification></app-verification>
+
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

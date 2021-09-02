@@ -1,0 +1,19 @@
+::ng-deep .iti {
+  width: 100%;
+}
+::ng-deep .iti input, .iti input[type=tel] {
+  position: relative;
+  width: 100% !important;
+  height: calc(1.5385em + .875rem + 2px) !important;
+  border: 1px solid #ddd;
+    border-radius: .1875rem;
+    box-shadow: 0 0 0 0 transparent;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+::ng-deep .iti input, .iti input[type=tel]:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+::ng-deep .iti input::placeholder {
+  color: #acacac !important;
+}

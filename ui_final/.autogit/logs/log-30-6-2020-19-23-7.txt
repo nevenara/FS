@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jul 30 2020 19:23:07 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/auth/signup/additional-emails/additional-emails.component.html
+* src/app/auth/signup/personal-data/personal-data.component.html
+* src/app/auth/signup/signuplayout/signuplayout.component.html
+* src/app/profile/linked/detail/detail.component.html
+* src/app/profile/linked/detail/detail.component.ts
+* src/app/profile/profile/profile.component.html
+
+
+Created files:
+* .autogit/logs/log-30-6-2020-18-52-57.txt
+
+
+Deleted files:
+
+
+Renamed files:

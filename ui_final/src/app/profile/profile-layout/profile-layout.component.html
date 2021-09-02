@@ -1,0 +1,27 @@
+<div class="container-fluid" [hidden]='!userType' *ngIf='!userType || userType == 1'>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs nav nav-justified" [destroyOnHide]="false">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal f-mid-14">{{'profile.profile-layout.labels.mainAccount' | translate}}</h3>
+      </a>
+      <ng-template ngbNavContent>
+        <app-profile></app-profile>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal py-md-20 f-16">{{'profile.profile-layout.labels.linkedAccount' | translate}}</h3>
+      </a>
+      <ng-template ngbNavContent>
+        <router-outlet></router-outlet>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav"></div>
+</div>
+
+<div class="container-fluid" *ngIf='userType == 2' style="background-color: white;">
+  <h3 class="mb-0 font-weight-normal f-mid-14 text-center text-blue pt-3">{{'profile.profile-layout.labels.mainAccount' | translate}}</h3>
+  <app-profile></app-profile>
+</div>

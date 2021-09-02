@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <ngb-tabset class="custom-tabs" [destroyOnHide]="false">
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">Account Settings</h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <app-main-account></app-main-account>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">Payout Settings</h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <app-linked-account></app-linked-account>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

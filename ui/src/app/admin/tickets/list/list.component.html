@@ -1,0 +1,386 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center my-2">
+            <h3 class="card-title text-blue-400">Ticket List</h3>
+            <hr class="hr-blue">
+
+        </div>
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Booking ID</label>
+            <div class="form-group form-group-feedback form-group-feedback-right">
+                <input type="text" class="form-control " placeholder="Search For">
+                <div class="form-control-feedback form-control-feedback-lg">
+                    <i class="icon-search4 text-muted"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Event Name</label>
+            <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select category'"
+                [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+            </ng-multiselect-dropdown>
+        </div>
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Filter Status</label>
+            <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select category'"
+                [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+            </ng-multiselect-dropdown>
+        </div>
+        <div class="col-lg-3">
+            <date-range-picker [instanceId]="'secondDateRange'"
+                [controlName]="'secondDateRange'" #dateRangePicker>
+                <div class="form-group">
+                    <label class="text-blue-400 font-weight-bold" for="">Event Date
+                    </label>
+                    <div class="input-group">
+                        <input id="secondDateRange" class="form-control" type="text" name="dateRange"
+                            [value]="dateRangePicker.range" placeholder="From - To" />
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="date-range-icon">
+                                  <i class="icon-calendar22"></i>
+                              </span>
+                          </div>
+                    </div>
+                </div>
+            </date-range-picker>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Ticket ID</label>
+            <div class="form-group form-group-feedback form-group-feedback-right">
+                <input type="text" class="form-control " placeholder="Search For">
+                <div class="form-control-feedback form-control-feedback-lg">
+                    <i class="icon-search4 text-muted"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Event Location</label>
+            <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select category'"
+                [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+            </ng-multiselect-dropdown>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Ticket Buyer</label>
+            <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select category'"
+                [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+            </ng-multiselect-dropdown>
+        </div>
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Ticket Holder</label>
+            <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select category'"
+                [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+            </ng-multiselect-dropdown>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-lg-3">
+            <label class="text-blue-400 font-weight-bold" for="">Organizer</label>
+            <div class="form-group form-group-feedback form-group-feedback-right">
+                <input type="text" class="form-control " placeholder="Search For">
+                <div class="form-control-feedback form-control-feedback-lg">
+                    <i class="icon-search4 text-muted"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-lg-12">
+            <div class="card">
+
+
+                <div class="card-body">
+                </div>
+
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                    <div class="datatable-header">
+                        <div id="DataTables_Table_0_filter" class="dataTables_filter"><label><span>Filter:</span> <input
+                                    type="search" class="" placeholder="Type to filter..."
+                                    aria-controls="DataTables_Table_0"></label></div>
+                        <div class="dataTables_length" id="DataTables_Table_0_length"><label><span>Show:</span> <select
+                                    name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+                                    class="select2-hidden-accessible" data-select2-id="1" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option value="10" data-select2-id="3">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="2" style="width: auto;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-disabled="false"
+                                            aria-labelledby="select2-DataTables_Table_0_length-so-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-DataTables_Table_0_length-so-container" role="textbox"
+                                                aria-readonly="true" title="10">10</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span></label></div>
+                    </div>
+                    <div class="datatable-scroll-wrap">
+                        <table class="table datatable-responsive dataTable no-footer dtr-inline" id="DataTables_Table_0"
+                            role="grid" aria-describedby="DataTables_Table_0_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                        colspan="1" aria-sort="ascending"
+                                        aria-label="First Name: activate to sort column descending">First Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                        colspan="1" aria-label="Last Name: activate to sort column ascending">Last Name
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                        colspan="1" aria-label="Job Title: activate to sort column ascending">Job Title
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                        colspan="1" aria-label="DOB: activate to sort column ascending">DOB</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                        colspan="1" aria-label="Status: activate to sort column ascending">Status</th>
+                                    <th class="text-center sorting_disabled" rowspan="1" colspan="1"
+                                        style="width: 100px;" aria-label="Actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <tr role="row" class="odd">
+                                    <td tabindex="0" class="sorting_1">Aura</td>
+                                    <td>Hard</td>
+                                    <td>Business Services Sales Representative</td>
+                                    <td>19 Apr 1969</td>
+                                    <td><span class="badge badge-danger">Personalization failed</span></td>
+                                    <td class="p-0">
+                                        <button [routerLink]="['/admin/tickets/detail']"
+                                            class="btn mt-1 p-1 bg-blue-400">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td tabindex="0" class="sorting_1">Chantal</td>
+                                    <td><a href="#">Nailor</a></td>
+                                    <td>Technical Services Librarian</td>
+                                    <td>10 Jan 1980</td>
+                                    <td><span class="badge badge-primary">Checked-in</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1" tabindex="0">Cicely</td>
+                                    <td>Sigler</td>
+                                    <td><a href="#">Senior Research Officer</a></td>
+                                    <td>15 Mar 1960</td>
+                                    <td><span class="badge bg-orange-400">Personalization pending</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td class="sorting_1" tabindex="0">Coy</td>
+                                    <td>Wollard</td>
+                                    <td>Customer Service Operator</td>
+                                    <td>12 Oct 1982</td>
+                                    <td><span class="badge badge-success">Personalized</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1" tabindex="0">Delma</td>
+                                    <td>Bonds</td>
+                                    <td>Lead Brand Manager</td>
+                                    <td>21 Dec 1968</td>
+                                    <td><span class="badge bg-orange-400">Personalization pending</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td tabindex="0" class="sorting_1">Jackelyn</td>
+                                    <td>Weible</td>
+                                    <td><a href="#">Airline Transport Pilot</a></td>
+                                    <td>3 Oct 1981</td>
+                                    <td><span class="badge badge-primary">Checked-in</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td tabindex="0" class="sorting_1">Kennedy</td>
+                                    <td>Haley</td>
+                                    <td>Senior Marketing Designer</td>
+                                    <td>18 Dec 1960</td>
+                                    <td><span class="badge badge-success">Personalization pending</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td tabindex="0" class="sorting_1">Lizzee</td>
+                                    <td><a href="#">Goodlow</a></td>
+                                    <td>Technical Services Librarian</td>
+                                    <td>1 Nov 1961</td>
+                                    <td><span class="badge badge-danger">Personalization failed</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td tabindex="0" class="sorting_1">Marth</td>
+                                    <td><a href="#">Enright</a></td>
+                                    <td>Traffic Court Referee</td>
+                                    <td>22 Jun 1972</td>
+                                    <td><span class="badge badge-success">Personalization pending</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td tabindex="0" class="sorting_1">Maxine</td>
+                                    <td><a href="#">Woldt</a></td>
+                                    <td><a href="#">Business Services Sales Representative</a></td>
+                                    <td>17 Oct 1987</td>
+                                    <td><span class="badge bg-orange-400">Personalization pending</span></td>
+                                    <td class="p-0">
+                                        <button class="btn mt-1 p-1 bg-blue-400"
+                                            [routerLink]="['/admin/tickets/detail']">Show Details</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="datatable-footer">
+                        <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                            Showing 1 to 10 of 15 entries</div>
+                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a
+                                class="paginate_button previous disabled" aria-controls="DataTables_Table_0"
+                                data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">←</a><span><a
+                                    class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1"
+                                    tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_0"
+                                    data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next"
+                                aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0"
+                                id="DataTables_Table_0_next">→</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+
+                <div class="table-responsive ">
+                    <table class="table custom-padding">
+                        <thead>
+                            <tr class="table-border-solid">
+                                <th>Booking ID</th>
+                                <th>Ticket ID</th>
+                                <th>Organizer</th>
+                                <th>Event Name</th>
+                                <th>Event Date</th>
+                                <th>Event Location</th>
+                                <th>Ticket Buyer</th>
+                                <th>Ticket Holder</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>349583</td>
+                                <td>Met00001</td>
+                                <td>WizPro</td>
+                                <td>Metallica - Tour2021</td>
+                                <td>15.06.2021</td>
+                                <td>Ernst-Happel Stadion</td>
+                                <td>Markus Rein</td>
+                                <td>Markus Rein</td>
+                                <td>Personalized</td>
+                                <td class="p-0">
+                                    <button class="btn p-1 bg-blue-400" [routerLink]="['/admin/tickets/detail']">Show
+                                        Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>349583</td>
+                                <td>Met00001</td>
+                                <td>WizPro</td>
+                                <td>Metallica - Tour2021</td>
+                                <td>15.06.2021</td>
+                                <td>Ernst-Happel Stadion</td>
+                                <td>Markus Rein</td>
+                                <td>Markus Rein</td>
+                                <td>Personalized</td>
+                                <td class="p-0">
+                                    <button class="btn p-1 bg-blue-400" [routerLink]="['/admin/tickets/detail']">Show
+                                        Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>349583</td>
+                                <td>Met00001</td>
+                                <td>WizPro</td>
+                                <td>Metallica - Tour2021</td>
+                                <td>15.06.2021</td>
+                                <td>Ernst-Happel Stadion</td>
+                                <td>Markus Rein</td>
+                                <td>Markus Rein</td>
+                                <td>Personalized</td>
+                                <td class="p-0">
+                                    <button class="btn p-1 bg-blue-400" [routerLink]="['/admin/tickets/detail']">Show
+                                        Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>349583</td>
+                                <td>Met00001</td>
+                                <td>WizPro</td>
+                                <td>Metallica - Tour2021</td>
+                                <td>15.06.2021</td>
+                                <td>Ernst-Happel Stadion</td>
+                                <td>Markus Rein</td>
+                                <td>Markus Rein</td>
+                                <td>Personalized</td>
+                                <td class="p-0">
+                                    <button class="btn p-1 bg-blue-400" [routerLink]="['/admin/tickets/detail']">Show
+                                        Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

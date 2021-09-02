@@ -1,0 +1,108 @@
+<div class="p-sm-12 w-custom">
+    <div class="row mx-0 mt-2 justify-content-center">
+      <div class="col-lg-1 d-mid-none"></div>
+      <div class="col-lg-7 custom-col-3 p-0">
+        <h6 class="text-blue pl-md-5 font-weight-bold">Summary</h6>
+        <span *ngIf="reservedTickets.assignee">
+          <span class="custom-size d-md-none d-mid-block d-block custom-font"><b>Ticket ID:</b> {{reservedTickets.ticketId}}</span>
+          <ul class="pl-0 d-flex align-items-center custom-ul-11 mr-md-2">
+            <li class="d-none d-md-block d-mid-none">
+              <span class="custom-size"><b>Ticket ID:</b> {{reservedTickets.ticketId}}</span>
+            </li>
+            <li>
+              <span class="custom-size custom-font"><b>Seat:</b> {{reservedTickets.seat}}</span>
+              <span class="mx-1 text-blue-400 d-sm-none"><i class="icon-info22"></i></span>
+            </li>
+            <li class="ml-xsm-auto">
+              <span class="custom-size d-block custom-font"><b>EUR {{reservedTickets.priceForSale}}</b>
+                <span class="ml-1 text-blue-400" (click)='removeTicket()'><i class="far fa-trash-alt"></i></span>
+              </span>
+            </li>
+          </ul>
+        </span>
+        <span *ngFor="let ticket of reservedTickets.tickets; let i=index">
+          <span *ngIf="ticket.assignee">
+            <span class="custom-size d-md-none d-mid-block d-block custom-font"><b>Ticket ID:</b> {{ticket.ticketId}}</span>
+            <ul class="pl-0 d-flex align-items-center custom-ul-11 mr-md-2">
+              <li class="d-none d-md-block d-mid-none">
+                <span class="custom-size"><b>Ticket ID:</b> {{ticket.ticketId}}</span>
+              </li>
+              <li>
+                <span class="custom-size custom-font"><b>Seat:</b> {{ticket.seat}}</span>
+                <span class="mx-1 text-blue-400 d-sm-none"><i class="icon-info22"></i></span>
+              </li>
+              <li class="ml-xsm-auto">
+                <span class="custom-size d-block custom-font"><b>EUR {{ticket.priceForSale}}</b>
+                  <span class="ml-1 text-blue-400" (click)='removeTicket(i)'><i class="far fa-trash-alt"></i></span>
+                </span>
+              </li>
+            </ul>
+          </span>
+        </span>
+
+        <ul class="pl-0 d-flex align-items-center justify-content-end custom-ul-11 mr-md-4 mr-3 mb-0">
+          <li>
+            <span class="d-block custom-size font-weight-bold">Sub Total:</span>
+          </li>
+          <li>
+            <span class="d-block custom-size font-weight-bold"><b> EUR {{summaryPrice}}</b></span>
+          </li>
+
+        </ul>
+        <ul class="pl-0 d-flex align-items-center justify-content-end custom-ul-11 mb-0 mr-md-4 mr-3">
+          <li>
+            <span class="small">zzgl. €5.00 Service & €0.50 Transaktionsgebühren</span>
+          </li>
+        </ul>
+        <div class="d-none d-md-block">
+          <ul class="pl-0 d-flex align-items-center justify-content-end custom-ul-11 mb-0 mr-4">
+            <li>
+              <span class="d-block custom-size font-weight-bold text-blue-400"><b>Total:</b></span>
+            </li>
+            <li>
+              <span class="d-block custom-size font-weight-bold text-blue-400"><b> EUR {{summaryPrice}}</b></span>
+            </li>
+          </ul>
+          <span class="d-block text-muted text-right mr-4">All prices incl. VAT</span>
+        </div>
+      </div>
+      <div class="col-lg-1 d-mid-none"></div>
+      <div class="col-lg-3 d-md-block d-none">
+        <h6 class="text-blue font-weight-bold">Payout method</h6>
+        <div class="form-group">
+          <div class="form-check">
+            <label class="form-check-label">
+              <div class="uniform-choice"><span class="checked">
+                <input type="radio" class="form-check-input-styled" name="stacked-radio-left" checked="" data-fouc="">
+              </span></div>
+              <img src="../../../assets/images/paypal.PNG" width="60px" alt="">
+            </label>
+          </div>
+        </div>
+        <span class="d-block text-muted">Nach *Jetzt kaufen* werden sie zum zahlungsdiensteister Weitergeleitet</span>
+      </div>
+    </div>
+    <div class="d-block d-md-none">
+      <div class="row justify-content-center">
+        <div class="col-lg-3 pr-0 text-md-center">
+          <div class="d-flex justify-content-between">
+            <h6 class="text-blue font-weight-bold text-md-center mb-0">Payout method</h6>
+            <div class="mr-4">
+              <div class="custom-size text-blue-400"><b>Total: EUR 5.00</b></div>
+              <div class="text-muted small">All prices incl. VAT</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="custom-stacked-radio"
+                id="custom_radio_stacked_unchecked" checked>
+              <label class="custom-control-label" for="custom_radio_stacked_unchecked"><img
+                  src="../../../assets/images/paypal.PNG" width="60px" alt=""></label>
+            </div>
+            <span class="d-block text-muted small">After "Buy now" you will be <br> redirected to the payment
+              provider</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

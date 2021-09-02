@@ -1,0 +1,76 @@
+<div class="modal-body px-md-4">
+    <div class="text-center mt-4">
+
+    </div>
+    <div *ngIf="selectedId === 1">
+        <h6 class="font-weight-bold mb-0">If you have a copy of your ID Document on your Computer please upload your
+            Passport</h6>
+        <div class="row my-2 ml-2">
+            <div class="form-group">
+                <label for="passport"></label>
+                <input type="button" id="loadFileXml" value="Upload Passport"
+                    onclick="document.getElementById('passport').click()" />
+                <input type="file" id="passport" style="display:none" name="passport">
+                <p>allowed formats: .jpg, .png
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 2">
+        <h6 class="font-weight-bold mb-0">If you have a copy of your ID Document on your Computer please upload your
+            Driver's License
+            </h6>
+        <div class="row my-2 ml-2">
+            <div class="form-group">
+                <label for="driverFront"></label>
+                <input type="button" id="loadFileXml" value="Upload Driver's Licence Front"
+                    onclick="document.getElementById('driverFront').click()" />
+                <input type="file" id="driverFront" style="display:none" name="driverFront">
+                <label for="driverBack"></label>
+                <input type="button" id="loadFileXml" value="Upload Driver's Licence Back"
+                    onclick="document.getElementById('driverBack').click()" />
+                <input type="file" id="driverBack" style="display:none" name="driverBack">
+                <p>allowed formats: .jpg, .png
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 3">
+        <h6 class="font-weight-bold mb-0">If you have a copy of your ID Document on your Computer please upload your
+            Personal ID Card
+            </h6>
+        <div class="row my-2 ml-2">
+            <div class="form-group">
+                <label for="IDCardFront"></label>
+                <input type="button" id="loadFileXml" value="Upload ID Card Front"
+                    onclick="document.getElementById('IDCardFront').click()" />
+                <input type="file" id="IDCardFront" style="display:none" name="IDCardFront">
+                <label for="IDCardBack"></label>
+                <input type="button" id="loadFileXml" value="Upload ID Card Back"
+                    onclick="document.getElementById('IDCardBack').click()" />
+                <input type="file" id="IDCardBack" style="display:none" name="IDCardBack">
+                <p>allowed formats: .jpg, .png
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-2 text-danger h5">OR</div>
+    <h6 class="font-weight-bold mb-0">Scan the QR Code to continue the verifcation process on your mobile</h6>
+    <div class="row">
+        <div class="col-sm-6">
+            <img class="img-fluid" src="../../../assets/images/Five death.PNG" alt="">
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-9 my-2 text-danger h5">NOTE</div>
+                <div class="col-9 font-weight-bold mb-0">If you have an older iPhone or Android phone
+                    you might need 3rd party QR scanning apps.
+                    Please check out
+                </div>
+                <div class="col-4"> <img class="img-fluid" src="../../../assets/images/Five death.PNG" alt=""></div>
+                <div class="col-4"> <img class="img-fluid" src="../../../assets/images/Five death.PNG" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>

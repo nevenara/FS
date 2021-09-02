@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jul 28 2020 16:51:54 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/account/linked-account/linked-account.component.html
+* src/app/personalization/detail/detail.component.css
+* src/app/personalization/detail/detail.component.html
+* src/app/personalization/detail/detail.component.ts
+
+
+Created files:
+* .autogit/logs/log-28-6-2020-16-21-46.txt
+
+
+Deleted files:
+
+
+Renamed files:

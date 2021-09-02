@@ -1,0 +1,21 @@
+<div class="modal-body px-md-4">
+    <h6><b>{{'account.payment.proofOfAddress.pleaseUploadDoc' | translate}}</b></h6>
+    <h6>{{'account.payment.proofOfAddress.uploadDocInfo' | translate}}</h6>
+    <h6><span style="color: red">{{'account.payment.proofOfAddress.note' | translate}}</span> {{'account.payment.proofOfAddress.noteDesc' | translate}}</h6>
+    <div class='row align-items-center'>
+        <div class='col-md-3'>
+            <img src='../../../../assets/images/Proofofaddress.png' class="img-fluid" style="max-height: 150px;">
+        </div>
+        <div class='col-md-9 mt-3 pt-3'>
+            <div class='mb-3'>
+                <label for="addressDoc"></label>
+                <input type="button" id="loadFile" value="{{'account.payment.proofOfAddress.uploadDoc' | translate}}"
+                    onclick="document.getElementById('addressDoc').click()" class='action btn bg-primary rounded'/>
+                <input (change)='uploadAddressDocument($event)' type="file" id="addressDoc" style="display:none" name="addressDoc">
+                <span *ngIf='addressDocument' class='ml-3'>{{addressDocument.name}}</span>
+            </div>
+            <p>{{'account.payment.proofOfAddress.allowedFormats' | translate}}: .jpg, .png, .pdf</p>
+        </div>
+        
+    </div>
+</div>

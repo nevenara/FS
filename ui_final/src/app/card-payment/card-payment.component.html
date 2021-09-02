@@ -1,0 +1,37 @@
+ 
+  <form id="payment-form" class="row mt-3">
+    <div class='col-md-12 row'>
+      <h6 class='pl-2 ml-1'><b>{{'cardPayment.paymentMethod' | translate}}</b></h6>
+
+      <div class="btn-group btn-group-toggle mb-3 text-center ml-0 col-md-12 row" ngbRadioGroup name="radioBasic" (change)='paymentMethodSelected()' [(ngModel)]="paymentMethod">
+        <label ngbButtonLabel class="btn-default col-md-6">
+          <input ngbButton type="radio" value="card"> <b class='pr-1'>{{'cardPayment.creditCard' | translate}} </b> <img src='../../assets/images/visa.PNG' style='height: 25px;'>
+        </label>
+        <label ngbButtonLabel class="btn-default col-md-6">
+          <input ngbButton type="radio" value="sofort"> <b class='pr-1'>{{'cardPayment.sofort' | translate}} </b> <img src='../../assets/images/SOFORT.png' style='height: 25px;'>
+        </label>
+      </div>
+
+    </div>
+    <div class="col-md-12 row pt-3 pb-3" *ngIf='paymentMethod == "card"'>
+      <span [hidden]='loaderInModal' class='row col-md-12 align-items-center'>
+        <div class="col-md-12">
+          <h6><b>{{'cardPayment.cardInformation' | translate}}</b></h6>
+        </div>
+        <div class='col-md-12 form-control ml-2' id="card-element" #cardElement>
+          <!-- Elements will create input elements here -->
+        </div>
+        
+        <div class='col-md-12' id="card-errors" role="alert" style="color: red;">{{errorMsg}}</div>
+      </span>
+      
+    </div>
+
+    <div class="col-lg-12 text-center">
+      <div *ngIf='loaderInModal' class='text-center col-md-12'>
+        <h5>{{loadingMessage}}</h5>
+        <preloader-app></preloader-app>
+      </div>
+      <button type="button" class="btn custom-color px-md-4 text-white" [disabled]='loaderInModal' (click)="pay()">{{'cardPayment.pay' | translate}} &euro;{{price.toFixed(2)}} </button>
+    </div>
+  </form>

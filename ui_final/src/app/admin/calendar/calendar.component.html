@@ -1,0 +1,46 @@
+
+<form class="form-inline justify-content-center">
+    <div class="form-group">
+        <div class="input-group">
+            <button class="btn btn-light " (click)="toggleDate1 = !toggleDate1" type="button">
+                <i class="fa fa-calendar mr-2"></i>
+                <span *ngIf="!startDate || !endDate">dd.mm.yyyy - dd.mm.yyyy</span>
+                <span
+                    *ngIf="startDate && endDate">{{this.startDate.day}}.{{this.startDate.month}}.{{this.startDate.year}}
+                    - {{this.endDate.day}}.{{this.endDate.month}}.{{this.endDate.year}}</span>
+            </button>
+        </div>
+    </div>
+</form>
+<div class="d-flex justify-content-center">
+<div class="ranges col-lg-8 text-center" *ngIf="toggleDate1">
+    <ul>
+        <li (click)="selectToday()">Today</li>
+        <li (click)="selectYesterday()">
+            Yesterday</li>
+        <li (click)="startDate = calendar.getToday(); selectSevenDaysAgo();">Last 7 Days</li>
+        <li (click)="startDate = calendar.getToday(); selectThirtyDaysAgo();">Last 30 Days</li>
+        <li (click)="selectThisMonth();">This Month</li>
+        <li (click)="selectLastMonth();">Last Month</li>
+        <li (click)="toggleCustom = !toggleCustom; toggleCustom2 = false; toggleCustom3 = false;">Custom Range</li>
+    </ul>
+    <ngb-datepicker #dp1 (dateSelect)="onDateSelection($event)" [dayTemplate]="t" outsideDays="hidden"
+        *ngIf="toggleCustom">
+    </ngb-datepicker>
+    <div class="col-log-4">
+        <span class="">Start date:</span>
+        <input class="form-control text-center" placeholder="dd.mm.yyyy" name="dps" [(ngModel)]="startDateInput" ngbDatepicker
+            #sd="ngbDatepicker" [ngModelOptions]="{standalone: true}" (keyup)="validateInputStart()">
+        <span>End date:</span>
+        <input class="form-control text-center mb-2" placeholder="dd.mm.yyyy" name="dpe" [(ngModel)]="endDateInput"
+            ngbDatepicker #ed="ngbDatepicker" [ngModelOptions]="{standalone: true}" (keyup)="validateInputEnd()">
+    </div>
+    <ng-template #t let-date let-focused="focused">
+        <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)"
+            [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+            (mouseleave)="hoveredDate = null">
+            {{ date.day }}
+        </span>
+    </ng-template>
+</div>
+</div>

@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jul 30 2020 16:22:19 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/event/event.component.html
+* src/app/marketplace/market-tickets/market-tickets.component.html
+* src/app/support/support/support.component.html
+* src/app/tickets/upcoming/upcoming.component.html
+* src/app/tickets/upcoming/upcoming.component.ts
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

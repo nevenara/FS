@@ -1,0 +1,30 @@
+<ng-template #modalReference let-modal p>
+    <div class="modal-header  bg-dark">
+        <img class="img-fluid" src="../../assets/images/FanSafe-Logo.png" alt="">
+    </div>
+
+    <preloader-app *ngIf="loader"></preloader-app>
+    
+    <div *ngIf='!loader' class="modal-body px-md-4">
+        <div class="text-center m-auto">
+            <h6 class="font-weight-bold mb-0 h3">{{'idVerification.title' | translate}}</h6>
+        </div>
+        <app-initial-id-verification *ngIf="show == 1"></app-initial-id-verification>
+        <app-choose-id-document  [selectedId] = "selectedId" *ngIf="show == 2"  (changeSelectedIdEvent) = "changeSelectedId($event)"></app-choose-id-document>
+        <app-upload-id-document [idDocFront]='idDocFront' [idDocBack]='idDocBack'  [selectedId] = "selectedId" [qrCode] = "qrCode" *ngIf="show == 3" (idDocFrontEmmiter)='idDocFront=$event' (idDocBackEmmiter)='idDocBack=$event'></app-upload-id-document>
+        <app-selfie-image *ngIf="show == 4" (selfieImageEmitter)='selfieImage = $event'></app-selfie-image>
+        <app-id-verification-success [selectedId] = "selectedId" *ngIf="show == 5"></app-id-verification-success>
+        <app-id-verification-fail [errorMessage]='errorMessage' *ngIf="show == 6"></app-id-verification-fail>
+    </div>
+
+    <div class="modal-footer justify-content-center">
+        <button type="button" class="btn bg-dark px-md-4 mr-md-4" (click)="previous()" *ngIf="show >= 2 && show <= 4"> {{'idVerification.previous' | translate}}</button>
+        <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4" (click)="modal.dismiss()" *ngIf="show !== 5">{{'idVerification.cancel' | translate}}</button>
+        <button type="button" class="btn bg-blue px-md-4 border border-dark" (click)="next()" *ngIf="show == 1">{{'idVerification.start' | translate}}</button>
+        <button type="button" class="btn bg-green-400 px-md-4" (click)="next()" *ngIf="show == 2">{{'idVerification.next' | translate}}</button>
+        <button type="button" class="btn bg-green-400 px-md-4" (click)="next()" *ngIf="show == 3" [disabled]='!idDocFront || (selectedId != 1 && !idDocBack)'>{{'idVerification.next' | translate}}</button>
+        <button type="button" class="btn bg-green-400 px-md-4" (click)="verifyId()" *ngIf="show == 4" [disabled]='!selfieImage || loader'>{{'idVerification.verifyId' | translate}}</button>
+        <button type="button" class="btn bg-green-400 px-md-4" (click)="modal.dismiss()" *ngIf="show == 5">{{'idVerification.close' | translate}}</button>
+        <button type="button" class="btn bg-green-400 px-md-4" (click)="show = 1" *ngIf="show == 6">{{'idVerification.tryAgain' | translate}}</button>
+    </div>
+</ng-template> 

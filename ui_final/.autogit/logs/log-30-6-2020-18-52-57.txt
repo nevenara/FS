@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jul 30 2020 18:52:57 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/auth/signup/personal-data/personal-data.component.html
+* src/app/auth/signup/signup.component.html
+* src/app/profile/linked/create/create.component.html
+* src/app/profile/linked/detail/detail.component.html
+* src/app/profile/profile/profile.component.html
+* src/index.html
+
+
+Created files:
+* .autogit/logs/log-30-6-2020-18-22-51.txt
+* "src/assets/images/FanSafe Logo-01_FavIcon.png"
+
+
+Deleted files:
+
+
+Renamed files:

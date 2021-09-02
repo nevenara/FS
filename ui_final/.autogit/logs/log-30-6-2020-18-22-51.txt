@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jul 30 2020 18:22:51 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/auth/forgotpassword/forgotpassword.component.html
+* src/app/auth/login/login.component.html
+* src/app/auth/resetpassword/resetpassword.component.html
+* src/app/auth/signup/signup.component.css
+* src/app/auth/signup/signup.component.html
+* src/app/auth/signup/signup.component.ts
+* src/app/tickets/detail/detail.component.css
+* src/app/tickets/detail/detail.component.html
+
+
+Created files:
+* .autogit/logs/log-30-6-2020-17-52-45.txt
+
+
+Deleted files:
+
+
+Renamed files:

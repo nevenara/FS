@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12 text-center my-2">
+          <h3 class="card-title text-blue-400">Event Details</h3>
+          <hr class="hr-blue">
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-12">
+        <div class="container">
+          <div class="card border-0">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="container">
+                    <div class="row">
+                      <div class="col-lg-3 w-md-100 px-0 mb-2 mb-md-0 mt-4">
+                        <div class="company-img my-2">
+                          <img src="{{eventImageUrl}}" class="" alt="">
+                        </div>
+                        <div class="form-group row justify-content-center align-items-center">
+                          <div class="col-lg-12">
+                            <div class="d-flex justify-content-center align-items-center mt-3">
+                              <div class="d-flex justify-content-center align-items-center mt-2">
+                                <div>
+                                  <input type="button" id="loadFileXml" value="Upload Image"
+                                  onclick="document.getElementById('ticketDetails').click()"
+                                  class='action btn bg-primary rounded' />
+                                <input (change)='uploadEventImage($event)' type="file" id="ticketDetails" style="display:none"
+                                  name="ticketDetails">
+                                </div>
+                                <a (click)="deleteEventImage()"><i class="fas fa-trash ml-3 text-primary"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-9 w-md-100 px-0 px-md-2" *ngIf="event">
+                            <h1 class="font-weight-bold mb-0 hd2">{{event.eventName}}</h1>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="row my-1">
+                                  <span class="col-3 custom-size"><b>Organizer</b> </span>
+                                  <div class="col-9">
+                                    <span class="custom-size">{{event.organizer}}</span>
+                                  </div>
+                                </div>
+                                <div class="row my-1">
+                                  <span class="col-3 custom-size"><b>Date</b> </span>
+                                  <div class="col-9">
+                                    <span class="custom-size"> {{dateFormatter.getDate(event.eventDate)}}</span>
+                                  </div>
+                                </div>
+                                <div class="row my-1">
+                                  <span class="col-3 custom-size"><b>Begin</b> </span>
+                                  <div class="col-9">
+                                    <span class="custom-size">{{dateFormatter.getHours(event.begin)}}</span>
+                                  </div>
+                                </div>
+                                <div class="row my-1">
+                                  <span class="col-3 custom-size pr-md-0"><b>Doors open</b> </span>
+                                  <div class="col-9">
+                                    <span class="custom-size">{{event.doorsOpen}}</span>
+                                  </div>
+                                </div>
+                              <div class="row my-1">
+                                <span class="col-3 custom-size"><b>Location</b> </span>
+                                <div class="col-9">
+                                  <span class="custom-size">{{event.locationName}} <br> {{event.locationAddress}}</span>
+                                </div>
+                              </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div><b>Seat Plan</b> </div>
+                                <div class="seatplan" (click)="openBackDropCustomClass(content)">
+                                  <img src="{{seatImageUrl}}" alt="">
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center mt-3">
+                                  <div class="d-flex justify-content-center align-items-center mt-2">
+                                    <div>
+                                      <input type="button" id="loadFileXml" value="Upload Image"
+                                      onclick="document.getElementById('seatPlan').click()"
+                                      class='action btn bg-primary rounded' />
+                                    <input (change)='uploadSeatImage($event)' type="file" id="seatPlan" style="display:none"
+                                      name="seatPlan">
+                                    </div>
+                                    <a (click)="deleteSeatImage()"><i class="fas fa-trash ml-3 text-primary"></i></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="col-12 my-3 text-center">
+                        <a href="javascript:void(0)" class="btn btn-dark" [routerLink]="['/organizer/ticketlist']">Back to overview</a>
+                      </div>
+                    </div>
+
+                </div>
+
+              </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="{{seatImageUrl}}" style="max-width: 100%;" alt="">
+      </div>
+    </ng-template>

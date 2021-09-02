@@ -1,0 +1,20 @@
+
+<div class="modal-body px-md-4">
+    <div class="text-center mt-4">
+        <h6 class="font-weight-bold mb-0 h3">{{'idVerification.chooseIdDoc' | translate}}</h6>
+    </div>
+    <div class="row my-5 text-center">
+        <div class="col-lg-4" [ngClass]="{'border border-success' : selectedId === 1}">
+            <img class="img-fluid" src="../../../assets/images/Passport.png" alt="" (click)="selectedId = 1; emitChangeSelectedID()">
+            <div class="text-center font-weight-bold mb-0 h3">{{'idVerification.passport' | translate}}</div>
+        </div>
+        <div class="col-lg-4" [ngClass]="{'border border-success' : selectedId === 2}">
+            <img class="img-fluid" src="../../../assets/images/DriverLicense.png" alt="" (click)="selectedId = 2; emitChangeSelectedID()">
+            <div class="text-center font-weight-bold mb-0 h3">{{'idVerification.driversLicense' | translate}}</div>
+        </div>
+        <div class="col-lg-4" [ngClass]="{'border border-success' : selectedId === 3}">
+            <img class="img-fluid" src="../../../assets/images/IDCard.png" alt="" (click)="selectedId = 3; emitChangeSelectedID()">
+            <div class="text-center font-weight-bold mb-0 h3">{{'idVerification.personalIdCard' | translate}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="bg-img">
+
+  <div class="main-div">
+	<!-- Page content -->
+	<div class="page-content">
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+      <div class="logo-fansafe justify-content-center text-center pt-3">
+        <img src="../../../assets/images/FanSafe-Logo.png" height="60" alt="">
+    </div>
+			<!-- Content area -->
+			<div class="content d-flex justify-content-center align-items-center">
+
+				<!-- Registration form -->
+				<form class="login-form" action="index.html">
+					<div class="card mb-0 card-opacity">
+						<div class="card-body">
+							<div class="text-center mb-3">
+								<i class="icon-plus3 icon-2x text-blue-400 border-blue-400 border-3 rounded-round p-3 mb-3 mt-1"></i>
+								<h5 class="mb-0">Create account</h5>
+								<span class="d-block text-muted">All fields are required</span>
+							</div>
+
+							<!-- <div class="form-group text-center text-muted content-divider">
+								<span class="px-2">Your credentials</span>
+							</div> -->
+
+							<div class="form-group form-group-feedback form-group-feedback-left">
+                <input #email type="text" class="form-control" name="username" placeholder="Enter your email" required="">
+                <div class="form-control-feedback">
+                  <i class="fa fa-at text-muted"></i>
+                </div>
+              </div>
+
+							<div class="form-group form-group-feedback form-group-feedback-left">
+                <input #password1 type="password" class="form-control" name="password" placeholder="Password" required="">
+                <div class="form-control-feedback">
+                  <i class="icon-lock2 text-muted"></i>
+                </div>
+              </div>
+              <div class="form-group form-group-feedback form-group-feedback-left">
+                <input #password2 type="password" class="form-control" name="password" placeholder="Confirm Password" required="">
+                <div class="form-control-feedback">
+                  <i class="icon-lock2 text-muted"></i>
+                </div>
+              </div>
+							<div class="form-group d-flex align-items-center">
+								<div class="custom-control custom-checkbox">
+								  <input type="checkbox" class="custom-control-input" id="custom_checkbox_stacked_unchecked"
+									checked="">
+								  <label class="custom-control-label text-dark"
+									for="custom_checkbox_stacked_unchecked">I have read and agree to Fansafe's <br> <a (click)="open(content)" href="">Terms of Service</a> and
+								<a href="javascript:void(0)" (click)="open(content)" class="">Privacy Policy.</a></label>
+
+								</div>
+
+							  </div>
+
+                  <div class="form-group">
+                    <button type="submit" (click)="register(email.value, password1.value, password2.value)" class="btn btn-primary btn-block">Register
+                      <i class="icon-circle-right2 ml-2"></i></button>
+                  </div>
+
+
+                <div class="form-group text-center text-muted content-divider">
+                  <span class="px-2">Aready have an account?</span>
+                </div>
+
+                <div class="form-group">
+                  <a href="javascript:void(0)" routerLink='/auth' class="btn btn-light btn-block border dark">Login</a>
+                </div>
+						</div>
+					</div>
+				</form>
+				<!-- /registration form -->
+
+			</div>
+			<!-- /content area -->
+		</div>
+		<!-- /main content -->
+
+	</div>
+	<!-- /page content -->
+
+</div>
+
+</div>
+
+<ng-template #content let-modal p>
+	<div id="modal_scrollable" class="modal fade show" tabindex="-1" style="display: block;"
+	  aria-modal="true">
+	  <div class="modal-dialog modal-dialog-scrollable">
+		<div class="modal-content">
+		  <div class="modal-header pb-3">
+			<h5 class="modal-title">privacy policy</h5>
+			<button type="button" (click)="modal.dismiss('Cross click')" class="close" data-dismiss="modal">×</button>
+		  </div>
+
+		  <div class="modal-body py-0">
+			<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+			  egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+			  augue laoreet rutrum faucibus dolor auctor.</p>
+			<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+			  nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+			  egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+			  augue laoreet rutrum faucibus dolor auctor.</p>
+			<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+			  nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+			  egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+			  augue laoreet rutrum faucibus dolor auctor.</p>
+			<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+			  nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+			  egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+			  augue laoreet rutrum faucibus dolor auctor.</p>
+			<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+			  nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+			  egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+			  augue laoreet rutrum faucibus dolor auctor.</p>
+			<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+			  nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+			  egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+			  augue laoreet rutrum faucibus dolor auctor.</p>
+			<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+			  nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+		  </div>
+
+		  <div class="modal-footer pt-3">
+			<button type="button" class="btn bg-primary" (click)="modal.close('Save click')">Accept</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </ng-template>

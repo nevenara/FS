@@ -1,0 +1,146 @@
+<preloader-app *ngIf='loader'></preloader-app>
+<div *ngIf='!loader' class="bg-img">
+
+	<div class="main-div">
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+				<div class="logo-fansafe justify-content-center text-center pt-3">
+					<img src="../../../assets/images/FanSafe-Logo.png" height="60" alt="">
+				</div>
+				 <!-- Localisation-->
+          
+				 <app-localisation class='localisation'></app-localisation>
+          
+				<!-- Content area -->
+				<div class="content d-flex justify-content-center align-items-center">
+
+					<!-- Registration form -->
+					<form [formGroup]="form" class="login-form" action="index.html">
+						<div class="card mb-0 card-opacity">
+							<div class="card-body">
+								<div class="text-center mb-3">
+									<i
+										class="icon-plus3 icon-2x text-blue-400 border-blue-400 border-3 rounded-round p-3 mb-3 mt-1"></i>
+									<h5 class="mb-0">{{ 'signUp.createAccount' | translate }}</h5>
+									<span class="d-block text-muted">{{ 'signUp.fieldsRequired' | translate }}</span>
+								</div>
+
+								<!-- <div class="form-group text-center text-muted content-divider">
+								<span class="px-2">Your credentials</span>
+							</div> -->
+
+								<div class="form-group form-group-feedback form-group-feedback-left">
+									<input #email type="text" class="form-control" name="email" formControlName="email"
+										placeholder="{{ 'signUp.enterEmail' | translate }}" required="">
+									<div class="form-control-feedback">
+										<i class="fa fa-at text-muted"></i>
+									</div>
+									<errors [control]="f.email" [isSubmit]="isSubmit"></errors>
+								</div>
+
+								<div class="form-group form-group-feedback form-group-feedback-left">
+									<input #password1 type="password" class="form-control" name="password"
+										formControlName="password" placeholder="{{ 'signUp.password' | translate }}" required="">
+									<div class="form-control-feedback">
+										<i class="icon-lock2 text-muted"></i>
+									</div>
+									<errors [control]="f.password" [isSubmit]="isSubmit"></errors>
+								</div>
+								<div class="form-group form-group-feedback form-group-feedback-left">
+									<input #password2 type="password" formControlName="confirmPassword" class="form-control"
+										name="password" placeholder="{{ 'signUp.confirmPassword' | translate }}" required="">
+									<div class="form-control-feedback">
+										<i class="icon-lock2 text-muted"></i>
+									</div>
+									<errors [control]="f.confirmPassword" [isSubmit]="isSubmit"></errors>
+								</div>
+								<div class="form-group d-flex align-items-center">
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											id="custom_checkbox_stacked_unchecked" [(ngModel)]='isChecked' formControlName='isChecked'>
+										<label class="custom-control-label text-dark"
+											for="custom_checkbox_stacked_unchecked">{{ 'signUp.readTermsAndPolicy' | translate }}
+											 <a (click)="open(terms)" href="javascript:void(0)">{{ 'signUp.termsOfService' | translate }}</a> {{ 'signUp.and' | translate }}
+											<a href="javascript:void(0)" (click)="open(policy)" class="">{{ 'signUp.privacyPolicy' | translate }}</a> {{ 'signUp.privacyPolicySuffix' | translate }}</label>
+
+									</div>
+
+								</div>
+
+								<div class="form-group">
+									<button type="submit" (click)="register(email.value, password1.value, password2.value)" class="btn bg-blue-400 btn-block" [disabled]='!isChecked'>{{ 'signUp.register' | translate }}
+										<i class="icon-circle-right2 ml-2"></i></button>
+								</div>
+
+
+								<div class="form-group text-center text-muted content-divider">
+									<span class="px-2">{{ 'signUp.haveAccount' | translate }}</span>
+								</div>
+
+								<div class="form-group">
+									<a routerLink='/auth'
+										class="btn btn-light btn-block border dark">{{ 'signUp.login' | translate }}</a>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!-- /registration form -->
+
+				</div>
+				<!-- /content area -->
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+
+</div>
+
+<ng-template #terms let-modal p>
+	<div id="modal_scrollable" class="modal fade show" tabindex="-1" style="display: block;" aria-modal="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header pb-3">
+					<h5 class="modal-title">{{ 'signUp.termsTitle' | translate }}</h5>
+					<button type="button" (click)="modal.dismiss('Cross click')" class="close"
+						data-dismiss="modal">×</button>
+				</div>
+
+				<div class="modal-body py-0">
+					<p>{{ 'signUp.terms' | translate }}</p>
+				</div>
+
+				<div class="modal-footer pt-3">
+					<button type="button" class="btn bg-primary" (click)="modal.close('Save click')">{{ 'signUp.accept' | translate }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #policy let-modal p>
+	<div id="modal_scrollable" class="modal fade show" tabindex="-1" style="display: block;" aria-modal="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header pb-3">
+					<h5 class="modal-title">{{ 'signUp.privacyPolicyTitle' | translate }}</h5>
+					<button type="button" (click)="modal.dismiss('Cross click')" class="close"
+						data-dismiss="modal">×</button>
+				</div>
+
+				<div class="modal-body py-0">
+					<p>{{ 'signUp.policy' | translate }}</p>
+				</div>
+
+				<div class="modal-footer pt-3">
+					<button type="button" class="btn bg-primary" (click)="modal.close('Save click')">{{ 'signUp.accept' | translate }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-template>

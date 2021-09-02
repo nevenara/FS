@@ -1,0 +1,229 @@
+<div class="content">
+  <form action="#" [formGroup]="form" >
+  <div class="row" *ngIf="organizers">
+    <div class="col-lg-6 w-md-100 mb-3">
+      <h4 class="">{{organizers.companyName}}</h4>
+      <div class="company-img my-2">
+        <img src='{{organizerImageUrl}}' class="" alt="">
+      </div>
+
+        <div class="form-group row text-left" *ngIf = 'userType == 3 || userType == 4 || userType == 6 || userType == 7'>
+          <label class="col-lg-5 col-form-label font-weight-semibold">Upload Organizer Logo</label>
+          <div class="col-lg-7">
+            <div class="form-group row text-left align-items-center">
+                <div class="d-flex justify-content-center align-items-center mt-2">
+                  <div>
+                    <input type="button" id="loadFileXml" value="Upload Image"
+                    onclick="document.getElementById('organizerDetail').click()"
+                    class='action btn bg-primary rounded' />
+                  <input (change)='uploadImage($event)' type="file" id="organizerDetail" style="display:none"
+                    name="organizerDetail">
+                  </div>
+                  <a (click)="deleteImage()"><i class="fas fa-trash ml-3 text-primary"></i></a>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-5 col-form-label font-weight-semibold">Allows Ticket return</label>
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center">
+              <label class="switch mb-0">
+                <input type="checkbox" [disabled]='userType == 5' [(ngModel)]="organizers.ticketReturn" [ngModelOptions]="{standalone: true}">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row text-left">
+          <label class="col-lg-5 col-form-label font-weight-semibold">Sells at FanSafe Ticketshop</label>
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center">
+              <label class="switch mb-0">
+                <input type="checkbox" [disabled]='userType == 5' [(ngModel)]="organizers.dansafeSale" [ngModelOptions]="{standalone: true}">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-5 col-form-label font-weight-semibold">Link to Lomnido Bridge</label>
+          <div class="col-lg-7">
+            <input type="text" [readonly]='userType == 5' class="form-control" formControlName="Bridge" [(ngModel)]="organizers.linkToLomnidoBridge" placeholder="Enter Lomnido URL">
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-5 col-form-label font-weight-semibold" >Revenue sharing </label>
+          <div class="col-lg-7">
+            
+            <div class="d-flex align-items-center">
+              <div class="mr-2">€</div>
+            <input  [readonly]='userType == 5' type="text" class="form-control w-25 mr-2"  [(ngModel)]="revenueSharing" formControlName="Revenue" (keydown)="validatePrice($event)" NumbersOnly (keyup)="roundPrice()" [allowDecimals]="true"
+            [allowSign]="false">
+           
+              <span>per Ticket</span>
+             
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <span class="text-muted">Enter amount in € shared with organizer</span>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="col-lg-6 w-md-100">
+
+        <div class="form-group text-left row">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Status</label>
+          <div class="col-lg-8" *ngIf = 'userType == 3'>
+            <div class="form-group mb-3 mb-md-2">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" [(ngModel)]="organizers.status"
+                  id="custom_radio_inline_unchecked-9" [checked]="organizers.status == Active" value="Active" formControlName="Status">
+                <label class="custom-control-label text-success" for="custom_radio_inline_unchecked-9" >Active</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" [(ngModel)]="organizers.status"
+                  id="custom_radio_inline_checked-1" [checked]="organizers.status == Inactive" value="Inactive" formControlName="Status">
+                <label class="custom-control-label text-danger" for="custom_radio_inline_checked-1">Inactive</label>
+              </div>
+            </div>
+            <errors [control]="f.Status" [isSubmit]="isSubmit"></errors>
+          </div>
+
+          <div class="col-lg-8" *ngIf = 'userType != 3'>
+            <div class="form-group mb-3 mb-md-2">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" [(ngModel)]="organizers.status" disabled
+                  id="custom_radio_inline_unchecked-9" [checked]="organizers.status == Active" value="Active" formControlName="Status">
+                <label class="custom-control-label text-success" for="custom_radio_inline_unchecked-9" >Active</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" [(ngModel)]="organizers.status" disabled
+                  id="custom_radio_inline_checked-1" [checked]="organizers.status == Inactive" value="Inactive" formControlName="Status">
+                <label class="custom-control-label text-danger" for="custom_radio_inline_checked-1">Inactive</label>
+              </div>
+            </div>
+            <errors [control]="f.Status" [isSubmit]="isSubmit"></errors>
+          </div>
+
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Contact Person</label>
+          <div class="col-lg-8">
+            <input type="text" [readonly]='userType == 5' class="form-control" [(ngModel)]="organizers.contactPerson" placeholder="Enter firstname lastname" formControlName="Contact">
+            <errors [control]="f.Contact" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Email</label>
+          <div class="col-lg-8">
+            <input [readonly]='userType == 5' type="text" class="form-control"  [(ngModel)]="organizers.email" formControlName="Email" placeholder="Enter email">
+            <errors [control]="f.Email" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Phone</label>
+          <div class="col-lg-8">
+            <!-- <input type="number" class="form-control" formControlName="Phone" placeholder="+43 664 127372837"> -->
+            
+            <ngx-intl-tel-input [disabled]='userType == 5' [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Austria" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+            [phoneValidation]="true"  name="phonenumber" [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="organizers.phone" (ngModelChange)=" checkIsEmpty()">
+
+          </ngx-intl-tel-input>
+          <div *ngIf="isEmpty === true" class="text-danger">Phone Required</div>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">URL</label>
+          <div class="col-lg-8">
+            <input [readonly]='userType == 5' type="text" class="form-control" [(ngModel)]="organizers.url" formControlName="URLl" placeholder="Enter website of organizer">
+            <errors [control]="f.URLl" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Address</label>
+          <div class="col-lg-8">
+            <input [readonly]='userType == 5' type="text" class="form-control" [(ngModel)]="organizers.address" formControlName="Address"  placeholder="Enter street and number">
+            <errors [control]="f.Address" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Zip Code</label>
+          <div class="col-lg-8">
+            <input [readonly]='userType == 5' type="text" class="form-control" [(ngModel)]="organizers.postCode" formControlName="zipcode" placeholder="Enter postal code">
+            <errors [control]="f.zipcode" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">City</label>
+          <div class="col-lg-8">
+            <input [readonly]='userType == 5' type="text" class="form-control" [(ngModel)]="organizers.city" formControlName="City" placeholder="Enter City">
+            <errors [control]="f.City" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Country</label>
+          <div class="col-lg-8">
+            <ng-select [readonly]='userType == 5' class="custom" [items]="countries" formControlName="Country" bindLabel="name" placeholder="Please Choose" [(ngModel)]="organizers.country">
+            </ng-select>
+            <errors [control]="f.Country" [isSubmit]="isSubmit"></errors>
+          </div>
+        </div>
+        <div class="row" *ngIf = 'userType == 3'>
+          <div class="col-md-12 text-right">
+            <button type="submit" class="btn btn-danger" (click)="open3(content3)">Delete Organizer</button>
+          </div>
+        </div>
+
+    </div>
+    
+          <div class="col-lg-12">
+            <label class="col-lg-2 col-form-label font-weight-semibold">Email</label>
+            <button type="submit" class="btn bg-blue-400 col-lg-3" (click)="passwordRecovery()">Send Password Recovery Link</button>
+          <div class="col-lg-6 mb-3">
+            <p class="mb-0">{{organizerAccount.email}}</p>
+          </div>
+
+    <div class="text-center" *ngIf='userType == 3 || userType == 4 || userType == 6 || userType == 7'>
+      <button type="submit" class="btn btn-dark px-4 mr-3" (click)="getOrganizers()">Cancel</button>
+      <button type="submit" class="btn bg-green-400 px-4" (click)="updateOrganizer()">Save</button>
+    </div>
+  </div>
+</div>
+
+  </form>
+</div>
+
+
+
+
+<ng-template #content3 let-modal p>
+  <div class="modal-header bg-danger-800 justify-content-center">
+    <h3 class="modal-title m-0">Delete Organizer</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="icon-cancel-circle2 icon-2x text-danger-800"></i></div>
+    <span class="font-weight-semibold">All data of this organizer will be deleted form the system account and all connected <br>
+      data will be lost! <br>
+      Are you sure you want to delete this organizer?
+
+    </span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" aria-label="Close" class="btn btn-danger bg-danger-800 px-md-4 ml-md-2"
+      (click)="deleteOrganizer(); modal.dismiss('Cross click')" routerLink="/admin/organizer">Delete</button>
+  </div>
+</ng-template>

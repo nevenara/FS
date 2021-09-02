@@ -1,0 +1,169 @@
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+<span *ngIf="!loader && !loadingError">
+  <div class="row">
+    <div class="col-lg-12 text-center my-2">
+      <h2 class="card-title text-blue-400">{{ 'ticketPersonalization.personalize.title' | translate }}
+      </h2>
+
+    </div>
+
+    <div class="col-lg-12">
+      <div class="container">
+        <div *ngFor='let ticket of tickets; let i=index' class="card border-0">
+          <div class="card-header py-2 bg-blue">
+            <!-- <div class="d-flex align-items-center">
+                <label class="switch mb-0">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <span class="ml-2 font-weight-semibold">Give a Ticket</span>
+              </div> -->
+          </div>
+          <div class="row m-0 border">
+            <div class="col-lg-3 w-md-100 px-0 mb-2 mb-md-0">
+              <div class="">
+                <img class="img-fluid" src="{{eventImageUrl}}" alt="">
+              </div>
+            </div>
+            <div class="col-lg-9 w-md-100 px-0 px-md-2" style="word-wrap:break-word">
+              <div class="row m-0 p-md-1">
+                <div class="col-md-12 text-right d-md-none d-block">
+                  <div class="small"><b>{{ 'ticketPersonalization.personalize.ticketDetails.bookingId' | translate }}:
+                    </b>{{ticket.bookingId}}</div>
+                  <div class="small"><b>{{ 'ticketPersonalization.personalize.ticketDetails.ticketId' | translate }}:
+                    </b>{{ticket.ticketId}}</div>
+                </div>
+                <div class="col-lg-9 pl-mid-0">
+                  <h2 class="font-weight-bold mb-0 hd2 visible" [line-truncation]="1">{{ticket.eventName}}</h2>
+                  <div class="">
+                    <span class="custom-size "><b>{{ 'ticketPersonalization.personalize.ticketDetails.date' | translate
+                        }}: </b>{{dateFormatter.getDate(ticket.date)}}</span>
+                    <span class="custom-size mx-md-3"><b>{{ 'ticketPersonalization.personalize.ticketDetails.begin' |
+                        translate }}: </b>{{dateFormatter.getHours(ticket.beginTime)}}</span>
+                    <span class="custom-size"><b>{{ 'ticketPersonalization.personalize.ticketDetails.doorsOpen' |
+                        translate }}: </b>{{ticket.doorsOpen}}</span>
+                  </div>
+                  <div class="custom-size"><b>{{ 'ticketPersonalization.personalize.ticketDetails.seat' | translate }}:
+                    </b>{{ticket.seat}}</div>
+                  <div class="media mt-1 mb-3">
+                    <span class="custom-size visible" [line-truncation]="2"><b>{{ 'ticketPersonalization.personalize.ticketDetails.location' |
+                        translate }}: &nbsp;</b> </span>
+                    <div class="media-body">
+                      <span class="custom-size visible" [line-truncation]="2"> {{ticket.locationName}}<br> {{ticket.locationAddress}}</span>
+                    </div>
+                  </div>
+                  <div class="custom-size d-none d-md-block"><b>{{
+                      'ticketPersonalization.personalize.ticketDetails.organizer' | translate }}:
+                    </b>{{ticket.organizer}}</div>
+                </div>
+                <div class="col-lg-3 d-flex flex-column justify-content-between text-right">
+                  <div class="d-none d-md-block custom-size">
+                    <div class="small"><b>{{ 'ticketPersonalization.personalize.ticketDetails.bookingId' | translate }}:
+                      </b>{{ticket.bookingId}}</div>
+                    <div class="small"><b>{{ 'ticketPersonalization.personalize.ticketDetails.ticketId' | translate }}:
+                      </b>{{ticket.ticketId}}</div>
+                  </div>
+                  <div class="">
+                    <h5 class="mb-0"><b>EUR </b>{{ticket.originalPrice.toFixed(2)}}</h5>
+                    <div class="small">{{ 'ticketPersonalization.personalize.ticketDetails.priceInclVat' | translate }}
+                    </div>
+                  </div>
+                  <div class="small d-block d-md-none mt-1 text-left mb-1"><b>{{
+                      'ticketPersonalization.personalize.ticketDetails.organizer' | translate }}:
+                    </b>{{ticket.organizer}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mx-0 my-md-3 my-2">
+            <div class="col-lg-3 w-md-100 text-md-center mt-md-1 mb-1 px-3">
+              <span class="custom-size" *ngIf='selectedIndex != i || !editing'><b>{{
+                  'ticketPersonalization.personalize.assignTicket.prepersonalizedTo' | translate }}:
+                </b>{{ticket.prePersonalizedTo}}</span><br>
+              <button *ngIf='(selectedIndex != i || !editing) && !ticket.isBuyer && !ticket.usernameAndEmail'
+                [disabled]='!ticket.isPrePersEditable' type="submit" type="submit" class="btn mr-1 mt-2 bg-green-400"
+                (click)="startEditing(i)">{{ 'ticketPersonalization.personalize.assignTicket.editPrepersonalization' |
+                translate }}</button>
+              <span *ngIf='selectedIndex == i && editing'>
+                <span class="custom-size row align-items-center"><b class='col-lg-5'>{{
+                    'ticketPersonalization.personalize.assignTicket.firstname' | translate }}: </b><input
+                    class="form-control col-lg-7" [(ngModel)]='newFirstName' type='text'
+                    placeholder='Enter firstname' /></span>
+                <span class="custom-size row align-items-center mt-2"><b class='col-lg-5'>{{
+                    'ticketPersonalization.personalize.assignTicket.lastname' | translate }}: </b><input
+                    class="form-control col-lg-7" [(ngModel)]='newLastName' type='text'
+                    placeholder='Enter lastname' /></span>
+                <button type="submit" class="btn mr-1 mt-2 bg-green-400" (click)="changeTicketHolder(i)"
+                  [disabled]='!newFirstName || !newLastName'>{{ 'ticketPersonalization.personalize.assignTicket.save' |
+                  translate }}</button>
+                <button type="submit" class="btn btn-danger mt-2" (click)="cancelEditing()">{{
+                  'ticketPersonalization.personalize.assignTicket.cancel' | translate }}</button>
+              </span>
+
+
+            </div>
+            <div class="col-lg-9 w-md-100 px-3">
+              <div class="row">
+                <div class="col-lg-7 col-70 mb-2">
+                  <input class="form-control" *ngIf='ticket.usernameAndEmail' value='{{ticket.usernameAndEmail}}'
+                    readonly>
+                  <input *ngIf='!ticket.usernameAndEmail'
+                    placeholder="{{ 'ticketPersonalization.personalize.assignTicket.enterUsernameOrEmail' | translate }}"
+                    type="text" class="form-control" autocomplete="****************************************************"
+                    [(ngModel)]="ticket.prePersonalizedToUsername" [ngbTypeahead]="ticket.search" [editable]='false'
+                    (focus)="focuses$[i].next($any($event).target.value)" />
+                </div>
+                <div class="col-lg-3 col-30 text-center">
+                  <button *ngIf='!idVerified' type="submit" class="btn bg-blue d-md-block"
+                    (click)="openIdVerificationComponent()">{{ 'ticketPersonalization.personalize.assignTicket.idCheck'
+                    | translate }}</button>
+                  <button *ngIf='idVerified' type="submit" class="btn d-md-block bg-blue-400"
+                    [disabled]='!ticket.prePersonalizedToUsername || editing' (click)="assignTicket(i)">{{
+                    'ticketPersonalization.personalize.assignTicket.assignTicket' | translate }}</button>
+                </div>
+                <div class="col-lg-8 w-md-100">
+                  <div class="media-body mt-2 px-2 p-md-0">
+                    <span class="text-blue-400 custom-size c-1">
+                      {{ 'ticketPersonalization.personalize.assignTicket.notes' | translate }}
+                      <a class="font-weight-bold text-blue-400 text-underline" [routerLink]="['/profile']"
+                        [queryParams]="{type: '2'}"><u>{{ 'ticketPersonalization.personalize.assignTicket.linkedAccount'
+                          | translate }}</u> </a>
+                      <a placement="right" triggers="mouseenter:mouseleave" [ngbPopover]="popContent"
+                        class="ml-1 text-blue-400"><i class="icon-info22 text-blue"></i></a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center my-3">
+    <div class="col-lg-3 mb-3 text-md-right d-md-block d-none">
+      <button type="submit" routerLink="/personalization" class="btn btn-dark bg-dark">{{
+        'ticketPersonalization.personalize.backToOverview' | translate }}</button>
+    </div>
+    <div class="col-lg-3 mb-3 text-center w-5050">
+      <!-- <button class="btn bg-green" (click)="open(content)">Edit gift card</button> -->
+    </div>
+    <div class="col-lg-3 mb-3 text-md-left w-5050">
+      <button id="disable" class="btn bg-blue-400" (click)="assignAllTickets()" [disabled]='editing'>{{
+        'ticketPersonalization.personalize.assignAllTickets' | translate }}</button>
+    </div>
+    <div class="col-lg-3 mb-3 text-md-right w-1010 d-block d-md-none">
+      <button type="submit" routerLink="/personalization" class="btn btn-dark bg-dark">{{
+        'ticketPersonalization.personalize.backToOverview' | translate }}</button>
+    </div>
+  </div>
+  <ng-template #popContent>
+    <p [innerHtml]="'ticketPersonalization.personalize.assignTicket.notesPopUp' | translate"></p>
+  </ng-template>
+
+</span>
+
+<app-id-verification [selectedIdParam]="selectedIdParam" [pageType]='1' [urlParams]='eventHash'
+  (onFinishEmitter)='getTickets()'></app-id-verification>

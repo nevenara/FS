@@ -1,0 +1,32 @@
+<!-- <mat-form-field class="lang__field">
+    <mat-select class="lang__select"  disableOptionCentering (selectionChange)="useLang($event)" panelClass="myPanelClass">
+        <mat-option *ngFor="let language of translate.getLangs()"  [value]="language">
+        <div class="lang__opt"> <img class="lang__img" src='../assets/images/lang/{{language}}.png'> <span> {{language}} </span> </div>
+        </mat-option>
+    </mat-select>
+</mat-form-field> -->
+
+
+ <div class="navbar-nav">
+    <div class="nav-item dropdown language-switch">
+        <a (click)="onToggle()" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+          <img class="flag" src="../assets/images/lang/{{current}}.png">
+           &nbsp;&nbsp;{{currentView}}
+        </a>
+
+      <div class="dropdown-menu " [ngClass]="{'show': show}">
+        <div [ngClass]="{'active': current == 'en'}" class="dropdown-item" (click)="useLang('en')">
+          <img class="flag" src="../assets/images/lang/en.png">
+          <span>English</span>
+        </div>
+        <div [ngClass]="{'active': current == 'de'}" class="dropdown-item" (click)="useLang('de')">
+          <img class="flag" src="../assets/images/lang/de.png">
+          <span>Deutsch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  
+   
+

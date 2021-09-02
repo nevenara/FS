@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jul 28 2020 18:52:26 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* package-lock.json
+* package.json
+* src/app/tickets/tickets.module.ts
+* src/app/tickets/visited/visited.component.html
+* src/app/tickets/visited/visited.component.ts
+
+
+Created files:
+* .autogit/logs/log-28-6-2020-18-22-13.txt
+
+
+Deleted files:
+
+
+Renamed files:

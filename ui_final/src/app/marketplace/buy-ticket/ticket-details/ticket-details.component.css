@@ -1,0 +1,14 @@
+.ticket {
+    background-color: #fff;
+    position: relative;
+}
+
+.price {
+    position: absolute;
+    bottom: 3%;
+    right: 1%;
+}
+
+.custom-size {
+    font-size: 14px !important;
+}

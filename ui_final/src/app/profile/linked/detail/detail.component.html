@@ -1,0 +1,209 @@
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+
+<div *ngIf='!loader && !loadingError' class="card border-0 shadow-none">
+  <div class="row m-0 justify-content-center mt-4">
+    <div class="col-lg-12 col-lg-offset-3">
+      <div class="row">
+        <div class="col-lg-3 w-md-100 mb-3 text-center">
+          <h2 class="">{{linkedAccount.username}}</h2>
+          <div class="profile-img d-inline-block">
+            <img src="{{profileImageUrl}}" class="" alt="">
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group d-inline-block">
+              <label for="passport"></label>
+              <input type="button" id="loadFileXml" value="Upload Image"
+                onclick="document.getElementById('linkedimage').click()" class='action btn bg-primary rounded' />
+              <input (change)='uploadImage($event)' type="file" id="linkedimage" style="display:none" name="linkedimage">
+            </div>
+            <div class="ml-3 d-inline-block mt-3">
+              <a (click)="deleteImage($event)"><i class="fas fa-trash text-primary"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9 w-md-100">
+          <form [formGroup]="form" action="#">
+            <div class="form-group text-left row">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.gender' | translate}}</label>
+
+              <div class="col-lg-8">
+
+                <div *ngIf="linkedAccount.gender === '2'">
+                  <div class="form-check form-check-inline disabled">
+                    <label class="form-check-label">
+                      <div class="uniform-choice disabled">
+                        <span class="checked">
+                          <input type="radio" class="form-input-styled" disabled name="gender" checked="true"></span>
+                      </div>
+                      {{'profile.linked.detail.labels.male' | translate}}
+                    </label>
+                  </div>
+
+                  <div class="form-check form-group  form-check-inline disabled">
+                    <label class="form-check-label">
+                      <div class="uniform-choice disabled">
+                        <span>
+                          <input type="radio" class="form-input-styled" disabled value="female" name="gender"
+                            [(ngModel)]="linkedAccount.gender" [ngModelOptions]="{standalone: true}"></span></div>
+                            {{'profile.linked.detail.labels.female' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <div *ngIf="linkedAccount.gender === '1'">
+                  <div class="form-check form-check-inline disabled">
+                    <label class="form-check-label">
+                      <div class="uniform-choice disabled">
+                        <span>
+                          <input type="radio" class="form-input-styled" disabled name="gender" checked="true"></span>
+                      </div>
+                      {{'profile.linked.detail.labels.male' | translate}}
+                    </label>
+                  </div>
+
+                  <div class="form-check form-check-inline disabled">
+                    <label class="form-check-label">
+                      <div class="uniform-choice disabled">
+                        <span class="checked">
+                          <input type="radio" class="form-input-styled" disabled value="female" name="gender"
+                            [(ngModel)]="linkedAccount.gender" [ngModelOptions]="{standalone: true}"></span></div>
+                            {{'profile.linked.detail.labels.female' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.firstName' | translate}}</label>
+              <div class="col-lg-8">
+                <input type="text" readonly class="form-control" placeholder="{{linkedAccount.firstname}}">
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.lastName' | translate}}</label>
+              <div class="col-lg-8">
+                <input type="text" readonly class="form-control" placeholder="{{linkedAccount.lastname}}">
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.dayOfBirth' | translate}}</label>
+              <div class="col-lg-8">
+                <input type="text" readonly class="form-control" placeholder="{{dateFormatter.getDate(linkedAccount.birthDate)}}">
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.address' | translate}}</label>
+              <div class="col-lg-8">
+                <input [(ngModel)]="linkedAccount.address" name="address" type="text" class="form-control"
+                  formControlName="address" placeholder="{{'profile.linked.detail.placeholders.address' | translate}}">
+                <errors [control]="f.address" [isSubmit]="isSubmit"></errors>
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.zipcode' | translate}}</label>
+              <div class="col-lg-8">
+                <input [(ngModel)]="linkedAccount.postCode" name="postCode" type="text" class="form-control"
+                  formControlName="zipCode" placeholder="{{'profile.linked.detail.placeholders.zipcode' | translate}}">
+                <errors [control]="f.zipCode" [isSubmit]="isSubmit"></errors>
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.city' | translate}}</label>
+              <div class="col-lg-8">
+                <input [(ngModel)]="linkedAccount.city" name="city" type="text" class="form-control"
+                  formControlName="city" placeholder="{{'profile.linked.detail.placeholders.city' | translate}}">
+                <errors [control]="f.city" [isSubmit]="isSubmit"></errors>
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label">{{'profile.linked.detail.labels.country' | translate}}</label>
+              <div class="col-lg-8">
+                <ng-select [(ngModel)]="selectedCountry" name="country" class="custom" formControlName="country"
+                  bindLabel="name" placeholder="{{'profile.linked.detail.placeholders.country' | translate}}">
+                  <ng-option *ngFor="let country of countries" [value]="country">{{country.name}}</ng-option>
+                </ng-select>
+                <errors [control]="f.country" [isSubmit]="isSubmit"></errors>
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <label class="col-lg-2 col-form-label"></label>
+              <div class="col-lg-3 col-lg-3-1">
+                <a (click)="open(content)" class="btn text-white bg-blue-400">{{'profile.linked.detail.labels.setPassword' | translate}}</a>
+                <span class="pl-2">
+                  <a placement="bottom" triggers="mouseenter:mouseleave" placement="right" [ngbPopover]="popContent"
+                    class="ml-1 text-blue-400"><i class="icon-info22 text-blue"></i></a>
+                  <ng-template #popContent>
+                    {{'profile.linked.detail.labels.linkedNotice' | translate}} <br>
+                  </ng-template>
+                </span>
+              </div>
+
+            </div>
+            <div class="text-center form-group">
+              <button [routerLink]="['/profile']" [queryParams]="{type: '2'}" class="btn btn-dark mr-3 mb-3">{{'profile.linked.detail.labels.backToOverview' | translate}}</button>
+              <button type="submit" (click)='editLinkedAccount()' class="btn bg-blue-400 mb-3">{{'profile.linked.detail.buttons.save' | translate}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal p>
+
+  <div class="modal-header bg-blue justify-content-center">
+    <h1 class="modal-title">Set Password</h1>
+  </div>
+  <form [formGroup]="formResetForm">
+    <preloader-app *ngIf="loaderInModal" class="modal-body px-md-5"></preloader-app>
+    <div *ngIf="!loaderInModal" class="modal-body px-md-5">
+      <!-- <form >
+      <div class="row justify-content-center">
+      
+        <div class="col-lg-9 mb-3 form-group">
+          <input type="password" class="form-control" formControlName = "currentPass" placeholder="Enter current password" required="">
+          <errors [control]="f.currentPass" [isSubmit]="isSubmit"></errors>
+        </div>
+        <div class="col-lg-9 mb-3 form-group">
+         
+        </div>
+        <div class="col-lg-9 mb-3 form-group">
+        
+        </div>
+        <div class="col-lg-9 mb-3 text-center form-group">
+          <button type="submit" class="btn btn-dark mr-3 px-3 mb-3">Cancel</button>
+          <button type="submit" class="btn bg-blue-400 px-4 mb-3">Save</button>
+        </div>
+      </div>
+    </form> -->
+
+      <div class="form-group row">
+        <label class="col-4 col-form-label">Password</label>
+        <div class="col-8">
+          <input tabindex="-1" [(ngModel)]="password" name="password" type="password" class="form-control"
+            formControlName="newPass" placeholder="Enter password" required="">
+          <errors [control]="fr.newPass" [isSubmit]="isSubmitResetForm"></errors>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-4 col-form-label">Confirm Password</label>
+        <div class="col-8">
+          <input tabindex="-1" [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control"
+            formControlName="confirmNewPass" placeholder="Confirm password" required="">
+          <errors [control]="fr.confirmNewPass" [isSubmit]="isSubmitResetForm"></errors>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+        (click)="resetPasswordFields(); modal.dismiss()" data-dismiss="modal">Cancel</button>
+      <button type="button" class="btn bg-blue-400 px-md-4" (click)="setPassword();">Save</button>
+    </div>
+  </form>
+</ng-template>

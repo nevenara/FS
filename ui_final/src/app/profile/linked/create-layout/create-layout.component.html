@@ -1,0 +1,5 @@
+<preloader-app *ngIf="loader"></preloader-app>
+<div [hidden]='loader'>
+    <app-create [hidden]='show != 1' (connectNewAccountEmitter)='next($event)' [request]='connectRequest'></app-create>
+    <app-create1 *ngIf='show == 2' (resetUuidEmitter)='resetUuid()' [uuid]='uuid' [selectedIdParam]="selectedIdParam" [connectRequest]='connectRequest' [userHash]='userHash' (previousEmitter)='show = 1'></app-create1>
+</div>

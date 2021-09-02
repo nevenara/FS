@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jul 30 2020 20:23:28 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* package-lock.json
+* package.json
+* src/app/account/linked-account/linked-account.component.html
+* src/app/personalization/detail/detail.component.html
+* src/app/personalization/detail/detail.component.ts
+* src/app/profile/linked/create1/create1.component.html
+
+
+Created files:
+* .autogit/logs/log-30-6-2020-19-53-18.txt
+
+
+Deleted files:
+
+
+Renamed files:

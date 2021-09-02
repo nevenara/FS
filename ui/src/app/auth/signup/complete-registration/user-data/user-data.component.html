@@ -1,0 +1,43 @@
+<div class="card border-0 pt-md-5 shadow-none">
+
+  <div class="card-body">
+    <form class="wizard" action="#">
+      <div class="form-group justify-content-center row text-left">
+        <div *ngIf="user.profileImage" class="col-lg-2 col-12 text-center">
+          <a href="javascript:void(0)">
+            <img src="{{user.profileImage}}" width="150" class="" alt="">
+          </a>
+        </div>
+        <div *ngIf="!user.profileImage" class="col-lg-2 col-12 text-center">
+          <a href="javascript:void(0)">
+            <img src="{{defaultImage}}" width="150" class="" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6"></div>
+      </div>
+      <div class="form-group justify-content-center row text-left pb-md-4">
+        <div class="col-lg-4">
+          <label class="col-form-label">Upload Image</label>
+
+          <div class="uniform-uploader">
+            <input (change)="uploadImage($event)" type="file" class="form-input-styled" data-fouc="">
+            <span class="filename" style="user-select: none;">No file selected</span>
+            <span class="action btn bg-blue-400" style="user-select: none;">Choose File</span>
+          </div>
+          <!-- <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span> -->
+        </div>
+        <div class="col-lg-4">
+          <label class="col-form-label">Username</label>
+          <input [(ngModel)]="user.username" name="username" type="text" class="form-control" placeholder="Enter username">
+        </div>
+      </div>
+      <div class="actions clearfix pt-md-5">
+        <ul role="menu" aria-label="Pagination">
+          <li aria-hidden="false" aria-disabled="false" >
+            <a (click) = "next()" class="btn btn-primary" role="menuitem">Next
+              <i class="icon-arrow-right14 ml-2"></i></a></li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>

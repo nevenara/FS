@@ -1,0 +1,30 @@
+<ng-template #modalReference let-modal p>
+<div class="modal-header  bg-dark">
+    <img class="img-fluid" src="../../assets/images/FanSafe-Logo.png" alt="">
+</div>
+
+<div class="modal-body px-md-4">
+    <div class="text-center m-auto">
+        <h6 class="font-weight-bold mb-0 h3">{{'account.payment.labels.provideAddressProof' | translate}}</h6>
+    </div>
+    <preloader-app *ngIf="loaderInModal == 1"></preloader-app>
+    <span *ngIf="loaderInModal == 0">
+        <app-provide-bank-account-data *ngIf="show == 1" [ibanErrorMessage]='ibanErrorMessage' (ibanEmitter)='iban = $event; ibanErrorMessage=""'></app-provide-bank-account-data>
+        <app-upload-address-document *ngIf="show == 2" (addressDocumentEmitter)='addressDocument = $event'></app-upload-address-document>
+        <app-success-update *ngIf="show == 3"></app-success-update>
+        <app-failed-update [errorMessage]='errorMessage' *ngIf="show == 4"></app-failed-update>
+    </span>
+</div>
+
+<div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4" (click)="modal.dismiss()" *ngIf="show !== 3">{{'account.payment.proofOfAddress.cancel' | translate}}</button>
+    <button type="button" class="btn bg-green-400 px-md-4" (click)="validateIbanNumber()" *ngIf="show == 1" [disabled]='!iban'>{{'account.payment.proofOfAddress.next' | translate}}</button>
+    <button type="button" class="btn bg-green-400 px-md-4" (click)="save()" *ngIf="show == 2" [disabled]='!addressDocument'>{{'account.payment.proofOfAddress.next' | translate}}</button>
+    <button type="button" class="btn bg-green-400 px-md-4" (click)="this.successEmitter.emit(true); modal.dismiss()" *ngIf="show == 3">{{'account.payment.proofOfAddress.close' | translate}}</button>
+    <button type="button" class="btn bg-green-400 px-md-4" (click)="show = 1" *ngIf="show == 4">{{'account.payment.proofOfAddress.tryAgain' | translate}}</button>
+</div>
+
+  <div class = 'modal-footer justify-content-start' *ngIf="show == 1 || show == 2" style='color: gray'>
+    <u>{{'account.payment.proofOfAddress.termsAndCond' | translate}}</u>
+  </div>
+</ng-template>

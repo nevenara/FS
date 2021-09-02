@@ -1,0 +1,13 @@
+<div style="text-align:center;">
+    <webcam *ngIf='!webcamImage' [trigger]="triggerObservable" [mirrorImage] = "webcamMirrorProperties" (imageCapture)="handleImage($event)" style='padding-bottom: 5px;'></webcam>
+    
+    <!-- Snapshot Div where image will be shown -->
+    <div *ngIf='webcamImage' class="snapshot" style="padding-bottom: 5px;">
+        <img [src]="webcamImage.imageAsDataUrl"/>
+    </div>
+
+    <!-- Button Takes Photo -->
+    <button class="btn bg-blue-400" (click)="closeCameraView()" style='margin-right: 5px;'>{{'camera-view.backToImage' | translate}}</button> 
+    <button *ngIf='!webcamImage' class="btn bg-blue-400" (click)="triggerSnapshot();">{{'camera-view.takePhoto' | translate}}</button> 
+    <button *ngIf='webcamImage' class="btn bg-blue-400" (click)="resetImage()">{{'camera-view.takeNewPhoto' | translate}}</button> 
+</div>

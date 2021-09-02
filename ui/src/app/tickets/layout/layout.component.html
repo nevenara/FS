@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <ngb-tabset class="custom-tabs" [destroyOnHide]="false">
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">Upcoming events</h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <div class="card border-0">
+          <div class="card-body">
+            <app-upcoming></app-upcoming>
+
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal">Visited events </h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <div class="card border-0">
+          <div class="card-body">
+            <app-visited></app-visited>
+
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

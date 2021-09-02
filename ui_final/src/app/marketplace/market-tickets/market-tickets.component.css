@@ -1,0 +1,340 @@
+.bg-primary-400 {
+  color: #333 !important;
+}
+
+.bg-return {
+  background-color: #00F2F2 !important;
+  color: #333 !important;
+}
+
+.bg-return:hover {
+  background-color: #1af0f0 !important;
+}
+
+.buy-button {
+  background-color: #07BA28;
+}
+
+.buy-button:hover {
+  background-color: #06A523;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.price-custom {
+  color: #07BA28;
+}
+::ng-deep .custom-pagination ul {
+  justify-content: center !important;
+}
+.pl-md-5{
+  padding-left: 65px !important;
+}
+.modal-header {
+  justify-content: center !important;
+}
+
+.img-modal {
+  width: 182px;
+  height: 130px;
+}
+
+.text-yellow {
+  color: #FFFF02;
+}
+
+ul li {
+  padding: 0 8px 0 0;
+  list-style: none;
+}
+
+.modal-header {
+  justify-content: center !important;
+}
+
+.border-bottom {
+  border-bottom: 2px solid black !important;
+}
+.border-bottom-blue {
+  border-bottom: 2px solid #09a1ce !important;
+}
+.card-img-actions img {
+  height: 250px;
+  width: 100%;
+}
+.custom-ul li {
+  padding-right: 20px;
+}
+.w-mid-85{
+  width: 100% !important;
+}
+::ng-deep .multiselect-dropdown .dropdown-btn .selected-item {
+  background-color: #09a1ce !important;
+  border-radius: .1875rem !important;
+  border: 1px solid #09a1ce !important;
+  box-shadow: none !important;
+  margin-bottom: 3px !important;
+}
+
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down {
+  border-top: 5px solid #adadad !important;
+  border-left: 5px solid transparent !important;
+  border-right: 5px solid transparent !important
+}
+::ng-deep .multiselect-dropdown .dropdown-btn {
+  padding: 6px 6px 3px 6px !important;
+}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-up {
+  border-bottom: 5px solid #adadad !important;
+  border-left: 5px solid transparent !important;
+  border-right: 5px solid transparent !important
+}
+::ng-deep .dateRangePicker-wrapper .dateRangePicker .form-inputs {
+  background-color: #09a1ce !important;
+}
+::ng-deep .dateRangePicker-wrapper .form-group {
+  margin-bottom: 0;
+}
+::ng-deep .dateRangePicker-wrapper .dateRangePicker:after {
+  border-bottom: 10px solid #09a1ce !important;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker:before {
+  border-bottom: 10px solid #09a1ce !important;
+}
+
+::ng-deep .calendar .table td:not(.disabled):not(.selected):hover {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .calendar .table td.selected, .calendar .table td.selected.in-selected-range {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .calendar .table td.different-month {
+  color: #273237 !important;
+}
+
+::ng-deep .btn-outline-secondary {
+  background-color: #273237 !important;
+  border-color: #273237 !important;
+  color: #fff !important;
+}
+.custom-size{
+  font-size: 16px;
+
+}
+.filter-show{
+  display: block !important;
+}
+.custom-ul-11 {
+  justify-content: flex-end !important;
+
+}
+.d-sm-none{
+  display: inline-block !important;
+}
+.f-16{
+  font-size: 16px !important;
+}
+.mb-15{
+  margin-bottom: .8rem;
+}
+@media only screen and (max-width:1200px) {
+  ul li {
+    padding: 0 4px 0 0;
+    list-style: none;
+  }
+  .justify-mid-start{
+      justify-content: flex-start !important;
+  }
+  .custom-ul-11 {
+    justify-content: flex-start !important;
+
+  }
+  .text-left{
+    text-align: left !important;
+  }
+  .custom-col{
+    flex: 0 0 40% !important;
+    max-width: 40% !important;
+  }
+  .custom-col-85{
+    flex: 0 0 85% !important;
+    max-width: 85% !important;
+  }
+  .custom-col-3{
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+  }
+  .justify-content-end{
+    justify-content: flex-end !important;
+  }
+  .ml-md-5{
+    margin-left: 0 !important;
+  }
+ul li {
+  margin-bottom: 2px !important;
+}
+.px-md-4{
+  padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+.justify-content-md-end{
+  justify-content: flex-start !important;
+}
+
+.d-md-flex{
+  display: flex !important;
+}
+.pr-md-2{
+    padding: 0 !important;
+}
+.m-mid-5{
+  margin: 0 15px;
+}
+.w-mid-15{
+  width: 15% !important;
+}
+.w-mid-85{
+  width: 85% !important;
+}
+.pl-md-5{
+  padding: 0 !important;
+}
+.pr-mid-3{
+  padding-right: 20px !important;
+
+}
+.custom-ul-11 li {
+  padding-right: 15px !important;
+  padding-left: 0 !important;
+
+}
+.d-sm-none{
+  display: inline-block !important;
+}
+.mb-15{
+  margin-bottom: 1rem;
+}
+  }
+  @media only screen and (max-width: 992px) {
+    .custom-col{
+      flex: 0 0 60% !important;
+      max-width: 60% !important;
+    }
+    .custom-col-3 {
+      flex: 0 0 67% !important;
+      max-width: 67% !important;
+  }
+  }
+@media only screen and (max-width: 767px) {
+  .custom-ul li {
+    text-align: left;
+    padding-right: 5px !important;
+    padding-left: 0 !important;
+  }
+  .m-mid-5{
+    margin: 15px 0px 0px 0px !important;
+  }
+  .mb-15{
+    margin-bottom: 1rem;
+  }
+  .custom-col-85{
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .custom-ul-1 li {
+    text-align: left;
+    padding-right: 5px !important;
+    padding-left: 0 !important;
+
+  }
+  .custom-col-3{
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .custom-ul-11 li {
+    padding-right: 5px !important;
+    padding-left: 0 !important;
+
+  }
+  .custom-ul li span {
+    text-align: left;
+  }
+  .card-body .text-dark{
+    font-size: 11px;
+  }
+  .text-md-small {
+    font-size: 12px;
+  }
+  .d-md-flex li{
+    margin-bottom: 8px;
+  }
+  .custom-size{
+    font-size: 15px;
+
+  }
+  .font-sm{
+    font-size: 12px !important;
+  }
+  .font-sm-1{
+    font-size: 11px !important;
+  }
+  .d-flex{
+    display: flex !important;
+  }
+  .p-sm-12{
+    padding: 0 12px;
+  }
+  .pl-md-5{
+    padding-left: 0px !important;
+  }
+  .custom-size{
+    font-size: .72rem !important;
+  }
+  .collapse:not(.show) {
+    display: none !important;
+}
+.collapse .show {
+  display: block !important;
+}
+.w-mid-15{
+  width: 25% !important;
+}
+.w-mid-85{
+  width: 75% !important;
+}
+.d-sm-none{
+  display: none !important;
+}
+}
+
+
+@media only screen and (max-width:766px) {
+  .w-custom{
+    width: 60%;
+  }
+}
+@media only screen and (max-width:600px) {
+  .w-custom{
+    width: 62%;
+  }
+}
+@media only screen and (max-width:575px) {
+  .w-custom{
+    width: 72%;
+  }
+}
+@media only screen and (max-width:515px) {
+  .w-custom{
+    width: 80%;
+  }
+}
+@media only screen and (max-width:460px) {
+  .w-custom{
+    width: 100%;
+  }
+}

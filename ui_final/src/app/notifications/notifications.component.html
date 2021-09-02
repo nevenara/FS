@@ -1,0 +1,2 @@
+<ngb-alert #successAlert class="alert bg-success text-white alert-styled-left fade in" *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
+<ngb-alert #errorAlert class="alert bg-danger text-white alert-styled-left fade in" *ngIf="errorMessage" type="danger" (closed)="errorMessage = ''">{{ errorMessage }}</ngb-alert>

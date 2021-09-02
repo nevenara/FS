@@ -1,0 +1,69 @@
+<div class="container p-sm-00">
+  <div>
+    <div class="col-lg-12 text-center my-3">
+      <h2 class="card-title text-blue-400">{{ 'ticketPersonalization.list.title' | translate }}</h2>
+    </div>
+
+    <preloader-app class='text-center' *ngIf='loader'></preloader-app>
+    <app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+    <div class="row" *ngIf='!loader && !loadingError'>
+      <div *ngIf='!tickets.length' class='col-lg-12 text-center text-blue-400'><h3>{{ 'ticketPersonalization.list.noTickets' | translate }}</h3></div>
+      <div *ngFor="let ticket of tickets" class="col-lg-4">
+        <div class="card p-1" style="height: 550px !important">
+  
+  
+          <div class="card-img-actions">
+            <img class="img-fluid" src="{{eventImageUrl}}{{ticket.eventId}}" alt="">
+            <div class="card-img-actions-overlay card-img-top">
+              <a routerLink="/personalization/detail" [queryParams]='{event: ticket.eventHash}' class="btn btn-outline bg-white text-white border-white">
+                {{ 'ticketPersonalization.list.ticket.details' | translate }}
+              </a>
+            </div>
+          </div>
+          <div class="header-elements px-1 mt-2 text-right">
+            <span class="badge bg-danger px-3">{{ 'ticketPersonalization.list.ticket.status.waitingForPersonalization' | translate }}</span>
+          </div>
+          <div class="card-body px-1 py-2">
+            <h5 class="text-dark font-weight-bold mb-0 visible" [line-truncation]="2">{{ticket.eventName}}</h5>
+            <div class=""><span class="">
+              <span class="text-dark font-weight-bold">{{ 'ticketPersonalization.list.ticket.date' | translate }}:</span>
+              <span class="text-dark"> {{dateFormatter.getDate(ticket.date)}} </span>
+            </span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{ 'ticketPersonalization.list.ticket.begin' | translate }}:</span>
+            <span class="text-dark"> {{dateFormatter.getHours(ticket.beginTime)}}</span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{ 'ticketPersonalization.list.ticket.doorsOpen' | translate }}:</span>
+            <span class="text-dark"> {{ticket.doorsOpen}} </span>
+          </div>
+            <div class="mb-0"><span class="text-dark font-weight-bold">{{ 'ticketPersonalization.list.ticket.location' | translate }}:</span>
+              <p class="text-dark visible" [line-truncation]="1"> {{ticket.locationName}} </p>
+              <p class="text-dark visible" [line-truncation]="1"> {{ticket.locationAddress}} </p></div>
+              <div class="mt-1"><span class="text-dark font-weight-bold">{{ 'ticketPersonalization.list.ticket.amountOfTickets' | translate }}:</span> <span
+                class="text-dark visible" [line-truncation]="1"> {{ticket.amountOfTickets}}</span></div>
+          </div>
+  
+          <div class="p-2 text-center bg-dark">
+            <div class="d-flex bg-dark justify-content-end">
+                <a
+                  class="btn action-blue" routerLink="/personalization/detail" [queryParams]='{event: ticket.eventHash}' >
+                  <span>{{ 'ticketPersonalization.list.ticket.personalize' | translate }}</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div *ngIf='pages && pages.length > 0' class="row my-4 ">
+    <div class="col-lg-12 text-center">
+      <div class="d-flex justify-content-center">
+        <ngb-pagination class="pagination text-center" (pageChange)='onPageChange($event)' [pageSize]='1' maxSize="3" [rotate]="true" [collectionSize]="pages.length" [(page)]="page" aria-label="Custom pagination">
+          <ng-template ngbPaginationPrevious> ← </ng-template>
+          <ng-template ngbPaginationNext> →</ng-template>
+          <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+        </ngb-pagination>
+      </div>
+
+    </div>
+  </div>
+</div>

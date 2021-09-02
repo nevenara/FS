@@ -1,0 +1,95 @@
+::ng-deep .dateRangePicker-wrapper .dateRangePicker.open-left {
+  left: -335px !important;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker.open-left:before {
+  left: 565px !important;
+}
+::ng-deep .dateRangePicker-wrapper .dateRangePicker .form-inputs {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker:after {
+  border-bottom: 10px solid #09a1ce !important;
+}
+.text-left {
+  text-align: left!important;
+}
+
+::ng-deep .dateRangePicker-wrapper .dateRangePicker:before {
+  border-bottom: 10px solid #09a1ce !important;
+}
+
+::ng-deep .calendar .table td:not(.disabled):not(.selected):hover {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .calendar .table td.selected, .calendar .table td.selected.in-selected-range {
+  background-color: #09a1ce !important;
+}
+
+::ng-deep .calendar .table td.different-month {
+  color: #273237 !important;
+}
+
+::ng-deep .btn-outline-secondary {
+  background-color: #273237 !important;
+  border-color: #273237 !important;
+  color: #fff !important;
+}
+
+
+.custom-padding th{
+    padding: 10px 8px !important;
+}
+.table td {
+  padding: .75rem 1.25rem;
+  vertical-align: middle;
+}
+.custom-padding td{
+  padding: 10px 8px !important;
+}
+th,td { min-width: 110px; }
+
+.datatable-header > div:first-child{
+  margin-left: 1.25rem;
+}
+
+.badge-purple{
+  background-color: #9900ff;
+  color: #fff;
+}
+
+::ng-deep .custom-pagination ul {
+  float: right !important;
+}
+
+::ng-deep .custom-pagination li a {
+  display: inline-block;
+  min-width: 2.25003rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: 0;
+  border: 1px solid transparent !important;
+  border-radius: 0.1875rem;
+  transition: all ease-in-out 0.15s;
+  margin-left: 0.125rem;
+}
+
+ngb-pagination ::ng-deep .page-item:not(:active):not(disabled) {
+  color: black !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  color: #fff !important;
+  background-color: #37474f;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus, .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}

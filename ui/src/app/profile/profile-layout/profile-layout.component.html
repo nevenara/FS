@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <ngb-tabset class="custom-tabs" [destroyOnHide]="false">
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal f-mid-14">Main Account - Personal Data</h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <app-profile></app-profile>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <h3 class="mb-0 font-weight-normal py-md-20 f-16">Linked Accounts</h3>
+      </ng-template>
+      <ng-template ngbTabContent>
+        <router-outlet></router-outlet>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

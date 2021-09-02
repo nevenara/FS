@@ -1,0 +1,103 @@
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadError'></app-load-error-page>
+<div class="content" *ngIf='!loader && !loadError'>
+  <div class="row">
+    <div class="col-lg-3 w-md-100 mb-3">
+      <div class="profile-img d-inline-block text-center">
+      <h2 class="">{{user.username}}</h2>
+        <img src="{{profileImageUrl}}" class="" alt="">
+      </div>
+    </div>
+    <div class="col-lg-6 w-md-100">
+      <h5 class="text-blue font-weight-semibold">Status Overview Stripe</h5>
+      <div class="my-3">
+        <div class="form-group mb-0 row align-items-center">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Verification status </label>
+          <div class="col-lg-6">
+            <div [ngClass]="{'text-primary': user.status==1,'text-success': user.status==2 || user.status==3, 'text-secondary': user.status==4}"
+            class="font-weight-bold small-case">{{getStatus(user.status)}} <!--<i class="fas fa-check"></i>--></div>
+          </div>
+        </div>
+        <div class="form-group mb-0 row align-items-center">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Reason Failed verification</label>
+          <div class="col-lg-6">
+            <div *ngIf='!user.stripeErrors.length'>n/a</div>
+            <div *ngFor='let error of user.stripeErrors'>
+              <span class='font-weight-bold small-case text-danger'>{{error}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-0 row align-items-center">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Bank account status </label>
+          <div class="col-lg-6" *ngIf='user.isMainAccount'>
+            <div class="text-success font-weight-bold" *ngIf='user.bankAccountId'>Bank details delivered</div>
+            <div class="text-danger font-weight-bold" *ngIf='!user.bankAccountId'>Bank details not delivered</div>
+          </div>
+          <div class="col-lg-6" *ngIf='!user.isMainAccount'>
+            <div>n/a</div>
+          </div>
+        </div>
+        <div class="form-group mb-0 row align-items-center">
+          <label class="col-lg-4 col-form-label font-weight-semibold">Stripe Dashboard</label>
+          <div class="col-lg-6">
+            <div>Link to Stripe Dashboard</div>
+          </div>
+        </div>
+      </div>
+      <h5 class="text-blue font-weight-semibold">Status Overview FaceMatch</h5>
+      <div class="my-3">
+        <div class="form-group mb-0 row align-items-center">
+          <label class="col-lg-4 col-form-label font-weight-semibold">FaceMatch Status </label>
+          <div class="col-lg-6">
+            <div class="text-success font-weight-bold" *ngIf='user.faceMatchScore'>Success</div>
+            <div class="text-danger font-weight-bold" *ngIf='!user.faceMatchStatus'>Not performed yet</div>
+          </div>
+        </div>
+        <div class="form-group mb-0 row align-items-center">
+          <label class="col-lg-4 col-form-label font-weight-semibold">FaceMatch Score</label>
+          <div class="col-lg-6">
+            <div *ngIf='user.faceMatchScore'>{{user.faceMatchScore}}%</div>
+            <div *ngIf='!user.faceMatchScore'>n/a</div>
+          </div>
+        </div>
+        <div class="form-group mb-0 row">
+          <label class="col-lg-4 col-form-label font-weight-semibold">FaceMatch Image</label>
+          <div class="col-lg-6">
+            <div>
+              <div class="payment-img">
+                <img src="{{selfieImageUrl}}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-3 w-md-100 mb-3" *ngIf='user.isMainAccount'>
+      <h6 ><span class="text-blue font-weight-semibold">Account balance </span> &nbsp;<b>  EUR</b>  {{balance}}</h6>
+      <label class="col-form-label font-weight-semibold">Latest payouts</label>
+      <div class="table-responsive" *ngIf='latestPayouts.length'>
+        <table class="table table-bordered border">
+          <thead class="bg-blue-400" >
+            <tr>
+              <th class="p-2">Date </th>
+              <th class="p-2">Amount in EUR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let payout of latestPayouts'>
+              <td>{{dateFormatter.getDate(payout.arrival_date)}}</td>
+              <td>{{payout.amount.toFixed(2)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf='!latestPayouts.length' class="text-blue font-weight-semibold">There are no latest payouts</div>
+    </div>
+    <div class='col-lg-3' *ngIf='!user.isMainAccount'></div>
+    <div class='col-lg-3'></div>
+    <div class='col-lg-9'>
+      <app-verification *ngIf='userType == 3 || userType == 4 || userType == 7' [userId]='user.userId' [verified]='user.status == 2 || user.status == 3' (onFinishEmitter)='getUserDataEmitter.emit()'></app-verification>
+    </div>
+  </div>
+</div>

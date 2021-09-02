@@ -1,0 +1,39 @@
+<div class="card border-0 shadow-none">
+
+  <div class="card-body p-md-5">
+    <div class="row">
+      <div class="col-lg-3 mb-3">
+        <ul ngbNav #nav="ngbNav" class="nav-tabs custom-nav" orientation="vertical">
+          <li ngbNavItem="top" class="d-none d-md-block">
+            <a ngbNavLink class="text-left">
+              <h5 class="d-inline-block text-blue-400 mb-0"><i class="icon-lock2 icon-1x text-blue-400"></i> Change
+                Password</h5>
+            </a>
+            <ng-template ngbNavContent>
+              <div class="form-group row justify-content-center">
+                <h3 class="text-center mb-3 d-md-none text-blue-400">Change Password</h3>
+                <div class="col-lg-9 mb-3">
+                  <input #currentPassword type="password" class="form-control" placeholder="Enter current password">
+                </div>
+                <div class="col-lg-9 mb-3">
+                  <input #newPassword type="password" class="form-control" placeholder="Enter new password">
+                </div>
+                <div class="col-lg-9 mb-3">
+                  <input #confirmPassword type="password" class="form-control" placeholder="Confirm new password">
+                </div>
+                <div class="col-lg-9 mb-3 text-center">
+                  <button type="submit" class="btn btn-dark mr-3 px-3 mb-3">Cancel</button>
+                  <button type="submit" (click) = "updateUserPassword(currentPassword.value, newPassword.value, confirmPassword.value)"  class="btn btn-primary px-4 mb-3">Save</button>
+                </div>
+              </div>
+
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-9">
+        <div [ngbNavOutlet]="nav" class=""></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "5fa122237177d31ef88f2e29"
+  },
+  "configs": {
+    "supportPhone": "0800 1234567",
+    "supportEmail": "s.vujicic@insourcelab.com",
+    "cronApiKey": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+    "maxNumberOfLinkedAccounts": 4,
+    "maxPasswordRecoveryPeriod": 2,
+    "reservationExpirationTime": 10,
+    "maxRowDistance": 2,
+    "maxSeatDistance": 10,
+    "pageLimit": 6
+  },
+  "__v": 0
+}]

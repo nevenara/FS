@@ -1,0 +1,97 @@
+<div class="modal-body px-md-4">
+    <span>
+        <span *ngIf='!cameraView && !mobile'>
+            <div class="text-center mt-4">
+
+            </div>
+            <div>
+                <h6 class="font-weight-bold mb-0">{{'idVerification.pleaseTakeSelfie' | translate}}
+                </h6>
+                <div class="row my-2 ml-2">
+                    <div class="form-group">
+                        <label for="selfie"></label>
+                        <input type="button" id="loadFileXml" value="{{'idVerification.takeSelfie' | translate}}"
+                            (click)='cameraView=true' class='action btn bg-primary rounded' />
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2 text-danger h5 font-weight-bold">{{'idVerification.or' | translate}}</div>
+            <h6 class="font-weight-bold mb-0">{{'idVerification.uploadSelfie' | translate}}</h6>
+            <h6><span class="text-danger font-weight-bold">{{'idVerification.noteSelfie' | translate}}</span> {{'idVerification.noteSelfieDesc' | translate}}</h6>
+            <div class="row my-2 ml-2">
+                <div class="form-group">
+                    <label for="uploadSelfie"></label>
+                    <input type="button" id="loadFileXml" value="{{'idVerification.uploadSelfie' | translate}}"
+                        onclick="document.getElementById('uploadSelfie').click()"
+                        class='action btn bg-primary rounded' />
+                    <input (change)="uploadSelfie($event)" type="file" id="uploadSelfie" style="display:none"
+                        name="uploadSelfie">
+                    <span *ngIf='selfieImage' class='ml-2 mt-1 mb-1'>{{selfieImage.name}}</span>
+                    <p>{{'idVerification.allowedFormats' | translate}}: .jpg, .png
+                    </p>
+                </div>
+            </div>
+        </span>
+        <span *ngIf="mobile && !cameraView">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.takeASelfieMobile' | translate}} </h6>
+
+            <h6 class="d-flex">
+                <span class="text-danger font-weight-bold justify-content-baseline mr-1">{{'idVerification.takeAPictureNote' | translate}}</span>
+                <div class="justify-content-baseline text-top">
+                    {{'idVerification.takeASelfiePictureNote1' | translate}}
+                <br> {{'idVerification.takeASelfiePictureNote2' | translate}}
+                <br> {{'idVerification.takeASelfiePictureNote3' | translate}}
+                <br> {{'idVerification.takeASelfiePictureNote4' | translate}}
+            </div>
+            </h6>
+            <div class="text-center">
+                <div class="image-upload">
+                    <label for="selfie">
+                        <img src="../../../assets/images/Camera.png" height="200" width="200">
+                    </label>
+    
+                    <input type="file" id="selfie" accept="image/*" (change)="uploadSelfie($event)"
+                        capture="environment">
+                </div>
+            </div>
+            
+            <div class="row ml-1 mt-2 mb-2 text-danger h5 font-weight-bold">{{'idVerification.or' | translate}}</div>
+            <h6 class="font-weight-bold mb-0">{{'idVerification.uploadSelfieMobile' | translate}}</h6>
+            <h6><span class="text-danger font-weight-bold">{{'idVerification.takeAPictureNote' | translate}}</span> {{'idVerification.uploadSelfieMobileNote' | translate}}</h6>
+            <div class="row my-2 ml-2">
+                <div class="form-group">
+                    <label for="uploadSelfie"></label>
+                    <input type="button" id="loadFileXml" value="{{'idVerification.uploadSelfieMobileButton' | translate}}"
+                        onclick="document.getElementById('uploadSelfie').click()"
+                        class='action btn bg-primary rounded' />
+                    <input (change)="uploadSelfie($event)" type="file" id="uploadSelfie" style="display:none"
+                        name="uploadSelfie">
+                        <span *ngIf='selfieImage' class='ml-1 mt-1 mb-1'>{{selfieImage.name}}</span>
+
+                    <p>{{'idVerification.allowedFormats' | translate}}: .jpg, .png
+                    </p>
+                </div>
+            </div>
+        </span>
+
+        <span *ngIf='cameraView && !mobile'>
+            <app-camera-view (imageEmitter)='selfieImage=toFile($event)' (closeCameraViewEmitter)='cameraView=false'>
+            </app-camera-view>
+        </span>
+        <span *ngIf='cameraView && mobile'>
+            <label for="selfie" class="btn bg-blue-400 col-lg-6">{{'idVerification.takeASelfie' | translate}}</label>
+            <span *ngIf='cameraView && mobile'>
+                <label for="selfie" class="btn bg-blue-400 col-lg-6">{{'idVerification.uploadSelfieMobile' | translate}}</label>
+                <input type="file" style="visibility:hidden" id="selfie" accept="image/*" (change)="uploadSelfie($event)"
+                    capture="user" placeholder="{{'idVerification.uploadSelfieMobile' | translate}}">
+                <span *ngIf='selfieImage' class='ml-3'>{{selfieImage.name}}</span>
+                
+            </span>
+            <!-- <input type="file" style="visibility:hidden" id="selfie" accept="image/*" (change)="uploadSelfie($event)"
+                capture="environment" placeholder="Take a selfie"> -->
+            <span *ngIf='selfieImage' class='ml-3'>{{selfieImage.name}}</span>
+        </span>
+    </span>
+
+
+</div>

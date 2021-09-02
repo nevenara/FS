@@ -1,0 +1,819 @@
+{
+  "login": {
+    "title": "Login to your account",
+    "subtitle": "Your credentials",
+    "usernameOrEmail": "Username or Email",
+    "password": "Password",
+    "remember": "Remember",
+    "forgotPassword": "Forgot password?",
+    "login": "Login",
+    "account": "Don't have an account?",
+    "register": "Register",
+    "agreement": "By continuing, you're confirming that you've read our",
+    "termsOfServices": "Terms of Services",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy",
+    "agreementSuffix": "",
+    "privacyPolicyTitle": "Privacy Policy",
+    "policy": "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+    "termsTitle": "Terms of Services",
+    "terms": "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+    "accept": "Accept",
+    "somethingWentWrong": "Ooops, something went wrong",
+    "somethingWentWrongMessage1": "We are sorry, that we could not log you in.",
+    "somethingWentWrongMessage2": "We figured out that you have problem with your account.",
+    "somethingWentWrongMessage3": "Please contact our Support Team!",
+    "email": "Email",
+    "close": "Close",
+    "passwordRecovery": "Password recovery",
+    "instructions": "We'll send you instructions in email",
+    "enterEmail":"Enter your email",
+    "resetPassword": "Reset password",
+    "step2": "Step 2",
+    "enterPassword": "Please enter your new password and confirm it",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "confirm": "Confirm"
+  },
+  "signUp": {
+    "createAccount": "Create account",
+    "fieldsRequired": "All fields are required",
+    "enterEmail": "Enter your email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "readTermsAndPolicy": "I have read and agree to FanSafe's",
+    "termsOfService": "Terms of Service",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy",
+    "privacyPolicySuffix": "",
+    "register": "Register",
+    "login": "Login",
+    "haveAccount": "Already have an account?",
+    "privacyPolicyTitle": "Privacy Policy",
+    "policy": "Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+    "termsTitle": "Terms of Services",
+    "terms": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+    "accept": "Accept",
+    "completeRegistration": {
+      "title": "Complete Registration",
+      "currentStep": "current step",
+      "userData": "User Data",
+      "personalData": "Personal Data",
+      "additionalEmails": "Additional Emails",
+      "uploadImage": "Upload Image",
+      "selectProfileImage": "Select a profile image",
+      "chooseFile": "Choose File",
+      "username": "Username",
+      "enterUsername": "Enter username",
+      "next": "Next",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your First Name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your Last Name",
+      "dayOfBirth": "Day of Birth",
+      "dayOfBirthPlaceholder": "Select Date",
+      "fieldRequired": "Field is required",
+      "address": "Address",
+      "addressPlaceholder": "Enter Street + Number",
+      "zipCode": "Zip Code",
+      "zipCodePlaceholder": "Enter Zip Code",
+      "city": "City",
+      "cityPlaceholder": "Enter City",
+      "country": "Country",
+      "countryPlaceholder": "Choose Country",
+      "phone": "Phone",
+      "phoneRequired": "Phone Required",
+      "previous": "Previous",
+      "optionalStep": "Optional Step",
+      "emailDesc": "Your Email address is your identifer, when you are redirected after buying tickets from any Ticket Platform. If you use different email addresses on Ticket selling platforms we recommend to add them here.",
+      "email": "Email",
+      "enterAdditionalEmail": "Enter an additional Email address",
+      "submit": "Submit"
+    }
+  },
+  "home": {
+    "dashboardStatistics": "Dashboard - Statistics",
+    "comingSoon": "Coming Soon!"
+  },
+  "header": {
+    "online": "online",
+    "accountBalance": "Account balance",
+    "dropdown": {
+      "myProfile": "My profile",
+      "accountSettings": "Account settings",
+      "logout": "Logout"
+    }
+  },
+  "sidebar": {
+    "navigation": "Navigation",
+    "dashboard": "Dashboard",
+    "myTickets": "My Tickets",
+    "eventCalendar": "Event Calendar",
+    "ticketMarketplace": "Ticket Marketplace",
+    "ticketPersonalization": "Ticket Personalization",
+    "support": "Support"
+  },
+  "errors": {
+    "selectionRequired": "Selection is required",
+    "fieldRequired": "Field is required",
+    "usernameLength": "Minimal number of characters is",
+    "fieldLength": "Minimal number of characters is",
+    "badFormat": "Bad Format",
+    "passwordAndConfirmDidntMatch": "Password and Confirm Password didn't match.",
+    "passwordMustIncludeUpperCaseLetter": "Password must include at least 1 upper case letter.",
+    "passwordMustIncludeLowerCaseLetter": "Password must include at least 1 lower case letter.",
+    "passwordMustIncludeDigit": "Password must include at least 1 digit.",
+    "passwordLength": "Password must consist of min. 6 characters.",
+    "invalidEmail": "Email must be a valid email address",
+    "emailAlreadyRegistered": "An account with email is already existing! If you forgot your password, please use the password recovery link.",
+    "wrongEmailFormat": "Email format is not valid.",
+    "blacklistEmail": "Email address is not valid.",
+    "usernameMustHaveFourChars": "Username must have 4 Characters",
+    "generalError": "Error has occured! Please try again!"
+  },
+  "support": {
+    "needHelp": "Need help? Get in touch with our Support Team",
+    "faq": "Frequently Asked Questions",
+    "faqDesc": "Please browse our FAQs below to fnd a solution for your problem. If you are still left with open questions don´t hestitate to contact us. <br> Our Support Team will be happy to help you.",
+    "emailContact": "Contact us via Email",
+    "emailContactDesc": "Please send us an email and our support team will contact you as soon as possible to solve your problem.",
+    "phoneContact": "Support Hotline",
+    "workingHours": "Monday - Friday 9:00 - 17:00 After business hours and weekends please contact us via email.",
+    "sendEmail": "Send Email",
+    "email": "Email",
+    "name": "Name",
+    "subject": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Enter text here...",
+    "cancel": "Cancel",
+    "send": "Send"
+  },
+  "eventCalendar": {
+    "title": "Event Calendar"
+  },
+  "ticketPersonalization": {
+    "list": {
+      "title": "Ticket Personalization",
+      "ticket": {
+        "status": {
+          "waitingForPersonalization": "Waiting for personalization"
+        },
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors Open",
+        "location": "Location",
+        "amountOfTickets": "Amount of tickets",
+        "personalize": "Personalize",
+        "details": "Details"
+      },
+      "noTickets": "There are no tickets to display!"
+    },
+    "personalize": {
+      "title": "Ticket Personalization",
+      "ticketDetails": {
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors open",
+        "seat": "Seat",
+        "location": "Location",
+        "organizer": "Organizer",
+        "bookingId": "Booking ID",
+        "ticketId": "Ticket ID",
+        "priceInclVat": "Price incl. VAT"
+      },
+      "assignTicket": {
+        "prepersonalizedTo": "Pre-personalized to",
+        "editPrepersonalization": "Edit pre-personalization",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "save": "Save",
+        "cancel": "Cancel",
+        "enterUsernameOrEmail": "Enter username or email",
+        "idCheck": "ID check",
+        "assignTicket": "Assign Ticket",
+        "notes": "The participant is a minor or does not have a FanSafe account and would like the buyer to manage his/her tickets. Create a ",
+        "notesPopUp": "- A main account owner can manage up to 4 people. <br>- The main account owner must already have performed an ID check in order to create a Linked Account.<br>- Persons with a Linked Account also have to perform an one-time ID check. <br>- Linked accounts need to be setup with first and last name and username. <br>- Linked accounts can only be deleted by FanSafe Support. <br>",
+        "linkedAccount": "Linked Account"
+      },
+      "backToOverview": "Back to overview",
+      "assignAllTickets": "Assign all tickets"
+    }
+  },
+  "profile": {
+    "linked": {
+      "create": {
+        "labels": {
+          "title": "Create new account",
+          "currentStep": "current step",
+          "personalData": "Personal data",
+          "idVerification": "ID Verification",
+          "username": "Username",
+          "gender": "Gender",
+          "male": "Male",
+          "female": "Female",
+          "firstName": "First Name",
+          "lastName": "Last Name",
+          "dayOfBirth": "Day of Birth",
+          "fieldIsRequired": "Field is required",
+          "address": "Address",
+          "zipcode": "Zip Code",
+          "city": "City",
+          "country": "Country",
+          "relation": "Relation to main account",
+          "verifyLinkedText": "Please verify the identity of the linked account user! <b> by clicking the ID Check </b> Button.",
+          "verifyLinkedId": "ID Check"
+        },
+        "placeholders": {
+          "uploadImage": "Upload Image",
+          "username": "Enter a username",
+          "firstName": "Enter your First Name",
+          "lastName": "Enter your Last Name",
+          "dayOfBirth": "Select Date",
+          "address": "Enter Street + Number",
+          "zipcode": "Enter Zip Code",
+          "city": "Enter City",
+          "country": "Please Choose",
+          "relation": "Please Choose"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "next": "Next",
+          "previous": "Previous"
+        }
+      },
+      "detail": {
+        "labels": {
+          "gender": "Gender",
+          "male": "Male",
+          "female": "Female",
+          "firstName": "First Name",
+          "lastName": "Last Name",
+          "dayOfBirth": "Day of Birth",
+          "address": "Address",
+          "zipcode": "Zip Code",
+          "city": "City",
+          "country": "Country",
+          "setPassword": "Set Password",
+          "linkedNotice": "As a Linked account user you can set a password and login to your private account with your username and password",
+          "backToOverview": "Back to overview"
+        },
+        "placeholders": {
+          "address": "Enter Street + Number",
+          "zipcode": "Enter Zip Code",
+          "city": "Enter City",
+          "country": "Please Choose"
+        },
+        "buttons": {
+          "save": "Save"
+        }
+      },
+      "list": {
+        "labels": {
+          "title": "Connect new account"
+        }
+      },
+      "linked-empty": {
+        "labels": {
+          "title": "Connect new account"
+        },
+        "text": {
+          "notice1": "You currently have no linked accounts. You are able to connect up to 4 accounts with your main account and administrate the tickets for these persons.",
+          "notice2": "Using a linked account also requires an ID Check of this person, which has to be performed within the main account."
+        }
+      }
+    },
+    "profile": {
+      "labels": {
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "dayOfBirth": "Day of Birth",
+        "address": "Address",
+        "zipcode": "Zip Code",
+        "city": "City",
+        "country": "Country",
+        "phone": "Phone",
+        "phoneRequired": "Phone Required",
+        "standardEmail": "Standard E-Mail",
+        "emailCounter": "Email",
+        "useAsStandard": "Use as standard",
+        "additionalNew": "Email",
+        "confirmStandardEmail": "Confirm Standard Email Change",
+        "changeStandardEmail": "Please enter your account password to change your standard email address"
+      },
+      "placeholders": {
+        "uploadImage": "Upload Image",
+        "address": "Enter Street + Number",
+        "zipcode": "Enter Zip Code",
+        "city": "Enter City",
+        "country": "Please Choose",
+        "additionalEmail": "Enter an additional Email address",
+        "addAditionalEmail": "Add additional emails here, if you are registered on a ticket portal with an email other than your FanSafe standard email"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    },
+    "profile-layout": {
+      "labels": {
+        "mainAccount": "Main Account - Personal Data",
+        "linkedAccount": "Linked Accounts"
+      }
+    }
+  },
+  "account": {
+    "account-layout": {
+      "labels": {
+        "accountSettings": "Account Settings",
+        "payoutSettings": "Payout Settings"
+      }
+    },
+    "main-account": {
+      "labels": {
+        "changePassword": "Change Password"
+      },
+      "placeholders": {
+        "enterCurrentPassword": "Enter current password",
+        "enterNewPassword": "Enter new password",
+        "confirmNewPassword": "Confirm new password"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    },
+    "payment": {
+      "labels": {
+        "notice": "In order to offer you fastest and most secure transactions Fansafe uses Stripe Connect Payment services. As soon as you have performed a valid ID Check you are able to provide the proof of address and your IBAN by clicking the button below. Payouts will automatically be transferred to your bank account as soon as stripe frees the amount.",
+        "status": "Status",
+        "dataProvided": "Data provided - Stripe account activated",
+        "noData": "No data provided",
+        "dataInChecking": "Your data are in checking proccess",
+        "updateBankAccount": "Update Bank account",
+        "provideAddressProof": "Provide Proof of address and Bank account"
+      },
+      "proofOfAddress": {
+        "cancel": "Cancel",
+        "next": "Next",
+        "close": "Close",
+        "tryAgain": "Try Again",
+        "termsAndCond": "By entering the data you agree to the terms and conditions and the privacy policy of Stripe and Fansafe",
+        "pleaseProvideBankAccountData": "Please provide your bank account data",
+        "iban": "IBAN",
+        "ibanPlaceholder": "Enter your IBAN",
+        "pleaseUploadDoc": "Please upload a document to prove your address",
+        "uploadDocInfo": "You can use a Confirmation of registration or an Electricity bill or a Gas bill",
+        "note": "Note",
+        "noteDesc": "Your name must be on electricity or gas bill",
+        "uploadDoc": "Upload Proof of address document",
+        "allowedFormats": "allowed formats",
+        "verificationFailed": "Verification failed",
+        "verificationSuccessful": "We have received your data! It may take a couple of minutes until we've verifed your account. You can close this window now!",
+        "thankYou": "Thank you!"
+      }
+    }
+  },
+  "marketplace": {
+    "tabs": {
+      "ticketMarketplace": "Ticket Marketplace",
+      "mySales": "My Sales"
+    },
+    "list": {
+      "filter": "Filters",
+      "noTickets": "There are no tickets to display!",
+      "filters": {
+        "events": "Filter for Events",
+        "eventsPlaceholder": "Enter Event Name",
+        "category": "Category",
+        "categoryPlaceholder": "Select category",
+        "priceRange": "Price Range",
+        "from": "From",
+        "to": "To",
+        "fromTo": "From - To",
+        "location": "Location",
+        "locationPlaceholder": "Select location"
+      },
+      "ticket": {
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors Open",
+        "seat": "Seat",
+        "location": "Location",
+        "buyTicket": "Buy Ticket",
+        "exclFees": "excl. fees",
+        "edit": "Edit"
+      }
+    },
+    "edit": {
+      "title": "Edit Ticket",
+      "date": "Date",
+      "begin": "Begin",
+      "doorsOpen": "Doors Open",
+      "seat": "Seat",
+      "location": "Location",
+      "bookingId": "Booking ID",
+      "ticketId": "Ticket ID",
+      "priceInclVat": "Price incl. VAT",
+      "editTicket": "Edit ticket",
+      "invalidPrice": "Invalid price",
+      "invalidPriceMessage": "The price must not exceed the original price!",
+      "possiblePayout": "Possible payout",
+      "withdrawalFees": "Withdrawal fees may apply",
+      "pleaseNote": "Please note",
+      "note": "Ticket offered for sales are placed on the FanSafe marketplace according to your settings. Tickets on offer can be changed subsequently in the \"My sales\" menu. The buyer remains unknown to the seller. As soon as the ticket has been sold, the seller receives an email and the payment is made through Stripe directly to the seller's Stripe account. If the ticket is not sold, there is no entitlement to a refund of the purchase price.",
+      "cancel": "Cancel",
+      "removeAd": "Remove Ad",
+      "save": "Save",
+      "deleteAd": "Delete Ad",
+      "removeAdInfo": "Your Ad will be removed from the Marketplace and assigned back to you! <br>Are you sure you want to delete the Ad from the Marketplace?",
+      "delete": "Delete"
+    },
+    "buyTicket": {
+      "title": "Buy Ticket",
+      "reserved": "Tickets are reserved",
+      "cancel": "Cancel",
+      "proceedToCheckout": "Proceed to checkout",
+      "details": {
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors Open",
+        "seat": "Seat",
+        "location": "Location",
+        "bookingId": "Booking ID",
+        "ticketId": "Ticket ID",
+        "priceInclVat": "Price incl. VAT"
+      },
+      "seatPlan": "Seat Plan",
+      "back": "Back",
+      "poweredByStripe": "Powered by <b>Stripe</b>",
+      "termsPrivacy": "Terms & Privacy",
+      "close": "Close",
+      "assignTickets": {
+        "newTicketHolder": "New ticket holder",
+        "bestCloseTickets": "Best tickets close to this",
+        "assignTo": "Assign to",
+        "selectUserPlaceholder": "Select a user"
+      },
+      "buyTickets": {
+        "checkout": "Checkout",
+        "subTotal": "Sub Total",
+        "repersonalizationFee": "Re-personalization fee a",
+        "transactionFee": "Service fee",
+        "total": "Total",
+        "allPricesInclVat": "All prices incl. VAT"
+      },
+      "successMessage": "We have received your payment!<br/> The tickets are now available in your Fansafe account!",
+      "failMessage": "Payment failed"
+    }
+  },
+
+  "camera-view": {
+    "backToImage": "Back to Image Upload",
+    "takePhoto": "Take A Photo",
+    "takeNewPhoto": "Take A New Photo"
+  },
+  "notifications": {
+    "account": {
+      "passwordUpdated": "Password successfuly updated!"
+    },
+    "auth": {
+      "passwordRecovery": "Password recovery request is successfully submitted. Please check your email for password recovery link.",
+      "passwordReset": "Password is successfuly reset!",
+      "registrationCompleted": "Registration completed successfuly!",
+      "profileImageUploaded": "Profile image successfuly uploaded!",
+      "usernameExists": "Username already exists!"
+    },
+    "cardPayment": {
+      "preparingData": "Preparing data...",
+      "unknownPaymentType": "Unknown payment type!",
+      "paymentInProgress": "Payment in progress...",
+      "paymentFailed": "Payment failed!",
+      "submitingCardDetails": "Submiting card details...",
+      "cardSubmitedSuccessfuly": "Credit Card details are submitted successfully, please wait for payment to be confirmed.",
+      "cardSubmitFailed": "Payment failed with status!"
+    },
+    "idVerification": {
+      "linkedAccountCreated": "Linked account created successfuly!"
+    },
+    "marketplace": {
+      "paymentFailed": "Payment failed!",
+      "ticketRemovedFromSale": "Ticket removed from my sales successfuly!",
+      "changesSaved": "Changes saved successfuly!"
+    },
+    "personalization": {
+      "usernameNotValid": "Username / email is not valid!",
+      "ticketAssigned": "Ticket successfuly assigned!",
+      "ticketsAssigned": "Tickets successfuly assigned!",
+      "nothingToAssign": "Nothing to assign!",
+      "ticketHolderChanged": "Ticket holder successfuly changed!"
+    },
+    "profile": {
+      "profileUpdated": "Profile successfully updated!",
+      "emailAdded": "Email successfuly added!",
+      "additionalEmailAdded": "Additional email successfuly added!",
+      "profileImageUploaded": "Profile image successfuly uploaded!",
+      "profileImageDeleted": "Profile image successfuly deleted!",
+      "standardEmailUpdated": "Standard email successfuly updated!",
+      "additionalEmailDeleted": "Additional email successfuly deleted!",
+      "linkedAccountUpdated": "Linked account profile successfuly updated!",
+      "linkedAccountPasswordSet": "Linked account password successfuly set!",
+      "linkedAccountCreated": "Linked account created successfuly!"
+    },
+    "tickets": {
+      "ticketOfferPlaced": "Ticket offer placed successfuly!",
+      "ticketReturned": "Ticket returned successfuly!",
+      "paymentFailed": "Payment failed!"
+    }
+  },
+  "cardPayment": {
+    "paymentMethod": "Payment method",
+    "creditCard": "Credit card",
+    "sofort": "Sofort",
+    "cardInformation": "Card information",
+    "pay": "Pay"
+  },
+  "idVerification": {
+    "title": "ID Verification",
+    "previous": "Previous",
+    "cancel": "Cancel",
+    "start": "Start",
+    "next": "Next",
+    "verifyId": "Verify Id",
+    "close": "Close",
+    "tryAgain": "Try Again",
+    "idVerifReasons": "We need to verify your ID in order to",
+    "reason1": "ensure trouble-free entry with your personalized ticket",
+    "reason2": "ensure that you are able to assign tickets to other users",
+    "reason3": "payout your sales from the Fansafe Marketplace",
+    "pleasePrepareDocs": "Please prepare following documents before you start the verifcation process",
+    "doc1": "ID Document (Passport or Driver License or Personal ID Card)",
+    "doc2": "Selfe image (Frontal view, without sunglasses, headgear, mask etc.)",
+    "chooseIdDoc": "Please choose the ID document you will use for the verifcation process",
+    "passport": "Passport",
+    "driversLicense": "Driver's License",
+    "personalIdCard": "Personal ID Card",
+    "pleaseUploadPassport": "If you have a copy of your ID Document on your Computer please upload your Passport",
+    "uploadPassport": "UploadPassport",
+    "pleaseUploadDriverLicense": "If you have a copy of your ID Document on your Computer please upload your Driver's License",
+    "uploadDriverLicenseFront": "Upload Driver's License Front",
+    "uploadDriverLicenseBack": "Upload Driver's License Back",
+    "pleaseUploadIdCard": "If you have a copy of your ID Document on your Computer please upload your Personal ID Card",
+    "uploadIdCardFront": "Upload ID Card Front",
+    "uploadIdCardBack": "Upload ID Card Back",
+    "allowedFormats": "allowed formats",
+    "or": "OR",
+    "scanQR": "Scan the QR Code to continue the verifcation process on your mobile",
+    "note": "NOTE",
+    "noteDesc": "If you have an older iPhone or Android phone you might need 3rd party QR scanning apps. Please check out",
+    "pleaseTakeSelfie": "Please take a selfe image with the webcam",
+    "takeSelfie": "Take a selfie image with webcam",
+    "uploadSelfie": "Upload a selfie image from your computer",
+    "noteSelfie": "Note",
+    "noteSelfieDesc": "Frontal view recommended, don't wear sunglasses or any headgear",
+    "uploadSelfieButton": "Upload a selfie image from your computer",
+    "verificationFailed": "Verification failed",
+    "verificationSuccessful": "We have received your data! It may take a couple of minutes until we've verifed your account. You can close this window now!",
+    "thankYou": "Thank you!",
+    "pleaseTakeAPictureOfPassport": "Please take a picture of the passport (photo page)",
+    "takeAPictureNote": "Note",
+    "takeAPictureNote1": "Ensure data is clearly visible and readable",
+    "takeAPictureNote2": "Ensure there are no cut-offs",
+    "takeAPictureNote3": "Ensure there are no refections",
+    "takeAPictureNote4": "Ensure there are good light conditions",
+    "takePicturePassport": "Take a picture of passport",
+    "pleaseTakeAPictureOfDriversLicense": "Please take a picture of the Driver's License (Front and Back)",
+    "takeAPictureOfDriversLicenseFront": "Step 1: Take picture of Driver's License front side",
+    "takeAPictureOfDriversLicenseBack": "Step 2: Take picture of your Driver's License back side",
+    "pleaseTakeAPictureOfIdCard": "Please take a picture of the ID Card (Front and Back)",
+    "takeAPictureOfIdCardFront": "Step 1: Take picture of ID Card front side",
+    "takeAPictureOfIdCardBack": "Step 2: Take picture of your ID Card back side",
+    "takeASelfieMobile": "Please take a selfe image",
+    "takeASelfiePictureNote1": "Ensure there are good light conditions",
+    "takeASelfiePictureNote2": "Ensure your face is fully visible",
+    "takeASelfiePictureNote3": "Ensure you do not wear sunglasses or headgear",
+    "takeASelfiePictureNote4": "Ensure there are no refections",
+    "uploadSelfieMobile": "Upload a selfie image from your phone",
+    "uploadSelfieMobileNote": "Frontal view recommended, don't wear sunglasses or any headgear",
+    "uploadSelfieMobileButton": "Upload a selfie image from your phone",
+    "takeASelfie": "Take a Selfie"
+  },
+  "tickets": {
+    "details": {
+      "labels": {
+        "bookingID": "Booking ID",
+        "ticketID": "Ticket ID",
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors open",
+        "seat": "Seat",
+        "location": "Location",
+        "ticketHolder": "Ticket Holder",
+        "organizer": "Organizer",
+        "priceIncl": "Price incl. VAT",
+        "backSideTitle": "Please refer to the following guidlines",
+        "backSideText": "The terms and conditions of the organizer apply. Tickets are personalized and only the ticket holder is entitled to participate in the event. Tickets may only be resold via Fansafe at the original price or lower. Re-personalizations are only possible via Fansafe.",
+        "presentedBy": "Presented by",
+        "backToOverview": "Back to Overview",
+        "showTerms": "Show Terms of Event",
+        "showFront": "Show Front"
+      }
+    },
+    "layout": {
+      "labels": {
+        "upcomingEvents": "Upcoming events",
+        "visitedEvents": "Visited events"
+      }
+    },
+    "rePersonalize": {
+      "labels": {
+        "title": "Re-personalize Ticket",
+        "bookingID": "Booking ID",
+        "ticketID": "Ticket ID",
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors open",
+        "seat": "Seat",
+        "location": "Location",
+        "ticketHolder": "Ticket Holder",
+        "priceIncl": "Price incl. VAT",
+        "rePersonalize": "Re-personalize Ticket",
+        "rePersonalizeNotice": "The new Ticket Holder already must be registered with FanSafe. Please enter the username or email in the field below!",
+        "rePersonalizeTo": "Re-personalize to",
+        "nonExistingUser": "User does not exist! Please take care of upper case - lower case writing!",
+        "pleaseNote": "Please note",
+        "notice": "A ticket can only be re-personalized once by the ticket owner. <br> Selling the ticket at a higher price is not permitted and will be prosecuted. Violations can lead suspension of your account.",
+        "acceptRePersonalization": "I accept Terms of Re-personalization",
+        "acceptRequired": "You need to accept Terms to continue",
+        "newTicketOwner": "New Ticket owner",
+        "checkout": "Checkout",
+        "rePersonalizationFee": "Re-personalization Fee",
+        "subtotal": "Subtotal",
+        "serviceFee": "Service fee",
+        "total": "Total",
+        "allPricesInclVat": "All prices incl. VAT",
+        "poweredBy": "Powered by <b>Stripe</b>",
+        "termsPrivacy": "Terms & Privacy",
+        "seatPlan": "Seat Plan"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "next": "Next",
+        "close": "Close"
+      },
+      "placeholders": {
+        "enterUsername": "Enter FanSafe Username or Email address"
+      },
+      "failPage": {
+        "title": "Payment failed"
+      },
+      "successPage": {
+        "title": "Payment is finished successfuly!"
+      }
+    },
+    "returnTicket": {
+      "labels": {
+        "title": "Return Ticket",
+        "bookingID": "Booking ID",
+        "ticketID": "Ticket ID",
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors open",
+        "seat": "Seat",
+        "location": "Location",
+        "priceIncl": "Price incl. VAT",
+        "title2":"Return ticket",
+        "possiblePayout":"Possible payout",
+        "withdrawalFee":"Withdrawal fees may apply",
+        "reasonForReturn":"Reason for return",
+        "pleaseNote":"Please note",
+        "notice":"The entire processing of the refund is carried out by the ticket seller and Fansafe has no influence on this. Canceled tickets are reactivated for sale in the booking system of the ticket seller and your reservation is deleted. Your ticket will also be removed from your Fansafe account. As soon as the ticket has been sold, you will receive the original ticket price back. Neither Fansafe nor the ticket seller guarantee that the ticket will be sold. If the ticket is not sold, there is no right for a refund.",
+        "returnPolicy":"I accept the return policy",
+        "terms":"You need to accept Terms and Conditions"
+      },
+      "buttons":{
+        "cancel":"Cancel",
+        "returnTicket":"Return Ticket"
+      },
+      "placeholders":{
+        "returnReason":"Please choose a reason for return"
+      }
+    },
+    "sellTicket": {
+      "labels": {
+        "title": "Sell Ticket",
+        "bookingID": "Booking ID",
+        "ticketID": "Ticket ID",
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors open",
+        "seat": "Seat",
+        "location": "Location",
+        "priceIncl": "Price incl. VAT",
+        "title2": "Sell Ticket",
+        "enterPrice": "Please enter a ticket price",
+        "invalidPrice": "Invalid price",
+        "possiblePayout":"Possible payout",
+        "withdrawalFee":"Withdrawal fees may apply",
+        "pleaseNote":"Please note",
+        "notice":"Tickets offered for sale are placed on the FanSafe marketplace according to your settings. Tickets on offer can be changed subsequently in the My sales menu. The buyer remains unknown to the seller. As soon as the ticket has been sold, the seller receives an email and the payment is made through Stripe directly to the seller's Stripe account. If the ticket is not sold, there is no entitlement to a refund of the purchase price."
+      },
+      "buttons":{
+        "cancel":"Cancel",
+        "sellTicket":"Sell Ticket"
+      }
+    },
+    "upcoming": {
+      "filters": {
+        "title":"Filters",
+        "fromTo": "From - To",
+        "category": "Category",
+        "additionalFilters":"Additional Filters"
+      },
+      "labels": {
+        "noTickets":"There are no tickets to display!",
+        "details":"Details",
+        "ticketOnSale":"Ticket on Sale",
+        "rePersonalizationWaiting": "Re-personalization waiting",
+        "paymentWaiting":"Waiting for payment",
+        "linkedAccTicket":"Linked Account Ticket - ",
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors open",
+        "seat": "Seat",
+        "location": "Location",
+        "details2":"Details",
+        "actions":"Actions",
+        "sellTicket": "Sell Ticket",
+        "returnTicket": "Return Ticket",
+        "rePersonalizeTicket": "Re-personalize Ticket"
+      },
+      "placeholders":{
+        "fromTo":"From - To",
+        "selectCategory":"Select Category",
+        "selectFilter":"Select Filter"
+      }
+    },
+    "visited": {
+      "filters": {
+        "title":"Filters",
+        "fromTo": "From - To",
+        "category": "Category",
+        "additionalFilters":"Additional Filters"
+      },
+      "labels": {
+        "noTickets":"There are no tickets to display!",
+        "details":"Details",
+        "date": "Date",
+        "begin": "Begin",
+        "doorsOpen": "Doors open",
+        "seat": "Seat",
+        "location": "Location"      
+      },
+      "placeholders":{
+        "fromTo":"From - To",
+        "selectCategory":"Select Category",
+        "selectFilter":"Select Filter"
+      }
+    }
+  },
+  "ticketFilters": {
+    "selectAll": "Select All",
+    "unselectAll": "UnSelect All",
+    "concerts": "Concerts",
+    "culture": "Culture",
+    "sports": "Sports",
+    "musicalAndShow": "Musical & Show",
+    "cabaretAndComedy": "Cabaret & Comedy",
+    "search": "Search",
+    "linkedAccounts": "Show Linked Account Tickets",
+    "onSale": "Show Tickets on sale",
+    "repersonalization": "Show Tickets with \"Re-Pers. waiting\"",
+    "waitingForPayment": "Show Tickets with \"Waiting for payment\""
+  },
+  "relationToMainAccount": {
+    "grandfather": "Grandfather",
+    "grandmother": "Grandmother",
+    "father": "Father",
+    "mother": "Mother",
+    "husband": "Husband",
+    "wife": "Wife",
+    "partner": "Partner",
+    "child": "Child",
+    "brother": "Brother",
+    "sister": "Sister",
+    "uncle": "Uncle",
+    "aunt": "Aunt"
+  },
+  "reasonsForReturn": {
+    "personalizationDeadline": "Personalization deadline expired",
+    "illness": "Illness",
+    "professionalReasons": "For professional reasons",
+    "other": "Other"
+  }
+}

@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Wed Jul 29 2020 16:21:12 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/tickets/detail/detail.component.html
+* src/app/tickets/detail/detail.component.ts
+
+
+Created files:
+* .autogit/logs/log-29-6-2020-15-51-2.txt
+* src/assets/images/Wen.PNG
+
+
+Deleted files:
+
+
+Renamed files:

@@ -1,0 +1,267 @@
+<!-- <div class="text-center text-blue">
+    <h2>{{'tickets.rePersonalize.labels.title' | translate}}</h2>
+</div> -->
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+<div *ngIf='!loader && !loadingError'>
+    <div class="px-md-4">
+        <div class="row">
+            <div class="col-lg-12 my-2">
+                <h2 class="card-title text-center text-blue-400">{{'tickets.rePersonalize.labels.title' | translate}}
+                </h2>
+                <div class="col-lg-12">
+
+                    <div class="container px-md-4">
+                        <div class="card-header py-2 bg-blue">
+                        </div>
+                        <div class="row m-0 border bg-white align-items-center" *ngIf='showModal != 3 && showModal != 4'>
+                            <div class="col-lg-3 w-md-100 px-0 mb-2 mb-md-0 align-items-center">
+                                <div class="">
+                                    <img src="{{eventImageUrl}}{{details.eventId}}" class="w-100 h-230" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-9 w-md-100 px-0 px-md-2">
+                                <div class="row m-0 p-md-1">
+                                    <div class="col-md-12 text-right d-md-none d-block">
+                                        <div class="small"><b>{{'tickets.rePersonalize.labels.bookingID' | translate}}:
+                                            </b>{{details.bookingId}}</div>
+                                        <div class="small"><b>{{'tickets.rePersonalize.labels.ticketID' | translate}}:
+                                            </b>{{details.ticketId}}</div>
+                                    </div>
+                                    <div class="col-lg-9 pl-mid-0" style="word-wrap:break-word">
+                                        <h2 class="font-weight-bold mb-0 hd2 visible" [line-truncation]="1">{{details.eventName}}</h2>
+                                        <div class="">
+                                            <span class="custom-size"><b>{{'tickets.rePersonalize.labels.date' |
+                                                    translate}}: </b>{{dateFormatter.getDate(details.date)}}</span>
+                                            <span class="custom-size mx-md-3"><b>{{'tickets.rePersonalize.labels.begin'
+                                                    | translate}}:
+                                                </b>{{dateFormatter.getHours(details.beginTime)}}</span>
+                                            <span class="custom-size"><b>{{'tickets.rePersonalize.labels.doorsOpen' |
+                                                    translate}}: </b>{{details.doorsOpen}}</span>
+                                        </div>
+                                        <div class="custom-size"><b>{{'tickets.rePersonalize.labels.seat' | translate}}:
+                                            </b>{{details.seat}}</div>
+                                        <div class="media mt-1 mb-3">
+                                            <span class="custom-size visible" [line-truncation]="2"><b>{{'tickets.rePersonalize.labels.location' |
+                                                    translate}}: &nbsp;</b> </span>
+                                            <div class="media-body">
+                                                <span class="custom-size visible" [line-truncation]="2"> {{details.locationName}} <br>
+                                                    {{details.locationAddress}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="custom-size"><b>{{'tickets.rePersonalize.labels.ticketHolder' |
+                                                translate}}: </b>{{details.ticketHolderFirstName}}
+                                            {{details.ticketHolderLastName}} / {{details.ticketHolderUsername}}</div>
+                                    </div>
+                                    <div class="col-lg-3 d-flex flex-column justify-content-between text-right">
+                                        <div class="d-none d-md-block custom-size">
+                                            <div class="small"><b>{{'tickets.rePersonalize.labels.bookingID' |
+                                                    translate}}: </b>{{details.bookingId}}</div>
+                                            <div class="small"><b>{{'tickets.rePersonalize.labels.ticketID' |
+                                                    translate}}: </b>{{details.ticketId}}</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 d-flex flex-column text-right price align-items-end">
+                                    <h5 class="mb-0"><b>EUR </b>{{details.originalPrice.toFixed(2)}}</h5>
+                                    <div class="small">{{'tickets.rePersonalize.labels.priceIncl' | translate}}</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div *ngIf="showModal == 1" class="bg-white">
+
+                            <div class="row my-md-4 my-0 pb-2 align-items-center pl-0 pr-0 ml-0 mr-0">
+                                
+                               
+                                <h5 class="col-md-10 font-weight-bold text-blue-400 d-block border-bottom-blue mt-3  pl-2">
+                                    {{'tickets.rePersonalize.labels.rePersonalize' | translate}}</h5>
+                                    
+                                <div class='col-lg-2'>
+                                    <button type="button" class="btn bg-primary float-right mt-2 mr-0 mb-1"
+                                        (click)="openBackDropCustomClass(content)">{{'tickets.rePersonalize.labels.seatPlan' | translate}}</button>
+                                </div>
+
+                                <div class="border-bottom  ml-0" style="width: 100% !important;"></div>
+
+                            </div>
+                            <div class="bg-white">
+                                <div class="ml-2">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-12 w-md-111 d-none d-md-block">
+                                            <h5 class="card-title text-blue-400"
+                                                [innerHtml]="'tickets.rePersonalize.labels.rePersonalizeNotice' | translate">
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row col-lg-12 justify-content-center">
+                                        <div class="col-lg-2 pl-0">
+                                            <h5 class="font-weight-bold mb-0">
+                                                {{'tickets.rePersonalize.labels.rePersonalizeTo' | translate}}:</h5>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <input type='text' class='form-control' [(ngModel)]='usernameOrEmail'
+                                                placeholder="{{'tickets.rePersonalize.placeholders.enterUsername' | translate}}">
+                                            <p *ngIf='error == true' class="text-danger">
+                                                {{'tickets.rePersonalize.labels.nonExistingUser' | translate}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center mt-3">
+                                        <div class="col-lg-12 w-md-111 d-none d-md-block">
+                                            <h5 class="text-danger font-weight-bold">
+                                                {{'tickets.rePersonalize.labels.pleaseNote' | translate}}</h5>
+                                            <p class="custom-size-note"
+                                                [innerHtml]="'tickets.rePersonalize.labels.notice' | translate"></p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="custom-control mt-2 custom-conrol-right pl-0 ml-4 ml-0 custom-checkbox custom-control-inline">
+                                        <input type="checkbox" class="custom-control-input"
+                                            id="custom_checkbox_inline_right_checked05" [(ngModel)]='isChecked'>
+                                        <label class="custom-control-label position-static"
+                                            for="custom_checkbox_inline_right_checked05">{{'tickets.rePersonalize.labels.acceptRePersonalization'
+                                            | translate}}</label>
+                                        <p *ngIf='isChecked == false' class="text-danger ml-3">
+                                            {{'tickets.rePersonalize.labels.acceptRequired' | translate}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="showModal == 2 " class="row border-bottom my-md-4 my-2 pb-3 ml-0 mr-0">
+                            <span
+                                class="font-weight-bold custom-size d-block d-md-inline">{{'tickets.rePersonalize.labels.newTicketOwner'
+                                | translate}}:</span>
+                            <span class="font-weight-bold pl-md-4 custom-size">{{userDetails.firstName}}
+                                {{userDetails.lastName}} /
+                                {{userDetails.username}} <span
+                                    *ngIf='userDetails.email'>({{userDetails.email}})</span> </span> <br>
+
+                        </div>
+
+                        <div *ngIf="showModal == 2 " class="bg-white">
+                            
+                            <div class="w-custom bg-white">
+                                <div class="row mt-2 justify-content-center">
+                                    <div class="col-lg-6 col-72 mb-2 border-right row ml-1">
+                                        <div class="ml-2">
+                                            <div class="row col-lg-12 pl-0 justify-content-center ">
+                                                <div class="col-lg-12 pl-0">
+                                                    <h5 class="text-blue font-weight-bold mb-3">
+                                                        {{'tickets.rePersonalize.labels.checkout' | translate}}</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row col-lg-12 pl-0 d-flex align-items-center">
+                                                <div class="p-sm-00 row pl-0 col-lg-11 align-items-center">
+                                                    <h6 class="font-weight-bold font-sm text-left mb-0 col-lg-6">
+                                                        {{'tickets.rePersonalize.labels.rePersonalizationFee' |
+                                                        translate}}
+                                                    </h6>
+                                                    <div class="pr-0 ml-auto float-right text-right col-lg-6">
+                                                        <span class="custom-size"><b>&euro;
+                                                                {{price.toFixed(2)}}</b></span>
+
+                                                    </div>
+
+                                                </div>
+                                                <span class="ml-1 text-blue-400 col-lg-1" routerLink='/tickets'><i
+                                                        class="far fa-trash-alt"></i></span>
+                                                <div
+                                                    class="p-sm-00 row pl-0 pt-2 col-lg-11 border-top align-items-center">
+                                                    <h6 class="font-weight-bold font-sm text-left mb-0 col-lg-6">
+                                                        {{'tickets.rePersonalize.labels.subtotal' | translate}}</h6>
+                                                    <div class="pr-0 ml-auto float-right text-right col-lg-6">
+                                                        <span class="custom-size"><b>&euro;
+                                                                {{price.toFixed(2)}}</b></span>
+                                                    </div>
+                                                </div>
+                                                <div class="p-sm-00 row pl-0 col-lg-11 align-items-center">
+                                                    <h6 class=" font-sm text-left mb-0 col-lg-6">
+                                                        {{'tickets.rePersonalize.labels.serviceFee' | translate}}
+                                                    </h6>
+                                                    <div class="pr-0 ml-auto float-right text-right col-lg-6">
+                                                        <span class="custom-size"><b>&euro;
+                                                                {{fee.toFixed(2)}}</b></span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="p-sm-00 border-top pt-2 row pl-0 col-lg-11 align-items-center">
+                                                    <h6 class="font-weight-bold font-sm text-left mb-0 col-lg-6">
+                                                        {{'tickets.rePersonalize.labels.total' | translate}}</h6>
+                                                    <div class="pr-0 ml-auto float-right text-right col-lg-6">
+                                                        <span class="custom-size"><b>&euro;
+                                                                {{totalPrice.toFixed(2)}}</b></span>
+                                                    </div>
+                                                    <span
+                                                        class="col-lg-12 d-md-block d-none text-muted text-md-right float-right text-right pr-0">{{'tickets.rePersonalize.labels.allPricesInclVat'
+                                                        | translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-28 text-md-center">
+                                        <app-card-payment [paymentType]='paymentType' [price]='totalPrice'
+                                            [ticketId]='ticketId' [usernameOrEmail]='userDetails.username'
+                                            (successPaymentEmitter)='showModal = ($event ? 3 : 4)'
+                                            (errorMessageEmitter)='errorMessage=$event'></app-card-payment>
+                                    </div>
+                                    <div class='row text-muted col-lg-12 mt-3'>
+                                        <span class='border-right pr-3 mr-3 ml-2'
+                                            [innerHtml]="'tickets.rePersonalize.labels.poweredBy' | translate"></span><a
+                                            target="_blank"
+                                            href="https://stripe.com/at/ssa">{{'tickets.rePersonalize.labels.termsPrivacy'
+                                            | translate}} </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                </div>
+                </div>
+            </div>
+        </div>
+        <app-repersonalization-success *ngIf="showModal == 3"></app-repersonalization-success>
+        <app-repersonalization-fail *ngIf="showModal == 4" [errorMessage]='errorMessage'></app-repersonalization-fail>
+
+        <div class="row justify-content-center my-3">
+            <div class="col-lg-3 mb-3 text-md-right d-md-block d-none">
+                <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4" routerLink='/tickets'
+                *ngIf='showModal == 1'>{{'tickets.rePersonalize.buttons.cancel' | translate}}</button>
+            </div>
+            <div class="col-lg-3 mb-3 text-center w-5050">
+              <!-- <button class="btn bg-green" (click)="open(content)">Edit gift card</button> -->
+            </div>
+            <div class="col-lg-3 mb-3 text-md-left w-5050">
+                <button type="button" class="btn bg-green-400 px-md-4 mr-md-4" [disabled]='!usernameOrEmail || !isChecked'
+                (click)="checkUsernameOrEmail()" *ngIf='showModal == 1'>{{'tickets.rePersonalize.buttons.next' |
+                translate}}</button>
+            </div>
+            <div class="col-lg-3 mb-3 text-md-right w-1010 d-block d-md-none">
+                <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4" *ngIf='showModal==3 || showModal==4'
+                routerLink='/tickets'>{{'tickets.rePersonalize.buttons.close' | translate}}</button>
+            </div>
+          </div>
+
+        <!-- <div class="text-center justify-content-center mt-3">
+            <button type="button" aria-label="Close" class="btn mr-md-4 btn-dark px-md-4" routerLink='/tickets'
+                *ngIf='showModal == 1'>{{'tickets.rePersonalize.buttons.cancel' | translate}}</button>
+            <button type="button" class="btn bg-green-400 px-md-4 mr-md-4" [disabled]='!usernameOrEmail || !isChecked'
+                (click)="checkUsernameOrEmail()" *ngIf='showModal == 1'>{{'tickets.rePersonalize.buttons.next' |
+                translate}}</button>
+            <button type="button" aria-label="Close" class="btn btn-dark px-md-4" *ngIf='showModal==3 || showModal==4'
+                routerLink='/tickets'>{{'tickets.rePersonalize.buttons.close' | translate}}</button>
+        </div> -->
+    </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title"></h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body text-center">
+            <img src="{{seatImage}}" style="max-width: 100%" alt="">
+        </div>
+    </ng-template>

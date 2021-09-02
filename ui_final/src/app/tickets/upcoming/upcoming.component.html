@@ -1,0 +1,135 @@
+<div class="container p-sm-00">
+  <div class="row mb-3 mt-md-4">
+    <div class="col-md-12 text-right">
+      <div class="d-md-none">
+        <button class="navbar-toggler border-0" (click)="isTreeCollapsed = !isTreeCollapsed"
+          [attr.aria-expanded]="!isTreeCollapsed">
+          <span class="font-weight-semibold"> {{'tickets.upcoming.filters.title' | translate}} &nbsp; </span>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+        <div class="filter-show" [ngbCollapse]="isTreeCollapsed">
+          <div class="row text-left">
+            <div class="col-lg-4 w-md-100 mb-15">
+              <date-range-picker (rangeSelected)='onDateRangeSelected()' [ngStyle]="{'color':'black'}" [instanceId]="'secondDateRange'" [controlName]="'secondDateRange'" #dateRangePicker [options]="dateOptions" (rangeSelected)="getFromToDate(dateRangePicker.range);" (datepickerReset)="fromDate=null;toDate=null; getUpcomingTickets()">
+                <div class="form-group">
+                  <label class="text-blue-4000 font-weight-bold" for="">{{'tickets.upcoming.placeholders.fromTo' | translate}}
+                  </label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="date-range-icon">
+                        <i class="icon-calendar22"></i>
+                      </span>
+                    </div>
+                    <input id="secondDateRange" class="form-control" type="text" name="dateRange" [readonly]="true"
+                      [value]="dateRangePicker.range" [placeholder]="'tickets.upcoming.placeholders.fromTo' | translate"/>
+                  </div>
+                </div>
+              </date-range-picker>
+            </div>
+            <div class="col-lg-4 w-md-100 mb-15">
+              <label class="text-blue-4000 font-weight-bold" for="">{{'tickets.upcoming.filters.category' | translate}}
+              </label>
+              <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings"
+                [placeholder]="'tickets.upcoming.placeholders.selectCategory' | translate" [data]="dropdownList" [(ngModel)]="selectedCategories"
+                (onSelect)="page=1; getUpcomingTickets()" (onSelectAll)="page=1; selectAllCategories()" (onDeSelect)="page=1; getUpcomingTickets()" (onDeSelectAll)="page=1; unselectAllCategories()">
+              </ng-multiselect-dropdown>
+             </div>
+             <div class="col-lg-4 w-md-100">
+              <label class="text-blue-4000 font-weight-bold" for="">{{'tickets.upcoming.filters.additionalFilters' | translate}}
+              </label>
+              <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings1"
+                [placeholder]="'tickets.upcoming.placeholders.selectFilter' | translate" [data]="dropdownList1" [(ngModel)]="selectedAdditionalFilter"
+                (onSelect)="page=1; getUpcomingTickets()" (onSelectAll)="page=1; selectAllAdditionalFilters()" (onDeSelect)="page=1; getUpcomingTickets()" (onDeSelectAll)="page=1; unselectAllAdditionalFilters()">
+              </ng-multiselect-dropdown>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf='!loader && !tickets.length' class='text-center text-blue-400'><h3>{{'tickets.upcoming.labels.noTickets' | translate}}</h3></div>
+  <div class="row mt-md-4">
+    <div *ngFor="let ticket of tickets" class="col-lg-4">
+      <div class="card" style="height: 550px !important">
+        <div class="card-img-actions">
+          <img class="img-fluid" src="{{eventImageUrl}}{{ticket.eventId}}" alt="">
+          <div class="card-img-actions-overlay card-img-top">
+            <a routerLink='/tickets/detail/{{ticket.id}}'
+              class="btn btn-outline bg-white text-white border-white">
+              {{'tickets.upcoming.labels.details' | translate}}
+            </a>
+          </div>
+        </div>
+        <div *ngIf='ticket.ticketOnSale' class="header-elements px-1 mt-2 text-right">
+          <span class="badge bg-danger px-3">{{'tickets.upcoming.labels.ticketOnSale' | translate}}</span>
+        </div>
+        <div *ngIf='ticket.repersonalizationWaiting' class="header-elements px-1 mt-2 text-right">
+          <span class="badge bg-warning">{{'tickets.upcoming.labels.rePersonalizationWaiting' | translate}}</span>
+        </div>
+        <div *ngIf='ticket.waitingForPayment' class="header-elements px-1 mt-2 text-right">
+          <span class="badge bg-warning">{{'tickets.upcoming.labels.paymentWaiting' | translate}}</span>
+        </div>
+        <div *ngIf='ticket.linkedAccountsTicket' class="header-elements px-1 mt-2 text-right">
+          <span class="badge bg-blue">{{'tickets.upcoming.labels.linkedAccTicket' | translate}} {{ticket.linkedAccountFirstName}} {{ticket.linkedAccountLastName}}</span>
+        </div>
+        <div *ngIf='!ticket.linkedAccountsTicket && !ticket.waitingForPayment && !ticket.repersonalizationWaiting && !ticket.ticketOnSale' class="header-elements px-1 mt-2 text-right">
+        </div>
+
+        <div class="card-body px-1 py-2 ">
+          <h5 class="text-dark font-weight-bold mb-0 visible pb-2" [line-truncation]="2">{{ticket.eventName}}</h5>
+          <div class=""><span class="">
+              <span class="text-dark font-weight-bold">{{'tickets.upcoming.labels.date' | translate}}:</span>
+              <span class="text-dark"> {{dateFormatter.getDate(ticket.date)}} </span>
+            </span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{'tickets.upcoming.labels.begin' | translate}}:</span>
+            <span class="text-dark"> {{dateFormatter.getHours(ticket.beginTime)}}</span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{'tickets.upcoming.labels.doorsOpen' | translate}}:</span>
+            <span class="text-dark"> {{ticket.doorsOpen}}</span>
+          </div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">{{'tickets.upcoming.labels.seat' | translate}}:</span> <span class="text-dark"> {{ticket.seat}}</span></div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">{{'tickets.upcoming.labels.location' | translate}}:</span>
+             <p class="text-dark visible" [line-truncation]="1"> {{ticket.locationName}}</p>
+            <p class="text-dark visible" [line-truncation]="1">{{ticket.locationAddress}}</p>
+          </div>
+        </div>
+
+        <div class="p-2 d-flex bg-dark justify-content-between">
+          <a routerLink='/tickets/detail/{{ticket.id}}' class="btn action-blue px-3">
+            <span>{{'tickets.upcoming.labels.details2' | translate}}</span>
+          </a>
+          <div ngbDropdown placement="bottom-right">
+            <a ngbDropdownToggle id="dropdownBasic1"
+              class="btn action-blue d-flex align-items-center dropdown-toggle">
+              <span>{{'tickets.upcoming.labels.actions' | translate}}</span>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button [disabled]='ticket.repersonalizationWaiting || ticket.ticketOnSale' ngbDropdownItem class="dropdown-item red" (click)='sellTicket(ticket.id)'>{{'tickets.upcoming.labels.sellTicket' | translate}}</button>
+              <button [disabled]='ticket.repersonalizationWaiting || ticket.ticketOnSale || !ticket.returnAllowed' ngbDropdownItem class="dropdown-item greyblue" routerLink='/tickets/returnticket/{{ticket.id}}'>
+                {{'tickets.upcoming.labels.returnTicket' | translate}}</button>
+              <button [disabled]='ticket.repersonalizationWaiting || ticket.ticketOnSale' ngbDropdownItem class="dropdown-item orange" routerLink='/tickets/repersonalizeticket/{{ticket.id}}'>
+                {{'tickets.upcoming.labels.rePersonalizeTicket' | translate}}</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf='pages && pages.length > 0' class="row my-4 justify-content-center">
+    <div class="col-lg-12">
+      <div class="">
+        <ngb-pagination class="custom-pagination" (pageChange)='onPageChange($event)' [pageSize]='1' maxSize="3" [rotate]="true" [collectionSize]="pages.length" [(page)]="page" aria-label="Custom pagination">
+          <ng-template ngbPaginationPrevious> ← </ng-template>
+          <ng-template ngbPaginationNext> →</ng-template>
+          <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+        </ngb-pagination>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-update-bank-account (successEmitter)='navigateToSell($event)'></app-update-bank-account>

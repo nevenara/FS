@@ -1,0 +1,13 @@
+::ng-deep .fc-icon-chevron-left:after {
+  content: "" !important;
+}
+
+::ng-deep .fc-icon-chevron-right:after {
+  content: "" !important;
+}
+@media (max-width: 768px){
+  ::ng-deep .fc .fc-toolbar{
+    flex-direction: column-reverse;
+  }
+}
+

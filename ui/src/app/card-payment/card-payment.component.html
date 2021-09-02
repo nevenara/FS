@@ -1,0 +1,23 @@
+ 
+<div>
+    PAYMENT FORM ON FANSAFE - ticket event
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <form id="payment-form">
+    <div id="card-element" #cardElement>
+      <!-- Elements will create input elements here -->
+    </div>
+  
+    <!-- We'll put the error messages in this element -->
+    <div id="card-errors" role="alert" style="color: red;">{{errorMsg}}</div>
+  
+    <button id="submit">Pay</button>
+  </form>
+  
+  <br/>
+  <br/>
+  <button id="pay-button" type="submit" (click)='payForTheTicket()'>
+    JUST FOR TESTING - PAY FOR THE TICKET <!-- Pay ${{_totalAmount}} -->
+  </button>

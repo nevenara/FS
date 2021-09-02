@@ -1,0 +1,38 @@
+.navbar-brand img {
+  height: 2.7rem;
+  /* width: 69%; */
+  /* display: block; */
+}
+.navbar-dark{
+  background: #273237 !important;
+}
+@media only screen and (max-width:767px) {
+  .navbar-brand img {
+    height: 2rem;
+    width: auto;
+    display: block;
+  }
+}
+
+
+.mr20 {
+  margin-right: 20px;
+  height: 19px;
+}
+
+.ml {
+  margin-left: 50px;
+}
+
+.test {
+  display: flex;
+  align-items: center;
+}
+
+.f-sb {
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+}

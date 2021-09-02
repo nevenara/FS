@@ -1,0 +1,67 @@
+.qr-img {
+    height: 150px;
+    width: 150px;
+  }
+
+  .custom-size{
+    font-size: 16px;
+
+  }
+  .align{
+margin-left: 10px;
+  }
+  .custom-badge{
+      font-size: 13px;
+      border: 1px solid black;
+      border-radius: 5px;
+  }
+  .content-divider {
+    text-align: left !important;
+}
+.content-divider>span:before {
+
+    background-color: #29b6f6 !important;
+
+}
+.datatable-header > div:first-child{
+  margin-left: 1.25rem;
+}
+
+.badge-purple{
+  background-color: #9900ff;
+  color: #fff;
+}
+
+::ng-deep .custom-pagination ul {
+  float: right !important;
+}
+
+::ng-deep .custom-pagination li a {
+  display: inline-block;
+  min-width: 2.25003rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: 0;
+  border: 1px solid transparent !important;
+  border-radius: 0.1875rem;
+  transition: all ease-in-out 0.15s;
+  margin-left: 0.125rem;
+}
+
+ngb-pagination ::ng-deep .page-item:not(:active):not(disabled) {
+  color: black !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  color: #fff !important;
+  background-color: #37474f;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus, .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}

@@ -1,0 +1,95 @@
+<div class="">
+  <!-- <div class="m-auto card-title pr-3 pl-3 text-blue-400 align-items-center text-center"> -->
+    <!-- <h2>{{ 'marketplace.buyTicket.title' | translate }}<span *ngIf='show < 4' style="font-size: 18px;" class="font-sm float-right">{{ 'marketplace.buyTicket.reserved' | translate }} <span
+          class="font-weight-bold counter-style">
+          <countdown [config]="{ leftTime: counter, format: 'mm:ss' }"></countdown>
+        </span></span></h2> -->
+  <!-- </div> -->
+</div>
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+<div *ngIf="!loader && !loadingError">
+  <span *ngIf='show < 4'>
+    <div class='mx-3'>
+      <div class="row">
+    <div class="col-lg-12 my-2 align-items-center">
+      <div class='container'>
+        <h2 class="ml-5 pl-5 card-title text-center text-blue-400 align-items-center">{{ 'marketplace.buyTicket.title' | translate }}
+        <span *ngIf='show < 4' style="font-size: 18px;" class="font-sm float-right pr-3">{{ 'marketplace.buyTicket.reserved' | translate }} <span
+          class="font-weight-bold counter-style">
+          <countdown [config]="{ leftTime: counter, format: 'mm:ss' }"></countdown>
+        </span></span>
+      </h2>
+      </div>
+      
+      <div class="col-lg-12">
+
+        <div class="container px-md-4">
+          <div class="card-header py-2 bg-blue">
+          </div>
+      <app-ticket-details [reservedTickets]='reservedTickets'></app-ticket-details>
+      <span *ngIf='show==1'>
+        <app-assign-bought-tickets class='m-0' (assigneeNumberEmitter)='assigneeNumber=$event' *ngIf="show === 1"
+          [reservedTickets]='reservedTickets' [usersList]='users' [eventId]='eventId'></app-assign-bought-tickets>
+        <div class="col-lg-12 text-center mt-3">
+          <button type="button" aria-label="Cancel" class="btn mr-md-4 ml-4 btn-dark px-md-4"
+            (click)='cancelReservation()'>{{ 'marketplace.buyTicket.cancel' | translate }}</button>
+          <button type="button" class="btn bg-green-400 px-md-4 ml-4" [disabled]='!assigneeNumber'
+            (click)="show = 2">{{ 'marketplace.buyTicket.proceedToCheckout' | translate }}</button>
+        </div>
+      </span>
+      <div class="d-flex justify-content-end" *ngIf="show == 2">
+      <button type="button" class="btn bg-blue-400 px-md-4 mt-2 " (click)="openBackDropCustomClass(content)"
+      >{{ 'marketplace.buyTicket.seatPlan' | translate }}  </button> 
+    </div>
+      <h5 *ngIf="show===2" class="font-weight-bold text-blue-400 mt-2 mb-2 d-block border-bottom-blue"></h5>
+
+      <span *ngIf="show === 2" class='row checkout-and-payment m-0' >
+        <span class='col-md-6 border-right'>
+          <app-confirm-bought-tickets class="col-md-6" (priceEmitter)='price=$event'
+            (assigneeNumberEmitter)='changeAssigneeNumber($event)' [reservedTickets]='reservedTickets'>
+          </app-confirm-bought-tickets>
+          <div class="col-lg-12 text-center">
+            <button type="button" aria-label="Cancel" class="btn mr-md-4 btn-dark px-md-4 ml-4"
+              (click)='cancelReservation()'>{{ 'marketplace.buyTicket.cancel' | translate }}</button>
+            <button type="button" class="btn bg-dark px-md-4 mr-md-4 ml-4" (click)="show = 1" *ngIf="users.length != 1">
+              {{ 'marketplace.buyTicket.back' | translate }}</button>
+          </div>
+          <div class='row text-muted col-lg-12 mt-3'>
+            <span class='border-right pr-3 mr-3' [innerHtml]="'marketplace.buyTicket.poweredByStripe' | translate"></span> <a target="_blank" href="https://stripe.com/at/ssa">{{ 'marketplace.buyTicket.termsPrivacy' | translate }}</a>
+          </div>
+        </span>
+        <app-card-payment class="col-md-6" [price]='price' [paymentType]='paymentType'
+          [reservedTickets]='reservedTickets'
+          (successPaymentEmitter)='successPayment=$event; show = successPayment ? 5 : 4'
+          (errorMessageEmitter)='errorMessage=$event'></app-card-payment>
+      </span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+  </span>
+  <span *ngIf="show >= 4">
+    <app-fail-page *ngIf="show === 4" [errorMessage]='errorMessage'></app-fail-page>
+    <app-success-page *ngIf="show === 5"></app-success-page>
+
+    <div class="col-lg-12 text-center mt-3">
+      <button type="button" aria-label="Close" class="btn mr-md-4 ml-4 btn-dark px-md-4"
+        (click)='cancelReservation()'>{{ 'marketplace.buyTicket.close' | translate }}</button>
+    </div>
+  </span>
+
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <img src="{{seatImage}}" style="max-width: 100%" alt="">
+  </div>
+</ng-template>

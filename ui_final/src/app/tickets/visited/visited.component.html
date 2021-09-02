@@ -1,0 +1,88 @@
+<div class="container p-sm-00">
+  <div class="row mb-3 mt-md-4">
+    <div class="col-md-12 text-right">
+      <div class="d-md-none">
+        <button class="navbar-toggler border-0" (click)="isTreeCollapsed = !isTreeCollapsed"
+          [attr.aria-expanded]="!isTreeCollapsed">
+          <span class="font-weight-semibold"> {{'tickets.visited.filters.title' | translate}} &nbsp; </span>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+        <div class="filter-show" [ngbCollapse]="isTreeCollapsed">
+          <div class="row text-left">
+            <div class="col-lg-4 w-md-100 mb-15">
+              <date-range-picker [instanceId]="'secondDateRange1'" [ngStyle]="{'color':'black'}" [controlName]="'secondDateRange'" #dateRangePicker #dateRangePicker [options]="dateOptions" (rangeSelected)="getFromToDate(dateRangePicker.range);" (datepickerReset)="fromDate=null;toDate=null; getVisitedTickets()"> 
+                <div class="form-group">
+                  <label class="text-blue-4000 font-weight-bold" for="">{{'tickets.visited.placeholders.fromTo' | translate}}
+                  </label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="date-range-icon">
+                        <i class="icon-calendar22"></i>
+                      </span>
+                    </div>
+                    <input id="secondDateRange1" class="form-control" type="text" name="dateRange" 
+                      [value]="dateRangePicker.range" [placeholder]="'tickets.visited.placeholders.fromTo' | translate" />
+                  </div>
+                </div>
+              </date-range-picker>
+            </div>
+            <div class="col-lg-4 w-md-100 mb-15">
+              <label class="text-blue-4000 font-weight-bold" for="">{{'tickets.visited.filters.category' | translate}}
+              </label>
+              <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings"
+                [placeholder]="'tickets.visited.placeholders.selectCategory' | translate" [data]="dropdownList" [(ngModel)]="selectedCategories"
+                (onSelect)="page=1; getVisitedTickets()" (onSelectAll)="page=1; selectAllCategories()" (onDeSelect)="page=1; getVisitedTickets()" (onDeSelectAll)="page=1; unselectAllCategories()">
+              </ng-multiselect-dropdown>
+             </div>
+             <div class="col-lg-4 w-md-100">
+              <label class="text-blue-4000 font-weight-bold" for="">{{'tickets.visited.filters.additionalFilters' | translate}}
+              </label>
+              <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings1"
+                [placeholder]="'tickets.visited.placeholders.selectFilter' | translate" [data]="dropdownList1" [(ngModel)]="selectedAdditionalFilter"
+                (onSelect)="page=1; getVisitedTickets()" (onSelectAll)="page=1; selectAllAdditionalFilters()" (onDeSelect)="page=1; getVisitedTickets()" (onDeSelectAll)="page=1; unselectAllAdditionalFilters()">
+              </ng-multiselect-dropdown>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf='!loader && !tickets.length' class='text-center text-blue-400'><h3>{{'tickets.visited.labels.noTickets' | translate}}</h3></div>
+
+  <div class="row mt-md-4">
+    <div *ngFor="let ticket of tickets" class="col-lg-4">
+      <div class="card" >
+        <div class="card-img-actions bg-muted" style="height: 550px !important">
+          <img class="img-fluid" src="{{eventImageUrl}}{{ticket.eventId}}" alt="">
+        <div class="card-body  px-1 py-2">
+          <h5 class="text-dark font-weight-bold mb-0 visible two-lines" >{{ticket.eventName}}</h5>
+          <div class=""><span class="">
+              <span class="text-dark font-weight-bold">{{'tickets.visited.labels.date' | translate}}:</span>
+              <span class="text-dark"> {{dateFormatter.getDate(ticket.date)}} </span>
+            </span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{'tickets.visited.labels.begin' | translate}}:</span>
+            <span class="text-dark"> {{dateFormatter.getHours(ticket.beginTime)}}</span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">{{'tickets.visited.labels.doorsOpen' | translate}}:</span>
+            <span class="text-dark"> {{ticket.doorsOpen}}</span>
+          </div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">{{'tickets.visited.labels.seat' | translate}}:</span> <span class="text-dark"> {{ticket.seat}}</span></div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">{{'tickets.visited.labels.location' | translate}}:</span>
+            <p class="text-dark visible two-lines-location"  [innerHTML]="ticket.locationName"></p>
+            <p class="text-dark visible two-lines-location"  [innerHTML]="ticket.locationAddress"></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf='pages && pages.length > 0' class="row my-4 justify-content-center">
+  <div class="col-lg-12">
+    <div class="">
+        <ngb-pagination class="custom-pagination" (pageChange)='onPageChange($event)' [pageSize]='1' maxSize="3" [rotate]="true" [collectionSize]="pages.length" [(page)]="page" aria-label="Custom pagination">
+        <ng-template ngbPaginationPrevious> ← </ng-template>
+        <ng-template ngbPaginationNext> →</ng-template>
+        <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+      </ngb-pagination>
+    </div>
+  </div>
+</div>

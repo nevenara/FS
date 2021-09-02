@@ -1,0 +1,92 @@
+.opacity-75 {
+    opacity: 1 !important;
+}
+
+.green{
+    background-color: #00b300;
+}
+
+.blue{
+    background-color: #09a1ce;
+}
+
+.turkis{
+    background-color: #00b386;
+}
+
+.grey{
+    background-color: #a9a9a9;
+}
+
+.fa-stack {
+    display: inline-block;
+    height: 1em;
+    line-height: 1em;
+    position: relative;
+    vertical-align: middle;
+    width: 1.5em; 
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%; }
+
+.fa-stack-1x {
+  line-height:inherit; 
+  font-size: 0.1em;
+}
+
+.fa-stack-2x {
+  font-size: 1em; }
+
+.fa-inverse {
+  color: #a9a9a9; }
+
+.fa-2x {
+  font-size: 1.25em; }
+
+.fa-3x {
+  font-size: 1.5em; }
+
+.fa-rotate-135 {
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.fa-stack-bottom {
+    vertical-align: bottom;
+}
+
+.form-group.hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+.ranges ul li:active {
+  background-color: #26a69a;
+}

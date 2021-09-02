@@ -1,0 +1,11 @@
+<div class="modal-body px-md-4">
+    <h6><b>{{'account.payment.proofOfAddress.pleaseProvideBankAccountData' | translate}}</b></h6>
+
+    <div class="form-group row justify-content-center text-left mt-3">
+        <label class="col-lg-3 col-form-label text-dark"><h6><b>{{'account.payment.proofOfAddress.iban' | translate}}</b></h6></label>
+        <div class="col-lg-9">
+            <input tabindex="-1" type="text" class="form-control" placeholder="{{'account.payment.proofOfAddress.ibanPlaceholder' | translate}}" name="iban" [(ngModel)]="ibanValue" (keyup)='ibanEmitter.emit(ibanValue)'>
+            <p style='color: red;'>{{ibanErrorMessage}}</p>
+        </div>
+    </div>
+</div>

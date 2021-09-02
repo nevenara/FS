@@ -1,0 +1,44 @@
+<div class="card border-0 shadow-none">
+  <div class="card-body">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h3 class="text-center text-blue-400">Optional Step</h3>
+        <p class="text-center text-blue-400 mb-md-5">Your Email address is your identifer, when you are redirected after
+          buying tickets from any Ticket Platform.
+          If you use different email addresses on Ticket selling platforms we recommend to add them here.</p>
+      </div>
+    </div>
+
+    <form  class="wizard" action="#">
+      <div *ngFor="let email of user.additionalEmails; let i=index" class="form-group row justify-content-center align-items-center pb-md-5">
+        <label class="col-lg-1 col-sm col-form-label text-dark">Email #{{i+2}}</label>
+        <div class="col-lg-5">
+          <input (change)="onChangeArrayElement($event, i)" type="text" value="{{email}}" type="text" class="form-control">
+        </div>
+        <div class="col-lg-1 col-sm-1">
+          <button (click) = 'removeAdditionalEmail(i)' type="submit" class="btn btn-outline-warning"><span class="icon-trash"></span> </button>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center pb-md-5">
+        <label class="col-lg-1 col-sm col-form-label text-dark">Email #{{user.additionalEmails.length + 2}}</label>
+        <div class="col-lg-5">
+          <input [(ngModel)] = 'newEmail' name='newEmail' type="text" class="form-control" placeholder="Enter an additional Email address">
+        </div>
+        <div class="col-lg-1 col-sm-1">
+          <button [disabled] = "user.additionalEmails.length == 4" (click) = 'addAdditionalEmail()' type="submit" class="btn btn-outline-primary"><span class="icon-plus2"></span> </button>
+        </div>
+      </div>
+
+      <div class="actions clearfix">
+        <ul role="menu" aria-label="Pagination">
+          <li aria-disabled="false"><a class="btn btn-dark" (click) = "previous()"
+              role="menuitem"><i class="icon-arrow-left13 mr-2"></i> Previous</a></li>
+          <li aria-hidden="true"><a (click) = 'submit()' class="btn btn-primary"
+              role="menuitem">Submit
+              <i class="icon-arrow-right14 ml-2" outerLink='/home'></i></a></li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>

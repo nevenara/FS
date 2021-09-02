@@ -1,0 +1,63 @@
+<div class="card border-0 shadow-none">
+
+  <div class="card-body p-md-5">
+    <div class="row">
+      <div class="col-lg-3">
+        <ul ngbNav #nav="ngbNav" class="nav-tabs custom-nav" orientation="vertical">
+          <li ngbNavItem="top" class="d-none d-md-block">
+            <a ngbNavLink class="text-left mt-3">
+              <img src="../../../assets/images/stripe.png" alt="" height="20">
+            </a>
+
+            <ng-template ngbNavContent>
+              <preloader-app *ngIf='loader'></preloader-app>
+              <div *ngIf='!loader' class="row">
+                <div class="col-lg-12 mb-3">
+                  <h3 class="text-center d-md-none"><img src="../../../assets/images/stripe.png" alt="" height="20">
+                  </h3>
+                  <div id="mandate-acceptance" class="media ">
+
+                    <div class="media-body">
+                      <h4 class="text-blue-400">
+                        {{'account.payment.labels.notice' | translate}}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+
+                <form class='col-lg-12 '>
+                  <div class="form-group justify-content-center">
+                    <span class="col-form-label text-dark">
+                      <h4>
+                        <b class="h6 font-weight-bold">{{'account.payment.labels.status' | translate}}</b>
+                        <span class='ml-3 h6 font-weight-bold' *ngIf='stripeActivated && !stripeActivationPending'
+                          style='color: green;'>{{'account.payment.labels.dataProvided' | translate}}</span>
+                        <span class='ml-3 h6 font-weight-bold' *ngIf='!stripeActivated' style='color: red;'>{{'account.payment.labels.noData' | translate}}</span>
+                        <span class='ml-3 h6 font-weight-bold' *ngIf='stripeActivated && stripeActivationPending'
+                          style='color: orange;'>{{'account.payment.labels.dataInChecking' | translate}}</span>
+                      </h4>
+                    </span>
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn bg-blue-400" id="submit-button" *ngIf='stripeActivated'
+                      (click)='openUpdateBankAccountDialog()'>{{'account.payment.labels.updateBankAccount' | translate}}</button>
+                    <button type="submit" class="btn bg-blue-400" id="submit-button" *ngIf='!stripeActivated'
+                       (click)='openUpdateBankAccountDialog()'
+                      [disabled]='idVerified'>{{'account.payment.labels.provideAddressProof' | translate}}</button>
+                  </div>
+                </form>
+              </div>
+            </ng-template>
+          </li>
+        </ul>
+
+        <app-update-bank-account></app-update-bank-account>
+
+      </div>
+      <div class="col-lg-9">
+        <div [ngbNavOutlet]="nav" class=""></div>
+      </div>
+    </div>
+  </div>
+</div>

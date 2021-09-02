@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jul 30 2020 16:52:29 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/layout/header/header.component.css
+
+
+Created files:
+* .autogit/logs/log-30-6-2020-16-22-19.txt
+
+
+Deleted files:
+
+
+Renamed files:

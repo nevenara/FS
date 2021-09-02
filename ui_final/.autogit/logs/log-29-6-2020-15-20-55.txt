@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Wed Jul 29 2020 15:20:55 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/tickets/upcoming/upcoming.component.html
+* src/app/tickets/upcoming/upcoming.component.ts
+
+
+Created files:
+* .autogit/logs/log-29-6-2020-14-50-51.txt
+* src/assets/images/Soft.PNG
+* src/assets/images/visa.PNG
+
+
+Deleted files:
+
+
+Renamed files:

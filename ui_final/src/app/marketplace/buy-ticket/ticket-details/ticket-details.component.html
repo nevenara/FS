@@ -1,0 +1,55 @@
+<div class="row m-0 border align-items-center bg-white">
+  <!-- <div style='height: 10px;' class='bg-blue col-lg-12 p-3'></div> -->
+  <div class="col-lg-3 w-md-100 px-0 mb-2 mb-md-0 align-items-center">
+    <div class="">
+      <img class="img-fluid" src="{{eventImageUrl}}{{reservedTickets.eventId}}" alt="">
+    </div>
+  </div>
+  <div class="col-lg-9 w-md-100 px-0 px-md-2 ticket">
+    <div class="row m-0 p-md-1 mt-1">
+      <div class="col-md-12 text-right d-md-none d-block">
+        <div class=" mb-1 "><b>{{ 'marketplace.buyTicket.details.bookingId' | translate }}:
+          </b>{{reservedTickets.bookingId}}</div>
+        <div class=""><b>{{ 'marketplace.buyTicket.details.ticketId' | translate }}: </b>{{reservedTickets.ticketId}}
+        </div>
+      </div>
+      <div class="col-lg-9" style="word-wrap:break-word">
+        <h2 class="font-weight-bold mb-0 hd2 mb-2 visible" [line-truncation]="1">{{reservedTickets.eventName}}</h2>
+        <div class="mb-2 ">
+          <span class="custom-size"><b>{{ 'marketplace.buyTicket.details.date' | translate }}:
+            </b>{{dateFormatter.getDate(reservedTickets.date)}}</span>
+          <span class="custom-size mx-md-3"><b>{{ 'marketplace.buyTicket.details.begin' | translate }}:
+            </b>{{dateFormatter.getHours(reservedTickets.beginTime)}}</span>
+          <span class="custom-size"><b>{{ 'marketplace.buyTicket.details.doorsOpen' | translate }}:
+            </b>{{reservedTickets.doorsOpen}}</span>
+        </div>
+        <div class="custom-size"><b>{{ 'marketplace.buyTicket.details.seat' | translate }}: </b>{{reservedTickets.seat}}
+        </div>
+        <div class="mt-2"> 
+          <div class="custom-size visible" [line-truncation]="2" style="word-wrap:break-word"><b>{{ 'marketplace.buyTicket.details.location' |
+              translate }}: &nbsp;</b> </div>
+          <div class="">
+            <div class="custom-size visible" [line-truncation]="2" style="word-wrap:break-word"> {{reservedTickets.locationName}}<br>
+              {{reservedTickets.locationAddress}}</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-3 d-flex flex-column justify-content-between text-right">
+        <div class="d-none d-md-block custom-size">
+          <div class="small"><b>{{ 'marketplace.buyTicket.details.bookingId' | translate }}:
+            </b>{{reservedTickets.bookingId}}</div>
+          <div class="small"><b>{{ 'marketplace.buyTicket.details.ticketId' | translate }}:
+            </b>{{reservedTickets.ticketId}}</div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-lg-12 d-flex flex-column text-right price align-items-end">
+      <h5 class="mb-0"><b>EUR </b>{{reservedTickets.priceForSale.toFixed(2)}}</h5>
+      <div class="small">{{ 'marketplace.buyTicket.details.priceInclVat' | translate }}</div>
+    </div>
+  </div>
+
+</div>

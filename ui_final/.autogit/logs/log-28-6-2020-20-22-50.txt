@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jul 28 2020 20:22:50 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/account/account-layout/account-layout.component.css
+* src/app/profile/profile-layout/profile-layout.component.css
+* src/app/profile/profile-layout/profile-layout.component.html
+* src/app/tickets/layout/layout.component.css
+* src/app/tickets/visited/visited.component.css
+* src/app/tickets/visited/visited.component.html
+
+
+Created files:
+* .autogit/logs/log-28-6-2020-19-52-44.txt
+
+
+Deleted files:
+
+
+Renamed files:

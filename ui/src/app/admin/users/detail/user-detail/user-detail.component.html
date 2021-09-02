@@ -1,0 +1,209 @@
+<div class="content">
+  <div class="row">
+    <div class="col-lg-3 w-md-100 mb-3 text-center">
+      <h2 class="">Username</h2>
+      <div class="profile-img d-inline-block">
+        <img src="../../../../assets/images/user.png" class="" alt="">
+      </div>
+      <div class="uniform-uploader justify-content-center align-items-center mt-2">
+        <i class="fas fa-trash mr-2 text-primary"></i>
+        <input type="file" class="form-input-styled" data-fouc="">
+        <span class="action btn bg-primary rounded" style="user-select: none;">Choose File</span>
+      </div>
+      <div class="form-group text-left">
+        <label class="col-form-label pb-0 font-weight-semibold">status</label>
+        <div class="text-success font-weight-bold">Verified <i class="fas fa-check"></i></div>
+        <div class="text-left">
+          <label class="col-form-label pb-0 font-weight-semibold">Verification Date</label>
+          <div class="">12-12-2002</div>
+        </div>
+        <div class="text-left">
+          <label class="col-form-label pb-0 font-weight-semibold">Standard Email</label>
+          <div class="">bruce@weyn.com</div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 mt-md-3">
+            <button type="submit" class="btn btn-primary btn-block mb-3" (click)="open1(content1)">Reset
+              Password</button>
+          </div>
+          <div class="col-md-8">
+            <button type="submit" class="btn btn-warning btn-block mb-3" (click)="open2(content2)">Deactivate
+              User</button>
+          </div>
+          <div class="col-md-8">
+            <button type="submit" class="btn btn-danger bg-danger-800 btn-block" (click)="open3(content3)">Delete
+              User</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 w-md-100">
+      <form action="#">
+        <div class="form-group row text-left">
+          <div class="custom-control pl-1 custom-control-right custom-checkbox custom-control-inline">
+            <input type="checkbox" class="custom-control-input" id="custom_checkbox_inline_right_checked" checked="">
+            <label class="custom-control-label position-static text-blue-4000 font-weight-bold"
+              for="custom_checkbox_inline_right_checked">Is Main Account</label>
+          </div>
+        </div>
+        <div class="form-group text-left row">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Gender</label>
+          <div class="col-lg-8">
+            <div class="form-group mb-3 mb-md-2">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" name="custom-inline-radio"
+                  id="custom_radio_inline_unchecked-9" checked="">
+                <label class="custom-control-label text-dark" for="custom_radio_inline_unchecked-9">Male</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" name="custom-inline-radio"
+                  id="custom_radio_inline_checked-1">
+                <label class="custom-control-label text-dark" for="custom_radio_inline_checked-1">Female</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">First Name</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" placeholder="Enter your First Name">
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Last Name</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" placeholder="Enter your Last Name">
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Day of Birth</label>
+          <div class="col-lg-2 mb-2">
+            <ng-select class="custom" [items]="day" bindLabel="name" placeholder="DD"></ng-select>
+          </div>
+          <div class="col-lg-2 mb-2">
+            <ng-select class="custom" [items]="month" bindLabel="name" placeholder="MM"></ng-select>
+
+          </div>
+          <div class="col-lg-2 mb-2">
+            <ng-select class="custom" [items]="year" bindLabel="name" placeholder="YYYY"></ng-select>
+
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Address</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" placeholder="Enter Street + Number">
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Zip Code</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" placeholder="Enter Zip Code">
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">City</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" placeholder="Enter City">
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Country</label>
+          <div class="col-lg-8">
+            <ng-select class="custom" [items]="countries" bindLabel="name" placeholder="Please Choose">
+            </ng-select>
+          </div>
+        </div>
+        <div class="form-group row text-left">
+          <label class="col-lg-2 col-form-label font-weight-semibold">Phone #</label>
+          <div class="col-lg-8">
+            <input type="number" name="tel" class="form-control" placeholder="+99-99-9999-9999"
+              data-mask="+99-99-9999-9999">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12 text-center">
+      <button type="submit" class="btn btn-dark mr-3 mb-3" (click)="open4(content4)">Cancel</button>
+      <button type="submit" class="btn btn-success mb-3">Save</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<ng-template #content1 let-modal p>
+  <div class="modal-header bg-blue justify-content-center">
+    <h3 class="modal-title m-0">Reset Password</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="icon-unlocked icon-2x text-primary"></i></div>
+    <span class="font-weight-semibold">The user will receive an Email with a Password recovery link!</span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Close</button>
+    <button type="button" aria-label="Close" class="btn btn-primary ml-md-2" (click)="modal.dismiss('Cross click')">Reset
+      Password</button>
+  </div>
+</ng-template>
+<ng-template #content2 let-modal p>
+  <div class="modal-header bg-warning justify-content-center">
+    <h3 class="modal-title m-0">Deactivate User</h3>
+  </div>
+  <div class="modal-body row justify-content-center  text-center px-md-4">
+    <div class="mb-3 col-md-12"><i class="fas fa-exclamation-circle fa-2x text-warning mb-2"></i>
+      <span class="font-weight-semibold d-block">The user won't be able to login to his account and won't be able to use
+        any service!
+        Are you sure you want to deactivate the user's account?</span>
+    </div>
+    <div class="col-lg-8">
+      <ng-select class="custom" [items]="" bindLabel="name" placeholder="Please choose a reason for deactivation">
+      </ng-select>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Close</button>
+    <button type="button" aria-label="Close" class="btn btn-warning ml-md-2"
+      (click)="modal.dismiss('Cross click')">Deactivate</button>
+  </div>
+</ng-template>
+<ng-template #content3 let-modal p>
+  <div class="modal-header bg-danger-800 justify-content-center">
+    <h3 class="modal-title m-0">Delete User</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="icon-cancel-circle2 icon-2x text-danger-800"></i></div>
+    <span class="font-weight-semibold">The user's account and all connected data will be deleted! <br>
+      Linked accounts will be automatically deativated! <br>
+      Are you sure you want to delete this user?
+    </span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Close</button>
+    <button type="button" aria-label="Close" class="btn btn-danger bg-danger-800 px-md-4 ml-md-2"
+      (click)="modal.dismiss('Cross click')">Delete</button>
+  </div>
+</ng-template>
+<ng-template #content4 let-modal p>
+  <div class="modal-header bg-blue justify-content-center">
+    <h3 class="modal-title m-0">Activate User</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="fas fa-exclamation-circle fa-2x text-primary"></i></div>
+    <span class="font-weight-semibold">The user will able to login to his account and he will be able to use all
+      services
+      again! <br>
+      Are you sure you want to activate the user's account?</span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Close</button>
+    <button type="button" aria-label="Close" class="btn btn-primary ml-md-2"
+      (click)="modal.dismiss('Cross click')">Activate</button>
+  </div>
+</ng-template>

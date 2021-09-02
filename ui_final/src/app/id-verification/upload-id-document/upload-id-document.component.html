@@ -1,0 +1,208 @@
+<div class="modal-body px-md-4">
+    <div class="text-center mt-4">
+
+    </div>
+    <div *ngIf="selectedId === 1 && !mobile">
+        <h6 class="font-weight-bold mb-0">{{'idVerification.pleaseUploadPassport' | translate}}</h6>
+        <div class="row my-2 ml-2">
+            <div class="form-group">
+                <label for="passport"></label>
+                <input type="button" id="loadFileXml" value="{{'idVerification.uploadPassport' | translate}}"
+                    onclick="document.getElementById('passport').click()" class='action btn bg-primary rounded' />
+                <input (change)='uploadIdDocumentFront($event)' type="file" id="passport" style="display:none"
+                    name="passport">
+                <span *ngIf='idDocFront' class='ml-3'>{{idDocFront.name}}</span>
+                <p>{{'idVerification.allowedFormats' | translate}}: .jpg, .png
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 1 && mobile">
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.pleaseTakeAPictureOfPassport' | translate}}
+            </h6>
+        </div>
+        <h6>
+            <span class="text-danger font-weight-bold">{{'idVerification.takeAPictureNote' | translate}}</span>
+            <br>{{'idVerification.takeAPictureNote1' | translate}}
+            <br> {{'idVerification.takeAPictureNote2' | translate}}
+            <br> {{'idVerification.takeAPictureNote3' | translate}}
+            <br> {{'idVerification.takeAPictureNote4' | translate}}
+        </h6>
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.takePicturePassport' | translate}}
+            </h6>
+            <div class="custom-input">
+                <!-- <img class="img-fluid" src="../../../assets/images/Camera.png" width="200" height="200" alt=""> -->
+                <div class="image-upload">
+                    <label for="passportFront">
+                        <img src="../../../assets/images/Camera.png" height="200" width="200">
+                    </label>
+
+                    <input type="file" id="passportFront" accept="image/*" (change)="uploadIdDocumentFront($event)"
+                        capture="environment">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="selectedId === 2 && !mobile">
+        <h6 class="font-weight-bold mb-0">{{'idVerification.pleaseUploadDriverLicense' | translate}}
+        </h6>
+        <div class="row my-2 ml-2">
+            <div class="form-group">
+                <div class='mb-3'>
+                    <label for="driverFront"></label>
+                    <input type="button" id="loadFileXml" value="{{'idVerification.uploadDriverLicenseFront' | translate}}"
+                        onclick="document.getElementById('driverFront').click()"
+                        class='action btn bg-primary rounded' />
+                    <input (change)='uploadIdDocumentFront($event)' type="file" id="driverFront" style="display:none"
+                        name="driverFront">
+                    <span *ngIf='idDocFront' class='ml-3'>{{idDocFront.name}}</span>
+                </div>
+
+                <div class='mb-3'>
+                    <label for="driverBack"></label>
+                    <input type="button" id="loadFileXml" value="{{'idVerification.uploadDriverLicenseBack' | translate}}"
+                        onclick="document.getElementById('driverBack').click()" class='action btn bg-primary rounded' />
+                    <input (change)='uploadIdDocumentBack($event)' type="file" id="driverBack" style="display:none"
+                        name="driverBack">
+                    <span *ngIf='idDocBack' class='ml-3'>{{idDocBack.name}}</span>
+                </div>
+
+                <p>{{'idVerification.allowedFormats' | translate}}: .jpg, .png
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 2 && mobile && step === 1">
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.pleaseTakeAPictureOfDriversLicense' | translate}}
+            </h6>
+        </div>
+        <h6>
+            <span class="text-danger font-weight-bold">{{'idVerification.takeAPictureNote' | translate}}</span>
+            <br>{{'idVerification.takeAPictureNote1' | translate}}
+            <br> {{'idVerification.takeAPictureNote2' | translate}}
+            <br> {{'idVerification.takeAPictureNote3' | translate}}
+            <br> {{'idVerification.takeAPictureNote4' | translate}}
+        </h6>
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.takeAPictureOfDriversLicenseFront' | translate}}
+            </h6>
+            <div class="image-upload">
+                <label for="driverFront">
+                    <img src="../../../assets/images/Camera.png" height="200" width="200">
+                </label>
+
+                <input type="file" id="driverFront" accept="image/*" (change)="uploadIdDocumentFront($event);step=2"
+                    capture="environment">
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 2 && mobile && step === 2">
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.takeAPictureOfDriversLicenseBack' | translate}}
+            </h6>
+            <div class="image-upload">
+                <label for="driverBack">
+                    <img src="../../../assets/images/Camera.png" height="200" width="200">
+                </label>
+
+                <input type="file" id="driverBack" accept="image/*" (change)="uploadIdDocumentBack($event)"
+                    capture="environment">
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 3 && !mobile">
+        <h6 class="font-weight-bold mb-0">{{'idVerification.pleaseUploadIdCard' | translate}}
+        </h6>
+        <div class="row my-2 ml-2">
+            <div class="form-group">
+                <div class='mb-3'>
+                    <label for="IDCardFront"></label>
+                    <input type="button" id="loadFileXml" value="{{'idVerification.uploadIdCardFront' | translate}}"
+                        onclick="document.getElementById('IDCardFront').click()"
+                        class='action btn bg-primary rounded' />
+                    <input (change)='uploadIdDocumentFront($event)' type="file" id="IDCardFront" style="display:none"
+                        name="IDCardFront">
+                    <span *ngIf='idDocFront' class='ml-3'>{{idDocFront.name}}</span>
+                </div>
+
+                <div class='mb-3'>
+                    <label for="IDCardBack"></label>
+                    <input type="button" id="loadFileXml" value="{{'idVerification.uploadIdCardBack' | translate}}"
+                        onclick="document.getElementById('IDCardBack').click()" class='action btn bg-primary rounded' />
+                    <input (change)='uploadIdDocumentBack($event)' type="file" id="IDCardBack" style="display:none"
+                        name="IDCardBack">
+                    <span *ngIf='idDocBack' class='ml-3'>{{idDocBack.name}}</span>
+                </div>
+
+                <p>{{'idVerification.allowedFormats' | translate}}: .jpg, .png
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 3 && mobile && step === 1">
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.pleaseTakeAPictureOfIdCard' | translate}}
+            </h6>
+        </div>
+        <h6>
+            <span class="text-danger font-weight-bold">{{'idVerification.takeAPictureNote' | translate}}</span>
+            <br>{{'idVerification.takeAPictureNote1' | translate}}
+            <br> {{'idVerification.takeAPictureNote2' | translate}}
+            <br> {{'idVerification.takeAPictureNote3' | translate}}
+            <br> {{'idVerification.takeAPictureNote4' | translate}}
+        </h6>
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.takeAPictureOfIdCardFront' | translate}}
+            </h6>
+            <div class="image-upload">
+                <label for="idFront">
+                    <img src="../../../assets/images/Camera.png" height="200" width="200">
+                </label>
+
+                <input type="file" id="idFront" accept="image/*" (change)="uploadIdDocumentFront($event);step=2"
+                    capture="environment">
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedId === 3 && mobile && step === 2">
+        <div class="text-center">
+            <h6 class="font-weight-bold mb-0">{{'idVerification.takeAPictureOfIdCardBack' | translate}}
+            </h6>
+
+            <div class="image-upload">
+                <label for="idBack">
+                    <img src="../../../assets/images/Camera.png" height="200" width="200">
+                </label>
+
+                <input type="file" id="idBack" accept="image/*" (change)="uploadIdDocumentBack($event)"
+                    capture="environment">
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!mobile">
+        <div class="row my-2 text-danger h5 font-weight-bold">{{'idVerification.or' | translate}}</div>
+        <h6 class="font-weight-bold mb-0">{{'idVerification.scanQR' | translate}}</h6>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="col-4 ml-5 mt-3">
+                    <img class="img-fluid" src="{{qrCode}}" alt="">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-9 my-2 text-danger h5 font-weight-bold">{{'idVerification.note' | translate}}</div>
+                    <div class="col-9 font-weight-bold mb-0">{{'idVerification.noteDesc' | translate}}
+                    </div>
+                    <div class="col-4"> <img class="img-fluid" src="../../../assets/images/AppStore.png" alt=""></div>
+                    <div class="col-4"> <img class="img-fluid" src="../../../assets/images/GooglePlayStore.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

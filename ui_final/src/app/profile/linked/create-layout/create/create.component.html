@@ -1,0 +1,176 @@
+
+
+<div class="card border-0 shadow-none">
+  <div class="card-header bt-transparent">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="modal-header py-2 rounded-0 bg-blue justify-content-center">
+          <h4 class="modal-title m-0">{{'profile.linked.create.labels.title' | translate}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row m-0 justify-content-center">
+      <div class="col-lg-12 col-lg-offset-3">
+        <div class="card border-0 shadow shadow-sm-none">
+          <form [formGroup]="form" class="wizard-form steps-basic wizard clearfix">
+            <div class="steps clearfix mb-md-3">
+              <ul role="tablist">
+                <li role="tab" class="first current disabled" aria-disabled="false" aria-selected="true"><a
+                    id="steps-uid-0-t-0" aria-controls="steps-uid-0-p-0" class=""><span
+                      class="current-info audible">{{'profile.linked.create.labels.currentStep' | translate}}: </span><span class="number">1</span> {{'profile.linked.create.labels.personalData' | translate}}</a></li>
+                <li role="tab" class='disabled' aria-disabled="true"><a id="steps-uid-0-t-1"
+                    aria-controls="steps-uid-0-p-1"><span class="number">2</span> {{'profile.linked.create.labels.idVerification' | translate}}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="content">
+              <div class="row">
+                <div class="col-lg-3 w-md-100 mb-3 text-center">
+                  <div class="profile-img d-inline-block">
+                    <img src='{{profileImageUrl}}' class="" alt="">
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group d-inline-block">
+                      <label for="passport"></label>
+                      <input type="button" id="loadFileXml" value="{{'profile.linked.create.placeholders.uploadImage' | translate}}"
+                        onclick="document.getElementById('imagelinked').click()"
+                        class='action btn bg-primary rounded' />
+                      <input (change)='uploadImage($event)' type="file" id="imagelinked" style="display:none"
+                        name="imagelinked">
+                    </div>
+                    <div class="ml-3 d-inline-block mt-3">
+                      <a (click)="deleteImage()"><i class="fas fa-trash text-primary"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-9 w-md-100">
+
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.username' | translate}}</label>
+                    <div class="col-lg-8">
+                      <input [(ngModel)]="linkedAccount.username" name="username" type="text" formControlName="username"
+                        class="form-control" minlength="6" maxlength="255" placeholder="{{'profile.linked.create.placeholders.username' | translate}}">
+                      <errors [control]="f.username" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+                  <div class="form-group text-left row">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.gender' | translate}}</label>
+                    <div class="col-lg-8">
+                      <div class="form-group mb-3 mb-md-2">
+                        <div class="custom-control custom-radio custom-control-inline">
+                          <input (change)='linkedAccount.gender = 2' type="radio" class="custom-control-input"
+                            name="gender" formControlName="gender" id="male" [value]="'male'">
+                          <label class="custom-control-label text-dark" for="male">{{'profile.linked.create.labels.male' | translate}}</label>
+                        </div>
+
+                        <div class="custom-control custom-radio custom-control-inline">
+                          <input (change)='linkedAccount.gender = 1' type="radio" class="custom-control-input"
+                            name="gender" formControlName="gender" id="female" [value]="'female'">
+                          <label class="custom-control-label text-dark" for="female">{{'profile.linked.create.labels.female' | translate}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.firstName' | translate}}</label>
+                    <div class="col-lg-8">
+                      <input [(ngModel)]="linkedAccount.firstname" name="firstname" type="text" class="form-control"
+                        formControlName="firstName" placeholder="{{'profile.linked.create.placeholders.firstName' | translate}}">
+                      <errors [control]="f.firstName" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.lastName' | translate}}</label>
+                    <div class="col-lg-8">
+                      <input [(ngModel)]="linkedAccount.lastname" name="lastname" type="text" class="form-control"
+                        formControlName="lastName" placeholder="{{'profile.linked.create.placeholders.lastName' | translate}}">
+                      <errors [control]="f.lastName" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label justify-content-center">{{'profile.linked.create.labels.dayOfBirth' | translate}}</label>
+                    <div class="col-lg-4">
+                      <form class="form-inline">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button" >
+                                <i class="icon-calendar22"></i>
+                              </button>
+                            </div>
+                            <input class="form-control" placeholder="{{'profile.linked.create.placeholders.dayOfBirth' | translate}}" formControllName="date" (click)="d.toggle()"
+                              [readonly]="true" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+                              (ngModelChange)="setDate();validateDate() " [minDate]="minDate" [maxDate]="maxDate">
+
+                          </div>
+                        </div>
+                      </form>
+                      <span class="" *ngIf="emptyDate"><i
+                          class="fa fa-times-circle text-danger d-inline-block mr-1"></i>
+                        <p class="d-inline-block text-danger mt-1">{{'profile.linked.create.labels.fieldIsRequired' | translate}}</p>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.address' | translate}}</label>
+                    <div class="col-lg-8">
+                      <input [(ngModel)]="linkedAccount.address" name="address" type="text" class="form-control"
+                        formControlName="address" placeholder="{{'profile.linked.create.placeholders.address' | translate}}">
+                      <errors [control]="f.address" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.zipcode' | translate}}</label>
+                    <div class="col-lg-8">
+                      <input [(ngModel)]="linkedAccount.postCode" name="postCode" type="text" class="form-control"
+                        formControlName="zipCode" placeholder="{{'profile.linked.create.placeholders.zipcode' | translate}}">
+                      <errors [control]="f.zipCode" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.city' | translate}}</label>
+                    <div class="col-lg-8">
+                      <input [(ngModel)]="linkedAccount.city" name="city" type="text" class="form-control"
+                        formControlName="city" placeholder="{{'profile.linked.create.placeholders.city' | translate}}">
+                      <errors [control]="f.city" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.country' | translate}}</label>
+                    <div class="col-lg-8">
+                      <ng-select [(ngModel)]="selectedCountry" name="country" class="custom" formControlName="country"
+                        bindLabel="name" placeholder="{{'profile.linked.create.placeholders.country' | translate}}">
+                        <ng-option *ngFor="let country of countries" [value]="country">{{country.name}}</ng-option>
+                      </ng-select>
+                      <errors [control]="f.country" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+                  <div class="form-group row text-left">
+                    <label class="col-lg-2 col-form-label">{{'profile.linked.create.labels.relation' | translate}}</label>
+                    <div class="col-lg-8">
+                      <ng-select [(ngModel)]="linkedAccount.relation" name="relation" class="custom" [items]="relation"
+                        formControlName="relation" bindLabel="item_text" placeholder="{{'profile.linked.create.placeholders.relation' | translate}}">
+                      </ng-select>
+                      <errors [control]="f.relation" [isSubmit]="isSubmit"></errors>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="py-3 px-3 pb-3">
+                <a class="btn btn-dark float-left mb-3 ml-1" style='color: white' [routerLink]="['/profile']" [queryParams]="{type: '2'}"
+                    role="menuitem">{{'profile.linked.create.buttons.cancel' | translate}}
+                    </a>
+                <a class="btn bg-blue-400 float-right mb-3 mr-1" style='color: white' (click)="connectNewAccount()"
+                    role="menuitem">{{'profile.linked.create.buttons.next' | translate}}
+                    <i class="icon-arrow-right14 ml-2"></i></a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

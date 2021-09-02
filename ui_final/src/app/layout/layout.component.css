@@ -1,0 +1,9 @@
+.page-content {
+  height: 100%;
+}
+
+.fixed-notification {
+  position: fixed; 
+  z-index: 999; 
+  width: 100%;
+}

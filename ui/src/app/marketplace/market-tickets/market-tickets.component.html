@@ -1,0 +1,165 @@
+<div class="container p-sm-00">
+  <div class="row mt-md-3">
+    <div class="col-md-12 text-right">
+      <div class="d-md-none d-block">
+        <button class="navbar-toggler border-0" (click)="isTreeCollapsed = !isTreeCollapsed"
+          [attr.aria-expanded]="!isTreeCollapsed" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+          <span class="font-weight-semibold"> Filters &nbsp; </span>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="filter-show" [ngbCollapse]="isTreeCollapsed">
+        <div class="row text-left">
+          <div class="col-lg-8 w-md-100">
+            <div class="row">
+              <div class="col-lg-6 w-md-100 mb-15">
+                <label class="text-blue-4000 font-weight-bold" for="">Filter for Events</label>
+                <div class="form-group row">
+                  <div class="col-lg-9">
+                    <input [(ngModel)]="eventName" name="firstname" type="text" class="form-control"
+                      placeholder="Enter Event Name" (ngModelChange)="getMarketplaceTickets()">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 w-md-100 mb-15">
+                <label class="text-blue-4000 font-weight-bold" for="">Catagory</label>
+                <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings"
+                  [placeholder]="'Select category'" [data]="dropdownList" [(ngModel)]="selectedCategories"
+                  (onSelect)="page=1;getMarketplaceTickets()" (onSelectAll)="page=1;selectAllCategories()" (onDeSelect)="page=1;getMarketplaceTickets()"
+                  (onDeSelectAll)="page=1;unselectAllCategories()">
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="col-lg-6 w-md-100 mb-15">
+                <date-range-picker class="mb-0" [instanceId]="'secondDateRange'" [controlName]="'secondDateRange'"
+                  #dateRangePicker [options]="dateOptions"
+                  (rangeSelected)="getFromToDate(dateRangePicker.range); getMarketplaceTickets()">
+                  <div class="form-group">
+                    <label class="text-blue-4000 font-weight-bold" for="">From - To
+                    </label>
+                    <div class="input-group mb-0">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="date-range-icon">
+                          <i class="icon-calendar22"></i>
+                        </span>
+                      </div>
+                      <input id="secondDateRange" class="form-control" type="text" name="dateChanged"
+                        [value]="dateRangePicker.range" placeholder="From - To" />
+                    </div>
+                  </div>
+                </date-range-picker>
+              </div>
+              <div class="col-lg-6 w-md-100 mb-15">
+                <label class="text-blue-4000 font-weight-bold" for="">Location
+                </label>
+                <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings"
+                  [placeholder]="'Select location'" [data]="locations" [(ngModel)]="selectedLocation"
+                  (onSelect)="page=1;getMarketplaceTickets() " (onSelectAll)="page=1;selectAllLocations()"
+                  (onDeSelectAll)="page=1;unselectAllLocations()" (onDeSelect)="page=1;getMarketplaceTickets() ">
+                </ng-multiselect-dropdown>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 w-md-100">
+            <div class="form-group">
+
+              <label class="text-blue-4000 font-weight-bold" for="">Price Range &nbsp; (EUR)
+              </label>
+              <div class="form-row align-items-center">
+                <label class="col-2 text-blue-4000 font-weight-bold" for="">From</label>
+                <span class="col-10 mb-2 ui-spinner ui-corner-all ui-widget ui-widget-content"
+                  style="height: 36px;"><input id="spinner-currency" class="form-control ui-spinner-input"
+                    value="{{fromPrice}}" aria-valuenow="fromPrice" autocomplete="off" role="spinbutton" type="number"
+                    (keyup)="validatePriceInput(fromPrice) ? '' : getMarketplaceTickets();" [(ngModel)]="fromPrice"><a
+                    tabindex="-1" aria-hidden="true" (click)="increasePrice('from')"
+                    class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only"
+                    role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span
+                      class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true"
+                    (click)="decreasePrice('from')"
+                    class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only"
+                    role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span
+                      class="ui-button-icon-space"> </span></a></span>
+
+              </div>
+
+              <div class="form-row align-items-center">
+                <label class="col-2 text-blue-4000 font-weight-bold" for="">To</label>
+                <span class="col-10 mb-2 ui-spinner ui-corner-all ui-widget ui-widget-content"
+                  style="height: 36px;"><input id="spinner-currency" class="form-control ui-spinner-input"
+                    value="{{toPrice}}" aria-valuenow="toPrice" autocomplete="off" role="spinbutton" type="number"
+                    (keyup)="validatePriceInput(fromPrice) ? '' : getMarketplaceTickets();" [(ngModel)]="toPrice"><a
+                    tabindex="-1" aria-hidden="true" (click)="increasePrice('to')"
+                    class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only"
+                    role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span
+                      class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true"
+                    (click)="decreasePrice('to')"
+                    class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only"
+                    role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span
+                      class="ui-button-icon-space"> </span></a></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-md-4">
+    <div *ngFor="let ticket of tickets" class="col-lg-4 mb-2">
+      <div class="card">
+        <div class="card-img-actions">
+          <img *ngIf='ticket.placeholders.length==0' class="img-fluid" src="../../../assets/images/Five death.PNG"
+            alt="">
+          <img *ngIf='ticket.placeholders.length!=0' class="img-fluid" src="{{ticket.placeholders[0].image}}" alt="" title="{{ticket.placeholders[0].originalname}}">
+        </div>
+        <div class="card-body px-1 py-2">
+          <h5 class="text-dark font-weight-bold mb-0">{{ticket.eventName}}</h5>
+          <h6 class="text-dark font-weight-bold mb-0">Supported by {{ticket.organizer}}</h6>
+          <div class=""><span class="">
+              <span class="text-dark font-weight-bold">Date:</span>
+              <span class="text-dark"> {{ticket.date.split('T')[0]}} </span>
+            </span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">Begin:</span>
+            <span class="text-dark">
+              {{(ticket.beginTime.split('T')[1]).split(':')[0] + ":"+ (ticket.beginTime.split('T')[1]).split(':')[1]}}</span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">Doors Open :</span>
+            <span class="text-dark"> {{ticket.doorsOpen}}</span>
+          </div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">Seat:</span> <span class="text-dark">
+              {{ticket.seat}}</span></div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">Location:</span>
+            <span class="text-dark"> {{ticket.locationName}} <br> {{ticket.locationAddress}}</span></div>
+        </div>
+        <div class="p-2 d-flex bg-dark">
+          <div>
+            <h3 class="text-green-800 font-weight-bold m-0 d-inline-block">EUR {{ticket.priceForSale}}</h3>
+            <span class="text-green-800 small font-weight-normal"> excl. fees</span>
+          </div>
+          <a class="btn btn-success bg-green-800 py-1 px-md-4 ml-auto" (click)="openBuyTicketComponent(content, ticket.id)">Buy Ticket</a>
+                </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div *ngIf='pages && pages.length > 0' class="row my-4 justify-content-center">
+    <div class="col-lg-12">
+      <div class="">
+        <ngb-pagination class="custom-pagination" (pageChange)='onPageChange($event)' [pageSize]='1'
+          [collectionSize]="pages.length" [(page)]="page" aria-label="Custom pagination">
+          <ng-template ngbPaginationPrevious> ← </ng-template>
+          <ng-template ngbPaginationNext> →</ng-template>
+          <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+        </ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal p>
+  <app-buy-ticket [show] = 'show' [ticketId] = 'selectedTicketId'></app-buy-ticket>
+</ng-template> 

@@ -1,0 +1,27 @@
+::ng-deep .custom-nav .nav-item {
+  width: 100% !important;
+}
+
+::ng-deep.custom-nav .nav-link {
+  border: 1px solid #ddd;
+}
+
+::ng-deep.custom-nav .nav-link:hover {
+  border: 1px solid #ddd;
+}
+
+::ng-deep.custom-nav .nav-link.active {
+  color: #333;
+  background-color: #fff;
+  border-color: #ddd #ddd #fff;
+  border-left: 3px solid #09a1ce;
+  border-top: 1px solid #ddd !important;
+  border-bottom: 1px solid #ddd !important;
+  border-right: none;
+}
+@media only screen and (max-width:1200px){
+  .col-lg-3 , .col-lg-9{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

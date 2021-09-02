@@ -1,0 +1,145 @@
+<div class="card border-0 shadow-none">
+  <div class="card-header bt-transparent">
+    <div class="row justify-content-center my-3">
+      <div class="col-lg-12 text-center">
+        <a href="javascript:void(0)" routerLink='/profile/create' class="btn btn-primary">Connect new account</a>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="modal-header py-2 rounded-0 bg-blue justify-content-center">
+          <h4 class="modal-title m-0">Create new account</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row m-0 justify-content-center">
+      <div class="col-lg-12 col-lg-offset-3">
+        <div class="card border-0 shadow shadow-sm-none">
+          <form class="wizard-form steps-basic wizard clearfix" action="#" data-fouc="" role="application"
+            id="steps-uid-0">
+            <div class="steps clearfix mb-md-3">
+              <ul role="tablist">
+                <li role="tab" class="first current" aria-disabled="false" aria-selected="true"><a id="steps-uid-0-t-0"
+                    href="#steps-uid-0-h-0" aria-controls="steps-uid-0-p-0" class=""><span
+                      class="current-info audible">current
+                      step: </span><span class="number">1</span> Personal data</a></li>
+                <li role="tab" class="disabled" aria-disabled="true"><a id="steps-uid-0-t-1" href="javascript:void(0)"
+                    aria-controls="steps-uid-0-p-1" class="disabled"><span class="number">2</span> ID Verification</a>
+                </li>
+              </ul>
+            </div>
+            <div class="content">
+              <div class="row">
+                <div class="col-lg-3 w-md-100 mb-3 text-center">
+                  <div class="profile-img d-inline-block">
+                    <img [src] = 'url' class="" alt="">
+                  </div>
+                  <div class="uniform-uploader justify-content-center mt-2">
+                    <input (change)="uploadImage($event)" type="file" class="form-input-styled" data-fouc="">
+                    <span class="action btn bg-primary rounded" style="user-select: none;">Choose File</span>
+                  </div>
+                </div>
+                <div class="col-lg-9 w-md-100">
+                  <form action="#">
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">Username</label>
+                      <div class="col-lg-8">
+                        <input [(ngModel)] = "linkedAccount.username" name = "username" type="text" class="form-control" placeholder="Enter a username">
+                      </div>
+                    </div>
+                    <div class="form-group text-left row">
+                      <label class="col-lg-2 col-form-label">Gender</label>
+                      <div class="col-lg-8">
+                        <div class="form-group mb-3 mb-md-2">
+                          <div class="custom-control custom-radio custom-control-inline">
+                            <input (change) = 'linkedAccount.gender = 2' type="radio" class="custom-control-input" name="custom-inline-radio"
+                              id="custom_radio_inline_unchecked-9" checked="">
+                            <label class="custom-control-label text-dark"
+                              for="custom_radio_inline_unchecked-9">Male</label>
+                          </div>
+
+                          <div class="custom-control custom-radio custom-control-inline">
+                            <input (change) = 'linkedAccount.gender = 1' type="radio" class="custom-control-input" name="custom-inline-radio"
+                              id="custom_radio_inline_checked-1">
+                            <label class="custom-control-label text-dark"
+                              for="custom_radio_inline_checked-1">Female</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">First Name</label>
+                      <div class="col-lg-8">
+                        <input [(ngModel)] = "linkedAccount.firstname" name = "firstname" type="text" class="form-control" placeholder="Enter your First Name">
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">Last Name</label>
+                      <div class="col-lg-8">
+                        <input [(ngModel)] = "linkedAccount.lastname" name = "lastname" type="text" class="form-control" placeholder="Enter your Last Name">
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">Day of Birth</label>
+                      <div class="col-lg-2 col-22">
+                        <ng-select [(ngModel)] = "linkedAccount.day" name = "day" class="custom" [items]="day" bindLabel="name" placeholder="DD"></ng-select>
+                      </div>
+                      <div class="col-lg-2 col-22">
+                        <ng-select [(ngModel)] = "linkedAccount.month" name = "month" class="custom" [items]="month" bindLabel="name" placeholder="MM"></ng-select>
+
+                      </div>
+                      <div class="col-lg-2 col-22">
+                        <ng-select [(ngModel)] = "linkedAccount.year" name = "year" class="custom" [items]="year" bindLabel="name" placeholder="YYYY"></ng-select>
+
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">Address</label>
+                      <div class="col-lg-8">
+                        <input [(ngModel)] = "linkedAccount.address" name = "address" type="text" class="form-control" placeholder="Enter Street + Number">
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">Zip Code</label>
+                      <div class="col-lg-8">
+                        <input [(ngModel)] = "linkedAccount.postCode" name = "postCode" type="text" class="form-control" placeholder="Enter Zip Code">
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">City</label>
+                      <div class="col-lg-8">
+                        <input [(ngModel)] = "linkedAccount.city" name = "city" type="text" class="form-control" placeholder="Enter City">
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">Country</label>
+                      <div class="col-lg-8">
+                        <ng-select [(ngModel)] = "linkedAccount.country" name = "country" class="custom" [items]="countries" bindLabel="name" placeholder="Please Choose">
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="form-group row text-left">
+                      <label class="col-lg-2 col-form-label">Relation to main account</label>
+                      <div class="col-lg-8">
+                        <ng-select [(ngModel)] = "linkedAccount.relation" name = "relation" class="custom" [items]="relation" bindLabel="name" placeholder="Please choose">
+                        </ng-select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="actions clearfix">
+              <ul role="menu" aria-label="Pagination">
+                <li aria-hidden="true"><a href="javascript:void(0)" class="btn btn-primary" (click) = "connectNewAccount()"
+                    role="menuitem">Next
+                    <i class="icon-arrow-right14 ml-2"></i></a></li>
+              </ul>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

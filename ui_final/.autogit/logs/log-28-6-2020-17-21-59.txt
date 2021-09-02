@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jul 28 2020 17:21:59 GMT+0500 (Pakistan Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/personalization/detail/detail.component.html
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

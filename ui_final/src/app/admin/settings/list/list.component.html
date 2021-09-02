@@ -1,0 +1,262 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h3 class="card-title text-blue-400">User Management</h3>
+    <hr class="hr-blue ">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Text search</label>
+      <div class="form-group form-group-feedback form-group-feedback-right">
+        <input type="text" [(ngModel)]='request.textSearch' class="form-control " placeholder="Search For" (ngModelChange)='searchUsers()'>
+        <div class="form-control-feedback form-control-feedback-lg">
+          <i class="icon-search4 text-muted"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <label class="text-blue-400 font-weight-bold" for="">Permission</label>
+      <ng-multiselect-dropdown class="" [settings]="dropdownSettings" [placeholder]="'Select Permission'"
+        [data]="dropdownList" [(ngModel)]="selectedItems"
+        (onSelect)="this.request.page = 1;searchUsers()" (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="this.request.page = 1;searchUsers()" (onDeSelectAll)="unselectAll()">
+      </ng-multiselect-dropdown>
+    </div>
+    <div class="col-lg-3">
+      <date-range-picker [ngStyle]="{'color':'black'}" [instanceId]="'secondDateRange'" (datepickerReset)="resetDate();searchUsers()" [controlName]="'secondDateRange'" #dateRangePicker [options]="dateOptions" (rangeSelected)="getFromToDate(dateRangePicker.range)">
+        <div class="form-group">
+          <label class="text-blue-400 font-weight-bold" for="">Last activity
+          </label>
+          <div class="input-group">
+            <input id="secondDateRange" class="form-control" type="text" name="dateRange" [readonly]="true" 
+              [value]="dateRangePicker.range" placeholder="From - To"/>
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="date-range-icon">
+                <i class="icon-calendar22"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </date-range-picker>
+    </div>
+  </div>
+
+  <div *ngIf='!loader && !users.length' class='text-center text-blue-400'><h3>There are no tickets to display!</h3></div>
+  <div *ngIf='users.length' class="row mt-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+          <div class="datatable-header">
+            <div id="DataTables_Table_0_filter" class="dataTables_filter" *ngIf='userType == 3 || userType == 4'>
+              <a href="javascript:void(0)" class="btn bg-blue-400" (click)="open(content1)">Add New</a>
+            </div>
+            <div class="dt-buttons" *ngIf='userType == 3 || userType == 4 || userType == 6 || userType == 7'>
+              <button class="btn btn-light buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" (click)='exportExcel()'
+                type="button"><span>Excel</span></button> 
+              <button class="btn btn-light buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" (click)='exportCsv()'
+                type="button"><span>CSV</span></button>
+              <button class="btn btn-light buttons-print" tabindex="0" aria-controls="DataTables_Table_0" (click)='exportPdf()'
+                type="button"><span>PDF</span></button>
+            </div>
+
+            <div class="dataTables_length d-inline-block justify-content-end" id="DataTables_Table_0_length">
+              <label class='d-inline-block'>
+                <span>Show:</span>
+                <ng-select class="d-inline-block ml-1 mr-0 pl-0 pr-0" [clearable]="false" (change)="onLimitChange()" [(ngModel)]="request.limit">
+                  <ng-option *ngFor="let limit of showLimits" [value]="limit">{{limit}}</ng-option>
+                </ng-select>
+              </label>
+            </div>
+          </div>
+          <div class="">
+            <div class="table-responsivesm">
+              <table class="table custom-padding">
+                <thead>
+                  <tr class="table-border-solid">
+                    <th>Name </th>
+                    <th>Email</th>
+                    <th>Permissions</th>
+                    <th>Last Login </th>
+                    <th *ngIf='userType == 3 || userType == 4'>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let user of users; let i=index'>
+                    <td>{{user.firstname}} {{user.lastname}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{persmissionMap[user.permissions] || ''}}</td>
+                    <td>{{user.lastLogin ? dateFormatter.getDate(user.lastLogin) : ''}} {{user.lastLogin ? dateFormatter.getHours(user.lastLogin) : ''}} </td>
+                    <td *ngIf='userType == 3 || userType == 4'>
+                      <div ngbDropdown placement="bottom-right"  *ngIf='(user.permissions != 3 && user.permissions != 4) || userType == 3'>
+                        <a href="javascript:void(0)" ngbDropdownToggle id="dropdownBasic1"
+                      class="buttons-collection buttons-colvis btn btn-light btn-icon dropdown-toggle">
+                      <span><i class="icon-three-bars"></i></span></a>
+
+                        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                          <a href="javascript:void(0)" ngbDropdownItem class="dropdown-item greyblue" (click)="selectedUser = user.userId; selectedEmail=user.email; prepareEditRequest(i); open(content2)">
+                            Edit</a>
+                          <a href="javascript:void(0)" ngbDropdownItem class="dropdown-item red " (click)="selectedUser = user.userId; open(content3)">
+                            Delete</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="datatable-footer">
+            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+              Showing {{getFromPage()}} to {{getToPage()}} of {{totalRecords}} entries</div>
+              <ngb-pagination *ngIf='pages && pages.length' class="custom-pagination dataTables_paginate paginate_button" (pageChange)='onPageChange($event)' [pageSize]='1' maxSize="3" [rotate]="true" [collectionSize]="pages.length" [(page)]="request.page" aria-label="Custom pagination">
+                <ng-template ngbPaginationPrevious> ← </ng-template>
+                <ng-template ngbPaginationNext> →</ng-template>
+                <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+              </ngb-pagination>
+            <!--<div *ngIf='pages && pages.length' class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+              <a [disabled] = 'request.page == 1' (click)='previous()' class="paginate_button previous" [ngClass]="{ 'disabled' : request.page == 1 }"
+                aria-controls="DataTables_Table_0" data-dt-idx="0"
+                tabindex="0" id="DataTables_Table_0_previous">←
+              </a>
+              <span>
+                <a class="paginate_button" [ngClass]='{ "current": request.page == page }' *ngFor='let page of pages'
+                  aria-controls="DataTables_Table_0" data-dt-idx="page" tabindex="0" (click)='onPageChange(page)'>{{page}}
+                </a>
+              </span>
+              <a [disabled]='request.page == pages.length' (click) = 'next()' [ngClass]='{ "disabled": request.page == pages.length }'
+                class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0"
+                id="DataTables_Table_0_next">→
+              </a>
+            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+
+<ng-template #content1 let-modal p>
+  <div class="modal-header bg-blue justify-content-center">
+    <h3 class="modal-title m-0">User Management - Add New    </h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <form action="#"  [formGroup]="formAdd" >
+      <div class="form-group justify-content-center row text-left">
+        <label class="col-lg-2 col-form-label font-weight-semibold">FirstName</label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control"  formControlName="firstname" [(ngModel)]='addRequest.firstname' placeholder="Enter Name">
+          <errors [control]="fa.firstname" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group justify-content-center row text-left">
+        <label class="col-lg-2 col-form-label font-weight-semibold">LastName</label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control"  formControlName="lastname" [(ngModel)]='addRequest.lastname' placeholder="Enter Name">
+          <errors [control]="fa.lastname" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group justify-content-center row text-left">
+        <label class="col-lg-2 col-form-label font-weight-semibold">Email</label>
+        <div class="col-lg-8">
+          <input type="mail" class="form-control" formControlName="Email" [(ngModel)]='addRequest.email' placeholder="Enter Email">
+          <errors [control]="fa.Email" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group justify-content-center row text-left">
+        <label class="col-lg-2 col-form-label font-weight-semibold">Permission</label>
+        <div class="col-lg-8">
+          <ng-select *ngIf='userType == 3' class="custom" [items]="dropdownListSuperAdmin" bindLabel="item_text" bindValue="item_id"  formControlName="Permission" [(ngModel)]='addRequest.permissions' placeholder="Choose permission"></ng-select>
+          <ng-select *ngIf='userType == 4' class="custom" [items]="dropdownListAdmin" bindLabel="item_text" bindValue="item_id"  formControlName="Permission" [(ngModel)]='addRequest.permissions' placeholder="Choose permission"></ng-select>
+          <errors [control]="fa.Permission" [isSubmit]="isSubmit"></errors>
+        </div>
+      </div>
+      <div class="form-group justify-content-center row text-left">
+        <label class="col-lg-2 col-form-label font-weight-semibold"></label>
+        <!-- <div class="col-lg-8">
+          <a href="javascript:void(0)" class="btn bg-blue-400">Send Password Recovery Link</a>
+        </div> -->
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" aria-label="Close" class="btn bg-green-400 ml-2 px-md-4" (click)="addUser()" >Save</button>
+  </div>
+</ng-template>
+<ng-template #content2 let-modal p>
+  <div class="modal-header bg-blue justify-content-center">
+    <h3 class="modal-title m-0">User Management - Edit</h3>
+  </div>
+  <form action="#"  [formGroup]="formEdit"  >
+  <div class="modal-body justify-content-center  text-center px-md-4">
+
+    <div class="form-group justify-content-center row text-left">
+      <label class="col-lg-2 col-form-label font-weight-semibold">FirstName</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control"  formControlName="FirstNameedit" [(ngModel)]='editRequest.firstname' placeholder="Enter name">
+        <errors [control]="fe.FirstNameedit" [isSubmit]="isEdit"></errors>
+      </div>
+    </div>
+    <div class="form-group justify-content-center row text-left">
+      <label class="col-lg-2 col-form-label font-weight-semibold">LastName</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control"  formControlName="LastNameedit" [(ngModel)]='editRequest.lastname' placeholder="Enter name">
+        <errors [control]="fe.LastNameedit" [isSubmit]="isEdit"></errors>
+      </div>
+    </div>
+    <div class="form-group justify-content-center row text-left">
+      <label class="col-lg-2 col-form-label font-weight-semibold">Email</label>
+      <div class="col-lg-8">
+        <input type="mail" class="form-control" formControlName="Emailedit" [(ngModel)]='editRequest.email' placeholder="Enter Email">
+        <errors [control]="fe.Emailedit" [isSubmit]="isEdit"></errors>
+      </div>
+    </div>
+    <div class="form-group justify-content-center row text-left">
+      <label class="col-lg-2 col-form-label font-weight-semibold">Permission</label>
+      <div class="col-lg-8">
+        <ng-select class="custom" [items]="dropdownList" bindLabel="item_text" bindValue="item_id"  formControlName="Permissionedit" [(ngModel)]='editRequest.permissions' placeholder="Choose permission"></ng-select>
+        <errors [control]="fe.Permissionedit" [isSubmit]="isEdit"></errors>
+      </div>
+    </div>
+      <div class="form-group justify-content-center row text-left">
+        <label class="col-lg-2 col-form-label font-weight-semibold"></label>
+        <div class="col-lg-8">
+          <a (click)="sendPasswordRecoveryLink()" class="btn bg-blue-400 text-white">Send Password Recovery Link</a>
+        </div>
+      </div>
+
+  </div>
+  </form>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" aria-label="Close" class="btn btn-warning px-md-4 bg-success ml-2"
+    (click)="editUser()">Save</button>
+  </div>
+</ng-template>
+<ng-template #content3 let-modal p>
+  <div class="modal-header bg-danger-800 justify-content-center">
+    <h3 class="modal-title m-0">User Management - Delete </h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="icon-cancel-circle2 icon-2x text-danger-800"></i></div>
+    <span class="font-weight-semibold">Are you sure you want to delete the user "Support Agent 3"?</span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" aria-label="Close" class="btn btn-danger bg-danger-800 px-md-4 ml-2"
+      (click)="deleteUser()">Delete</button>
+  </div>
+</ng-template>
+

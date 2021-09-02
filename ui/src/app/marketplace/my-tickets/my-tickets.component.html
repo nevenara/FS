@@ -1,0 +1,326 @@
+<div class="container p-sm-00">
+  <div class="row mb-3 mt-md-4">
+    <div class="col-md-12 text-right">
+      <div class="d-md-none">
+        <button class="navbar-toggler border-0" (click)="isTreeCollapsed = !isTreeCollapsed"
+          [attr.aria-expanded]="!isTreeCollapsed" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+          <span class="font-weight-semibold"> Filters &nbsp; </span>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="filter-show" [ngbCollapse]="isTreeCollapsed">
+        <div class="row text-left">
+          <div class="col-lg-4 w-md-100">
+         
+              <div class="col-lg-12 w-md-100 mb-15">
+                <label class="text-blue-4000 font-weight-bold" for="">Filter for Events</label>
+                <div class="form-group row">
+                  <div class="col-lg-9">
+                    <input [(ngModel)]="eventName" name="firstname" type="text" class="form-control" 
+                    placeholder="Enter Event Name" (ngModelChange)="getMySalesTickets()">
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+              <div class="col-lg-4 w-md-100">
+                <div class="form-group">
+                <label class="text-blue-4000 font-weight-bold" for="">Catagory</label>
+                <ng-multiselect-dropdown class="custom-multi-select" [settings]="dropdownSettings"
+                  [placeholder]="'Select category'" [data]="categories" [(ngModel)]="selectedCategories"
+                  (onSelect)="page=1;getMySalesTickets()" (onSelectAll)="page=1;selectAllCategories()"
+                  (onDeSelect)="page=1;getMySalesTickets()" (onDeSelectAll)="page=1;unselectAllCategories()">
+                </ng-multiselect-dropdown>
+              </div>
+            </div>
+              <div class="col-lg-4 w-md-100">
+                <date-range-picker class="mb-0" [instanceId]="'secondDateRange'" [controlName]="'secondDateRange'" 
+                  #dateRangePicker > 
+                  <div class="form-group">
+                    <label class="text-blue-4000 font-weight-bold" for="">From - To
+                    </label>
+                    <div class="input-group mb-0">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="date-range-icon">
+                          <i class="icon-calendar22"></i>
+                        </span>
+                      </div>
+                      <input id="secondDateRange" class="form-control" type="text" name="dateChanged"
+                        [(value)]="dateRangePicker.range" 
+                        placeholder="From - To" />
+                    </div>
+                  </div>
+                </date-range-picker>
+              </div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row mt-md-4">
+    <div *ngFor="let ticket of tickets" class="col-lg-4">
+      <div class="card">
+        <div class="card-img-actions">
+          <img *ngIf='ticket.placeholders.length==0' class="img-fluid" src="../../../assets/images/Five death.PNG" alt="">
+          <img *ngIf='ticket.placeholders.length!=0' class="img-fluid" src="{{ ticket.placeholders[0].image }}" alt="" title="{{ticket.placeholders[0].originalname}}">
+        </div>
+        <div class="card-body px-1 py-2">
+          <h5 class="text-dark font-weight-bold mb-0">{{ticket.eventName}}</h5>
+          <div class=""><span class="">
+              <span class="text-dark font-weight-bold">Date:</span>
+              <span class="text-dark"> {{ticket.date.split('T')[0]}} </span>
+            </span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">Begin:</span>
+            <span class="text-dark"> {{(ticket.beginTime.split('T')[1]).split(':')[0] + ":"+ (ticket.beginTime.split('T')[1]).split(':')[1]}}</span>
+            <span class="ml-md-2 ml-1 text-dark font-weight-bold">Doors Open :</span>
+            <span class="text-dark"> {{ticket.doorsOpen}}</span>
+          </div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">Seat:</span> <span class="text-dark"> {{ticket.seat}}</span></div>
+          <div class="mb-0"><span class="text-dark font-weight-bold">Location:</span>
+            <span class="text-dark"> {{ticket.locationName}} <br> {{ticket.locationAddress}}</span></div>
+        </div>
+        <div class="p-2 d-flex bg-dark">
+          <div>
+            <h3 class="text-blue-400 font-weight-bold m-0 d-inline-block">EUR {{ticket.priceForSale}}</h3>
+            <span class="text-blue-400 small font-weight-normal"> excl. fees</span>
+          </div>
+          <a (click)="open(content)" class="btn bg-blue-400 py-1 px-md-4 ml-auto">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf='pages && pages.length > 0' class="row my-4 justify-content-center">
+    <div class="col-lg-12">
+      <div class="">
+          <ngb-pagination class="custom-pagination" (pageChange)='onPageChange($event)' [pageSize]='1' [collectionSize]="pages.length" [(page)]="page" aria-label="Custom pagination">
+          <ng-template ngbPaginationPrevious> ← </ng-template>
+          <ng-template ngbPaginationNext> →</ng-template>
+          <!-- <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template> -->
+        </ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #content let-modal p>
+  <div class="modal-header  bg-blue">
+    <h6 class="modal-title ">Edit Ticket</h6>
+  </div>
+  <div class="modal-body px-md-4">
+    <div class="row m-0 border">
+      <div class="col-lg-3 w-md-100 px-0 mb-2 mb-md-0">
+        <div class="">
+          <img src="../../../assets/images/Five death.PNG" class="w-100" alt="">
+        </div>
+      </div>
+      <div class="col-lg-9 w-md-100 px-0 px-md-2">
+        <div class="row m-0 p-md-1">
+          <div class="col-md-12 text-right d-md-none d-block">
+            <div class="small"><b>Booking ID: </b>334465</div>
+            <div class="small"><b>Ticket ID: </b>12345678</div>
+          </div>
+          <div class="col-lg-9 pl-mid-0">
+            <h2 class="font-weight-bold mb-0 hd2">Viktor Gernot - Nicht Wahr?</h2>
+            <h5 class="font-weight-bold mb-0 mb-md-2">Support by Megadeth & Bad Wolves</h5>
+            <div class="">
+              <span class="custom-size"><b>Date: </b>DD.MM.YYYY</span>
+              <span class="custom-size mx-md-3"><b>Begin: </b>19:30</span>
+              <span class="custom-size"><b>Doors open: </b>18:00</span>
+            </div>
+            <div class="custom-size"><b>Seat: </b>Standing Inner Space</div>
+            <div class="media mt-1">
+              <span class="custom-size"><b>Location: &nbsp;</b> </span>
+              <div class="media-body">
+                <span class="custom-size"> Vienna, Stadthalle<br> Roland-Rainer-Platz 1<br> 1150 Wien</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-3 d-flex flex-column justify-content-between text-right">
+            <div class="d-none d-md-block custom-size">
+              <div class="small"><b>Booking ID: </b>334465</div>
+              <div class="small"><b>Ticket ID: </b>1234567</div>
+            </div>
+            <div class="">
+              <h5 class="mb-0"><b>EUR </b>57.66</h5>
+              <div class="small">Price incl. VAT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-lg-3 d-mid-none"></div>
+      <div class="col-lg-9 w-md-100">
+        <div class="row border-bottom m-0 p-1">
+          <div class="col-lg-12 p-0 px-md-2">
+            <span class="custom-size d-mid-block d-none"><b>Ticket ID:</b> 121243234</span>
+            <ul class="pl-0 mb-2 mb-md-1 d-md-flex align-items-center">
+              <li>
+                <span class="custom-size d-block d-mid-none"><b>Ticket ID:</b> 121243234</span>
+              </li>
+              <li>
+                <span class="d-flex align-items-center ml-md-4">
+                  <span class="custom-size"><b>Seat:</b> Kat A, Parterre: Reihe: 9 Sitzplatz Nr.:
+                    23</span>
+                  <div class="form-group pl-2 mb-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="custom_checkbox_stacked_unchecked01"
+                        checked="">
+                      <label class="custom-control-label text-dark" for="custom_checkbox_stacked_unchecked01"></label>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li class="w-20 d-flex align-items-center">
+                <span class="font-weight-bold">EUR </span>
+                <div class="form-group form-group-feedback form-group-feedback-left ml-1 mb-0">
+                  <input type="text" class="form-control text-primary border-primary pl-1 border-2 font-weight-semibold
+                  font-size-lg line-height-sm" value="33.00">
+
+                </div>
+                <a href="javascript:void(0)" placement="right" triggers="mouseenter:mouseleave" ngbPopover="The price must not
+                    exceed the original
+                     price!" class="ml-2 text-blue-400"><i class="icon-info22"></i></a>
+              </li>
+              <li>
+              </li>
+            </ul>
+            <span class="custom-size d-mid-block d-none"><b>Ticket ID:</b> 121243234</span>
+            <ul class="pl-0 mb-2 mb-md-1 d-md-flex align-items-center">
+              <li>
+                <span class="custom-size d-block d-mid-none"><b>Ticket ID:</b> 121243234</span>
+              </li>
+              <li>
+                <span class="d-flex align-items-center ml-md-4">
+                  <span class="custom-size"><b>Seat:</b> Kat A, Parterre: Reihe: 9 Sitzplatz Nr.:
+                    23</span>
+                  <div class="form-group pl-2 mb-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="custom_checkbox_stacked_unchecked01"
+                        checked="">
+                      <label class="custom-control-label text-dark" for="custom_checkbox_stacked_unchecked01"></label>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li class="w-20 d-flex align-items-center">
+                <span class="font-weight-bold">EUR </span>
+                <div class="form-group form-group-feedback form-group-feedback-left ml-1 mb-0">
+                  <input type="text" class="form-control text-primary border-primary pl-1 border-2 font-weight-semibold
+                  font-size-lg line-height-sm" value="33.00">
+
+                </div>
+                <a href="javascript:void(0)" placement="right" triggers="mouseenter:mouseleave" ngbPopover="The price must not
+                    exceed the original
+                     price!" class="ml-2 text-blue-400"><i class="icon-info22"></i></a>
+              </li>
+              <li>
+              </li>
+            </ul>
+            <span class="custom-size d-mid-block d-none"><b>Ticket ID:</b> 121243234</span>
+            <ul class="pl-0 mb-2 mb-md-1 d-md-flex align-items-center">
+              <li>
+                <span class="custom-size d-block d-mid-none"><b>Ticket ID:</b> 121243234</span>
+              </li>
+              <li>
+                <span class="d-flex align-items-center ml-md-4">
+                  <span class="custom-size"><b>Seat:</b> Kat A, Parterre: Reihe: 9 Sitzplatz Nr.:
+                    23</span>
+                  <div class="form-group pl-2 mb-0">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="custom_checkbox_stacked_unchecked01"
+                        checked="">
+                      <label class="custom-control-label text-dark" for="custom_checkbox_stacked_unchecked01"></label>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li class="w-20 d-flex align-items-center">
+                <span class="font-weight-bold">EUR </span>
+                <div class="form-group form-group-feedback form-group-feedback-left ml-1 mb-0">
+                  <input type="text" class="form-control text-dark border-dark pl-1 border-2 font-weight-semibold
+                  font-size-lg line-height-sm" placeholder="Enter price">
+
+                </div>
+                <a href="javascript:void(0)" placement="right" triggers="mouseenter:mouseleave" ngbPopover="The price must not
+                    exceed the original
+                     price!" class="ml-2 text-blue-400"><i class="icon-info22"></i></a>
+              </li>
+              <li>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-md-3"></div>
+          <div class="col-lg-8 pl-md-0 pl-mid-85">
+            <h5 class="font-weight-bold mb-0">Possible payout EUR 66.00</h5>
+            <div class="">
+              <p class="text-muted">Please note that PayPal may charge fees</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 mt-md-2 d-none d-md-block">
+            <h5 class="text-danger font-weight-bold">BITTE BEACHTEN SIE</h5>
+            <p class="custom-size">Zum Verkauf angebotene Tickets werden im Buchungsystem des Ticketanbieters wieder zum
+              Verkauf
+              freigeschalten
+              und Ihre Reservierung wird gelöscht. Sobald das Ticket verkauft wurde, erhalten Sie den originalen
+              Ticketpreis
+              vom
+              Ticketanbieter zurück. Weder FanSafe noch der Ticketanbieter garantieren einen Verkauf des Tickets. Sofern
+              das
+              Ticket
+              nicht verkauft wird, besteht kein Anspruch auf ein Rückerstattung des Kaufpreises.
+            </p>
+          </div>
+          <div class="col-lg-12 d-block d-md-none">
+            <div class="media">
+              <h5 class="text-danger font-weight-bold mr-2">Note:</h5>
+              <div class="media-body">
+                <p class="custom-size">
+                  Zum Verkauf angebotene Tickets werden im Buchungsystem
+                  des Ticketanbieters wieder zum Verkauf freigeschalten und Ihre Reservierung wird
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4 px-2"
+      (click)="modal.dismiss('Cross click')">Cancel</button>
+    <button type="button" (click)="open3(content3)" class="btn bg-danger mx-md-4 px-2">Delete Ad</button>
+    <button type="button" (click)="modal.dismiss('Cross click')" class="btn bg-blue px-md-4 px-2">Save</button>
+  </div>
+</ng-template>
+
+
+<ng-template #content3 let-modal p>
+  <div class="modal-header bg-danger-800 justify-content-center">
+    <h3 class="modal-title m-0">Delete Ad</h3>
+  </div>
+  <div class="modal-body justify-content-center  text-center px-md-4">
+    <div class="mb-3"><i class="icon-cancel-circle2 icon-2x text-danger-800"></i></div>
+    <span class="font-weight-semibold">Your Add will be removed from the Marketplace and assigned back to you! <br>
+      Are you sure you want to delete the Ad from the Marketplace?
+    </span>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" aria-label="Close" class="btn btn-dark px-md-4"
+      (click)="modal.dismiss('Cross click')">Close</button>
+    <button type="button" aria-label="Close" class="btn btn-danger bg-danger-800 px-md-4 ml-md-2"
+      (click)="modal.dismiss('Cross click')">Delete</button>
+  </div>
+</ng-template>

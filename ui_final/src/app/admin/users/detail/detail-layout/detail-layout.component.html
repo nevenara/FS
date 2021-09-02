@@ -1,0 +1,50 @@
+<preloader-app *ngIf="loader"></preloader-app>
+<app-load-error-page *ngIf='!loader && loadingError'></app-load-error-page>
+<div [hidden]='loader || loadingError' class="container-fluid">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs nav nav-justified" [destroyOnHide]="false" [activeId]="1">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">
+          User Details
+        </h3>
+      </a>
+      <ng-template ngbNavContent>
+        <div class="card border-0">
+          <div class="card-body">
+            <app-user-detail *ngIf='!loader && !loadingError' [user]='user' (refreshPageEmitter)='getUserDetails()'></app-user-detail>
+
+          </div>
+        </div>
+
+      </ng-template>
+    </li>
+     <li [ngbNavItem]="2" [hidden]='!user || !user.isMainAccount'>
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">Account Details </h3>
+      </a>
+      <ng-template ngbNavContent>
+        <div class="card border-0">
+          <div class="card-body">
+          <app-account-detail *ngIf='!loader && !loadingError && user && user.isMainAccount' [user]='user'></app-account-detail>
+          </div>
+        </div>
+
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>
+        <h3 class="mb-0 font-weight-normal">Payment & Verification</h3>
+      </a>
+      <ng-template ngbNavContent>
+        <div class="card border-0">
+          <div class="card-body ">
+            <app-payment-detail *ngIf='!loader && !loadingError' [user]='user' [selectedIdParam]='selectedIdParam' (getUserDataEmitter)='getUserDetails(false)'></app-payment-detail>
+
+          </div>
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav"></div>
+</div>
